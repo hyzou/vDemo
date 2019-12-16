@@ -1,0 +1,47 @@
+[
+  {
+    "name": "title",
+    "description": "tab是否可编辑，默认为不可添加删除",
+    "isneed": "否"
+  },
+  {
+    "name": "operate",
+    "description": "tab是否可编辑，默认为不可添加删除",
+    "isneed": "否"
+  },
+  {
+    "name": "style",
+    "description": "header整体样式",
+    "isneed": "否"
+  },
+  {
+    "name": "logoStyle",
+    "description": "如果要展示主logo，对logo框进行样式设置",
+    "isneed": "否"
+  },
+  {
+    "name": "logoStyle.showImg",
+    "description": "是否展示logo图片",
+    "isneed": "是"
+  },
+  {
+    "name": "logoStyle.style",
+    "description": "logo图片框样式",
+    "isneed": "否"
+  },
+  {
+    "name": "fit",
+    "description": "图片覆盖模式，具体参数参考carouselBanner页",
+    "isneed": "否"
+  },
+  {
+    "name": "imgSrc",
+    "description": "logo图片地址",
+    "isneed": "否"
+  },
+  {
+    "name": "imgTitle",
+    "description": "logo图片标题，同原生title",
+    "isneed": "否"
+  }
+]

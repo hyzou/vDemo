@@ -1,0 +1,27 @@
+[
+  {
+    "name": "imgSrc",
+    "description": "图片地址",
+    "isneed": "是"
+  },
+  {
+    "name": "imgTitle",
+    "description": "标题，同标签的原生title",
+    "isneed": "否"
+  },
+  {
+    "name": "imgStyle",
+    "description": "每个友链的宽高",
+    "isneed": "是"
+  },
+  {
+    "name": "imgFit",
+    "description": "图片的填充方式，参考carouselBanner页面介绍",
+    "isneed": "否"
+  },
+  {
+    "name": "href",
+    "description": "友链链接地址",
+    "isneed": "是"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "flag": "form",
+    "size": "",
+    "icon": "",
+    "label": "打开dialog(form)",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "image",
+    "size": "",
+    "icon": "",
+    "label": "打开dialog(image)",
+    "styleType": "danger",
+    "postUrl": "addRegisterMember"
+  }
+]

@@ -1,0 +1,111 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "id",
+    "name": "id",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "姓名",
+    "name": "name",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "标签",
+    "multiple": true,
+    "placeHolder": "可多选及筛选",
+    "filterable": true,
+    "name": "multyQuote",
+    "data": [
+      {
+        "value": "1",
+        "label": "标签1"
+      },
+      {
+        "value": "2",
+        "label": "标签2"
+      },
+      {
+        "value": "3",
+        "label": "标签3"
+      },
+      {
+        "value": "4",
+        "label": "标签4"
+      },
+      {
+        "value": "5",
+        "label": "标签5"
+      },
+      {
+        "value": "6",
+        "label": "标签6"
+      }
+    ],
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "date",
+    "label": "报名截止时间",
+    "name": "registerEndtime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "150px"
+  },
+  {
+    "type": "stepInput",
+    "label": "保证金(元/单位)",
+    "name": "deposit",
+    "span": 12,
+    "width": "150px",
+    "min": 0,
+    "precision": 2,
+    "step": 1
+  },
+  {
+    "type": "inputTable",
+    "label": "综合分评定规则",
+    "name": "scoreListStr",
+    "hideItem": false,
+    "span": 24,
+    "width": "150px",
+    "useType": "add",
+    "headers": [
+      {
+        "title": "打分项",
+        "key": "itemName",
+        "disabled": false
+      },
+      {
+        "title": "评分标准",
+        "key": "itemStandard",
+        "disabled": false
+      },
+      {
+        "title": "分值",
+        "key": "itemScore",
+        "disabled": false,
+        "inputType": "number"
+      }
+    ],
+    "tableItems": {
+      "itemName": "",
+      "itemStandard": "",
+      "itemScore": ""
+    }
+  },
+  {
+    "type": "textarea",
+    "label": "项目介绍",
+    "name": "content",
+    "span": 24,
+    "width": "150px"
+  }
+]

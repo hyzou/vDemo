@@ -1,0 +1,22 @@
+[
+  {
+    "name": "itemSeprator",
+    "description": "不同条目间隔符",
+    "isneed": "否"
+  },
+  {
+    "name": "itemList",
+    "description": "footer单独条目",
+    "isneed": "是"
+  },
+  {
+    "name": "itemList.itemName",
+    "description": "每个条目显示的内容",
+    "isneed": "是"
+  },
+  {
+    "name": "itemList.link",
+    "description": "配置后表示当前项可点击，不配置则当前项不可点击",
+    "isneed": "否"
+  }
+]

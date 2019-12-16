@@ -1,0 +1,27 @@
+[
+  {
+    "name": "currentPage",
+    "description": "当前所在页码反选",
+    "isneed": "是"
+  },
+  {
+    "name": "pageSize",
+    "description": "每页显示数据条数",
+    "isneed": "是"
+  },
+  {
+    "name": "layout",
+    "description": "分页器工具栏配置sizes, prev, pager, next, jumper, ->, total, slot",
+    "isneed": "是"
+  },
+  {
+    "name": "totalNumbers",
+    "description": "数据总条数",
+    "isneed": "是"
+  },
+  {
+    "name": "pageSizeChangeList",
+    "description": "如果需要用户显示调整每页展示的信息个数，配置下拉，例如需求为用户可切换每页显示100条或200条，在此配置",
+    "isneed": "否"
+  }
+]

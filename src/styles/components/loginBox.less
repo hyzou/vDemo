@@ -1,0 +1,30 @@
+.login-zone{
+  height:262px;
+  border-top: 2px solid @mainBgColor;
+  box-shadow:1px 2px 2px 0px rgba(205,205,205,0.5);
+  &-title{
+    font-size: 20px;
+    .lh(28px);
+    color: @mainBgColor;
+  }
+  &-ruleForm{
+    &-btns{
+      height: 32px;
+      text-align: center;
+      line-height: 32px;
+      .register{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .login{
+        width: 150px;
+        background: @mainBgColor;
+        float: right;
+      }
+    }
+  }
+  .iptActive{
+    border-left: 2px solid @mainBgColor;
+    background: @loginItemBg;
+  }
+}

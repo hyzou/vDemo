@@ -1,0 +1,90 @@
+[
+  {
+    "name": "assets",
+    "description": "存放静态资源，主要存放图片"
+  },
+  {
+    "name": "axios",
+    "description": "存放接口请求相关文件"
+  },
+  {
+    "name": "axios>global_variable",
+    "description": "全局参数定义"
+  },
+  {
+    "name": "axios>httpApi",
+    "description": "接口请求表，存放需要调用的所有接口名称和请求方式，请求参数"
+  },
+  {
+    "name": "axios>index",
+    "description": "axios二次封装，用于改造处理数据"
+  },
+  {
+    "name": "components",
+    "description": "存放所有封装好的组件"
+  },
+  {
+    "name": "router",
+    "description": "存放路由组件"
+  },
+  {
+    "name": "router>index",
+    "description": "路由表"
+  },
+  {
+    "name": "router>initRouter",
+    "description": "动态路由格式化路由json为可用样式"
+  },
+  {
+    "name": "store",
+    "description": "vuex状态管理封装"
+  },
+  {
+    "name": "styles",
+    "description": "less样式表存放"
+  },
+  {
+    "name": "utils",
+    "description": "通用资源放置"
+  },
+  {
+    "name": "utils>filters",
+    "description": "管道函数存放集合"
+  },
+  {
+    "name": "utils>formRulesJson",
+    "description": "表单校验规则存放"
+  },
+  {
+    "name": "utils>formSettingsJson",
+    "description": "各页面及组件配置项存放"
+  },
+  {
+    "name": "utils>globalFunctions",
+    "description": "全局通用方法存放"
+  },
+  {
+    "name": "utils>projectCommonMethods",
+    "description": "当前项目通用方法存放"
+  },
+  {
+    "name": "views",
+    "description": "所有页面组件存放"
+  },
+  {
+    "name": "app.vue",
+    "description": "当前项目主入口页面文件"
+  },
+  {
+    "name": "main.js",
+    "description": "当前项目主入口js文件"
+  },
+  {
+    "name": "permission.js",
+    "description": "路由鉴权文件"
+  },
+  {
+    "name": "registerServiceWorker.js",
+    "description": "注册服务文件，有需要可以做线上离线模式等，只在线上有效，无特殊要求可不用理会"
+  }
+]

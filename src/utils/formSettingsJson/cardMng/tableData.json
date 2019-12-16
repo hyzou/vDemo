@@ -1,0 +1,37 @@
+[
+  {
+    "name": "cardlistTitle",
+    "description": "当前卡片标题",
+    "isneed": "是"
+  },
+  {
+    "name": "cardlistOperation",
+    "description": "当前卡片操作按钮名称",
+    "isneed": "否"
+  },
+  {
+    "name": "cardType",
+    "description": "有多个卡片时用于区分不同卡片的标志，唯一值",
+    "isneed": "是"
+  },
+  {
+    "name": "cardlistsArray",
+    "description": "卡片条目源数据",
+    "isneed": "是"
+  },
+  {
+    "name": "cardItemParams",
+    "description": "卡片数据读取源数据中要展示的字段名",
+    "isneed": "是"
+  },
+  {
+    "name": "@detailOperateTap",
+    "description": "标题操作按钮回调函数",
+    "isneed": "否"
+  },
+  {
+    "name": "@detailItemTap",
+    "description": "卡片单个条目点击的回调函数",
+    "isneed": "否"
+  }
+]

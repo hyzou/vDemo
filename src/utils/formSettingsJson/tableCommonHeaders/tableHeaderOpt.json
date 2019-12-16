@@ -1,0 +1,16 @@
+[
+  {
+    "prop": "name",
+    "lable": "参数名",
+    "width": "180px"
+  },
+  {
+    "prop": "isneed",
+    "lable": "是否必填",
+    "width": "180px"
+  },
+  {
+    "prop": "description",
+    "lable": "说明"
+  }
+]

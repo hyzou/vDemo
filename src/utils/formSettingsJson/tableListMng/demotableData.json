@@ -1,0 +1,84 @@
+[
+  {
+    "name": "第一行数据",
+    "id":1,
+    "operateBtns": [
+      {
+        "type":"add",
+        "styleType": "text",
+        "id":1,
+        "text":"添加"
+      },
+      {
+        "type":"edit",
+        "styleType": "warning",
+        "id":1,
+        "text":"编辑"
+      },
+      {
+        "type":"remove",
+        "styleType": "danger",
+        "id":1,
+        "text":"删除"
+      }
+    ],
+    "expandList": [
+      {
+        "firstName": "z",
+        "lastName": "hy"
+      }
+    ],
+    "isneed": "否",
+    "demodata": "演示数据",
+    "children":[
+      {
+        "name": "第一行子数据",
+        "id":3,
+        "operateBtns": [
+          {
+            "type":"edit",
+            "styleType": "warning",
+            "id":3,
+            "text":"编辑",
+            "showflag": "false"
+          },
+          {
+            "type":"remove",
+            "styleType": "danger",
+            "id":3,
+            "text":"删除"
+          }
+        ],
+        "isneed": "否",
+        "demodata": "演示数据",
+        "expandList": [
+          {
+            "firstName": "z",
+            "lastName": "hy"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "第二行数据",
+    "id":2,
+    "operateBtns": [
+      {
+        "type":"edit",
+        "styleType": "warning",
+        "id":2,
+        "text":"编辑",
+        "showflag": "false"
+      },
+      {
+        "type":"remove",
+        "styleType": "danger",
+        "id":2,
+        "text":"删除"
+      }
+    ],
+    "isneed": "否",
+    "demodata": "演示数据"
+  }
+]

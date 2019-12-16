@@ -1,0 +1,42 @@
+[
+  {
+    "name": "moduleName",
+    "description": "按钮组所在模块",
+    "isneed": "否"
+  },
+  {
+    "name": "buttonListData",
+    "description": "按钮组源数据",
+    "isneed": "否"
+  },
+  {
+    "name": "buttonListData[index].flag",
+    "description": "用于判断按钮功能类型（设置方便后续对按钮维护->添加删除）",
+    "isneed": "是"
+  },
+  {
+    "name": "buttonListData[index].label",
+    "description": "按钮显示的中文描述",
+    "isneed": "是"
+  },
+  {
+    "name": "buttonListData[index].styleType",
+    "description": "按钮样式primary / success / warning / danger / info / text",
+    "isneed": "是"
+  },
+  {
+    "name": "buttonListData[index].size",
+    "description": "按钮大小medium / small / mini",
+    "isneed": "否"
+  },
+  {
+    "name": "buttonListData[index].icon",
+    "description": "按钮要显示的icon",
+    "isneed": "否"
+  },
+  {
+    "name": "buttonListData[index].postUrl",
+    "description": "按钮点击时触发的接口地址",
+    "isneed": "否"
+  }
+]

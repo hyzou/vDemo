@@ -1,0 +1,22 @@
+[
+  {
+    "name": "title",
+    "description": "标题",
+    "isneed": "是"
+  },
+  {
+    "name": "several",
+    "description": "多个段落传true，单个段落传false",
+    "isneed": "是"
+  },
+  {
+    "name": "text",
+    "description": "单个用于渲染文本编辑器中的段落，带有自带样式的文本段，已html方式渲染",
+    "isneed": "several:false -是"
+  },
+  {
+    "name": "textArray",
+    "description": "多个文本段落用p标签渲染，无自带样式",
+    "isneed": "several:true -是"
+  }
+]

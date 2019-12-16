@@ -1,0 +1,24 @@
+[
+  {
+    "prop": "name",
+    "clickVarKey": "id",
+    "clickable": true,
+    "clickType": "first",
+    "lable": "参数名"
+  },
+  {
+    "prop": "demodata",
+    "clickVarKey": "id",
+    "clickable": true,
+    "clickType": "second",
+    "lable": "demo"
+  },
+  {
+    "prop": "isneed",
+    "lable": "是否必填"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作"
+  }
+]

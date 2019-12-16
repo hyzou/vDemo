@@ -1,0 +1,42 @@
+[
+  {
+    "name": "editable",
+    "description": "tab是否可编辑，默认为不可添加删除",
+    "isneed": "否"
+  },
+  {
+    "name": "stretch",
+    "description": "tab是否自动撑开，默认false",
+    "isneed": "否"
+  },
+  {
+    "name": "position",
+    "description": "tab切换栏所在位置，默认top(顶部)",
+    "isneed": "否"
+  },
+  {
+    "name": "newTabName",
+    "description": "tab可添加时的新标签名称，editable为true时，此项必填",
+    "isneed": "否"
+  },
+  {
+    "name": "tabCardType",
+    "description": "tab是否显示边框和阴影，默认不显示阴影，默认值为card",
+    "isneed": "否"
+  },
+  {
+    "name": "tabModel",
+    "description": "tab的model值",
+    "isneed": "是"
+  },
+  {
+    "name": "tabCardData",
+    "description": "tab要显示的内容，数组，label,id为必传项",
+    "isneed": "是"
+  },
+  {
+    "name": "@handleTabChange",
+    "description": "切换tab触发的回调",
+    "isneed": "-"
+  }
+]

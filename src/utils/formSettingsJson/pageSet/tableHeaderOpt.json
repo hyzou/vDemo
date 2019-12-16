@@ -1,0 +1,11 @@
+[
+  {
+    "prop": "name",
+    "lable": "src下目录名称",
+    "width": "180px"
+  },
+  {
+    "prop": "description",
+    "lable": "说明"
+  }
+]

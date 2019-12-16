@@ -1,0 +1,67 @@
+[
+  {
+    "name": "ref",
+    "description": "table的ref名，选定table时需使用",
+    "isneed": "是"
+  },
+  {
+    "name": "rowClassName",
+    "description": "为每行设置样式名，用于设定行样式",
+    "isneed": "否"
+  },
+  {
+    "name": "headerRowClassName",
+    "description": "指定表头所在行的样式名",
+    "isneed": "否"
+  },
+  {
+    "name": "rowKey",
+    "description": "行id，操作取值的时候需使用",
+    "isneed": "是"
+  },
+  {
+    "name": "tooltipEffect",
+    "description": "主体颜色,默认dark",
+    "isneed": "否"
+  },
+  {
+    "name": "border",
+    "description": "是否添加边框，默认true",
+    "isneed": "否"
+  },
+  {
+    "name": "headerOptions",
+    "description": "头部信息及显示的字段名称设置",
+    "isneed": "是"
+  },
+  {
+    "name": "isMultipleTable",
+    "description": "是否可多选，默认false",
+    "isneed": "否"
+  },
+  {
+    "name": "hasExpandContent",
+    "description": "是否有子项，默认没有",
+    "isneed": "否"
+  },
+  {
+    "name": "defaultExpandAll",
+    "description": "有子项是否默认展开，默认不展开",
+    "isneed": "否"
+  },
+  {
+    "name": "expandContent",
+    "description": "子项在本条数据当中的字段名称，如果hasExpandContent=true,此项必填且为数组类型",
+    "isneed": "否"
+  },
+  {
+    "name": "expandContentLables",
+    "description": "配置子项字段名称和描述，如果hasExpandContent=true，必填且为数组类型",
+    "isneed": "否"
+  },
+  {
+    "name": "treeProps",
+    "description": "是否显示为树类型，如果显示为树则不能配置hasExpandContent，下级字段名称及children字段，且必传",
+    "isneed": "否"
+  }
+]

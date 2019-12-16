@@ -1,0 +1,77 @@
+[
+  {
+    "name": "group",
+    "description": "标题，表单每个小模块的标题，即顶部样例标题",
+    "isneed": "-"
+  },
+  {
+    "name": "hidden",
+    "description": "隐藏表单项，同input隐藏域",
+    "isneed": "-"
+  },
+  {
+    "name": "transfer",
+    "description": "穿梭框，配置项同elementUi: el-transfer",
+    "isneed": "-"
+  },
+  {
+    "name": "input",
+    "description": "输入框，当配置参数为password='true'时，显示为密码框",
+    "isneed": "-"
+  },
+  {
+    "name": "stepInput",
+    "description": "步幅计数器，配置项同elementUi: el-input-number",
+    "isneed": "-"
+  },
+  {
+    "name": "textarea",
+    "description": "文本域",
+    "isneed": "-"
+  },
+  {
+    "name": "html",
+    "description": "直接在div中把数据以html渲染到页面中",
+    "isneed": "-"
+  },
+  {
+    "name": "rate",
+    "description": "五星评分，同el-rate",
+    "isneed": "-"
+  },
+  {
+    "name": "inputTable",
+    "description": "可编辑的table,详细使用及配置见下部详情介绍",
+    "isneed": "-"
+  },
+  {
+    "name": "flowComment",
+    "description": "审批意见类型table,只用来查看审批意见",
+    "isneed": "-"
+  },
+  {
+    "name": "date",
+    "description": "时间选择器,同el-date-picker",
+    "isneed": "-"
+  },
+  {
+    "name": "select",
+    "description": "下拉框，同el-select",
+    "isneed": "-"
+  },
+  {
+    "name": "editor",
+    "description": "文本编辑器，详细配置见public->UEditor",
+    "isneed": "-"
+  },
+  {
+    "name": "image",
+    "description": "用于展示已经上传的文件,下面详解",
+    "isneed": "-"
+  },
+  {
+    "name": "upload",
+    "description": "上传控件，配置及使用方法同el-upload，但是使用上传功能需在formGroupSettings中配置formGroupTypeUpload: 'true',formGroupTypeUploadName: 'newsFiles',<-上传时的字段名",
+    "isneed": "-"
+  }
+]

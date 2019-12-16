@@ -1,0 +1,26 @@
+[
+  {
+    "name": "dialogFormTitle",
+    "description": "对话框标题"
+  },
+  {
+    "name": "dialogType",
+    "description": "对话框类型，用于查看表单或者图片，见上面样例"
+  },
+  {
+    "name": "dialogFormVisible",
+    "description": "对话框显示或关闭状态"
+  },
+  {
+    "name": "dialogFormItems",
+    "description": "对话框表单内容，与formgroup完全相同"
+  },
+  {
+    "name": "@handleDialogForm",
+    "description": "与formgroup点击按钮完全相同"
+  },
+  {
+    "name": "@linkSelect",
+    "description": "与formgroup联动操作表单完全相同"
+  }
+]

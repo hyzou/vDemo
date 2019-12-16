@@ -1,0 +1,57 @@
+[
+  {
+    "name": "type",
+    "description": "表单项类型，详见下表",
+    "isneed": "是"
+  },
+  {
+    "name": "label",
+    "description": "表单项描述，相当于input前面的label",
+    "isneed": "是"
+  },
+  {
+    "name": "name",
+    "description": "表单提交时的名称，相当于input的name",
+    "isneed": "是"
+  },
+  {
+    "name": "data",
+    "description": "type为select/transfer等有内容表单项的可选值，如果无数据则传空数组[]",
+    "isneed": "是"
+  },
+  {
+    "name": "span",
+    "description": "单个表单项占据每行单元格的个数，范围是1-24，如果是24则占据整行",
+    "isneed": "是"
+  },
+  {
+    "name": "filterable",
+    "description": "select表单是否为可筛选下拉框，布尔值",
+    "isneed": "否"
+  },
+  {
+    "name": "linkName",
+    "description": "更改下拉回调事件",
+    "isneed": "否"
+  },
+  {
+    "name": "width",
+    "description": "label宽度值，label为0需要设置为‘0px’",
+    "isneed": "否"
+  },
+  {
+    "name": "disabled",
+    "description": "表单是否禁用，布尔值",
+    "isneed": "否"
+  },
+  {
+    "name": "hideItem",
+    "description": "表单是否可见，用于切换表单可见性，如表单联动使某个（些）表单可见或不可见，布尔值",
+    "isneed": "否"
+  },
+  {
+    "name": "placeHolder",
+    "description": "可设置placeholder属性的标签，可以自定义placeholder的值",
+    "isneed": "否"
+  }
+]

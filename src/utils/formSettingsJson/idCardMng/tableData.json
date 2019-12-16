@@ -1,0 +1,27 @@
+[
+  {
+    "name": "title",
+    "description": "身份卡标题",
+    "isneed": "是"
+  },
+  {
+    "name": "icon",
+    "description": "身份卡icon",
+    "isneed": "是"
+  },
+  {
+    "name": "data",
+    "description": "要展示的源数据",
+    "isneed": "是"
+  },
+  {
+    "name": "data[index].key",
+    "description": "展示的信息名称，span：宽度，text：内容",
+    "isneed": "是"
+  },
+  {
+    "name": "data[index].value",
+    "description": "要展示的值，span：宽度，text：内容",
+    "isneed": "是"
+  }
+]

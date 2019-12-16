@@ -1,0 +1,10 @@
+[
+  {
+    "flag": "save",
+    "size": "",
+    "icon": "",
+    "label": "注册",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  }
+]

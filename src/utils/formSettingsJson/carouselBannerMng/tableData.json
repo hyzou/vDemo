@@ -1,0 +1,17 @@
+[
+  {
+    "name": "carouselSrcs",
+    "description": "轮播源数据，其中href为连接名，不需要超链接不用传值，alt为title内容，picSrc必传，图片链接地址，fit图片展示样式，详情参考上图",
+    "isneed": "是"
+  },
+  {
+    "name": "height",
+    "description": "整体轮播图指定高度",
+    "isneed": "是"
+  },
+  {
+    "name": "indicatorPosition",
+    "description": "轮播图按钮位置（指示器的位置）",
+    "isneed": "是"
+  }
+]

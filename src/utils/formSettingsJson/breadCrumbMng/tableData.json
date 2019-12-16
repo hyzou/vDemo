@@ -1,0 +1,7 @@
+[
+  {
+    "name": "breadSettings",
+    "description": "路由对象的集合，数组类型，可自行组装需要的数组对象，每个对象中应包含path(路由路径),query(路由传参),title(路由描述)",
+    "isneed": "是"
+  }
+]
