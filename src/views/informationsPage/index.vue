@@ -65,10 +65,10 @@ export default {
         {
           itemList: [
             {
-              itemName: "版权所有: 杭州安鸿科技股份有限公司前端开发项目组"
+              itemName: "版权所有: xxx有限公司前端开发项目组"
             },
             {
-              itemName: "技术支持：杭州安鸿科技股份有限公司"
+              itemName: "技术支持：xxx有限公司"
             }
           ]
         }
