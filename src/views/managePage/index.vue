@@ -5,7 +5,7 @@
         <mainTopLogo :headInfos="headInfos" />
       </el-header>
       <el-container class="layout-manage-container">
-        <el-aside class="layout-manage-container-aside" width="200px">
+        <el-aside class="layout-manage-container-aside" width="240px">
           <siderNav :sidebarData="sidebarData" />
         </el-aside>
         <el-main class="topTargetItem" style="background: #F0F2F5;">
