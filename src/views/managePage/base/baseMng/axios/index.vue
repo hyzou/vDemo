@@ -69,13 +69,9 @@
         <pre>
           <code>
             mounted() {
-              let formData = {
-                name: "zhy"
-              };
+              let formData = new FormData();
+              formData.append("name", "zhy");
               this.$postData(this.$api.gettablelist, formData, true).then(xhr => {
-                console.log(xhr);
-              });
-              this.$getData(this.$api.gettablelist, formData, true).then(xhr => {
                 console.log(xhr);
               });
               this.$methodData("put", this.$api.gettablelist, formData, true).then(xhr => {
@@ -91,9 +87,6 @@
 
 <script>
 export default {
-  name: "dealAnnouncement",
-  data() {
-    return {};
-  }
+  name: "axios"
 };
 </script>
