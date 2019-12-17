@@ -22,7 +22,8 @@
           style="width: 100%; height: 100%"
           :src="item.picSrc"
           :title="item.alt"
-          :fit="item.fit || 'contain'">
+          :fit="item.fit || 'contain'"
+        >
         </el-image>
       </el-carousel-item>
     </el-carousel>

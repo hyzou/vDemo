@@ -33,14 +33,6 @@ Vue.use(globalMethods);
 Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));
 document.title = "vue项目demo";
 
-//自定义一个代码高亮指令
-Vue.directive("highlight", function(el) {
-  let highlight = el.querySelectorAll("pre code");
-  highlight.forEach(block => {
-    hljs.highlightBlock(block);
-  });
-});
-
 new Vue({
   router,
   store,

@@ -3,12 +3,16 @@
     <el-table
       :ref="tablelistSettings.tableSettingOptions.ref"
       :data="tablelistSettings.tableDatas"
-      :tooltip-effect="tablelistSettings.tableSettingOptions.tooltipEffect || 'dark'"
+      :tooltip-effect="
+        tablelistSettings.tableSettingOptions.tooltipEffect || 'dark'
+      "
       style="width: 100%"
       @selection-change="handleSelectionChange"
       :row-key="tablelistSettings.tableSettingOptions.rowKey"
       :row-class-name="tablelistSettings.tableSettingOptions.rowClassName"
-      :header-row-class-name="tablelistSettings.tableSettingOptions.headerRowClassName"
+      :header-row-class-name="
+        tablelistSettings.tableSettingOptions.headerRowClassName
+      "
       :border="tablelistSettings.tableSettingOptions.border || true"
       :default-expand-all="
         tablelistSettings.tableSettingOptions.defaultExpandAll || false
@@ -83,7 +87,7 @@
                   @click.native.prevent="
                     handleRowButton(operateBtn.id, operateBtn.type)
                   "
-                >{{ operateBtn.text }}
+                  >{{ operateBtn.text }}
                 </el-button>
               </template>
               <template v-else>

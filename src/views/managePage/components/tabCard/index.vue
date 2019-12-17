@@ -11,8 +11,8 @@
       <el-col :span="14">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下所示：
-              <pre>
+            <p>1.组件配置项如下所示：</p>
+            <pre>
                 <code>
                   &lt;tabCard
                     class="tab-container"
@@ -39,12 +39,9 @@
                   },
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -96,12 +93,12 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   },
-  methods:{
-    handleTabChange(tab){
-      console.log(tab)
+  methods: {
+    handleTabChange(tab) {
+      console.log(tab);
     }
   }
 };

@@ -9,11 +9,12 @@
       >
         <a target="_blank" :href="item.href" class="item">
           <el-image
-            :style="item.imgStyle ?item.imgStyle:''"
+            :style="item.imgStyle ? item.imgStyle : ''"
             :src="item.imgSrc"
             :alt="item.imgTitle || ''"
             :title="item.imgTitle || ''"
-            :fit="item.imgFit || 'fit'">
+            :fit="item.imgFit || 'fit'"
+          >
           </el-image>
         </a>
       </li>

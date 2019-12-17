@@ -1,17 +1,18 @@
 <template>
-  <div
-    class="main-top-logo"
-    :style="headInfos.style"
-  >
+  <div class="main-top-logo" :style="headInfos.style">
     <el-col :span="24" style="height:100%">
       <el-col class="main-top-logo-leftPic" :span="16" style="height:100%">
-        <span v-if="!headInfos.logoStyle || !headInfos.logoStyle.showImg">{{ headInfos.title }}</span>
-        <el-image v-else
-          :style="headInfos.logoStyle.style ? headInfos.logoStyle.style:''"
+        <span v-if="!headInfos.logoStyle || !headInfos.logoStyle.showImg">{{
+          headInfos.title
+        }}</span>
+        <el-image
+          v-else
+          :style="headInfos.logoStyle.style ? headInfos.logoStyle.style : ''"
           :src="headInfos.logoStyle.imgSrc"
           :alt="headInfos.logoStyle.imgTitle || ''"
           :title="headInfos.logoStyle.imgTitle || ''"
-          :fit="headInfos.logoStyle.fit || 'fit'">
+          :fit="headInfos.logoStyle.fit || 'fit'"
+        >
         </el-image>
       </el-col>
 

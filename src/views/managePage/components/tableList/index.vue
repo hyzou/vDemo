@@ -11,10 +11,15 @@
       </el-col>
       <el-col :span="14">
         <ul class="contentText">
-          <li><p>1.table的功能很强大，目前只封装了一些项目目前用到的基本属性，更多属性可参考elementUI table模块。</p></li>
           <li>
-            <p>2.组件配置项如下：
-              <pre>
+            <p>
+              1.table的功能很强大，目前只封装了一些项目目前用到的基本属性，更多属性可参考elementUI
+              table模块。
+            </p>
+          </li>
+          <li>
+            <p>2.组件配置项如下：</p>
+            <pre>
                 <code>
                   &lt;tableList
                     :tablelistSettings="demoTableSettings"
@@ -54,12 +59,9 @@
                   },
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -69,7 +71,6 @@
 
 <script>
 // 组件引入
-import tabCard from "@/components/tabCard";
 import tableList from "@/components/tableList";
 // 配置数据引入
 import tableHeaderOpts from "@/utils/formSettingsJson/tableCommonHeaders/tableHeaderOpt.json";
@@ -80,7 +81,6 @@ import demotableHeader from "@/utils/formSettingsJson/tableListMng/demotableHead
 export default {
   name: "tableListMng",
   components: {
-    tabCard,
     tableList
   },
   data() {
@@ -91,7 +91,7 @@ export default {
       demoTableSettings: {
         tableDatas: demotableData,
         tableSettingOptions: {
-          ref:"demo",
+          ref: "demo",
           headerRowClassName: "text-danger",
           rowClassName: "text-warning",
           rowKey: "id",
@@ -113,8 +113,8 @@ export default {
             }
           ],
           treeProps: {
-            children: 'children', 
-            hasChildren: 'hasChildren'
+            children: "children",
+            hasChildren: "hasChildren"
           }
         }
       },
@@ -128,20 +128,20 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   },
-  methods:{
-    handleTableRowButton(id,type){
-      console.log(id)
-      console.log(type)
+  methods: {
+    handleTableRowButton(id, type) {
+      console.log(id);
+      console.log(type);
     },
-    handleTableItem(id,type){
-      console.log(id)
-      console.log(type)
+    handleTableItem(id, type) {
+      console.log(id);
+      console.log(type);
     },
-    handleSelectionChange(data){
-      console.log(data)
+    handleSelectionChange(data) {
+      console.log(data);
     }
   }
 };

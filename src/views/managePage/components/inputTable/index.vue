@@ -10,8 +10,8 @@
       <el-col :span="14">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
+            <p>1.组件配置项如下：</p>
+            <pre>
                 <code>
                   &lt;pagination
                     :paginationSettings="paginationSettings"
@@ -27,12 +27,9 @@
                   },
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -47,9 +44,6 @@ import tableList from "@/components/tableList";
 // 配置数据引入
 import tableHeaderOpts from "@/utils/formSettingsJson/tableCommonHeaders/tableHeaderOpt.json";
 import tableData from "@/utils/formSettingsJson/paginationMng/tableData.json";
-// 引入本地图片
-import imgUrl from "@/assets/logo.png";
-import imgUrl2 from "@/assets/register_bg_bak2.png";
 
 export default {
   name: "inputTableMng",
@@ -70,7 +64,7 @@ export default {
         span: 24,
         width: "150px",
         useType: "add",
-        data:[
+        data: [
           {
             itemName: "",
             itemStandard: "",
@@ -112,7 +106,7 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   },
   methods: {

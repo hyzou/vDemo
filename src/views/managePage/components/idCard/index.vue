@@ -7,64 +7,61 @@
       <el-col :span="14">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
-                <code>
-                  &lt;idCard :data="idcardSettings" />
-                  idcardSettings:{
-                    title: "个人信息",
-                    icon: "el-icon-user-solid",
-                    data: [
-                      {
-                        key: {
-                          span: 3,
-                          text: "姓名"
-                        },
-                        value: {
-                          span: 6,
-                          text: "zhy"
-                        },
+            <p>1.组件配置项如下：</p>
+            <pre>
+              <code>
+                &lt;idCard :data="idcardSettings" />
+                idcardSettings:{
+                  title: "个人信息",
+                  icon: "el-icon-user-solid",
+                  data: [
+                    {
+                      key: {
+                        span: 3,
+                        text: "姓名"
                       },
-                      {
-                        key:  {
-                          span: 6,
-                          text: "联系电话："
-                        },
-                        value: {
-                          span: 6,
-                          text: "123456879"
-                        }
+                      value: {
+                        span: 6,
+                        text: "zhy"
                       },
-                      {
-                        key:  {
-                          span: 6,
-                          text: "手机："
-                        },
-                        value: {
-                          span: 6,
-                          text: "123465798"
-                        }
+                    },
+                    {
+                      key:  {
+                        span: 6,
+                        text: "联系电话："
                       },
-                      {
-                        key:  {
-                          span: 6,
-                          text: "电子邮箱："
-                        },
-                        value: {
-                          span: 6,
-                          text: "123@163.com"
-                        }
+                      value: {
+                        span: 6,
+                        text: "123456879"
                       }
-                    ]
-                  },
-                </code>
-              </pre>
-            </p>
+                    },
+                    {
+                      key:  {
+                        span: 6,
+                        text: "手机："
+                      },
+                      value: {
+                        span: 6,
+                        text: "123465798"
+                      }
+                    },
+                    {
+                      key:  {
+                        span: 6,
+                        text: "电子邮箱："
+                      },
+                      value: {
+                        span: 6,
+                        text: "123@163.com"
+                      }
+                    }
+                  ]
+                },
+              </code>
+            </pre>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -79,9 +76,6 @@ import tableList from "@/components/tableList";
 // 配置数据引入
 import tableHeaderOpts from "@/utils/formSettingsJson/tableCommonHeaders/tableHeaderOpt.json";
 import tableData from "@/utils/formSettingsJson/idCardMng/tableData.json";
-// 引入本地图片
-import imgUrl from "@/assets/logo.png";
-import imgUrl2 from "@/assets/register_bg_bak2.png";
 
 export default {
   name: "idCardMng",
@@ -94,7 +88,7 @@ export default {
       /**
        * idcard 基本数据配置
        */
-      idcardSettings:{
+      idcardSettings: {
         title: "个人信息",
         icon: "el-icon-user-solid",
         data: [
@@ -106,10 +100,10 @@ export default {
             value: {
               span: 6,
               text: "zhy"
-            },
+            }
           },
           {
-            key:  {
+            key: {
               span: 6,
               text: "联系电话："
             },
@@ -119,7 +113,7 @@ export default {
             }
           },
           {
-            key:  {
+            key: {
               span: 6,
               text: "手机："
             },
@@ -129,7 +123,7 @@ export default {
             }
           },
           {
-            key:  {
+            key: {
               span: 6,
               text: "电子邮箱："
             },
@@ -150,7 +144,7 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   }
 };

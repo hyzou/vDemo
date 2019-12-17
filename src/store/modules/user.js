@@ -2,7 +2,7 @@ import { staticRouterMap } from "../../router/index";
 import { initRouter } from "../../router/initRouter";
 import { Message } from "element-ui";
 import api from "../../axios/httpApi";
-import global from "../../axios/global_variable";
+// import global from "../../axios/global_variable";
 import axios from "../../axios";
 import { getToken, setToken, setSessionId } from "../../utils/auth";
 

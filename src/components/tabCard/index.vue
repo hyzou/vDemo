@@ -27,23 +27,23 @@ export default {
   methods: {
     handleClick(tab) {
       let tabObj = {
-        tabId:tab.name,
-        tabIndex:tab.index,
+        tabId: tab.name,
+        tabIndex: tab.index,
         tableLabel: tab.label
-      }
+      };
       this.$emit("handleTabChange", tabObj);
     },
     handleTabsEdit(targetName, action) {
-      if (action === 'add') {
+      if (action === "add") {
         let tabIdx = this.tabSettings.tabCardData.length,
-          newTabName = ++tabIdx + '';
+          newTabName = ++tabIdx + "";
         this.tabSettings.tabCardData.push({
-          label: 'New Tab',
+          label: "New Tab",
           id: newTabName
         });
         this.tabSettings.tabModel = newTabName;
       }
-      if (action === 'remove') {
+      if (action === "remove") {
         let tabs = this.tabSettings.tabCardData;
         let activeName = this.tabSettings.tabModel;
         if (activeName === targetName) {
@@ -57,7 +57,9 @@ export default {
           });
         }
         this.tabSettings.tabModel = activeName;
-        this.tabSettings.tabCardData = tabs.filter(tab => tab.name !== targetName);
+        this.tabSettings.tabCardData = tabs.filter(
+          tab => tab.name !== targetName
+        );
       }
       // this.$emit("handleTabsEdit", targetName, action);
     }

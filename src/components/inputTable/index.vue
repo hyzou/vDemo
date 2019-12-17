@@ -20,12 +20,12 @@
             >
               <template slot-scope="scope">
                 <span v-if="scope.row.isSet">
-                <el-input
-                  type="textarea"
-                  size="mini"
-                  placeholder="请输入内容"
-                  v-model="scope.row[item.key]"
-                ></el-input>
+                  <el-input
+                    type="textarea"
+                    size="mini"
+                    placeholder="请输入内容"
+                    v-model="scope.row[item.key]"
+                  ></el-input>
                 </span>
                 <span v-else>{{ scope.row[item.key] }}</span>
               </template>

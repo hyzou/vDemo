@@ -12,8 +12,8 @@
       <el-col :span="24">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
+            <p>1.组件配置项如下：</p>
+            <pre>
                 <code>
                   &lt;tree
                     :treeSettings="treeSettings"
@@ -50,12 +50,9 @@
                   },
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -93,9 +90,9 @@ export default {
           label: "label"
         },
         treeWithCheckbox: true,
-        checkedTreeData:["1"],
-        treeButtons:[
-          { 
+        checkedTreeData: ["1"],
+        treeButtons: [
+          {
             key: "getCheckedNodes",
             text: "通过node获取已选节点",
             styleType: "warning"
@@ -120,18 +117,18 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   },
-  methods:{
-    handleTreeNodeClick(node){
-      console.log(node)
+  methods: {
+    handleTreeNodeClick(node) {
+      console.log(node);
     },
-    handleGetCheckedKeys(keys){
-      console.log(keys)
+    handleGetCheckedKeys(keys) {
+      console.log(keys);
     },
-    handleGetCheckedNodes(nodes){
-      console.log(nodes)
+    handleGetCheckedNodes(nodes) {
+      console.log(nodes);
     }
   }
 };

@@ -65,6 +65,7 @@ export default {
   methods: {
     // 表单按钮事件
     handleFormSubmit(btn, formData) {
+      console.log(formData);
       let that = this;
       if (btn.flag == "cancle") {
         this.$router.push({ path: "/" });

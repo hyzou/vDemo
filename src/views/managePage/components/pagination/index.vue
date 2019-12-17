@@ -11,8 +11,8 @@
       <el-col :span="24">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
+            <p>1.组件配置项如下：</p>
+            <pre>
                 <code>
                   &lt;pagination
                     :paginationSettings="paginationSettings"
@@ -28,12 +28,9 @@
                   },
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -48,9 +45,6 @@ import tableList from "@/components/tableList";
 // 配置数据引入
 import tableHeaderOpts from "@/utils/formSettingsJson/tableCommonHeaders/tableHeaderOpt.json";
 import tableData from "@/utils/formSettingsJson/paginationMng/tableData.json";
-// 引入本地图片
-import imgUrl from "@/assets/logo.png";
-import imgUrl2 from "@/assets/register_bg_bak2.png";
 
 export default {
   name: "paginationMng",
@@ -68,7 +62,7 @@ export default {
         pageSize: 20,
         layout: "sizes, prev, pager, next, jumper, ->, total, slot",
         totalNumbers: 30,
-        pageSizeChangeList: ["100","200"]
+        pageSizeChangeList: ["100", "200"]
       },
       /**
        * table 表格配置
@@ -80,16 +74,16 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   },
-  methods:{
+  methods: {
     /* 点击分页器页码 */
     handlePaginationPagenumber(num) {
-      console.log(num)
+      console.log(num);
     },
-    handleSizeChange(size){
-      console.log(size)
+    handleSizeChange(size) {
+      console.log(size);
     }
   }
 };

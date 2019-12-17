@@ -7,8 +7,8 @@
       <el-col :span="24">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
+            1.组件配置项如下：
+            <pre>
                 <code>
                   &lt;mainTopLogo :headInfos="mainTopLogoSettings" />
                   mainTopLogoSettings: {
@@ -37,12 +37,9 @@
                   },
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -59,7 +56,6 @@ import tableHeaderOpts from "@/utils/formSettingsJson/tableCommonHeaders/tableHe
 import tableData from "@/utils/formSettingsJson/mainTopLogoMng/tableData.json";
 // 引入本地图片
 import imgUrl from "@/assets/logo.png";
-import imgUrl2 from "@/assets/register_bg_bak2.png";
 
 export default {
   name: "mainTopLogoMng",
@@ -87,8 +83,8 @@ export default {
         },
         logoStyle: {
           showImg: false,
-          style:{
-            width:"150px",
+          style: {
+            width: "150px",
             height: "100%"
           },
           fit: "fit", //fill/contain/cover/none/scale-down 详情参考carouselBanner
@@ -106,7 +102,7 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   }
 };

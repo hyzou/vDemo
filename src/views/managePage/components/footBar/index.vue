@@ -7,8 +7,8 @@
       <el-col :span="24">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
+            <p>1.组件配置项如下：</p>
+            <pre>
                 <code>
                   &lt;footBar :footBarSettings="footBarSettings" />
                   footBarSettings: [
@@ -46,12 +46,9 @@
                   ],
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -80,34 +77,34 @@ export default {
        */
       footBarSettings: [
         {
-            itemSeprator: "|",
-            itemList: [
-              {
-                itemName: "mainTopLogo",
-                link: "#/managePage/components/mainTopLogo"
-              },
-              {
-                itemName: "friendlink",
-                link: "#/managePage/components/friendlink"
-              },
-              {
-                itemName: "paragraph",
-                link: "#/managePage/components/paragraph"
-              }
-            ]
+          itemSeprator: "|",
+          itemList: [
+            {
+              itemName: "mainTopLogo",
+              link: "#/managePage/components/mainTopLogo"
+            },
+            {
+              itemName: "friendlink",
+              link: "#/managePage/components/friendlink"
+            },
+            {
+              itemName: "paragraph",
+              link: "#/managePage/components/paragraph"
+            }
+          ]
         },
         {
-            itemList: [
-              {
-                itemName: "版权所有: 杭州安鸿科技股份有限公司前端开发项目组"
-              },
-              {
-                itemName: "技术支持：杭州安鸿科技股份有限公司"
-              }
-            ]
+          itemList: [
+            {
+              itemName: "版权所有: 杭州安鸿科技股份有限公司前端开发项目组"
+            },
+            {
+              itemName: "技术支持：杭州安鸿科技股份有限公司"
+            }
+          ]
         }
       ],
-      /**                   
+      /**
        * table 表格配置
        */
       tablelistSettings: {
@@ -117,7 +114,7 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   }
 };

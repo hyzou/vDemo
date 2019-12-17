@@ -47,10 +47,7 @@
             {{ cardItem[cardlistsData.cardItemParams.main] }}
           </div>
         </el-col>
-        <el-col
-          :span="8"
-          class="card-container-item-date textAlignRight"
-        >
+        <el-col :span="8" class="card-container-item-date textAlignRight">
           {{ cardItem[cardlistsData.cardItemParams.subMain] }}
         </el-col>
       </div>
@@ -69,12 +66,7 @@ export default {
       this.$emit("detailOperateTap", type, title);
     },
     detailItemTap(item, title, type) {
-      this.$emit(
-        "detailItemTap",
-        item,
-        title,
-        type
-      );
+      this.$emit("detailItemTap", item, title, type);
     }
   }
 };

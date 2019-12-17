@@ -55,17 +55,20 @@ export default {
       cardInfos: {
         cardlistTitle: this.$route.query.title,
         cardType: "03",
-        cardlistsArray: [{
-          title:"第一条",
-          time:"2019-12-12",
-          otherParam: "其他数据1"
-        },{
-          title:"第二条",
-          time:"2019-12-13",
-          otherParam: "其他数据2"
-        }],
-        cardItemParams:{
-          main:"title",
+        cardlistsArray: [
+          {
+            title: "第一条",
+            time: "2019-12-12",
+            otherParam: "其他数据1"
+          },
+          {
+            title: "第二条",
+            time: "2019-12-13",
+            otherParam: "其他数据2"
+          }
+        ],
+        cardItemParams: {
+          main: "title",
           subMain: "otherParam"
         }
       }
@@ -84,7 +87,7 @@ export default {
     },
     /* 点击分页器页码 */
     handlePaginationPagenumber(num) {
-      console.log(num)
+      console.log(num);
     }
   }
 };

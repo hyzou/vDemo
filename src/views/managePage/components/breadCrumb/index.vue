@@ -7,19 +7,16 @@
       <el-col :span="14">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
+            <p>1.组件配置项如下：</p>
+            <pre>
                 <code>
                   &lt;breadCrumb :breadArray="breadSettings" />
                   breadSettings: this.$route.matched,
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -57,7 +54,7 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   }
 };

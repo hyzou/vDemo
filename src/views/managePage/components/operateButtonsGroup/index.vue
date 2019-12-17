@@ -10,8 +10,8 @@
       <el-col :span="24">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
+            <p>1.组件配置项如下：</p>
+            <pre>
                 <code>
                   &lt;operateButtonsGroup
                     :operateButtonsSettings="operateButtonsSettings"
@@ -38,12 +38,9 @@
                   },
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -77,8 +74,8 @@ export default {
             flag: "pass",
             label: "通过",
             styleType: "success",
-            size:"mini",
-            icon:"el-icon-circle-plus",
+            size: "mini",
+            icon: "el-icon-circle-plus",
             postUrl: "flowTradeInformation"
           },
           {
@@ -99,15 +96,15 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   },
   methods: {
     /* operateButtons点击事件 */
-    handleOperateButton(button,moduleName) {
+    handleOperateButton(button, moduleName) {
       console.log(button, "button");
       console.log(moduleName, "moduleName");
     }
-  }  
+  }
 };
 </script>

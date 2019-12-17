@@ -7,8 +7,8 @@
       <el-col :span="24">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
+            <p>1.组件配置项如下：</p>
+            <pre>
                 <code>
                   &lt;friendlink :friendlinkArr="friendlinkSettings" />
                   friendlinkSettings: [
@@ -34,12 +34,9 @@
                   ],
                 </code>
               </pre>
-            </p>
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -69,27 +66,27 @@ export default {
       /**
        * friendlink 基本数据配置
        */
-        friendlinkSettings: [
-          {
-            imgSrc:imgUrl,
-            imgTitle:"百度链接示例1",
-            imgStyle:{
-              width:"100px",
-              height: "30px"
-            },
-            imgFit: "fit", //fill/contain/cover/none/scale-down 详情参考carouselBanner
-            href:"http://www.baidu.com"
+      friendlinkSettings: [
+        {
+          imgSrc: imgUrl,
+          imgTitle: "百度链接示例1",
+          imgStyle: {
+            width: "100px",
+            height: "30px"
           },
-          {
-            imgSrc:imgUrl2,
-            imgTitle:"百度链接示例2",
-            imgStyle:{
-              width:"100px",
-              height: "30px"
-            },
-            href:"http://www.baidu.com"
-          }
-        ],
+          imgFit: "fit", //fill/contain/cover/none/scale-down 详情参考carouselBanner
+          href: "http://www.baidu.com"
+        },
+        {
+          imgSrc: imgUrl2,
+          imgTitle: "百度链接示例2",
+          imgStyle: {
+            width: "100px",
+            height: "30px"
+          },
+          href: "http://www.baidu.com"
+        }
+      ],
       /**
        * table 表格配置
        */
@@ -100,7 +97,7 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   }
 };

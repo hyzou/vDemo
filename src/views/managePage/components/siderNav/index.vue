@@ -6,7 +6,8 @@
           <li><p>1.siderNav示例即左侧导航，</p></li>
           <li><p>2.数据即为格式化之后的路由对象。</p></li>
           <li><p>3.详情参考router路由定义</p></li>
-          <li><p>4.代码情况样例如下所示：
+          <li>
+            <p>4.代码情况样例如下所示：</p>
             <pre>
               <code>
                 &lt;siderNav :sidebarData="sidebarData" />
@@ -19,7 +20,7 @@
                 }  
               </code>
             </pre>
-          </p></li>
+          </li>
         </ul>
       </el-col>
     </el-row>
@@ -30,8 +31,7 @@
 export default {
   name: "siderNav",
   data() {
-    return {
-    };
+    return {};
   }
 };
 </script>

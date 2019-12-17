@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import siderNavItem from "./sideItem"
+import siderNavItem from "./sideItem";
 export default {
   name: "siderNav",
   components: {

@@ -11,7 +11,8 @@
       <el-col :span="24">
         <ul class="contentText">
           <li><p>1.以上为表单简单示例，具体调用情况可查看代码。</p></li>
-          <li><p>2.单个表单项配置情况如下所示：
+          <li>
+            <p>2.单个表单项配置情况如下所示：</p>
             <pre>
               <code>
                 &lt;formGroup
@@ -65,18 +66,14 @@
                 },
               </code>
             </pre>
-          </p></li>
+          </li>
           <li><p>3.配置项参数详情表：</p></li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
           <li><p>4.参数type(表单类型)详情表：</p></li>
           <li>
-            <tableList
-              :tablelistSettings="typelistSettings"
-            />
+            <tableList :tablelistSettings="typelistSettings" />
             <p>使用inputTable：需要初始化字段为空数组</p>
             <pre>
               <code>
@@ -158,7 +155,7 @@
 
 <script>
 // 组件引入
-import formGroup from "@/components/formGroup"
+import formGroup from "@/components/formGroup";
 import tableList from "@/components/tableList";
 // 配置数据引入
 import tableHeaderOpts from "@/utils/formSettingsJson/tableCommonHeaders/tableHeaderOpt.json";
@@ -171,7 +168,7 @@ import dialogFormRules from "@/utils/formRulesJson/formGroup/dialogRule";
 
 export default {
   name: "formGroupPage",
-  components:{
+  components: {
     formGroup,
     tableList
   },
@@ -187,7 +184,7 @@ export default {
         formGroupList: formItemslist,
         // 表单值初始化
         formGroupValues: {
-          scoreListStr:[]
+          scoreListStr: []
         },
         // 表单各项校验规则
         formButtonList: formBtnList,
@@ -212,20 +209,20 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   },
-  methods:{
+  methods: {
     /* 表单按钮点击事件 */
     handleFormButtons(flag, data) {
       //do something
-      console.log(flag,"flag")
-      console.log(data,"data")
+      console.log(flag, "flag");
+      console.log(data, "data");
     },
     /* handleSelectChange */
-    handleSelectChange(linkName,data){
-      console.log(linkName,"linkName")
-      console.log(data,"data")
+    handleSelectChange(linkName, data) {
+      console.log(linkName, "linkName");
+      console.log(data, "data");
     }
   }
 };

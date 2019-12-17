@@ -7,8 +7,8 @@
       <el-col :span="24">
         <ul class="contentText">
           <li>
-            <p>1.组件配置项如下：
-              <pre>
+            <p>1.组件配置项如下：</p>
+            <pre>
                 <code>
                   &lt;carouselBanner :carouselSrcs="carouselOpt" />
                   carouselOpt: {
@@ -30,15 +30,12 @@
                   },
                 </code>
               </pre>
-            </p>
           </li>
           <li>
             <img src="@/assets/fitParams.png" />
           </li>
           <li>
-            <tableList
-              :tablelistSettings="tablelistSettings"
-            />
+            <tableList :tablelistSettings="tablelistSettings" />
           </li>
         </ul>
       </el-col>
@@ -95,7 +92,7 @@ export default {
           border: true,
           headerOptions: tableHeaderOpts
         }
-      },
+      }
     };
   }
 };
