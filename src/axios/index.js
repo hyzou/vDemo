@@ -112,6 +112,7 @@ const httpServer = function(opts, data) {
   };
   if (opts.isMuti) {
     httpDefaultOptions.data = data;
+    httpDefaultOptions.params = data;
   }
   if (opts.method == "get") {
     delete httpDefaultOptions.data;

@@ -54,9 +54,6 @@
 
 <script>
 export default {
-  name: "dealAnnouncement",
-  data() {
-    return {};
-  }
+  name: "nameRules"
 };
 </script>

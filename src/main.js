@@ -8,7 +8,6 @@ import VueUeditorWrap from "vue-ueditor-wrap";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import axios from "./axios";
 import api from "./axios/httpApi";
 import globalVariable from "./axios/global_variable";
 import qs from "qs";
@@ -20,7 +19,8 @@ import globalMethods from "./utils/projectCommonMethods";
 import * as filters from "./utils/filters";
 Vue.config.productionTip = false;
 
-Vue.prototype.$http = axios;
+// Vue.prototype.$http = axios;
+// Vue.prototype.$api = api;
 Vue.prototype.$api = api;
 Vue.prototype.$global = globalVariable;
 Vue.prototype.$globalFnc = globalFunctions;
