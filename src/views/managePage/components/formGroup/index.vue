@@ -75,6 +75,9 @@
           <li>
             <tableList :tablelistSettings="typelistSettings" />
             <p>使用inputTable：需要初始化字段为空数组</p>
+            <p>
+              使用ueditor：配置项为config，具体参数配置详见public/UEditor/ueditor.config.js
+            </p>
             <pre>
               <code>
                 formGroupSettings: {
@@ -177,13 +180,55 @@ export default {
        * formGroup 表单组配置
        */
       formGroupSettings: {
+        //表明表单中有文件上传功能，点击按钮直接返回formdata
+        formGroupTypeUpload: true,
+        //做文件上传时，文件流的name值，一定要设置
+        formGroupTypeUploadName: "uploadName",
         // 是否全屏显示，true:全屏，按钮位于下方；false:占据容器5/6，按钮位于右侧
         fullScreen: true,
         // 表单项配置
         formGroupList: formItemslist,
         // 表单值初始化
         formGroupValues: {
-          scoreListStr: []
+          comevaluate: 3,
+          htmlStr: "<span class='text-danger'>我是html</span>文本",
+          scoreListStr: [],
+          viewfiles: this.$globalFnc.fileFormat(
+            [
+              {
+                fileId: "88861AA25C3C45D1B1B43398DD3B7046",
+                fileName: "@9@NVG6AZJ7%ME{{V4(ECR0.jpg",
+                filePath: "web/news/files",
+                fileSave: "F",
+                fileSize: 13601,
+                fileTime: 1575610585000,
+                fileType: "image/jpeg"
+              }
+            ],
+            "officeViewUrl"
+          ),
+          flowComments: [
+            {
+              id: "12501",
+              originalPersistentState:
+                "org.flowable.engine.impl.persistence.entity.CommentEntityImpl",
+              type: "comment",
+              userId: "zhy",
+              time: 1574660665811,
+              taskId: "7626",
+              processInstanceId: "7619",
+              action: "AddComment",
+              message: "tgongguo",
+              fullMessage: "tgongguo",
+              fullMessageBytes: "dGdvbmdndW8=",
+              messageParts: ["tgongguo"],
+              updated: false,
+              idPrefix: "PRC-",
+              deleted: false,
+              inserted: false,
+              userId__dsp: "邹海洋"
+            }
+          ]
         },
         // 表单各项校验规则
         formButtonList: formBtnList,
@@ -217,12 +262,34 @@ export default {
       //do something
       console.log(flag, "flag");
       console.log(data, "data");
+      this.$postData(this.$api.gettablelist, data, true).then(xhr => {
+        console.log(xhr);
+      });
     },
     /* handleSelectChange */
     handleSelectChange(linkName, data) {
       console.log(linkName, "linkName");
       console.log(data, "data");
     }
+  },
+  mounted() {
+    // 项目中，调用接口为表单项data赋值
+    // this.$getData(...).then(xhr=>{
+    //   formItemslist.map(...)
+    // })
+    formItemslist.map(item => {
+      let data = [];
+      for (let i = 1; i <= 15; i++) {
+        data.push({
+          label: `备选项${i}`,
+          key: `${i}`,
+          disabled: i % 4 === 0
+        });
+      }
+      if (item.name == "roleids") {
+        item.data = data;
+      }
+    });
   }
 };
 </script>

@@ -492,7 +492,7 @@
                 class="upload-demo"
                 ref="fileUpd"
                 :accept="formItem.acceptType"
-                :action="$global.uploadUrl"
+                action="123"
                 :data="upddata"
                 :multiple="formItem.multiple"
                 :on-change="handleChange"

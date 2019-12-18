@@ -374,7 +374,7 @@ export const asyncRouterMap_Manager = [
         children: [
           {
             path: "/managePage/less/less",
-            name: "less",
+            name: "lessMng",
             hidden: false,
             component: () => import("@/views/managePage/less/less"),
             meta: {
