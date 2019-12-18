@@ -18,14 +18,14 @@
     "password": true,
     "name": "loginPassword",
     "span": 12,
-    "width": "200px"
+    "width": "80px"
   },
   {
     "type": "input",
     "label": "姓名",
     "name": "memName",
     "span": 12,
-    "width": "200px"
+    "width": "80px"
   },
   {
     "type": "select",
@@ -38,7 +38,7 @@
       }
     ],
     "span": 12,
-    "width": "200px",
+    "width": "80px",
     "disabled": true
   }
 ]

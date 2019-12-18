@@ -232,7 +232,7 @@
                 </el-table-column>
               </el-table>
               <el-row v-if="formItem.useType && formItem.useType == 'add'">
-                <el-col :span="6" :offset="18" class="textAlignCenter">
+                <el-col :span="6" :offset="18" class="textAlignCenter mt10">
                   <el-button
                     type="success"
                     size="mini"
@@ -510,7 +510,10 @@
               </el-upload>
             </el-form-item>
             <!-- item:group -->
-            <el-form-item v-if="formItem.type == 'group'">
+            <el-form-item
+              v-if="formItem.type == 'group'"
+              :label-width="formItem.width || '0px'"
+            >
               <commonTitleWithBorder :title="formItem.title" />
             </el-form-item>
           </el-col>

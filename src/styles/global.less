@@ -2,7 +2,7 @@
 @import "./define.less";
 
 // 引入组件样式
-@import "./components/mainTopLogo.less";
+@import "./components/headerBar.less";
 @import "./components/horizenNav.less";
 @import "./components/siderNav.less";
 @import "./components/breadCrumb.less";
@@ -79,14 +79,14 @@ p,ul {
 }
 
 // 通用样式
-.mgAuto{
-	margin: auto;
-}
 .positionAbs{
 	position: absolute;
 }
 .positionRel{
 	position: relative;
+}
+.positionFix{
+	position: fixed;
 }
 .displayBlock{
 	display: block;
@@ -102,6 +102,9 @@ p,ul {
 }
 .vAlignTop{
 	vertical-align: top;
+}
+.vAlignMid{
+	vertical-align: middle;
 }
 .floatLeft{
 	float: left;
@@ -162,6 +165,9 @@ p,ul {
 .textColorLightBlue{
 	color: @mainBgColorLight;
 }
+.mgAuto{
+	margin: auto;
+}
 // 待调用样式函数
 .width(@a:100px){
     width: @a;
@@ -174,7 +180,7 @@ p,ul {
 }
 
 //循环生成圆角样式，调用时可直接在页面上使用<div class="borderR30">
-//定义borderRadius数组
+//定义borderRadius数组，生成样式名：borderR1，borderR2,borderR3......
 @borderRadiusList: 1 2 3 4 5 10 20 30 50;
 .br-loop(@list,@i:1,@val:extract(@list,@i)) when (length(@list)>=@i){
     .borderR@{val}{
@@ -185,7 +191,7 @@ p,ul {
 .br-loop(@borderRadiusList);
 
 //循环生成行高样式，调用时可直接在页面上使用<div class="lheight30">
-//定义lineHeight数组
+//定义lineHeight数组，生成样式名：lheight20，lheight30,lheight40......
 @lineHeightList: 20 30 40;
 .lh-loop(@list,@i:1,@val:extract(@list,@i)) when (length(@list)>=@i){
     .lheight@{val}{

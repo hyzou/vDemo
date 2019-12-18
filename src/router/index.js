@@ -343,13 +343,12 @@ export const asyncRouterMap_Manager = [
             }
           },
           {
-            path: "/managePage/components/mainTopLogo",
-            name: "mainTopLogo",
+            path: "/managePage/components/headerBar",
+            name: "headerBar",
             hidden: false,
-            component: () =>
-              import("@/views/managePage/components/mainTopLogo"),
+            component: () => import("@/views/managePage/components/headerBar"),
             meta: {
-              title: "mainTopLogo 页眉"
+              title: "headerBar 页眉"
             }
           },
           {

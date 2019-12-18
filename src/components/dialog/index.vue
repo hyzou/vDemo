@@ -5,9 +5,9 @@
     :close-on-click-modal="false"
     append-to-body
     :destroy-on-close="true"
-    @opened="closeDialog"
     width="900px"
   >
+    <!-- @opened="closeDialog" -->
     <formGroup
       ref="formgroup"
       v-if="
@@ -43,14 +43,14 @@ export default {
       this.$emit("handleDialogForm", btn, data, postDatas);
     },
     closeDialog() {
-      if (
-        this.$refs &&
-        this.$refs.formgroup &&
-        this.$refs.formgroup.$refs &&
-        this.$refs.formgroup.$refs.formItems
-      ) {
-        this.$refs.formgroup.$refs.formItems.clearValidate();
-      }
+      // if (
+      //   this.$refs &&
+      //   this.$refs.formgroup &&
+      //   this.$refs.formgroup.$refs &&
+      //   this.$refs.formgroup.$refs.formItems
+      // ) {
+      //   this.$refs.formgroup.$refs.formItems.clearValidate();
+      // }
       // this.$refs.formgroup.$refs.formItems.resetFields();
       // console.log(this.$refs.formgroup.$refs.formItems);
     }

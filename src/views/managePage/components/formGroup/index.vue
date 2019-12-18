@@ -1,7 +1,7 @@
 <template>
   <div class="table-container">
     <el-row class="mb20">
-      <el-col :span="12">
+      <el-col :span="16">
         <formGroup
           :formGroupSettings="formGroupSettings"
           @formGroupSubmit="handleFormButtons"
@@ -143,7 +143,6 @@
                   };
                   return p;
                 };
-
               </code>
             </pre>
           </li>

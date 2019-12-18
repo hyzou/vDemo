@@ -18,14 +18,26 @@
               serve,启动本地服务，本地调试完成，启动yarn build进行项目打包部署。
             </p>
           </li>
-          <li class="text-danger">
+          <li>
             <p>
-              3.项目基于elementUI,如果有不明确的地方，可以参考elementUI进行比对，功能扩展和新组件封装都依赖elementUI,暂不考虑其他前端ui框架。
+              3.项目基于<span class="text-danger">elementUI</span
+              >,如果有不明确的地方， 可以参考<span class="text-danger"
+                >elementUI</span
+              >进行比对， 功能扩展和新组件封装都依赖<span class="text-danger"
+                >elementUI</span
+              >,
+              <span class="text-danger">暂不考虑其他前端ui框架。</span>
             </p>
           </li>
-          <li class="text-danger">
+          <li>
             <p>
-              4.为了统一方法，方便后续维护管理，所有前端开发人员都一致使用本文档的基本配置（vue,vue-cli,vuex,vue-router,element-ui），未经讨论不要使用其他版本及框架，具体配置参考package.json，方便后续人员跨项目维护。
+              4.<span class="text-danger">为了统一方法，方便后续维护管理</span>
+              ，所有前端开发人员都一致使用本文档的基本配置
+              <span class="text-danger"
+                >（vue,vue-cli,vuex,vue-router,element-ui）</span
+              >
+              ，未经讨论不要使用其他版本及框架，
+              具体配置参考package.json，方便后续人员跨项目维护。
             </p>
           </li>
         </ul>

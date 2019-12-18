@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "dealAnnouncement",
+  name: "vuex",
   data() {
     return {};
   }

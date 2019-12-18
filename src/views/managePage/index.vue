@@ -2,7 +2,7 @@
   <div class="layout-manage">
     <el-container style="width: 100%;height: 100%;">
       <el-header class="layout-manage-header">
-        <mainTopLogo :headInfos="headInfos" />
+        <headerBar :headInfos="headInfos" />
       </el-header>
       <el-container class="layout-manage-container">
         <el-aside class="layout-manage-container-aside" width="240px">
@@ -26,13 +26,13 @@
 
 <script>
 // @ is an alias to /src
-import mainTopLogo from "@/components/mainTopLogo";
+import headerBar from "@/components/headerBar";
 import siderNav from "@/components/siderNav";
 
 export default {
   name: "layoutManage",
   components: {
-    mainTopLogo,
+    headerBar,
     siderNav
   },
   data() {

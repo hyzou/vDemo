@@ -125,11 +125,40 @@ export default {
         this.dialogFormSettings.dialogFormTitle = "我是对话框标题";
         this.dialogFormSettings.dialogFormItems.formGroupList = formItemslist;
         this.dialogFormSettings.dialogFormItems.formButtonList = formBtnList;
-      } else {
+      } else if (button.flag == "image") {
         this.dialogFormSettings.dialogFormVisible = true;
         this.dialogFormSettings.dialogFormTitle = "我是图片对话框标题";
         this.dialogFormSettings.dialogType = "image";
         this.dialogFormSettings.imgSrc = imgUrl;
+      } else if (button.flag == "alert") {
+        this.$alert(
+          "这是<span class='text-danger'>一段内容</span>",
+          "标题名称",
+          {
+            confirmButtonText: "确定",
+            dangerouslyUseHTMLString: true,
+            callback: action => {
+              this.$message.info(`action: ${action}`);
+            }
+          }
+        );
+      } else if (button.flag == "confirm") {
+        this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        })
+          .then(() => {
+            this.$message.success("删除成功!");
+          })
+          .catch(() => {
+            this.$message.info("已取消删除");
+          });
+      } else if (button.flag == "message") {
+        this.$message.error("这是消息提示内容");
+        // this.$message.warning("这是消息提示内容");
+        // this.$message.success("这是消息提示内容");
+        // this.$message.info("这是消息提示内容");
       }
     },
     /* 点击对话框更改数据联动操作 */
