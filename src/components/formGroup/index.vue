@@ -509,6 +509,20 @@
                 </el-button>
               </el-upload>
             </el-form-item>
+            <!-- item:elTreeSelect -->
+            <el-form-item
+              v-if="formItem.type == 'elTreeSelect'"
+              :label="formItem.label"
+              :label-width="formItem.width || '0px'"
+              :prop="formItem.name"
+            >
+              <elTreeSelect
+                v-model="formGroupSettings.formGroupValues[formItem.name]"
+                :props="formItem.props"
+                :modelName="formItem.name"
+                :options="formItem.data"
+              />
+            </el-form-item>
             <!-- item:group -->
             <el-form-item
               v-if="formItem.type == 'group'"
@@ -545,6 +559,7 @@
 </template>
 <script>
 import commonTitleWithBorder from "@/components/commonTitleWithBorder";
+import elTreeSelect from "@/components/elTreeSelect";
 // import inputTable from "@/components/inputTable";
 export default {
   name: "formGroup",
@@ -552,8 +567,8 @@ export default {
     formGroupSettings: Object
   },
   components: {
-    commonTitleWithBorder
-    // inputTable
+    commonTitleWithBorder,
+    elTreeSelect
   },
   data() {
     return {
