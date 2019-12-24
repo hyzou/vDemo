@@ -1,5 +1,6 @@
 const Timestamp = new Date().getTime();
 module.exports = {
+  transpileDependencies: ["vue-echarts", "resize-detector"],
   // 设置输出路径
   outputDir: "oh-production",
   assetsDir: "static",

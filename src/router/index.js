@@ -359,6 +359,15 @@ export const asyncRouterMap_Manager = [
             meta: {
               title: "footBar 页脚"
             }
+          },
+          {
+            path: "/managePage/components/echarts",
+            name: "echarts",
+            hidden: false,
+            component: () => import("@/views/managePage/components/echarts"),
+            meta: {
+              title: "echarts 图表"
+            }
           }
         ]
       },
