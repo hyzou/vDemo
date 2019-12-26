@@ -178,6 +178,17 @@ p,ul {
 .borderRadius(@a:5px){
     border-radius: @a;
 }
+                     
+//循环背景色样式，调用时可直接在页面上使用<div class="bgfff">
+//定义bg数组，从define定义的颜色中取色值名称，生成样式名：bgfff，bgeee......
+@bgList: fff eee;
+.bg-loop(@list,@i:1,@val:extract(@list,@i)) when (length(@list)>=@i){
+    .bg@{val}{
+        background-color: ~"#@{val}" !important;
+    }
+    .bg-loop(@list,(@i+1));
+}
+.bg-loop(@bgList);
 
 //循环生成圆角样式，调用时可直接在页面上使用<div class="borderR30">
 //定义borderRadius数组，生成样式名：borderR1，borderR2,borderR3......
