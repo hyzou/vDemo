@@ -98,6 +98,8 @@ export default {
           tooltipEffect: "dark",
           border: true,
           headerOptions: demotableHeader,
+          isShowIndex: true,
+          showIndexHeader: "序号",
           isMultipleTable: "true",
           hasExpandContent: true,
           defaultExpandAll: false,

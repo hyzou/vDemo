@@ -222,7 +222,8 @@
     "props": {
       "value": "id",
       "label": "label",
-      "children": "children"
+      "children": "children",
+      "choseOnlyLeaf": true
     },
     "data": [
       {

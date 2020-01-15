@@ -29,7 +29,8 @@ export default {
         return {
           value: "id", // ID字段名
           label: "title", // 显示名称
-          children: "children" // 子级字段名
+          children: "children", // 子级字段名
+          choseOnlyLeaf: false //是否只可点击叶子节点
         };
       }
     },
@@ -42,9 +43,9 @@ export default {
     },
     /* 初始值 */
     value: {
-      type: Number,
+      type: String,
       default: () => {
-        return null;
+        return "";
       }
     },
     /* 可清空选项 */
@@ -68,7 +69,7 @@ export default {
   },
   data() {
     return {
-      valueId: this.value, // 初始值
+      valueId: parseInt(this.value), // 初始值
       valueTitle: "",
       defaultExpandedKey: []
     };
@@ -100,10 +101,18 @@ export default {
     },
     // 切换选项
     handleNodeClick(node) {
+      if (this.props.choseOnlyLeaf) {
+        if (node.children && node.children.length > 0) {
+          return false;
+        }
+      }
+      console.log(node);
+      // if (node.isLeaf) {
       this.valueTitle = node[this.props.label];
       this.valueId = node[this.props.value];
       this.$emit("getValue", this.valueId);
       this.defaultExpandedKey = [];
+      // }
     },
     // 清除选中
     clearHandle() {
