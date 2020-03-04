@@ -190,6 +190,7 @@ export default {
         formGroupList: formItemslist,
         // 表单值初始化
         formGroupValues: {
+          elTreeSelect1: "9",
           comevaluate: 3,
           htmlStr: "<span class='text-danger'>我是html</span>文本",
           scoreListStr: [],

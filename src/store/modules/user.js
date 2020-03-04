@@ -96,6 +96,13 @@ const user = {
         } else if (data.username == "client") {
           userInfo.type = "3";
         }
+        //  else {
+        //   Message({
+        //     type: "error",
+        //     message: "抱歉，您暂无相关权限"
+        //   });
+        //   reject(userInfo);
+        // }
         commit("set_UserInfo", userInfo);
         resolve(userInfo);
       });

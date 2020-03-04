@@ -49,11 +49,67 @@
         </ul>
       </el-col>
     </el-row>
+    {{ inputModel }}
+    {{ inputModelbak }}
+    <inputDemo v-model="inputModel" :defaultdata="inputModel" />
+    <inputDemo v-model="inputModelbak" :defaultdata="inputModelbak" />
+    <inputTable :tableDefaultData="tableDefaultData" />
   </div>
 </template>
 
 <script>
+import inputDemo from "./inputDemo";
+import inputTable from "./inputTable";
 export default {
-  name: "nameRules"
+  name: "nameRules",
+  components: {
+    inputDemo,
+    inputTable
+  },
+  data() {
+    return {
+      inputModel: "123",
+      inputModelbak: "zhy",
+      tableDefaultData: {
+        data: [
+          {
+            itemName: "qwe",
+            itemStandard: "ww",
+            itemScore: "2"
+          }
+        ],
+        type: "inputTable",
+        label: "综合分评定规则",
+        name: "scoreListStr",
+        hideItem: false,
+        span: 24,
+        width: "150px",
+        useType: "add",
+        headers: [
+          {
+            title: "打分项",
+            key: "itemName",
+            disabled: false
+          },
+          {
+            title: "评分标准",
+            key: "itemStandard",
+            disabled: false
+          },
+          {
+            title: "分值",
+            key: "itemScore",
+            disabled: false,
+            inputType: "number"
+          }
+        ],
+        tableItems: {
+          itemName: "",
+          itemStandard: "",
+          itemScore: ""
+        }
+      }
+    };
+  }
 };
 </script>
