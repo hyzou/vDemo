@@ -16,7 +16,7 @@
       </el-row>
       <el-row :gutter="40" class="mb30">
         <el-col :offset="16" :span="8">
-          帐号密码：zhy 000000 管理员端 <br />
+          帐号密码：admin 000000 管理员端 <br />
           帐号密码：member 000000 会员端<br />
           帐号密码：client 000000 客户端
         </el-col>

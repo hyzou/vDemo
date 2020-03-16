@@ -22,7 +22,7 @@
         v-if="headInfos.operate"
       >
         <span class="headerToolbar-icon el-icon-s-custom currentUser"></span>
-        <span class="mr20">{{ $store.getters.userInfo.name }}</span>
+        <span class="mr20">{{ $store.getters.userInfo.loginName }}</span>
         <!-- <span
           class="headerToolbar-icon el-icon-message-solid cursor positionRel"
           @click="skipMsg"

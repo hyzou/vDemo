@@ -389,6 +389,15 @@ export const asyncRouterMap_Manager = [
             meta: {
               title: "less 定义使用"
             }
+          },
+          {
+            path: "/managePage/less/lessCommonStyle",
+            name: "lessCommonStyle",
+            hidden: false,
+            component: () => import("@/views/managePage/less/lessCommonStyle"),
+            meta: {
+              title: "less 通用样式"
+            }
           }
         ]
       }

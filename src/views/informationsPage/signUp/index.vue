@@ -70,7 +70,7 @@ export default {
       if (btn.flag == "cancle") {
         this.$router.push({ path: "/" });
       } else if (btn.flag == "save") {
-        let msg = `您的登录账户为: zhy,请记录。`;
+        let msg = `您的登录账户为: admin,请记录。`;
         that.$alert(msg, "注册成功！", {
           confirmButtonText: "确定",
           callback: () => {

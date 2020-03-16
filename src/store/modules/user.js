@@ -62,7 +62,7 @@ const user = {
     },
     // 修改登录用户身份状态
     setUserInfo({ commit }, data) {
-      return new Promise(resolve => {
+      return new Promise((resolve, reject) => {
         let userInfo;
         // axios(api.userInfo(), data).then(xhr => {
         //   if (xhr.data) {
@@ -84,25 +84,26 @@ const user = {
         console.log(data, "login");
         userInfo = {
           userId: "1744",
-          loginName: "zhy",
-          name: "邹海洋",
+          loginName: "admin",
+          name: "admin",
           type: "1",
-          username: "zhy"
+          username: "admin"
         };
-        if (data.username == "zhy") {
+        if (data.username == "admin") {
           userInfo.type = "1";
         } else if (data.username == "member") {
           userInfo.type = "2";
+          userInfo.loginName = "member";
         } else if (data.username == "client") {
           userInfo.type = "3";
+          userInfo.loginName = "client";
+        } else {
+          Message({
+            type: "error",
+            message: "抱歉，您暂无相关权限"
+          });
+          reject(userInfo);
         }
-        //  else {
-        //   Message({
-        //     type: "error",
-        //     message: "抱歉，您暂无相关权限"
-        //   });
-        //   reject(userInfo);
-        // }
         commit("set_UserInfo", userInfo);
         resolve(userInfo);
       });
