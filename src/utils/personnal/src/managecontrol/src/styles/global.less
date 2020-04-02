@@ -1,0 +1,71 @@
+html, body {
+  background: #EFEFF3;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+a, input, textarea, button {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #010000;
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // text-align: center;
+  color: #2c3e50;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.flex-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+@import "./ahheader.less";
+@import "./noData.less";
+@import "./searchbar.less";
+@import "./grid.less";
+@import "./datalist.less";
+@import "./modalSwitchGroup.less";
+@import "./topControllerGroup.less";
+@import "./detailDeviceGroup.less";
+@import "./bottomButtonsGroup.less";
+@import "./changeStateOnce.less";
+@import "./detectionTemperature.less";
+@import "https://at.alicdn.com/t/font_896349_4ya8bhfc9o3.css";
