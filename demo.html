@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/vue/2.1.3/vue.js"></script>
+	</head>
+	<body>
+
+		<div id="app">
+			<p>{{ message }}</p>
+			<!-- **************************** -->
+			<div>
+				<input type="text" v-model="testinputValue" @blur="testGetValue" />
+				<div>testinputValue值:{{ testinputValue }}</div>
+				<input type="text" v-model="testinputObj.testinputValue" @blur="testGetValue" />
+				<div>
+					我的testinputObj.testinputValue值:{{ testinputObj.testinputValue }}
+				</div>
+				<div>
+					我刚刚输入的所有内容：{{totalString}}
+				</div>
+			</div>
+			<!-- **************************** -->
+			<div>
+				<p>根据数组生成dom</p>
+				<div>
+					<template v-for="item in datalist">
+						<div :key="item.value" v-show="item.isshow">
+							<span>{{item.label}}</span>:<span style="color: darkred;">{{item.value}}</span>
+						</div>
+					</template>
+				</div>
+			</div>
+			<div>
+				<p v-if="showflag">v-if</p>
+				<p v-else>v-else</p>
+				<p v-show="showflag">v-show</p>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+				data() {
+					return {
+						message: "hello world",
+						testinputValue: "",
+						testinputObj: {
+							testinputValue: ""
+						},
+						showflag: false,
+						datalist: [{
+							label: "名字",
+							value: "a",
+							isshow: true
+						}, {
+							label: "名字",
+							value: "b",
+							isshow: false
+						}, {
+							label: "名字",
+							value: "c",
+							isshow: true
+						}]
+					}
+				},
+				methods: {
+					testGetValue: function() {
+						console.log(this.testinputValue);
+						console.log(this.testinputObj);
+					},
+				},
+				computed: {
+					totalString() {
+						let totalstr = this.testinputValue + this.testinputObj.testinputValue
+						return totalstr;
+					}
+				},
+				watch: {
+					testinputValue(newvalue, oldvalue) {
+						console.log(newvalue, "newvalue")
+						console.log(oldvalue, "oldvalue")
+					}
+				},
+				beforeCreate: function() {
+					console.group('beforeCreate 创建前状态===============》');
+					console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+					console.log("%c%s", "color:red", "data   : " + this.$data); //undefined 
+					console.log("%c%s", "color:red", "message: " + this.message)
+				},
+				created: function() {
+					console.group('created 创建完毕状态===============》');
+					console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+					console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化 
+					console.log("%c%s", "color:red", "message: " + this.message); //已被初始化
+				},
+				beforeMount: function() {
+					console.group('beforeMount 挂载前状态===============》');
+					console.log("%c%s", "color:red", "el     : " + (this.$el)); //已被初始化
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化  
+					console.log("%c%s", "color:red", "message: " + this.message); //已被初始化  
+				},
+				mounted: function() {
+					console.group('mounted 挂载结束状态===============》');
+					console.log("%c%s", "color:red", "el     : " + this.$el); //已被初始化
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
+					console.log("%c%s", "color:red", "message: " + this.message); //已被初始化 
+				},
+				beforeUpdate: function() {
+					console.group('beforeUpdate 更新前状态===============》');
+					console.log("%c%s", "color:red", "el     : " + this.$el);
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data);
+					console.log("%c%s", "color:red", "message: " + this.message);
+				},
+				updated: function() {
+					console.group('updated 更新完成状态===============》');
+					console.log("%c%s", "color:red", "el     : " + this.$el);
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data);
+					console.log("%c%s", "color:red", "message: " + this.message);
+				},
+				beforeDestroy: function() {
+					console.group('beforeDestroy 销毁前状态===============》');
+					console.log("%c%s", "color:red", "el     : " + this.$el);
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data);
+					console.log("%c%s", "color:red", "message: " + this.message);
+				},
+				destroyed: function() {
+					console.group('destroyed 销毁完成状态===============》');
+					console.log("%c%s", "color:red", "el     : " + this.$el);
+					console.log(this.$el);
+					console.log("%c%s", "color:red", "data   : " + this.$data);
+					console.log("%c%s", "color:red", "message: " + this.message)
+				}
+			})
+		</script>
+	</body>
+</html>

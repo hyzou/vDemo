@@ -1,15 +1,43 @@
 <template>
   <div class="operate-buttons-group">
-    <el-button
-      v-for="operateBtn in operateButtonsSettings.buttonListData"
-      :key="operateBtn.flag"
-      :type="operateBtn.styleType"
-      :size="operateBtn.size"
-      :icon="operateBtn.icon"
-      @click="handleOperate(operateBtn)"
-    >
-      {{ operateBtn.label }}
-    </el-button>
+    <template v-for="operateBtn in operateButtonsSettings.buttonListData">
+      <el-dropdown
+        :class="operateBtn.className"
+        trigger="click"
+        :key="operateBtn.flag"
+        v-if="operateBtn.isDropBtn"
+        @command="handleDropItemButton"
+      >
+        <el-button
+          :type="operateBtn.styleType"
+          :size="operateBtn.size"
+          :icon="operateBtn.icon"
+        >
+          {{ operateBtn.label
+          }}<i class="el-icon-arrow-down el-icon--right"></i>
+        </el-button>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item
+            v-for="drop in operateBtn.dropData"
+            :key="drop.value"
+            icon="el-icon-plus"
+            :command="drop"
+          >
+            {{ drop.label }}
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <el-button
+        v-else
+        :key="operateBtn.flag"
+        :type="operateBtn.styleType"
+        :size="operateBtn.size"
+        :icon="operateBtn.icon"
+        @click="handleOperate(operateBtn)"
+      >
+        {{ operateBtn.label }}
+      </el-button>
+    </template>
   </div>
 </template>
 
@@ -26,6 +54,9 @@ export default {
         operateBtn,
         this.operateButtonsSettings.moduleName
       );
+    },
+    handleDropItemButton(id) {
+      this.$emit("handleDropItemButton", id);
     }
   }
 };

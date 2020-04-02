@@ -18,14 +18,14 @@
     "password": true,
     "name": "loginPassword",
     "span": 12,
-    "width": "200px"
+    "width": "80px"
   },
   {
     "type": "input",
     "label": "姓名",
     "name": "memName",
     "span": 12,
-    "width": "200px"
+    "width": "80px"
   },
   {
     "type": "select",
@@ -38,7 +38,33 @@
       }
     ],
     "span": 12,
-    "width": "200px",
+    "width": "80px",
     "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "报名截止时间",
+    "name": "registerEndtime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "150px"
+  },
+  {
+    "type": "editor",
+    "label": "",
+    "name": "editoStr",
+    "data": [],
+    "span": 24,
+    "width": "0px",
+    "config": {
+      "autoHeightEnabled": false,
+      "initialFrameHeight": 240,
+      "initialFrameWidth": "100%",
+      "serverUrl": "",
+      "UEDITOR_HOME_URL": "/ueditor/",
+      "z-index": 2
+    }
   }
 ]

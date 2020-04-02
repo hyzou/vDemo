@@ -15,7 +15,8 @@
   },
   {
     "prop": "isneed",
-    "lable": "是否必填"
+    "lable": "是否必填",
+    "isHide": true
   },
   {
     "prop": "operateBtns",

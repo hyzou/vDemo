@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: "dealAnnouncement",
+  name: "router",
   data() {
     return {};
   }

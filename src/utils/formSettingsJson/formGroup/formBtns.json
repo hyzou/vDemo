@@ -3,7 +3,7 @@
     "flag": "save",
     "size": "",
     "icon": "",
-    "label": "注册",
+    "label": "打开控制台看数据",
     "styleType": "primary",
     "postUrl": "addRegisterMember"
   }

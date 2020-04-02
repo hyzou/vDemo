@@ -2,7 +2,7 @@
   <div class="table-container">
     <el-row class="mb20">
       <el-col :span="24">
-        <mainTopLogo :headInfos="mainTopLogoSettings" />
+        <headerBar :headInfos="headerBarSettings" />
       </el-col>
       <el-col :span="24">
         <ul class="contentText">
@@ -10,8 +10,8 @@
             1.组件配置项如下：
             <pre>
                 <code>
-                  &lt;mainTopLogo :headInfos="mainTopLogoSettings" />
-                  mainTopLogoSettings: {
+                  &lt;headerBar :headInfos="headerBarSettings" />
+                  headerBarSettings: {
                     title: "管理员",
                     operate: {
                       showLogout: true
@@ -49,26 +49,26 @@
 
 <script>
 // 组件引入
-import mainTopLogo from "@/components/mainTopLogo";
+import headerBar from "@/components/headerBar";
 import tableList from "@/components/tableList";
 // 配置数据引入
 import tableHeaderOpts from "@/utils/formSettingsJson/tableCommonHeaders/tableHeaderOpt.json";
-import tableData from "@/utils/formSettingsJson/mainTopLogoMng/tableData.json";
+import tableData from "@/utils/formSettingsJson/headerBarMng/tableData.json";
 // 引入本地图片
 import imgUrl from "@/assets/logo.png";
 
 export default {
-  name: "mainTopLogoMng",
+  name: "headerBarMng",
   components: {
-    mainTopLogo,
+    headerBar,
     tableList
   },
   data() {
     return {
       /**
-       * mainTopLogo 基本数据配置
+       * headerBar 基本数据配置
        */
-      mainTopLogoSettings: {
+      headerBarSettings: {
         title: "管理员",
         operate: {
           showLogout: true

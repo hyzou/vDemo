@@ -232,7 +232,7 @@
                 </el-table-column>
               </el-table>
               <el-row v-if="formItem.useType && formItem.useType == 'add'">
-                <el-col :span="6" :offset="18" class="textAlignCenter">
+                <el-col :span="6" :offset="18" class="textAlignCenter mt10">
                   <el-button
                     type="success"
                     size="mini"
@@ -492,7 +492,7 @@
                 class="upload-demo"
                 ref="fileUpd"
                 :accept="formItem.acceptType"
-                :action="$global.uploadUrl"
+                action="123"
                 :data="upddata"
                 :multiple="formItem.multiple"
                 :on-change="handleChange"
@@ -509,8 +509,25 @@
                 </el-button>
               </el-upload>
             </el-form-item>
+            <!-- item:elTreeSelect -->
+            <el-form-item
+              v-if="formItem.type == 'elTreeSelect'"
+              :label="formItem.label"
+              :label-width="formItem.width || '0px'"
+              :prop="formItem.name"
+            >
+              <elTreeSelect
+                v-model="formGroupSettings.formGroupValues[formItem.name]"
+                :props="formItem.props"
+                :modelName="formItem.name"
+                :options="formItem.data"
+              />
+            </el-form-item>
             <!-- item:group -->
-            <el-form-item v-if="formItem.type == 'group'">
+            <el-form-item
+              v-if="formItem.type == 'group'"
+              :label-width="formItem.width || '0px'"
+            >
               <commonTitleWithBorder :title="formItem.title" />
             </el-form-item>
           </el-col>
@@ -542,6 +559,7 @@
 </template>
 <script>
 import commonTitleWithBorder from "@/components/commonTitleWithBorder";
+import elTreeSelect from "@/components/elTreeSelect";
 // import inputTable from "@/components/inputTable";
 export default {
   name: "formGroup",
@@ -549,8 +567,8 @@ export default {
     formGroupSettings: Object
   },
   components: {
-    commonTitleWithBorder
-    // inputTable
+    commonTitleWithBorder,
+    elTreeSelect
   },
   data() {
     return {

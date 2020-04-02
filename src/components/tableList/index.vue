@@ -25,6 +25,13 @@
         width="55"
       >
       </el-table-column>
+      <el-table-column
+        v-if="tablelistSettings.tableSettingOptions.isShowIndex || false"
+        type="index"
+        width="50"
+        :label="tablelistSettings.tableSettingOptions.showIndexHeader || ''"
+      >
+      </el-table-column>
 
       <el-table-column
         v-if="tablelistSettings.tableSettingOptions.hasExpandContent"
@@ -63,6 +70,7 @@
           :show-overflow-tooltip="
             !tablelistSettings.tableSettingOptions.hidelongItem
           "
+          v-if="!head.isHide"
         >
           <template slot-scope="scope">
             <a

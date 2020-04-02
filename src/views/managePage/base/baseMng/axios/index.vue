@@ -19,29 +19,67 @@
       </el-col>
     </el-row>
     <el-row>
-      <el-col :span="10">
-        <img src="@/assets/httpApi.png" alt="" width="100%" />
+      <el-col :span="24">
+        <p>
+          axios/httpApi接口表，用于存放所有的接口列表信息，接口的增删在
+          <span class="text-danger">apiInterface</span>对象中维护即可
+        </p>
+        <pre>
+          <code>
+            const apiInterface = {
+              //样例接口1
+              gettablelist: "_data/web/webPortalNews/gettablelist",
+              //样例接口2
+              gettablist: "_data/web/webPortalNews/gettablelist"
+            };
+          </code>
+        </pre>
       </el-col>
-      <el-col :span="14">
-        <ul class="contentText">
-          <li>
-            <p>
-              1.每个接口地址需添加注释，注明接口调用所在模块及功能名称，如左图：功能模块名称为资料下载，接口功能为新增资料
-            </p>
-          </li>
-          <li>
-            <p>
-              2.需接口命名不能重复，即apiInterface.addDownFile中，addDownFile有且只有1个。
-            </p>
-          </li>
-          <li><p>3.url对应接口路径</p></li>
-          <li><p>4.method对应接口请求方式</p></li>
-          <li>
-            <p class="text-danger">
-              5.isMuti对应接口传递方式为表单提交，需表单提交时要添加此配置
-            </p>
-          </li>
-        </ul>
+      <el-col :span="24">
+        <p class="lheight30 mt30">
+          页面中的接口调用方法如下,一般情况下，使用get,post方法居多，
+          使用前两种调用方式即可，如果出现其他请求方式，应用第三种方法，
+          并且，第三种调用方式，第一个参数为请求方式，
+          <span class="text-danger">支持所有请求方式</span>， 按需传值即可。
+        </p>
+        <pre>
+          <code>
+            mounted() {
+              let formData = {
+                name: "zhy"
+              };
+              this.$postData(this.$api.gettablelist, formData).then(xhr => {
+                console.log(xhr);
+              });
+              this.$getData(this.$api.gettablelist, formData).then(xhr => {
+                console.log(xhr);
+              });
+              this.$methodData("put", this.$api.gettablelist, formData).then(xhr => {
+                console.log(xhr);
+              });
+            }
+          </code>
+        </pre>
+        <p class="lheight30 mt30">
+          <span class="text-danger">注意！！！</span>
+          当所传数据为formdata类型，需要在参数后面设置
+          <span class="text-danger">true</span>
+          上面的传值方法应改成下列形式
+        </p>
+        <pre>
+          <code>
+            mounted() {
+              let formData = new FormData();
+              formData.append("name", "zhy");
+              this.$postData(this.$api.gettablelist, formData, true).then(xhr => {
+                console.log(xhr);
+              });
+              this.$methodData("put", this.$api.gettablelist, formData, true).then(xhr => {
+                console.log(xhr);
+              });
+            }
+          </code>
+        </pre>
       </el-col>
     </el-row>
   </div>
@@ -49,9 +87,6 @@
 
 <script>
 export default {
-  name: "dealAnnouncement",
-  data() {
-    return {};
-  }
+  name: "axios"
 };
 </script>

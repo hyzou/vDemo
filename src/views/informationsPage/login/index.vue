@@ -3,7 +3,7 @@
     <div class="memberSignup">
       <div class="mainRegContainer">
         <section class="home-mainbord">
-          <mainTopLogo :headInfos="headInfos" />
+          <headerBar :headInfos="headInfos" />
         </section>
         <el-row>
           <el-col :span="24">
@@ -31,25 +31,25 @@
 
 <script>
 // @ is an alias to /src
-import mainTopLogo from "@/components/mainTopLogo";
+import headerBar from "@/components/headerBar";
 import loginZone from "@/components/loginZone";
 
 export default {
   name: "login",
   components: {
-    mainTopLogo,
+    headerBar,
     loginZone
   },
   data() {
     return {
       headInfos: {
-        title: "浙江社会贸易粮公共交易平台",
+        title: "demo示例",
         style: {
-          textColor: "#005192",
+          "text-color": "#005192",
           height: "100px",
-          lineHeight: "100px",
-          fontWeight: "600",
-          fontSize: "40px"
+          "line-height": "100px",
+          "font-weight": "600",
+          "font=size": "40px"
         },
         operate: false
       }

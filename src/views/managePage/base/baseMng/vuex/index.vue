@@ -28,7 +28,7 @@
           </li>
           <li>
             <p class="text-danger">
-              2.页面中使用状态是，读取用"this.$store.getters.xxx"，提交更新状态只使用异步提交方式"this.$store.dispatch('xxx',xxx)"，不是用其他同步方式，如需同步，定义promise函数来解决。
+              2.页面中使用状态时，读取用"this.$store.getters.xxx"，提交更新状态只使用异步提交方式"this.$store.dispatch('xxx',xxx)"，不使用其他同步方式，如需同步，定义promise函数来解决。
             </p>
           </li>
         </ul>
@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "dealAnnouncement",
+  name: "vuex",
   data() {
     return {};
   }

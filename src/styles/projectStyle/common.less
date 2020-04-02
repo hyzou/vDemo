@@ -35,15 +35,21 @@
   line-height: inherit;
 }
 
+.link{
+  color: @mainWhite;
+  text-decoration: none;
+}
+.textColorLightBlue{
+	color: @mainBgColorLight;
+}
 .backTopArrow{
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  background-color: red;
-  box-shadow: 0 0 6px rgba(0,0,0, .12);
+  background-color: @mainRed;
   text-align: center;
   line-height: 40px;
-  color: #fff;
+  color: @mainWhite;
 }
 .file{
   // border: 1px solid @color999;
@@ -53,33 +59,10 @@
   color: @mainBgColorLight;
   .lh(40px);
 }
-.consoleStyle{
-  line-height:32px;
-  font-size:16px;
-  color:@mainWhite;
-  text-align:center;
-  border-radius:4px;
-  padding: 15px 0;
-  // .operateBtnGroup{
-  //   .positionAbs;
-  //   // left: 0;
-  //   right: 0;
-  //   // top: 0;
-  //   bottom: 0;
-  // }
-}
-.operateBtnGroup{
-  .positionAbs;
-  bottom: 10px;
-  right: 0;
-}
-.operateStart{
-  bottom: 50px;
-}
 .scorelist{
   line-height: 40px;
   &-header{
-    margin-bottom: 0 !important;
+    .mb0;
     &-title{
       border: 1px solid @colorCCC;
       border-radius: 0 !important;
@@ -105,52 +88,6 @@
   }
 }
 
-.itemContent{
-	height: 300px;
-	overflow-y: auto;
-	li{
-		border: 1px solid @mainBgColorLight;
-		padding: 10px;
-		color: @mainBgColorLight;
-	}
-}
-
-// .backToPrew{
-// 	// line-height: 30px;
-// }
-
-.symTable{
-  width: 100%;
-  line-height: 112px;
-  text-align: center;
-  border: 1px solid @colorE8;
-  border-collapse:collapse;
-  border-spacing:0;
-  tr{
-    td{
-      border: 1px solid @colorE8;
-      &:first-child{
-        background: #FAFAFA;
-      }
-    }
-  }
-  &-mini{
-    line-height: 87px;
-    .bigFont{
-      font-size: 40px;
-      color: #FFA033;
-    }
-  }
-}
-.noticebox{
-  width: 100%;
-  height: 200px;
-  border: 1px solid @colorE8;
-  textarea{
-    border: 0;
-    height: 100%;
-  }
-}
 .memberSignup{
 	position: fixed;
 	top: 0;
@@ -165,10 +102,10 @@
 	overflow-y: auto;
     .mainRegContainer{
       width: 980px;
-      margin: auto;
+      .mgAuto;
       .registerBody{
         background: @mainWhite;
-        padding: 25px;
+        .pd25;
         .login-zone{
           border: 0 !important;
           box-shadow: none !important;
@@ -181,10 +118,13 @@
 .contentText{
   .pd10;
   .lh(30px);
+  &-tips{
+    list-style: square inside;
+  }
 }
 pre{
-  background-color: #282c34;
-  color: #abb2bf;
+  background-color: @codeBg;
+  color: @codeColor;
   overflow: auto;
   .lh(24px);
   code{

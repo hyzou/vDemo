@@ -17,8 +17,8 @@
                         itemSeprator: "|",
                         itemList: [
                           {
-                            itemName: "mainTopLogo",
-                            link: "#/managePage/components/mainTopLogo"
+                            itemName: "headerBar",
+                            link: "#/managePage/components/headerBar"
                           },
                           {
                             itemName: "friendlink",
@@ -80,8 +80,8 @@ export default {
           itemSeprator: "|",
           itemList: [
             {
-              itemName: "mainTopLogo",
-              link: "#/managePage/components/mainTopLogo"
+              itemName: "headerBar",
+              link: "#/managePage/components/headerBar"
             },
             {
               itemName: "friendlink",

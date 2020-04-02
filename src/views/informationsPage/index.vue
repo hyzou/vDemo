@@ -2,7 +2,7 @@
   <div class="layoutFront">
     <el-container>
       <section class="home-mainbord">
-        <mainTopLogo :headInfos="headInfos" />
+        <headerBar :headInfos="headInfos" />
       </section>
       <el-header style="height:38px">
         <horizenNav :headrouter="menuRoutes" />
@@ -19,14 +19,14 @@
 
 <script>
 // @ is an alias to /src
-import mainTopLogo from "@/components/mainTopLogo";
+import headerBar from "@/components/headerBar";
 import horizenNav from "@/components/horizenNav";
 import footBar from "@/components/footBar";
 
 export default {
   name: "layoutFront",
   components: {
-    mainTopLogo,
+    headerBar,
     horizenNav,
     footBar
   },

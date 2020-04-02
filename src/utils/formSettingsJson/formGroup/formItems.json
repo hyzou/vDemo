@@ -50,6 +50,16 @@
     "width": "150px"
   },
   {
+    "type": "stepInput",
+    "label": "保证金(元/单位)",
+    "name": "deposit",
+    "span": 12,
+    "width": "150px",
+    "min": 0,
+    "precision": 2,
+    "step": 1
+  },
+  {
     "type": "date",
     "label": "报名截止时间",
     "name": "registerEndtime",
@@ -60,14 +70,43 @@
     "width": "150px"
   },
   {
-    "type": "stepInput",
-    "label": "保证金(元/单位)",
-    "name": "deposit",
-    "span": 12,
-    "width": "150px",
-    "min": 0,
-    "precision": 2,
-    "step": 1
+    "type": "date",
+    "label": "发布时间",
+    "name": "extd1",
+    "dateType": "daterange",
+    "dateRangeSeparator": "至",
+    "dateStartPlaceholder": "开始日期",
+    "dateEndPlaceholder": "结束日期",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "editor",
+    "label": "",
+    "name": "editoStr",
+    "data": [],
+    "span": 24,
+    "width": "0px",
+    "config": {
+      "autoHeightEnabled": false,
+      "initialFrameHeight": 240,
+      "initialFrameWidth": "100%",
+      "serverUrl": "",
+      "UEDITOR_HOME_URL": "/ueditor/",
+      "zIndex": 998
+    }
+  },
+  {
+    "type": "upload",
+    "label": "附件",
+    "name": "files",
+    "choseBtn": "选取文件",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传jpg/png文件，且不超过500kb",
+    "span": 24,
+    "width": "150px"
   },
   {
     "type": "inputTable",
@@ -107,5 +146,137 @@
     "name": "content",
     "span": 24,
     "width": "150px"
+  },
+  {
+    "type": "html",
+    "label": "html文本",
+    "name": "htmlStr",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "flowComment",
+    "label": "审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "150px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  },
+  {
+    "type": "image",
+    "label": "已传附件",
+    "name": "viewfiles",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "transfer",
+    "label": "属性",
+    "placeholder": "请输入属性名称",
+    "titles": [
+      "待选属性",
+      "已选属性"
+    ],
+    "buttons": [
+      "到左边",
+      "到右边"
+    ],
+    "name": "roleids",
+    "span": 24,
+    "transferProps": {
+      "key": "key",
+      "label": "label"
+    },
+    "data": [],
+    "width": "150px"
+  },
+  {
+    "type": "rate",
+    "label": "我的评星",
+    "name": "comevaluate",
+    "span": 12,
+    "colors": [
+      "#99A9BF",
+      "#F7BA2A",
+      "#FF9900"
+    ],
+    "width": "120px"
+  },
+  {
+    "type": "elTreeSelect",
+    "label": "树下拉",
+    "name": "elTreeSelect1",
+    "props": {
+      "value": "id",
+      "label": "label",
+      "children": "children",
+      "choseOnlyLeaf": true
+    },
+    "data": [
+      {
+        "id": 1,
+        "label": "一级 1",
+        "children": [
+          {
+            "id": 4,
+            "label": "二级 1-1",
+            "children": [
+              {
+                "id": 9,
+                "label": "三级 1-1-1"
+              },
+              {
+                "id": 10,
+                "label": "三级 1-1-2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "label": "一级 2",
+        "children": [
+          {
+            "id": 5,
+            "label": "二级 2-1"
+          },
+          {
+            "id": 6,
+            "label": "二级 2-2"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "label": "一级 3",
+        "children": [
+          {
+            "id": 7,
+            "label": "二级 3-1"
+          },
+          {
+            "id": 8,
+            "label": "二级 3-2"
+          }
+        ]
+      }
+    ],
+    "span": 12,
+    "width": "80px",
+    "disabled": true
   }
 ]

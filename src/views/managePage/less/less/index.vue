@@ -28,10 +28,14 @@
           </li>
           <li>
             <p>
-              4.layout文件夹用于项目结构的样式，主结构用elementui样式布局组件，样式存放于此。
+              5.layout文件夹用于项目结构的样式，主结构用elementui样式布局组件，样式存放于此。
             </p>
           </li>
-          <li><p>4.projectStyle文件夹用于存放当前项目定制化样式。</p></li>
+          <li>
+            <p>
+              6.projectStyle文件夹用于存放当前项目定制化样式。项目样式编辑之前先看一下global.less，尽量避免重复样式
+            </p>
+          </li>
         </ul>
       </el-col>
     </el-row>
@@ -40,7 +44,7 @@
 
 <script>
 export default {
-  name: "dealAnnouncement",
+  name: "less",
   data() {
     return {};
   }

@@ -3,7 +3,7 @@
     <div class="memberSignup">
       <div class="mainRegContainer">
         <section class="home-mainbord">
-          <mainTopLogo :headInfos="headInfos" />
+          <headerBar :headInfos="headInfos" />
         </section>
         <section class="registerBody">
           <el-row :span="24">
@@ -22,7 +22,7 @@
 
 <script>
 // @ is an alias to /src
-import mainTopLogo from "@/components/mainTopLogo";
+import headerBar from "@/components/headerBar";
 import formGroup from "@/components/formGroup";
 
 import dialogEditFormItemslist from "@/utils/formSettingsJson/signUp/dialogFormItems.json";
@@ -31,7 +31,7 @@ import dialogFormRules from "@/utils/formRulesJson/memberRegist/dialogRule";
 export default {
   name: "signUp",
   components: {
-    mainTopLogo,
+    headerBar,
     formGroup
   },
   data() {
@@ -39,11 +39,11 @@ export default {
       headInfos: {
         title: "demo示例",
         style: {
-          textColor: "#005192",
+          "text-color": "#005192",
           height: "100px",
-          lineHeight: "100px",
-          fontWeight: "600",
-          fontSize: "40px"
+          "line-height": "100px",
+          "font-weight": "600",
+          "font-size": "40px"
         },
         operate: false
       },
@@ -70,7 +70,7 @@ export default {
       if (btn.flag == "cancle") {
         this.$router.push({ path: "/" });
       } else if (btn.flag == "save") {
-        let msg = `您的登录账户为: zhy,请记录。`;
+        let msg = `您的登录账户为: admin,请记录。`;
         that.$alert(msg, "注册成功！", {
           confirmButtonText: "确定",
           callback: () => {

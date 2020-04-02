@@ -8,7 +8,6 @@ import VueUeditorWrap from "vue-ueditor-wrap";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import axios from "./axios";
 import api from "./axios/httpApi";
 import globalVariable from "./axios/global_variable";
 import qs from "qs";
@@ -19,8 +18,10 @@ import globalFunctions from "./utils/globalFunctions";
 import globalMethods from "./utils/projectCommonMethods";
 import * as filters from "./utils/filters";
 Vue.config.productionTip = false;
-
-Vue.prototype.$http = axios;
+import ECharts from "vue-echarts";
+import "echarts/lib/chart/bar";
+import "echarts/lib/chart/line";
+import "echarts/lib/chart/pie";
 Vue.prototype.$api = api;
 Vue.prototype.$global = globalVariable;
 Vue.prototype.$globalFnc = globalFunctions;
@@ -28,6 +29,7 @@ Vue.prototype.$globalFnc = globalFunctions;
 Vue.use(ElementUI);
 Vue.prototype.$qs = qs;
 Vue.component("vue-ueditor-wrap", VueUeditorWrap);
+Vue.component("chart", ECharts);
 Vue.use(globalMethods);
 
 Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));

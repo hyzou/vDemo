@@ -22,15 +22,26 @@
         v-if="headInfos.operate"
       >
         <span class="headerToolbar-icon el-icon-s-custom currentUser"></span>
-        <span class="currentUserName">{{ $store.getters.userInfo.name }}</span>
-        <span
+        <span class="mr20">{{ $store.getters.userInfo.loginName }}</span>
+        <!-- <span
           class="headerToolbar-icon el-icon-message-solid cursor positionRel"
           @click="skipMsg"
         >
           <span class="noticeTips" v-show="$store.getters.unreadNotice > 0">
             {{ $store.getters.unreadNotice }}
           </span>
-        </span>
+        </span> -->
+        <el-badge
+          :value="$store.getters.unreadNotice || 0"
+          :max="99"
+          class="mr20"
+        >
+          <span
+            class=" mr0 headerToolbar-icon el-icon-message-solid cursor positionRel"
+            @click="skipMsg"
+          >
+          </span>
+        </el-badge>
         <!-- <span class="headerToolbar-icon el-icon-s-home"></span> -->
         <a
           class="headerToolbar-icon el-icon-switch-button"
@@ -43,17 +54,13 @@
 
 <script>
 export default {
-  name: "mainTopLogo",
+  name: "headerBar",
   props: {
     headInfos: Object
   },
   methods: {
     skipMsg() {
-      let centername =
-        this.$store.getters.userInfo.type == "1"
-          ? "infoCenter"
-          : "memMsgCenter";
-      this.$router.push({ name: centername });
+      console.log("skip to msg center");
     }
   }
 };

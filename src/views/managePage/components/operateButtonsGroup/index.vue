@@ -5,6 +5,7 @@
         <operateButtonsGroup
           :operateButtonsSettings="operateButtonsSettings"
           @handleOperateButton="handleOperateButton"
+          @handleDropItemButton="handleDropItemButton"
         />
       </el-col>
       <el-col :span="24">
@@ -71,6 +72,22 @@ export default {
         moduleName: "part1",
         buttonListData: [
           {
+            flag: "duplicateOperation",
+            label: "批量操作",
+            isDropBtn: true,
+            styleType: "primary",
+            size: "small",
+            className: "mr10",
+            postUrl: "flowTradeInformation",
+            dropData: [
+              {
+                icon: "el-icon-plus",
+                label: "删除",
+                value: "remove"
+              }
+            ]
+          },
+          {
             flag: "pass",
             label: "通过",
             styleType: "success",
@@ -104,6 +121,23 @@ export default {
     handleOperateButton(button, moduleName) {
       console.log(button, "button");
       console.log(moduleName, "moduleName");
+    },
+    /* operateButtons下拉点击事件 */
+    handleDropItemButton(id) {
+      console.log(id.value, "id");
+      if (id.value == "remove") {
+        this.$confirm("此操作将删除您已选择的数据, 是否继续?", "提示", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        })
+          .then(() => {
+            this.$message.success("删除成功!");
+          })
+          .catch(() => {
+            this.$message.info("已取消删除");
+          });
+      }
     }
   }
 };

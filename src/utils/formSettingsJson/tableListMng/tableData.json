@@ -35,6 +35,36 @@
     "isneed": "是"
   },
   {
+    "name": "headerOptions[0].prop",
+    "description": "对应数据源中要显示的字段名，string类型",
+    "isneed": "是"
+  },
+  {
+    "name": "headerOptions[0].lable",
+    "description": "对应数据源中要显示的字段名的中文描述，string类型",
+    "isneed": "是"
+  },
+  { 
+    "name": "headerOptions[0].isHide",
+    "description": "本列是否需要隐藏，默认不隐藏，boolean类型",
+    "isneed": "否"
+  },
+  { 
+    "name": "headerOptions[0].clickable",
+    "description": "本列是否可以被点击，默认不可点击，boolean类型",
+    "isneed": "否"
+  },
+  {
+    "name": "headerOptions[0].id",
+    "description": "本列如果可被点击，传递的主键值，string类型",
+    "isneed": "否"
+  },
+  { 
+    "name": "headerOptions[0].clickType",
+    "description": "本列被点击时传递的列标记，string类型",
+    "isneed": "否"
+  },
+  {
     "name": "isMultipleTable",
     "description": "是否可多选，默认false",
     "isneed": "否"

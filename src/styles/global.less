@@ -2,7 +2,7 @@
 @import "./define.less";
 
 // 引入组件样式
-@import "./components/mainTopLogo.less";
+@import "./components/headerBar.less";
 @import "./components/horizenNav.less";
 @import "./components/siderNav.less";
 @import "./components/breadCrumb.less";
@@ -78,16 +78,18 @@ p,ul {
     padding-inline-start: 0;
 }
 
-// 通用样式
-.mgAuto{
-	margin: auto;
-}
+/* 通用样式 */
+// 定位
 .positionAbs{
 	position: absolute;
 }
 .positionRel{
 	position: relative;
 }
+.positionFix{
+	position: fixed;
+}
+// 显示相关
 .displayBlock{
 	display: block;
 }
@@ -100,15 +102,24 @@ p,ul {
 .displayInline{
 	display: inline;
 }
+// tabel竖直方向显示
 .vAlignTop{
 	vertical-align: top;
 }
+.vAlignMid{
+	vertical-align: middle;
+}
+.vAlignBtm{
+	vertical-align: bottom;
+}
+// 浮动
 .floatLeft{
 	float: left;
 }
 .floatRight{
 	float: right;
 }
+// 清除浮动
 .clearfix{
 	&:before, &:after {
 		display: table;
@@ -118,6 +129,7 @@ p,ul {
 		clear: both
 	}
 }
+// 字体显示
 .textAlignLeft{
 	text-align: left !important;
 }
@@ -127,14 +139,17 @@ p,ul {
 .textAlignCenter{
 	text-align: center !important;
 }
+// 文字溢出显示省略号
 .textEllipsis{
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
 }
+// 无边框
 .borderNone{
 	border: 0 !important;
 }
+// 字体颜色，使用方式：class="text-warning text-danger"
 .text{
   &-warning{
     color: @warning;
@@ -149,81 +164,130 @@ p,ul {
     color: @primary;
   }
 }
+// 鼠标显示为手型👆
 .cursor{
 	cursor: pointer;
 }
-.link{
-  color: @mainWhite;
-  text-decoration: none;
+// 自动边距（用于补充下方边距函数的短缺）
+.mgAuto{
+	margin: auto;
 }
+// 宽度100%（用于补充下方宽度函数的短缺）
 .width100{
 	.width(100%) !important;
 }
-.textColorLightBlue{
-	color: @mainBgColorLight;
-}
-// 待调用样式函数
+// 样式函数主要用于less源码中的调用，不用于页面
+// 待调用宽度样式函数，使用方式如上面宽度100%的样式
 .width(@a:100px){
     width: @a;
 }
+// 待调用行高样式函数，使用方式如上面宽度100%的样式
 .lh(@a:100px){
     line-height: @a;
 }
+// 待调用圆角样式函数，使用方式如上面宽度100%的样式
 .borderRadius(@a:5px){
     border-radius: @a;
 }
+                     
+//循环背景色样式，调用时可直接在页面上使用<div class="bgfff">
+//定义bg数组，从define定义的颜色中取色值名称，生成样式名：bgfff，bgeee......
+@bgList: fff eee;
+.bg-loop(@list,@i:1,@val:extract(@list,@i)) when (length(@list)>=@i){
+    .bg@{val}{
+        background-color: ~"#@{val}" !important;
+    }
+    .bg-loop(@list,(@i+1));
+}
+.bg-loop(@bgList);
 
-// 循环生成样式loop，调用时可直接在页面上使用<div class="pl30">
+//循环生成圆角样式，调用时可直接在页面上使用<div class="borderR30">
+//定义borderRadius数组，生成样式名：borderR1，borderR2,borderR10......
+@borderRadiusList: 1 2 3 4 5 10 20 30 50;
+.br-loop(@list,@i:1,@val:extract(@list,@i)) when (length(@list)>=@i){
+    .borderR@{val}{
+        border-radius:@val + 0px !important;
+    }
+    .br-loop(@list,(@i+1));
+}
+.br-loop(@borderRadiusList);
+
+//循环生成行高样式，调用时可直接在页面上使用<div class="lheight30">
+//定义lineHeight数组，生成样式名：lheight20，lheight30,lheight40......
+@lineHeightList: 20 30 40;
+.lh-loop(@list,@i:1,@val:extract(@list,@i)) when (length(@list)>=@i){
+    .lheight@{val}{
+        line-height:@val + 0px !important;
+    }
+    .lh-loop(@list,(@i+1));
+}
+.lh-loop(@lineHeightList);
+
+// 循环生成边距样式，调用时可直接在页面上使用<div class="pd30">
+// pd30:padding:30px        
+// pl30:padding-left:30px        
+// pt30:padding-top:30px
+// pb30:padding-bottom:30px
+// pr30:padding-right:30px
+// mg30:margin:30px
+// ml30:margin-left:30px
+// mr30:margin-right:30px
+// mt30:margin-top:30px
+// mb30:margin-bottom:30px
+// 30可以替换成@distant中定义的任一个数字，对应的边框为该数字的数值，mb50:margin-bottom:50px
+// 如需添加新的边距值，直接在@distant中添加即可，其他函数方法同样的处理即可
+//定义要生成的class名称数组
 @distantName:pd pl pr pt pb mg ml mr mt mb;
-@distant:0 3 6 10 14 15 20 30 40 50;
+//定义要生成的边距距离数组
+@distant:0 3 5 6 10 14 15 20 24 25 28 30 40 50;
 .loop3(@index) when (@index < length(@distantName)+1) {
     .loop2(@counter,@val:extract(@distant,@counter)) when (@counter < length(@distant)+1) {
-        &when (extract(@distantName, @index) = pd) {
+        & when (extract(@distantName, @index) = pd) {
             .pd@{val}{
                 padding: extract(@distant, @counter) + 0px !important;
             }
         }    
-        &when (extract(@distantName, @index) = pl) {
+        & when (extract(@distantName, @index) = pl) {
             .pl@{val}{
                 padding-left: extract(@distant, @counter) + 0px !important;
             }
         }    
-        &when (extract(@distantName, @index) = pr) {
+        & when (extract(@distantName, @index) = pr) {
             .pr@{val}{
                 padding-right: extract(@distant, @counter) + 0px !important;
             }
         }    
-        &when (extract(@distantName, @index) = pt) {
+        & when (extract(@distantName, @index) = pt) {
             .pt@{val}{
                 padding-top: extract(@distant, @counter) + 0px !important;
             }
         }    
-        &when (extract(@distantName, @index) = pb) {
+        & when (extract(@distantName, @index) = pb) {
             .pb@{val}{
                 padding-bottom: extract(@distant, @counter) + 0px !important;
             }
         }
-        &when (extract(@distantName, @index) = mg) {
+        & when (extract(@distantName, @index) = mg) {
             .mg@{val}{
                 margin: extract(@distant, @counter) + 0px !important;
             }
         }    
-        &when (extract(@distantName, @index) = ml) {
+        & when (extract(@distantName, @index) = ml) {
             .ml@{val}{
                 margin-left: extract(@distant, @counter) + 0px !important;
             }
         }    
-        &when (extract(@distantName, @index) = mr) {
+        & when (extract(@distantName, @index) = mr) {
             .mr@{val}{
                 margin-right: extract(@distant, @counter) + 0px !important;
             }
         }    
-        &when (extract(@distantName, @index) = mt) {
+        & when (extract(@distantName, @index) = mt) {
             .mt@{val}{
                 margin-top: extract(@distant, @counter) + 0px !important;
             }
         }    
-        &when (extract(@distantName, @index) = mb) {
+        & when (extract(@distantName, @index) = mb) {
             .mb@{val}{
                 margin-bottom: extract(@distant, @counter) + 0px !important;
             }
@@ -233,6 +297,6 @@ p,ul {
     .loop2(1);
     .loop3((@index + 1));
     ///*此处可以不用判断，但是为了页面上调用方便写成了简写方式“pl30”，可以用padding-left代替pl,页面调用添加样式“padding-left:30px”*/
-}
+};
 .loop3(1);
 

@@ -1,5 +1,5 @@
 import axios from "../../axios";
-import api from "../../axios/httpApi";
+import requestInterface from "../../axios/request";
 
 /* 获取列表统一处理列表数据 */
 import dealData from "./dealData";
@@ -14,10 +14,37 @@ export default {
     _Vue.prototype.$vueCopy = data => {
       return JSON.parse(JSON.stringify(data));
     };
-    /* 获取接口数据 */
-    _Vue.prototype.$getData = (urlstr, params) => {
+    /* 获取接口数据get方法 */
+    _Vue.prototype.$getData = (urlstr, params, isFormdata) => {
+      let formflag = isFormdata ? isFormdata : false;
       return new Promise(resolve => {
-        axios(api[urlstr](), params).then(xhr => {
+        axios(requestInterface["getMethod"](urlstr, formflag), params).then(
+          xhr => {
+            resolve(xhr);
+          }
+        );
+      });
+    };
+    /* 获取接口数据post方法 */
+    _Vue.prototype.$postData = (urlstr, params, isFormdata) => {
+      let formflag = isFormdata ? isFormdata : false;
+      return new Promise(resolve => {
+        axios(requestInterface["postMethod"](urlstr, formflag), params).then(
+          xhr => {
+            resolve(xhr);
+          }
+        );
+      });
+    };
+    /* 获取接口数据所有方法 */
+    _Vue.prototype.$methodData = (type, urlstr, params, isFormdata) => {
+      let formflag = isFormdata ? isFormdata : false,
+        method = type ? type : "get";
+      return new Promise(resolve => {
+        axios(
+          requestInterface["kindMethod"](method, urlstr, formflag),
+          params
+        ).then(xhr => {
           resolve(xhr);
         });
       });

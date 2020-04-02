@@ -343,13 +343,12 @@ export const asyncRouterMap_Manager = [
             }
           },
           {
-            path: "/managePage/components/mainTopLogo",
-            name: "mainTopLogo",
+            path: "/managePage/components/headerBar",
+            name: "headerBar",
             hidden: false,
-            component: () =>
-              import("@/views/managePage/components/mainTopLogo"),
+            component: () => import("@/views/managePage/components/headerBar"),
             meta: {
-              title: "mainTopLogo 页眉"
+              title: "headerBar 页眉"
             }
           },
           {
@@ -359,6 +358,15 @@ export const asyncRouterMap_Manager = [
             component: () => import("@/views/managePage/components/footBar"),
             meta: {
               title: "footBar 页脚"
+            }
+          },
+          {
+            path: "/managePage/components/echarts",
+            name: "echarts",
+            hidden: false,
+            component: () => import("@/views/managePage/components/echarts"),
+            meta: {
+              title: "echarts 图表"
             }
           }
         ]
@@ -375,11 +383,20 @@ export const asyncRouterMap_Manager = [
         children: [
           {
             path: "/managePage/less/less",
-            name: "less",
+            name: "lessMng",
             hidden: false,
             component: () => import("@/views/managePage/less/less"),
             meta: {
               title: "less 定义使用"
+            }
+          },
+          {
+            path: "/managePage/less/lessCommonStyle",
+            name: "lessCommonStyle",
+            hidden: false,
+            component: () => import("@/views/managePage/less/lessCommonStyle"),
+            meta: {
+              title: "less 通用样式"
             }
           }
         ]
