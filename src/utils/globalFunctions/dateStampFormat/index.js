@@ -3,15 +3,15 @@ export default (value, formatType) => {
     return "";
   }
   var dd;
-  if(typeof(value)=="number"){
-    if((value + '').length == 10){
-      dd = value*1000
-    }else{
-      dd = value
+  if (typeof value == "number") {
+    if ((value + "").length == 10) {
+      dd = value * 1000;
+    } else {
+      dd = value;
     }
   }
-  if(typeof(value)=="string"){
-    if(value.indexOf("T") > -1){
+  if (typeof value == "string") {
+    if (value.indexOf("T") > -1) {
       var arr = value.split("T");
       var dat = arr[0];
       var darr = dat.split("-");
@@ -30,11 +30,11 @@ export default (value, formatType) => {
         parseInt(marr[1]) +
         ":" +
         parseInt(marr[2]);
-    }else{
-      if(value.indexOf("-") > -1){
+    } else {
+      if (value.indexOf("-") > -1) {
         dd = value.replace(new RegExp("-", "gm"), "/");
-      }else{
-        dd = value
+      } else {
+        dd = value;
       }
     }
   }
