@@ -1,0 +1,52 @@
+[
+  {
+    "type": "input",
+    "label": "菜单名称",
+    "name": "menuname",
+    "span": 12,
+    "width": "140px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "菜单编码",
+    "name": "menuid",
+    "span": 12,
+    "width": "140px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "菜单活动(url)",
+    "name": "menuaction",
+    "span": 12,
+    "width": "140px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "是否叶子结点",
+    "name": "isleaf",
+    "data": [
+      {
+        "label": "是",
+        "value": "Y"
+      },
+      {
+        "label": "否",
+        "value": "N"
+      }
+    ],
+    "span": 12,
+    "width": "140px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "显示顺序",
+    "name": "displayorder",
+    "span": 12,
+    "width": "140px",
+    "disabled": true
+  }
+]

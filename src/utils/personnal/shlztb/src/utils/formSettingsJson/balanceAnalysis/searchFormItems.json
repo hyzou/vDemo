@@ -1,0 +1,23 @@
+[
+  {
+    "type": "input",
+    "label": "会员名称",
+    "name": "COMPANY",
+    "span": 8,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "交易金额(起)",
+    "name": "num1",
+    "span": 8,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "交易金额(止)",
+    "name": "num2",
+    "span": 8,
+    "width": "120px"
+  }
+]

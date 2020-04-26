@@ -19,14 +19,15 @@ export default {
       });
     };
     /* 获取接口数据post方法 */
-    _Vue.prototype.$postData = (urlstr, params, isFormdata) => {
+    _Vue.prototype.$postData = (urlstr, params, isFormdata, hasOwnUrl) => {
       let formflag = isFormdata ? isFormdata : false;
       return new Promise(resolve => {
-        axios(requestInterface["postMethod"](urlstr, formflag), params).then(
-          xhr => {
-            resolve(xhr);
-          }
-        );
+        axios(
+          requestInterface["postMethod"](urlstr, formflag, hasOwnUrl),
+          params
+        ).then(xhr => {
+          resolve(xhr);
+        });
       });
     };
     /* 获取接口数据所有方法 */

@@ -1,0 +1,9 @@
+[
+  {
+    "keyWords": "add",
+    "name": "修改",
+    "type": "primary",
+    "icon": "el-icon-edit",
+    "postUrl": "addmenu"
+  }
+]

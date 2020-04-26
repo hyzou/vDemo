@@ -1,0 +1,30 @@
+[
+  {
+    "prop": "stackid__dsp",
+    "lable": "货位名称"
+  },
+  {
+    "prop": "storeHouseName",
+    "lable": "仓房名称"
+  },
+  {
+    "prop": "grainHarvest",
+    "lable": "收获年份"
+  },
+  {
+    "prop": "grainBreed__dsp",
+    "lable": "粮油品种"
+  },
+  {
+    "prop": "grainProperty__dsp",
+    "lable": "粮油性质"
+  },
+  {
+    "prop": "grainRank__dsp",
+    "lable": "粮油等级"
+  },
+  {
+    "prop": "stackMode__dsp",
+    "lable": "存储方式"
+  }
+]

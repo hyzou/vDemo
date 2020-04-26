@@ -1,0 +1,30 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "qasBasItemTypeId",
+    "name": "qasBasItemTypeId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "elTreeSelect",
+    "label": "所属检测项",
+    "name": "parentId",
+    "props": {
+      "value": "id",
+      "label": "text",
+      "children": "children"
+    },
+    "data": [],
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  }
+]

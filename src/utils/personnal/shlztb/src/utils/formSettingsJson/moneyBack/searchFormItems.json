@@ -1,0 +1,48 @@
+[
+  {
+    "type": "select",
+    "label": "会员名称",
+    "filterable": true,
+    "op": "equal",
+    "name": "memberid",
+    "data": [],
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "op": "equal",
+    "name": "status",
+    "data": [
+      {
+        "label":"申请审批",
+        "value": "handleWithdraw"
+      },
+      {
+        "label":"修改申请",
+        "value": "adjustWithdraw"
+      },
+      {
+        "label":"取消申请",
+        "value": "cancelWithdraw"
+      },
+      {
+        "label":"审批通过",
+        "value": "passWithdraw"
+      }
+    ],
+    "span": 8
+  },
+  {
+    "type": "date",
+    "label": "申请时间",
+    "name": "sysAddtime",
+    "dateType": "daterange",
+    "dateRangeSeparator": "至",
+    "dateStartPlaceholder": "开始日期",
+    "dateEndPlaceholder": "结束日期",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "span": 8
+  }
+]

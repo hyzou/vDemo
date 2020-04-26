@@ -1,0 +1,9 @@
+[
+  {
+    "keyWords": "add",
+    "name": "导出列表",
+    "type": "success",
+    "icon": "el-icon-download",
+    "postUrl": "addmenu"
+  }
+]

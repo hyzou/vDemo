@@ -1,0 +1,141 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "qasStdId",
+    "name": "qasStdId",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "disabled": true,
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "标准编码",
+    "disabled": true,
+    "name": "stdNo",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "date",
+    "label": "发布日期",
+    "disabled": true,
+    "name": "strissuedDt",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "标准类型",
+    "disabled": true,
+    "name": "type",
+    "data":[
+      {
+        "label":"检测标准",
+        "value":"1"
+      },
+      {
+        "label":"检测方法",
+        "value":"2"
+      }
+    ],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "disabled": true,
+    "name": "status",
+    "data": [
+      {
+        "label": "现行",
+        "value": "1"
+      },
+      {
+        "label": "过期",
+        "value": "2"
+      },
+      {
+        "label": "作废",
+        "value": "9"
+      }
+    ],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "产品类别",
+    "disabled": true,
+    "name": "productType",
+    "filterable": true,
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "分类条件",
+    "disabled": true,
+    "name": "criteriaTags",
+    "filterable": true,
+    "multiple":true,
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "颁布组织",
+    "disabled": true,
+    "filterable": true,
+    "name": "issuedBy",
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "代替的标准编号",
+    "disabled": true,
+    "name": "replacedStdNo",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "是否禁用",
+    "disabled": true,
+    "name": "disable",
+    "data": [
+      {
+        "label": "禁用",
+        "value": "Y"
+      },
+      {
+        "label": "启用",
+        "value": "N"
+      }
+    ],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "textarea",
+    "label": "描述",
+    "disabled": true,
+    "name": "DESCRIPTION",
+    "span": 24,
+    "width": "120px"
+  }
+]

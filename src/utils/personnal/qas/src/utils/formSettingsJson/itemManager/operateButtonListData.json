@@ -1,0 +1,14 @@
+[
+  {
+    "flag": "selectTarget",
+    "label": "新增检测项",
+    "styleType": "primary",
+    "postUrl": ""
+  },
+  {
+    "flag": "newTarget",
+    "label": "新增指标",
+    "styleType": "primary",
+    "postUrl": ""
+  }
+]

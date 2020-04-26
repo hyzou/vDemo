@@ -1,0 +1,220 @@
+[
+  {
+    "type": "input",
+    "label": "专场名称",
+    "name": "name",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "委托单位",
+    "name": "clientid",
+    "data": [],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "专场模式",
+    "name": "type",
+    "data": [],
+    "span": 12,
+    "width": "150px",
+    "linkName": "multyQuote",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "能否多次报价",
+    "name": "multyQuote",
+    "data": [
+      {
+        "value": "Y",
+        "label": "允许多次报价"
+      },
+      {
+        "value": "N",
+        "label": "仅能报一次"
+      }
+    ],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "计量单位",
+    "name": "munit",
+    "data": [
+      {
+        "value": "kg",
+        "label": "公斤"
+      },
+      {
+        "value": "ton",
+        "label": "吨"
+      }
+    ],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "是否允许观摩",
+    "name": "flagWatch",
+    "data": [
+      {
+        "value": "Y",
+        "label": "是"
+      },
+      {
+        "value": "N",
+        "label": "否"
+      }
+    ],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "报名截止时间",
+    "name": "registerEndtime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "合同签订截止时间",
+    "name": "contractDuedate",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "交易开始时间",
+    "name": "tradeBegintime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "交易结束时间",
+    "name": "tradeEndtime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "保证金(元/单位)",
+    "name": "deposit",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "stepInput",
+    "label": "手续费费率",
+    "name": "feerate",
+    "span": 12,
+    "width": "150px",
+    "min": 0,
+    "max": 1,
+    "precision": 3,
+    "step": 0.001,
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "可参加的会员",
+    "name": "allowMembers",
+    "multiple": true,
+    "data": [],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "不可参加的会员",
+    "name": "notallowMembers",
+    "multiple": true,
+    "data": [],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "价格分分值",
+    "name": "calcScore",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "价格分表达式",
+    "name": "calcExpCode",
+    "data": [],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "inputTable",
+    "label": "综合分评定规则",
+    "name": "projectScoreList",
+    "span": 24,
+    "useType": "use",
+    "width": "150px",
+    "headers": [
+      {
+        "title": "打分项",
+        "key": "itemName",
+        "disabled": true,
+        "hiddenItem": false
+      },
+      {
+        "title": "评分标准",
+        "key": "itemStandard",
+        "disabled": true,
+        "hiddenItem": false
+      },
+      {
+        "title": "分值",
+        "key": "itemScore",
+        "disabled": true,
+        "hiddenItem": false
+      }
+    ]
+  },
+  {
+    "type": "textarea",
+    "label": "项目介绍",
+    "name": "content",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  }
+]

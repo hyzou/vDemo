@@ -1,0 +1,59 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "sysId",
+    "data": [],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "标的号",
+    "name": "no",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "品名",
+    "name": "name",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "数量",
+    "name": "num",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "最高限价(元/单位)",
+    "name": "highestprice",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "最低限价(元/单位)",
+    "name": "lowestprice",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "状态",
+    "name": "status__dsp",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "updateTarget",
+    "label": "修改指标",
+    "styleType": "primary",
+    "postUrl": "updateTestTarget"
+  }
+]

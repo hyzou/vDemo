@@ -1,0 +1,26 @@
+[
+  {
+    "prop": "title",
+    "lable": "标题"
+  },
+  {
+    "prop": "link__dsp",
+    "lable": "监管环节",
+    "width":"240"
+  },
+  {
+    "prop": "natureName",
+    "lable": "计划性质",
+    "width":"240"
+  },
+  {
+    "prop": "productBreed__dsp",
+    "lable": "产品品种",
+    "width":"220"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width":"120"
+  }
+]

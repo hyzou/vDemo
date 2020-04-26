@@ -1,0 +1,217 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "basMemberId",
+    "name": "basMemberId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "taskId",
+    "name": "taskId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "processinstId",
+    "name": "processinstId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "group",
+    "span": 24,
+    "name": "1",
+    "title": "基本信息"
+  },
+  {
+    "type": "input",
+    "label": "登录用户名",
+    "name": "loginName",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "姓名",
+    "name": "memName",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "电子邮箱",
+    "name": "memEmail",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "联系电话",
+    "name": "memPhone",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "手机",
+    "name": "memMobile",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "会员类型",
+    "name": "memType",
+    "data": [
+      {
+        "value": "3",
+        "label": "会员"
+      },
+      {
+        "value": "2",
+        "label": "委托方"
+      }
+    ],
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "group",
+    "span": 24,
+    "name": "2",
+    "title": "法人代表信息"
+  },
+  {
+    "type": "input",
+    "label": "法人代表姓名",
+    "name": "legalman",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "法人代表联系电话",
+    "name": "lawphone",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "法人代表手机",
+    "name": "lawmobile",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "法人代表电子邮箱",
+    "name": "lawemail",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "group",
+    "span": 24,
+    "name": "3",
+    "title": "公司信息"
+  },
+  {
+    "type": "input",
+    "label": "公司名称",
+    "name": "companyName",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "统一社会信用代码",
+    "name": "companyCode",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "公司所在地详细地址",
+    "name": "companyAddress",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "开户银行",
+    "name": "companyBank",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "银行账号",
+    "name": "companyBankAccount",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "银行开户名",
+    "name": "companyBankAccountName",
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "发票种类",
+    "name": "invoicetype",
+    "data": [],
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "flowComment",
+    "label": "历次审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "200px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  },
+  {
+    "type": "textarea",
+    "label": "审批意见",
+    "name": "flowComment",
+    "span": 24,
+    "disabled": false,
+    "width": "200px"
+  }
+]

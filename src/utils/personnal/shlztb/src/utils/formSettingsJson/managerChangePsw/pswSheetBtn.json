@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "query",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "updatePswManager"
+  }
+]

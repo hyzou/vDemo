@@ -1,0 +1,29 @@
+[
+  {
+    "prop": "memberName",
+    "lable": "会员名称",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  },
+  {
+    "prop": "status__dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "num",
+    "lable": "交易金(元)",
+    "width": ""
+  },
+  {
+    "prop": "numLock",
+    "lable": "锁定金(元)",
+    "width": ""
+  },
+  {
+    "prop": "no",
+    "lable": "虚拟账户名",
+    "width": ""
+  }
+]

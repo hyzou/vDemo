@@ -35,6 +35,7 @@
 				<p v-if="showflag">v-if</p>
 				<p v-else>v-else</p>
 				<p v-show="showflag">v-show</p>
+				<button type="button" @click="reset">重置</button>
 			</div>
 		</div>
 
@@ -69,6 +70,9 @@
 						console.log(this.testinputValue);
 						console.log(this.testinputObj);
 					},
+					reset(){
+						Object.assign(this.$data, this.$options.data())
+					}
 				},
 				computed: {
 					totalString() {

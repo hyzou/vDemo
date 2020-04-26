@@ -1,0 +1,9 @@
+[
+  {
+    "type": "input",
+    "label": "会员名称",
+    "name": "companyName",
+    "span": 8,
+    "width": "120px"
+  }
+]

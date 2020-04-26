@@ -1,0 +1,147 @@
+[
+  {
+    "type": "input",
+    "label": "分组",
+    "name": "group",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "任务名",
+    "name": "name",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "任务描述",
+    "name": "description",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "任务调用类",
+    "name": "jobClass",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "表达式类型",
+    "name": "expressionType",
+    "data": [
+      {
+        "label": "corn表达式",
+        "value": "0"
+      },
+      {
+        "label": "简单表达式",
+        "value": "1"
+      }
+    ],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "corn表达式",
+    "name": "cronExpression",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "简单表达式开始时间",
+    "name": "simpleExpressionStartdate",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "简单表达式间隔时间",
+    "name": "simpleExpressionInterval",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "是否可用",
+    "name": "enabled",
+    "data": [
+      {
+        "label": "禁用",
+        "value": "0"
+      },
+      {
+        "label": "启用",
+        "value": "1"
+      }
+    ],
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "stepInput",
+    "label": "运行次数",
+    "name": "simpleExpressionTimes",
+    "span": 12,
+    "precision": 0,
+    "step": 1,
+    "min": 0,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "上次运行时间",
+    "name": "lastRunTime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "下次运行时间",
+    "name": "nextRunTime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "任务状态",
+    "name": "state",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "运行时额外参数",
+    "placeholder": "使用键值对利用&隔开【例：param1=1&param2=2&param3=3】",
+    "name": "params",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  }
+]

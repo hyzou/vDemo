@@ -1,0 +1,28 @@
+[
+  {
+    "type": "input",
+    "label": "标题",
+    "name": "title",
+    "span": 6
+  },
+  {
+    "type": "date",
+    "label": "发布时间",
+    "name": "issuetime",
+    "dateType": "daterange",
+    "dateRangeSeparator": "至",
+    "dateStartPlaceholder": "开始日期",
+    "dateEndPlaceholder": "结束日期",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "name": "status",
+    "placeHolder": "请选择",
+    "data": [],
+    "span": 6
+  }
+]

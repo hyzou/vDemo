@@ -1,0 +1,304 @@
+*{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.el-table { 
+  width: 99.9% !important; 
+}
+.mainContainer{
+  background-color: @colorEEE;
+}
+.common_table_container{
+  background-color: @mainWhite;
+}
+#main_container {
+  height: 100%;
+}
+
+#left_menu {
+  background: @mainWhite;
+}
+
+.el-menu-vertical-demo {
+  border-right: 0px !important;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 100%;
+  min-height: 400px;
+}
+
+.el-menu--popup .el-submenu__title {
+  border-bottom: 0px !important;
+}
+
+.maxHeight400{
+  max-height: 400px !important;
+  overflow-y: auto;
+}
+.height600{
+  height: 600px !important;
+  max-height: 600px !important;
+}
+.height650{
+  height: 650px !important;
+  max-height: 650px !important;
+}
+
+// .el-dialog__body{
+//   max-height: 600px !important;
+//   overflow-y: auto;
+// }
+.headerToolbar{
+  color: @mainWhite;
+  height: 60px;
+  .pd15;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  &-icon{
+    font-size: 22px;
+    // .mr28;
+  }
+  .currentUser{
+    background: @colorCCC;
+    border-radius: 50%;
+    .pd5;
+    .mr5;
+  }
+  a{
+    color: @mainWhite;
+    text-decoration: none;
+  }
+  .noticeTips{
+    .positionAbs;
+    .displayBlock;
+    .pt3;
+    .pb3;
+    .pl6;
+    .pr6;
+    top: -5px;
+    right: -15px;
+    background: @mainRed;
+    font-size: 12px;
+    .borderRadius(50%)
+  }
+}
+
+.logo {
+  width: 100%;
+  background-color: #336CDE;
+  color: @mainWhite;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.user-icon {
+  padding-top: 10px;
+  float: left;
+}
+
+.logout-box {
+  padding-top: 15px;
+  padding-left: 25px;
+}
+
+.logout {
+  font-size: 25px;
+  color: @mainWhite;
+  cursor: pointer;
+}
+
+.el-header {
+  border-bottom: 1px solid #CACACA;
+  background-color: #336CDE;
+  height: 62px !important;
+}
+
+.topMenu {
+  background-color: #336CDE !important;
+  border: 0px !important;
+  i{
+    color: @mainWhite !important;        
+  }
+  .el-submenu{
+    .el-menu-item{
+      min-width: 150px;
+      width: 150px;
+    }
+  }
+  .el-submenu, .el-menu--popup{
+    min-width: 150px;
+    width: 150px;
+  }
+}
+.head-row {
+  height: 100%;
+}
+
+.logo-box {
+  padding-top: 17px;
+  text-align: center;
+}
+
+.toggle {
+  font-size: 36px;
+  color: @mainWhite;
+  cursor: pointer;
+  line-height: 30px;
+}
+
+.is_toggle {
+  width: 50px !important;
+}
+
+.bread {
+  margin-bottom: 10px;
+}
+
+.left {
+  float: left;
+}
+
+.main-view {
+  height: calc(100% - 30px);
+}
+
+.defCountCss {
+  width: 500px;
+  height: 500px;
+}
+
+.defTableCss {
+  width: 50%;
+}
+
+.indexcarousel {
+  width: 1000px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.barCount {
+  width: 1000px;
+  height: 500px;
+}
+
+.el-menu-vertical-demo > li > .el-submenu__title {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(61, 73, 102, 1);
+}
+
+.el-menu-vertical-demo > li > .el-submenu__title:hover {
+  border-left: 4px solid #3377FF !important;
+  background-color: #F7F9FC !important;
+  color: #3377FF !important;
+}
+
+.el-menu-vertical-demo > .el-submenu > .el-menu > .is-active {
+  border-left: 4px solid #3377FF !important;
+  background-color: #F7F9FC !important;
+  color: #3377FF !important;
+}
+
+.leftMenuMenu {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(61, 73, 102, 1);
+}
+
+.leftMenuMenu:hover {
+  border-left: 4px solid #3377FF !important;
+  background-color: #F7F9FC !important;
+  color: #3377FF !important;
+}
+
+.defFirstCss {
+  width: 70%;
+  height: 590px;
+  background: @mainWhite;
+  box-shadow: 0px 1px 6px 2px rgba(123, 123, 123, 0.5);
+  float: left;
+}
+
+.defFirstCss_header {
+  border-bottom: 1px solid #D3DBEB;
+}
+
+.defFirstCss_header span {
+  font-size: 1.17em;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 15px;
+}
+
+.defSecondCss {
+  width: 28%;
+  float: left;
+  margin-left: 20px;
+  height: 576px
+}
+
+.defSecondCssDivF {
+  width: 100%;
+  height: 296px;
+  background: @mainWhite;
+  box-shadow: 0px 1px 6px 2px rgba(123, 123, 123, 0.5);
+}
+
+.defSecondCssDivS {
+  width: 100%;
+  margin-top: 20px;
+  height: 276px;
+  background: @mainWhite;
+  box-shadow: 0px 1px 6px 2px rgba(123, 123, 123, 0.5);
+}
+
+.defMainWith70pCss {
+  width: 70%;
+  height: 500px;
+  background: @mainWhite;
+  box-shadow: 0px 1px 6px 2px rgba(123, 123, 123, 0.5);
+  float: left;
+  margin-top: 20px;
+}
+
+.defMainWith28pCss {
+  width: 28%;
+  height: 500px;
+  background: @mainWhite;
+  box-shadow: 0px 1px 6px 2px rgba(123, 123, 123, 0.5);
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.fontMainBlack>.el-input__inner{
+  color: @mainBlack !important;
+}
+.fontMainBlack>.el-input>.el-input__inner{
+  color: @mainBlack !important;
+}
+.fontMainBlack>.el-radio-button__inner{
+  color: @mainBlack !important;
+}
+.activeTd{
+  background: #F5F7FA !important;
+}
+.activefont {
+  color: @primary !important;
+}
+#nprogress .bar {
+  background:#ffd04b !important; //自定义颜色
+}
+.contentLeftLayout{
+  width:20%;float: left;height: 100%;
+}
+.contentRightLayout{
+  margin-left: 10px;width: 78%;float: left;height: 100%;
+}

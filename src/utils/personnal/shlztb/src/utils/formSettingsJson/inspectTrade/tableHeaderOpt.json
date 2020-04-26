@@ -1,0 +1,42 @@
+[
+  {
+    "prop": "projectName",
+    "lable": "专场名称",
+    "width": ""
+  },
+  {
+    "prop": "no",
+    "lable": "标的号",
+    "width": ""
+  },
+  {
+    "prop": "name",
+    "lable": "品名",
+    "width": ""
+  },
+  {
+    "prop": "numUnit",
+    "lable": "数量",
+    "width": ""
+  },
+  {
+    "prop": "highestprice",
+    "lable": "最高限价(元/单位)",
+    "width": ""
+  },
+  {
+    "prop": "lowestprice",
+    "lable": "最低限价(元/单位)",
+    "width": ""
+  },
+  {
+    "prop": "latestPrice",
+    "lable": "最新价(元/单位)",
+    "width": ""
+  },
+  {
+    "prop": "status__dsp",
+    "lable": "状态",
+    "width": ""
+  }
+]

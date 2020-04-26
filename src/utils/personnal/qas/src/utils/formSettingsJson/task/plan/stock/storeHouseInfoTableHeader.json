@@ -1,0 +1,34 @@
+[
+  {
+    "prop": "name",
+    "lable": "仓房名称"
+  },
+  {
+    "prop": "code",
+    "lable": "仓房编号"
+  },
+  {
+    "prop": "storePointName",
+    "lable": "库点名称"
+  },
+  {
+    "prop": "type__dsp",
+    "lable": "仓房类型"
+  },
+  {
+    "prop": "grade__dsp",
+    "lable": "油罐等级"
+  },
+  {
+    "prop": "otType__dsp",
+    "lable": "油罐类型"
+  },
+  {
+    "prop": "useStatus__dsp",
+    "lable": "油罐状态"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "keyWords": "add",
+    "name": "添加",
+    "type": "success",
+    "icon": "el-icon-circle-plus-outline",
+    "postUrl": "addmenu"
+  },
+  {
+    "keyWords": "disable",
+    "name": "禁用",
+    "type": "warning",
+    "icon": "el-icon-remove-outline",
+    "postUrl": ""
+  },
+  {
+    "keyWords": "enable",
+    "name": "启用",
+    "type": "primary",
+    "icon": "el-icon-s-opportunity",
+    "postUrl": ""
+  },
+  {
+    "keyWords": "remove",
+    "name": "删除",
+    "type": "danger",
+    "icon": "el-icon-delete",
+    "postUrl": "deletemenu"
+  }
+]

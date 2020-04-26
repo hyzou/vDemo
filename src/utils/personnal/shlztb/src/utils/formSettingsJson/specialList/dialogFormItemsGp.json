@@ -1,0 +1,19 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysParentid",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "stepInput",
+    "label": "我的报价",
+    "name": "price",
+    "span": 12,
+    "precision": 2,
+    "step": 1,
+    "min": 0,
+    "width": "120px"
+  }
+]

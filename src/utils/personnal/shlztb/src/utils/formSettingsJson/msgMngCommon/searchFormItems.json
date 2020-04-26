@@ -1,0 +1,19 @@
+[
+  {
+    "type": "select",
+    "label": "人员类型",
+    "cannotClear": true,
+    "name": "type",
+    "data": [
+      {
+        "label": "交易代表",
+        "value": "1"
+      },
+      {
+        "label": "法人",
+        "value": "2"
+      }
+    ],
+    "span": 6
+  }
+]

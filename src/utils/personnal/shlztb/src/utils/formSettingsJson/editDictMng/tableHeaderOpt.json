@@ -1,0 +1,42 @@
+[
+  {
+    "prop": "busintypeid",
+    "lable": "业务类型编号",
+    "width": ""
+  },
+  {
+    "prop": "businname",
+    "lable": "业务名称",
+    "width": ""
+  },
+  {
+    "prop": "businid",
+    "lable": "业务编码",
+    "width": ""
+  },
+  {
+    "prop": "privilege",
+    "lable": "优先权",
+    "width": ""
+  },
+  {
+    "prop": "sortseq",
+    "lable": "排序",
+    "width": ""
+  },
+  {
+    "prop": "ext1",
+    "lable": "扩展字段",
+    "width": ""
+  },
+  {
+    "prop": "status_dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

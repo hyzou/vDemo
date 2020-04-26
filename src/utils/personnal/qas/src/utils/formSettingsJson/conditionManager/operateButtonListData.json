@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "insert",
+    "label": "新增分类条件",
+    "styleType": "primary",
+    "postUrl": "addTag"
+  }
+]

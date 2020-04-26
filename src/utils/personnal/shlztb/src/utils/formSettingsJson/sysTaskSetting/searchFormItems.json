@@ -1,0 +1,14 @@
+[
+  {
+    "type": "input",
+    "label": "任务名称",
+    "name": "name",
+    "span": 6
+  },
+  {
+    "type": "input",
+    "label": "任务分组",
+    "name": "group",
+    "span": 6
+  }
+]

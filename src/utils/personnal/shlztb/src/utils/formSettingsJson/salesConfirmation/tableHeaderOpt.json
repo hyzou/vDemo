@@ -1,0 +1,42 @@
+[
+  {
+    "prop": "projectName",
+    "lable": "专场名称",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  },
+  {
+    "prop": "no",
+    "lable": "标的号",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true,
+    "clickType": "target"
+  },
+  {
+    "prop": "name",
+    "lable": "品名",
+    "width": ""
+  },
+  {
+    "prop": "numUnit",
+    "lable": "数量",
+    "width": ""
+  },
+  {
+    "prop": "winCompany",
+    "lable": "中标会员",
+    "width": ""
+  },
+  {
+    "prop": "winprice",
+    "lable": "中标价(元/单位)",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": "120"
+  }
+]

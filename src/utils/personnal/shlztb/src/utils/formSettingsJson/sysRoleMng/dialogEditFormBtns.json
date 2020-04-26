@@ -1,0 +1,14 @@
+[
+  {
+    "flag": "edit",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "updateRole"
+  },
+  {
+    "flag": "cancle",
+    "label": "取消",
+    "styleType": "primary",
+    "postUrl": ""
+  }
+]

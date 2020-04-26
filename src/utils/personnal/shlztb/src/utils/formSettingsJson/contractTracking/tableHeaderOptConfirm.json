@@ -1,0 +1,22 @@
+[
+  {
+    "prop": "code",
+    "lable": "合同编号",
+    "width": ""
+  },
+  {
+    "prop": "sendnumUnit",
+    "lable": "本次发送数量",
+    "width": ""
+  },
+  {
+    "prop": "status__dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

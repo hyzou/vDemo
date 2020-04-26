@@ -1,0 +1,23 @@
+[
+  {
+    "type": "html",
+    "label": "标题",
+    "name": "title",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "html",
+    "label": "发布时间",
+    "name": "sysAddtime",
+    "span": 24,
+    "disabled": true
+  },
+  {
+    "type": "html",
+    "label": "内容",
+    "name": "content",
+    "span": 24,
+    "disabled": true
+  }
+]

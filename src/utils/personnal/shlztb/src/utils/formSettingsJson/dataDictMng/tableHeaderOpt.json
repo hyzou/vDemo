@@ -1,0 +1,17 @@
+[
+  {
+    "prop": "busintypeid",
+    "lable": "业务类型编号",
+    "width": ""
+  },
+  {
+    "prop": "busintypename",
+    "lable": "业务类型名称",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

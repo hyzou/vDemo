@@ -1,0 +1,10 @@
+[
+  {
+    "type": "select",
+    "label": "业务功能",
+    "name": "sysType",
+    "placeHolder": "请选择",
+    "data": [],
+    "span": 8
+  }
+]

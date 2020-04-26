@@ -1,0 +1,18 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "op": "equal",
+    "name": "sysParentid",
+    "data": [],
+    "span": 8,
+    "filterable": true
+  },
+  {
+    "type": "input",
+    "label": "标的号",
+    "op": "contains",
+    "name": "no",
+    "span": 8
+  }
+]

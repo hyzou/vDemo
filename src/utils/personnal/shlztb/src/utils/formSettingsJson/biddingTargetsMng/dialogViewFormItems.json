@@ -1,0 +1,122 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "sysParentid",
+    "data": [],
+    "span": 12,
+    "width": "165px",
+    "linkName": "delay,delayscreen,highestprice,priceGap",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "标的号",
+    "name": "no",
+    "span": 12,
+    "width": "165px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "品名",
+    "name": "name",
+    "span": 12,
+    "width": "165px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "数量",
+    "name": "num",
+    "span": 12,
+    "width": "165px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "需保证金数量(元/单位)",
+    "name": "deposit",
+    "span": 12,
+    "width": "165px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "延时秒数",
+    "name": "delay",
+    "span": 12,
+    "width": "165px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "等待期秒数",
+    "name": "delayscreen",
+    "span": 12,
+    "width": "165px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "最高限价(元/单位)",
+    "name": "highestprice",
+    "span": 12,
+    "width": "165px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "最低限价(元/单位)",
+    "name": "lowestprice",
+    "span": 12,
+    "width": "165px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "价差(元/单位)",
+    "name": "rangeprice",
+    "span": 12,
+    "width": "165px",
+    "disabled": true
+  },
+  {
+    "type": "activTable",
+    "label": "标的属性",
+    "name": "propList",
+    "span": 24,
+    "width": "165px",
+    "useType": "",
+    "disabled": true,
+    "headers": [
+      {
+        "title": "属性名称",
+        "key": "name",
+        "disabled": true
+      },
+      {
+        "title": "属性编号",
+        "key": "code",
+        "disabled": true
+      },
+      {
+        "title": "属性值",
+        "key": "value",
+        "disabled": true
+      },
+      {
+        "title": "操作",
+        "hiddenItem": true,
+        "key": "btnOpt"
+      }
+    ],
+    "tableItems": [
+      {
+        "name": "",
+        "code": "",
+        "value": ""
+      }
+    ]
+  }
+]

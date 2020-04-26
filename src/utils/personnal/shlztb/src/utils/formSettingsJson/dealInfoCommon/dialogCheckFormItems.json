@@ -1,0 +1,110 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "taskId",
+    "name": "taskId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "processinstId",
+    "name": "processinstId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "type",
+    "name": "type",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "关联专场",
+    "name": "projectId",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "标题",
+    "name": "title",
+    "span": 12,
+    "disabled": true,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "文号",
+    "name": "code",
+    "span": 12,
+    "disabled": true,
+    "width": "120px"
+  },
+  {
+    "type": "date",
+    "label": "发布时间",
+    "name": "extd1",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "disabled": true,
+    "width": "120px"
+  },
+  {
+    "type": "html",
+    "label": "内容",
+    "name": "content",
+    "span": 24,
+    "disabled": true,
+    "width": "120px"
+  },
+  {
+    "type": "image",
+    "label": "已传附件",
+    "name": "viewfiles",
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "flowComment",
+    "label": "历次审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "120px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  },
+  {
+    "type": "textarea",
+    "label": "审批意见",
+    "name": "flowComment",
+    "span": 24,
+    "disabled": false,
+    "width": "120px"
+  }
+]

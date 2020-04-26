@@ -1,0 +1,26 @@
+[
+  {
+    "type": "input",
+    "label": "原密码",
+    "name": "password",
+    "password": true,
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "新密码",
+    "name": "newPassword",
+    "password": true,
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "确认新密码",
+    "name": "confirmPassword",
+    "password": true,
+    "span": 24,
+    "width": "120px"
+  }
+]

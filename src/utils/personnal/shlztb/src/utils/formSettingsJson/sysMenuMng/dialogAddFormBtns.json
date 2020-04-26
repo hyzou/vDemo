@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "add",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "addmenu"
+  }
+]

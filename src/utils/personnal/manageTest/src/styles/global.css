@@ -5,6 +5,12 @@
 .mint-header {
   background-color: #24AA57;
 }
+.mint-button--primary {
+  background-color: #24AA57;
+}
+body {
+  background-color: #EFEFF3;
+}
 .largeBtnContainer {
   width: 90%;
   text-align: center !important;
@@ -17,14 +23,20 @@
 .harfBtnContainer:nth-child(2) {
   float: right;
 }
-.harfBtnContainer {
-  width: 48%;
-  float: left;
-}
 .symbolRequired {
   top: 15px;
   left: 3px;
   z-index: 9;
+}
+.testTypeRadioGroup {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #24AA57;
+}
+.testTypeRadioGroup .text- .eqpTypeBtn {
+  width: 25%;
 }
 body,
 div,
@@ -188,6 +200,9 @@ ul {
 }
 .text-info {
   color: #909399;
+}
+.text-white {
+  color: #fff;
 }
 .textUnderline {
   text-decoration: underline;

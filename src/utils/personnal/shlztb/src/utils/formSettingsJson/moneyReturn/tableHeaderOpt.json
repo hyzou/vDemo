@@ -1,0 +1,29 @@
+[
+  {
+    "prop": "memberName",
+    "lable": "会员名称",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  },
+  {
+    "prop": "sysAddtime",
+    "lable": "申请时间",
+    "width": ""
+  },
+  {
+    "prop": "num",
+    "lable": "金额",
+    "width": ""
+  },
+  {
+    "prop": "status__dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

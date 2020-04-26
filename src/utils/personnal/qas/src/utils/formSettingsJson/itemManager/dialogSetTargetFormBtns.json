@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "addTarget",
+    "label": "添加指标",
+    "styleType": "primary",
+    "postUrl": "addTestTarget"
+  }
+]

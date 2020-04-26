@@ -1,0 +1,33 @@
+[
+  {
+    "type": "flowComment",
+    "label": "",
+    "name": "commentlist",
+    "width": "0px",
+    "span": 24,
+    "headers": [
+      {
+        "title": "会员名称",
+        "key": "valuer"
+      },
+      {
+        "title": "被评价会员名称",
+        "key": "memberName"
+      },
+      {
+        "title": "评价星级",
+        "key": "comevaluate",
+        "type": "rate",
+        "colors": [
+          "#99A9BF",
+          "#F7BA2A",
+          "#FF9900"
+        ]
+      },
+      {
+        "title": "评价内容",
+        "key": "note"
+      }
+    ]
+  }
+]

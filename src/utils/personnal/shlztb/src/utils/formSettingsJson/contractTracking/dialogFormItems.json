@@ -1,0 +1,19 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysSourceid",
+    "name": "sysSourceid",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "stepInput",
+    "label": "本次发货数量",
+    "name": "sendnum",
+    "span": 12,
+    "step": 1,
+    "precision": 0,
+    "min": 0,
+    "width": "120px"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "prop": "menuname",
+    "lable": "菜单名称",
+    "width": "",
+    "clickVarKey": "menuid",
+    "clickable": true
+  },
+  {
+    "prop": "menuaction",
+    "lable": "菜单活动",
+    "width": ""
+  },
+  {
+    "prop": "menulabel",
+    "lable": "菜单标签",
+    "width": ""
+  },
+  {
+    "prop": "isleaf_dsp",
+    "lable": "是否叶子结点",
+    "width": ""
+  },
+  {
+    "prop": "displayorder",
+    "lable": "显示顺序",
+    "width": ""
+  },
+  {
+    "prop": "status_dsp",
+    "lable": "菜单状态",
+    "width": ""
+  },
+  {
+    "prop": "menulevelName",
+    "lable": "菜单等级名称",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": "150px"
+  }
+]

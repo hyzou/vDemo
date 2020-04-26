@@ -1,0 +1,15 @@
+[
+  {
+    "type": "input",
+    "label": "链接名称",
+    "name": "name",
+    "span": 6
+  },
+  {
+    "type": "select",
+    "label": "分类",
+    "name": "type",
+    "data": [],
+    "span": 6
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "flag": "save",
+    "label": "添加",
+    "styleType": "primary",
+    "postUrl": "addmenu"
+  },
+  {
+    "flag": "cancle",
+    "label": "取消",
+    "styleType": "primary"
+  }
+]

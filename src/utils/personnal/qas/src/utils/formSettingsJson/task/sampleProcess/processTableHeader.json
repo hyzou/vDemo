@@ -1,0 +1,61 @@
+[
+  {
+    "prop": "name",
+    "lable": "任务标题",
+    "isHide": false
+  },
+  {
+    "prop": "grainBreed__dsp",
+    "lable": "产品品种",
+    "width":120,
+    "isHide": false
+  },
+  {
+    "prop": "taskNum",
+    "lable": "子任务数",
+    "width":120,
+    "isHide": false
+  },
+  {
+    "prop": "taskSuccessNum",
+    "lable": "完成数",
+    "width":120,
+    "isHide": false
+  },
+  {
+    "prop": "taskWaitToSynchronizationNum",
+    "lable": "待同步数",
+    "width":120,
+    "isHide": false
+  },
+  {
+    "prop": "taskWaitToSampleNum",
+    "lable": "待扦样数",
+    "width":120,
+    "isHide": false
+  },
+  {
+    "prop": "taskWaitToCollectionNum",
+    "lable": "待收样数",
+    "width":120,
+    "isHide": false
+  },
+  {
+    "prop": "taskWaitToExamineNum",
+    "lable": "待质检数",
+    "width":120,
+    "isHide": false
+  },
+  {
+    "prop": "taskWaitToApprovalNum",
+    "lable": "待审核数",
+    "width":120,
+    "isHide": false
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width":120,
+    "isHide": false
+  }
+]

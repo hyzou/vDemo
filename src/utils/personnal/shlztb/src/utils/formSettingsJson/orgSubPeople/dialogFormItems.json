@@ -1,0 +1,144 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "用户登录名",
+    "name": "userid",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "姓名",
+    "name": "operatorname",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "密码",
+    "name": "password",
+    "password": true,
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "确认密码",
+    "password": true,
+    "name": "confirmpassword",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "员工代码",
+    "name": "empcode",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "select",
+    "label": "性别",
+    "name": "gender",
+    "data": [
+      {
+        "label": "男",
+        "value": 1
+      },
+      {
+        "label": "女",
+        "value": 2
+      }
+    ],
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "date",
+    "label": "生日",
+    "name": "birthdate",
+    "span": 12,
+    "width": "100px",
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd"
+  },
+  {
+    "type": "select",
+    "label": "学历",
+    "name": "degree",
+    "data": [],
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "手机号",
+    "name": "mobileno",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "办公联系电话",
+    "name": "otel1",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "办公电子邮箱",
+    "name": "oemail",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "邮政编码",
+    "name": "zipcode",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "个人联系电话",
+    "name": "ptel1",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "个人电子邮箱",
+    "name": "pemail",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "transfer",
+    "label": "角色",
+    "placeholder": "请输入角色名称",
+    "titles": [
+      "待选角色",
+      "已选角色"
+    ],
+    "buttons": [
+      "到左边",
+      "到右边"
+    ],
+    "name": "roleids",
+    "span": 24,
+    "data": [],
+    "transferProps": {
+      "key": "key",
+      "label": "label"
+    },
+    "width": "100px"
+  }
+]

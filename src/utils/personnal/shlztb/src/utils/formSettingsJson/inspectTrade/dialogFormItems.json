@@ -1,0 +1,20 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "stepInput",
+    "label": "我的报价",
+    "name": "price",
+    "span": 24,
+    "precision": 2,
+    "step": 50,
+    "min": 0,
+    "max": 170,
+    "width": "120px"
+  }
+]

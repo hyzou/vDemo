@@ -1,0 +1,27 @@
+[
+  {
+    "type": "select",
+    "label": "会员名称",
+    "filterable": true,
+    "op": "equal",
+    "name": "memberid",
+    "data": [],
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "op": "equal",
+    "name": "status",
+    "data": [],
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "添加类型",
+    "op": "equal",
+    "name": "sysAddtype",
+    "data": [],
+    "span": 8
+  }
+]

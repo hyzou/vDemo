@@ -1,0 +1,27 @@
+[
+  {
+    "prop": "name",
+    "lable": "名称",
+    "width": ""
+  },
+  {
+    "prop": "code",
+    "lable": "编码",
+    "width": ""
+  },
+  {
+    "prop": "status_dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "note",
+    "lable": "品种描述",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

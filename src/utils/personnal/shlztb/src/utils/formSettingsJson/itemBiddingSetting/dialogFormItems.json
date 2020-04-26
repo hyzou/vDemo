@@ -1,0 +1,73 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "sysCode",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "stepInput",
+    "label": "排序",
+    "name": "sortSeq",
+    "span": 12,
+    "width": "150px",
+    "min": 0,
+    "precision": 0,
+    "step": 1
+  },
+  {
+    "type": "activTable",
+    "label": "标的属性设置",
+    "name": "detailListStr",
+    "span": 24,
+    "width": "150px",
+    "useType": "add",
+    "headers": [
+      {
+        "title": "属性名称",
+        "key": "detailName",
+        "inputType": "input",
+        "disabled": false
+      },
+      {
+        "title": "属性编号",
+        "key": "detailCode",
+        "inputType": "input",
+        "disabled": false
+      },
+      {
+        "title": "排序",
+        "key": "sortSeq",
+        "precision":0,
+        "inputType": "number",
+        "disabled": false
+      },
+      {
+        "title": "操作",
+        "key": "btnOpt"
+      }
+    ],
+    "tableItems": [
+      {
+        "detailCode": "",
+        "detailName": "",
+        "sortSeq": ""
+      }
+    ]
+  }
+]

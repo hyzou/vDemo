@@ -1,0 +1,9 @@
+[
+  {
+    "flag": "selectTarget",
+    "label": "选择指标",
+    "size": "small",
+    "styleType": "primary",
+    "postUrl": ""
+  }
+]

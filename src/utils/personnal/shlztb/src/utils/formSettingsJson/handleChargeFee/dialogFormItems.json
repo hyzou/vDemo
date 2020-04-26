@@ -1,0 +1,69 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "会员名称",
+    "name": "memberid",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "filterable": true
+  },
+  {
+    "type": "select",
+    "label": "出入类型",
+    "name": "type",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "交易金额",
+    "name": "num",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "交易类型",
+    "name": "biztype",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "添加类型",
+    "name": "sysAddtype",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "交易时间",
+    "name": "addtime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "width": "120px"
+  },
+  {
+    "type": "textarea",
+    "label": "备注",
+    "name": "note",
+    "span": 24,
+    "width": "120px"
+  }
+]

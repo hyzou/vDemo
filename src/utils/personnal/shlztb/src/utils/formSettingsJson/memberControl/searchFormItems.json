@@ -1,0 +1,16 @@
+[
+  {
+    "type": "input",
+    "label": "登录用户名",
+    "name": "loginName",
+    "width": "120px",
+    "span": 6
+  },
+  {
+    "type": "input",
+    "label": "会员名称",
+    "name": "companyName",
+    "width": "120px",
+    "span": 6
+  }
+]

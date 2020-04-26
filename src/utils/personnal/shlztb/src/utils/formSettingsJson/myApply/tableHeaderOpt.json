@@ -1,0 +1,27 @@
+[
+  {
+    "prop": "projectName",
+    "lable": "专场名称",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true,
+    "clickType": "project"
+  },
+  {
+    "prop": "projectClient",
+    "lable": "委托方",
+    "width": ""
+  },
+  {
+    "prop": "enrolltime",
+    "lable": "报名时间",
+    "width": ""
+  },
+  {
+    "prop": "processinstStatus__dsp",
+    "lable": "报名状态",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  }
+]

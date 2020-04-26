@@ -1,0 +1,32 @@
+[
+  {
+    "type": "select",
+    "label": "出入类型",
+    "name": "type",
+    "data": [],
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "交易类型",
+    "name": "biztype",
+    "data": [],
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "op": "equal",
+    "name": "status",
+    "data": [],
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "添加类型",
+    "op": "equal",
+    "name": "sysAddtype",
+    "data": [],
+    "span": 8
+  }
+]

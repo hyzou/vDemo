@@ -1,0 +1,20 @@
+[
+  {
+    "prop": "valuer",
+    "lable": "会员名称",
+    "width": "200px",
+    "clickVarKey": "valuerid",
+    "clickable": true
+  },
+  {
+    "prop": "comevaluate",
+    "lable": "评分星级",
+    "type": "rate",
+    "width": "200px"
+  },
+  {
+    "prop": "note",
+    "lable": "评价内容",
+    "width": ""
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "projectId",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "filterable": true
+  },
+  {
+    "type": "textarea",
+    "label": "备注",
+    "name": "note",
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "upload",
+    "label": "",
+    "name": "upload",
+    "actionUrl": "",
+    "choseBtn": "选取文件",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传jpg/png文件，且不超过500kb",
+    "span": 24
+  },
+  {
+    "type": "activTable",
+    "label": "综合分评定规则",
+    "name": "scoreListStr",
+    "span": 24,
+    "width": "130px",
+    "useType": "use",
+    "headers": [
+      {
+        "title": "打分项"
+      },
+      {
+        "title": "评分标准"
+      },
+      {
+        "title": "分值"
+      },
+      {
+        "title": "自评"
+      }
+    ]
+  }
+]

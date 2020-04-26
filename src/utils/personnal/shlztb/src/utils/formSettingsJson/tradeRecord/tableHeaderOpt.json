@@ -1,0 +1,44 @@
+[
+  {
+    "prop": "memberName",
+    "lable": "会员名称",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  },
+  {
+    "prop": "sysAddtime",
+    "lable": "交易时间",
+    "width": ""
+  },
+  {
+    "prop": "type__dsp",
+    "lable": "出入类型",
+    "width": ""
+  },
+  {
+    "prop": "num",
+    "lable": "金额",
+    "width": ""
+  },
+  {
+    "prop": "status__dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "biztype__dsp",
+    "lable": "交易类型",
+    "width": ""
+  },
+  {
+    "prop": "sysAddtype__dsp",
+    "lable": "添加类型",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

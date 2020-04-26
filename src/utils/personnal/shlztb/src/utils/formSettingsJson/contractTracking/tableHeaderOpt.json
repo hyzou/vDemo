@@ -1,0 +1,38 @@
+[
+  {
+    "prop": "projectName",
+    "lable": "专场名称",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true,
+    "clickType": "project"
+  },
+  {
+    "prop": "no",
+    "lable": "标的号",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true,
+    "clickType": "target"
+  },
+  {
+    "prop": "name",
+    "lable": "标的物",
+    "width": ""
+  },
+  {
+    "prop": "numUnit",
+    "lable": "数量",
+    "width": ""
+  },
+  {
+    "prop": "finishnumUnit",
+    "lable": "已完成数量",
+    "width": ""
+  },
+  {
+    "prop": "status_dsp",
+    "lable": "状态",
+    "width": ""
+  }
+]

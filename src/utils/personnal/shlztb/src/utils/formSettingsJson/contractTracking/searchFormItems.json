@@ -1,0 +1,9 @@
+[
+  {
+    "type": "input",
+    "label": "合同编号",
+    "op": "equal",
+    "name": "code",
+    "span": 8
+  }
+]

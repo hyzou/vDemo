@@ -1,0 +1,137 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "sysParentid",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "filterable": true
+  },
+  {
+    "type": "input",
+    "label": "标的号",
+    "name": "no",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "品名",
+    "name": "name",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "数量",
+    "name": "num",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "需保证金数量(元)",
+    "name": "deposit",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "延时秒数",
+    "name": "delay",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "等待期秒数",
+    "name": "delayscreen",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "最高限价(元/单位)",
+    "name": "highestprice",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "产地",
+    "name": "grainOrigin",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "等级",
+    "name": "grainGrade",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "生产年份",
+    "name": "grainProducetime",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "运输条件",
+    "name": "grainTranlimit",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "容重g/L",
+    "name": "qualityDensity",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "水分%",
+    "name": "qualityMoisture",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "杂质%",
+    "name": "qualityImpurity",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "不完善粒%",
+    "name": "qualityUnsound",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "色泽气味",
+    "name": "qualityColorodor",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "textarea",
+    "label": "备注",
+    "name": "note",
+    "span": 24,
+    "width": "120px"
+  }
+]

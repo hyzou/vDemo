@@ -1,0 +1,14 @@
+[
+  {
+    "prop": "text",
+    "lable": "名称"
+  },
+  {
+    "prop": "typeDsc",
+    "lable": "类型"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作"
+  }
+]

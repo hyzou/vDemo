@@ -1,0 +1,117 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "taskId",
+    "name": "taskId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "processinstId",
+    "name": "processinstId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "标题",
+    "name": "title",
+    "width": "120px",
+    "span": 12,
+    "postflag": false
+  },
+  {
+    "type": "input",
+    "label": "文号",
+    "name": "code",
+    "width": "120px",
+    "span": 12
+  },
+  {
+    "type": "select",
+    "label": "公告类型",
+    "name": "type",
+    "disabled": true,
+    "data": [
+      {
+        "value": "09",
+        "label": "优质供应商介绍"
+      }
+    ],
+    "width": "120px",
+    "span": 12
+  },
+  {
+    "type": "date",
+    "label": "发布时间",
+    "name": "extd1",
+    "span": 12,
+    "width": "120px",
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss"
+  },
+  {
+    "type": "editor",
+    "label": "",
+    "name": "content",
+    "data": [],
+    "span": 24,
+    "width": "120px",
+    "config": {
+      "autoHeightEnabled": false,
+      "initialFrameHeight": 240,
+      "initialFrameWidth": "100%",
+      "serverUrl": "",
+      "UEDITOR_HOME_URL": "/ueditor/",
+      "z-index": 300
+    }
+  },
+  {
+    "type": "upload",
+    "label": "附件",
+    "name": "files",
+    "actionUrl": "",
+    "choseBtn": "选取文件",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传jpg/png文件，且不超过500kb",
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "image",
+    "label": "已传附件",
+    "name": "viewfiles",
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "flowComment",
+    "label": "历次审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "120px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  }
+]

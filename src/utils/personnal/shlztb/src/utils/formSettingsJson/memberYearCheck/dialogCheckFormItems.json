@@ -1,0 +1,59 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "taskId",
+    "name": "taskId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "processinstId",
+    "name": "processinstId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "image",
+    "label": "已传文件",
+    "name": "viewfiles",
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "textarea",
+    "label": "审批意见",
+    "name": "flowComment",
+    "span": 24,
+    "disabled": false,
+    "width": "120px"
+  },
+  {
+    "type": "flowComment",
+    "label": "历次审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "120px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  }
+]

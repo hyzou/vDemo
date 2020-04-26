@@ -1,0 +1,42 @@
+[
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "sysCode",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "name": "status",
+    "data": [],
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "类型",
+    "name": "type",
+    "data": [],
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "stepInput",
+    "label": "排序",
+    "name": "sortField",
+    "span": 12,
+    "step": 1,
+    "precision": 0,
+    "min": 1,
+    "disabled": true
+  }
+]

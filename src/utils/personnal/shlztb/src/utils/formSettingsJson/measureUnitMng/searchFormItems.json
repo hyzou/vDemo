@@ -1,0 +1,30 @@
+[
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "sysCode",
+    "span": 6
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 6
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "name": "status",
+    "data": [
+      {
+        "label": "启用",
+        "value": "1"
+      },
+      {
+        "label": "禁用",
+        "value": "0"
+      }
+    ],
+    "span": 6
+  }
+]

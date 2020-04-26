@@ -13,11 +13,12 @@ const requestInterface = {
     };
     return p;
   },
-  postMethod: function(url, muti) {
+  postMethod: function(url, muti, hasOwnUrl) {
     var p = {
       url: url,
       method: "post",
-      isMuti: muti || false
+      isMuti: muti || false,
+      hasOwnUrl: hasOwnUrl
     };
     return p;
   },

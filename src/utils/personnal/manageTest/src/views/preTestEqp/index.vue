@@ -97,30 +97,40 @@ export default {
   },
   data() {
     return {
-      statusvalue: [],
-      controlvalue: [],
-      // options: [],
-      statusItems: [],
-      controlItems: [],
+      // 头部header配置项
       headerOptionSettings: {
         hideleft: false,
         title:
           this.$route.query.controlType == "tank" ? "柜控测试" : "程控测试",
         routePath: "selectTest"
       },
+      // 状态寄存器返回的数值
+      statusvalue: [],
+      // 控制寄存器返回的数值
+      controlvalue: [],
+      // options: [],
+      // 状态寄存器预设项目（供接受数据勾选用）
+      statusItems: [],
+      // 控制寄存器预设项目（供接受数据勾选用）
+      controlItems: [],
+      // 页面表单默认值
       formdata: {
         eqpName: "",
         stateRegisterIp: "",
         controlRegisterIp: ""
       },
+      // 当前测试步骤id（第几步）
       testStepId: this.$route.query.testProcessStepId,
+      // 当前设备测试总流程
       stepTestInfo: this.$store.getters.chosedProcess
     };
   },
   methods: {
+    // 点击按钮进行程控，发送指令到后台，触发控制器
     handleOperateEqp(flag) {
       console.log(flag, "opt");
     },
+    // 点击最下部按钮事件，下一步、结束测试、获取结果
     handleStep(btn) {
       if (btn.instruction == "nextStep") {
         this.testStepId = parseInt(this.testStepId) + 1;
@@ -141,6 +151,7 @@ export default {
     }
   },
   computed: {
+    // 监听当前页数据，展示提示信息
     tiplist() {
       let tiplistArr = [];
       if (this.$route.query.controlType == "tank") {
@@ -152,6 +163,7 @@ export default {
     }
   },
   watch: {
+    // 监听当前测试步骤id，切换页面显示内容
     testStepId(newVal) {
       // this.options = [];
       this.statusItems = [];

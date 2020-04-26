@@ -1,0 +1,11 @@
+[
+  {
+    "type": "select",
+    "label": "会员名称",
+    "filterable": true,
+    "op": "equal",
+    "name": "memberId",
+    "data": [],
+    "span": 8
+  }
+]

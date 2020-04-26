@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "updateCondition",
+    "label": "提交",
+    "styleType": "primary",
+    "postUrl": "updateTag"
+  }
+]

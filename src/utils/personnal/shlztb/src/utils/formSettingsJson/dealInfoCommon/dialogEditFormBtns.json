@@ -1,0 +1,14 @@
+[
+  {
+    "flag": "save",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "addTradeInformation"
+  },
+  {
+    "flag": "flow",
+    "label": "送审",
+    "styleType": "primary",
+    "postUrl": "flowTradeInformation"
+  }
+]

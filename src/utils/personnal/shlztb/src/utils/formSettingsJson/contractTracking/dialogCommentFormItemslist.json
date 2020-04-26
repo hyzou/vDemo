@@ -1,0 +1,29 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysSourceid",
+    "name": "sysSourceid",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "rate",
+    "label": "我的评星",
+    "name": "comevaluate",
+    "span": 12,
+    "colors": [
+      "#99A9BF",
+      "#F7BA2A",
+      "#FF9900"
+    ],
+    "width": "120px"
+  },
+  {
+    "type": "textarea",
+    "label": "我的评价",
+    "name": "note",
+    "span": 24,
+    "disabled": false,
+    "width": "120px"
+  }
+]

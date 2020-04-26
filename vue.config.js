@@ -33,5 +33,5 @@ module.exports = {
   productionSourceMap: false, // 设置上线后是否加载webpack文件
   lintOnSave: true, //保存即用eslint格式化代码
   // 配置线上生产环境打包项目地址
-  publicPath: process.env.NODE_ENV === "production" ? "/vue-demo/" : "/"
+  publicPath: process.env.NODE_ENV === "production" ? "././" : "/"
 };

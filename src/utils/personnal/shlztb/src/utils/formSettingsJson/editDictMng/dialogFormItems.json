@@ -1,0 +1,58 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "业务类型编号",
+    "name": "busintypeid",
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "业务名称",
+    "name": "businname",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "业务编码",
+    "name": "businid",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "stepInput",
+    "label": "优先权",
+    "name": "privilege",
+    "span": 12,
+    "precision": 0,
+    "step": 1,
+    "min": 1,
+    "width": "120px"
+  },
+  {
+    "type": "stepInput",
+    "label": "排序",
+    "name": "sortseq",
+    "span": 12,
+    "precision": 0,
+    "step": 1,
+    "min": 1,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "扩展字段",
+    "name": "ext1",
+    "span": 12,
+    "width": "120px"
+  }
+]

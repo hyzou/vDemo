@@ -1,0 +1,14 @@
+[
+  {
+    "flag": "insert",
+    "label": "新增规则",
+    "styleType": "primary",
+    "postUrl": "addSummaryRule"
+  },
+  {
+    "flag": "batchDelete",
+    "label": "批量删除",
+    "styleType": "",
+    "disabled":true
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "prop": "name",
+    "lable": "专场名称",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  },
+  {
+    "prop": "client",
+    "lable": "委托方",
+    "width": ""
+  },
+  {
+    "prop": "type__dsp",
+    "lable": "交易类型",
+    "width": ""
+  },
+  {
+    "prop": "applystatus_desc",
+    "lable": "报名状态",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true,
+    "clickType": "applystatus"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

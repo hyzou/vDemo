@@ -1,0 +1,113 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "taskId",
+    "name": "taskId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "processinstId",
+    "name": "processinstId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "projectId",
+    "linkName": "scoreListStr",
+    "data": [],
+    "span": 12,
+    "width": "130px",
+    "filterable": true,
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "备注",
+    "name": "note",
+    "span": 24,
+    "width": "130px"
+  },
+  {
+    "type": "inputTable",
+    "label": "综合分评定规则",
+    "name": "scoreListStr",
+    "span": 24,
+    "width": "130px",
+    "useType": "use",
+    "headers": [
+      {
+        "title": "打分项",
+        "key": "itemName",
+        "disabled": true
+      },
+      {
+        "title": "评分标准",
+        "key": "itemStandard",
+        "disabled": true
+      },
+      {
+        "title": "分值",
+        "key": "itemScore",
+        "disabled": true
+      },
+      {
+        "title": "自评",
+        "key": "selfScore",
+        "disabled": false,
+        "inputType": "number",
+        "precision":0
+      }
+    ]
+  },
+  {
+    "type": "upload",
+    "label": "综合分自评证明",
+    "name": "files",
+    "multiple": true,
+    "actionUrl": "",
+    "choseBtn": "选取文件",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传jpg/png文件，且不超过500kb",
+    "span": 24,
+    "width": "130px"
+  },
+  {
+    "type": "image",
+    "label": "",
+    "name": "viewfiles",
+    "span": 24,
+    "width": "130px"
+  },
+  {
+    "type": "flowComment",
+    "label": "历次审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "130px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "type": "input",
+    "label": "会员名称",
+    "name": "COMPANY",
+    "span": 8,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "交易金额(起)",
+    "name": "num1",
+    "span": 8,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "交易金额(止)",
+    "name": "num2",
+    "span": 8,
+    "width": "120px"
+  },
+  {
+    "type": "date",
+    "label": "交易时间(起)",
+    "name": "addtime1",
+    "span": 8,
+    "width": "120px",
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss"
+  },
+  {
+    "type": "date",
+    "label": "交易时间(止)",
+    "name": "addtime2",
+    "span": 8,
+    "width": "120px",
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss"
+  },
+  {
+    "type": "select",
+    "label": "出入类型",
+    "name": "type",
+    "data": [],
+    "span": 8,
+    "width": "120px"
+  }
+]

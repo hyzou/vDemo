@@ -1,0 +1,16 @@
+[
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "sysCode",
+    "span": 12,
+    "disabled": true
+  }
+]

@@ -1,64 +1,49 @@
 <template>
   <div class="manage">
     <myheader :myheaderOption="headerOptionSettings" />
-    <div class="positionRel">
-      <span class="positionAbs text-danger symbolRequired">*</span>
+    <div class="bgfff">
       <mt-field
         label="分机名"
         placeholder="请输入分机名"
         v-model="formdata.eqpName"
       >
       </mt-field>
-    </div>
-    <div class="positionRel">
-      <span class="positionAbs text-danger symbolRequired">*</span>
       <mySelect
         :mySelectOption="connectTpyeOptionSettings"
         @myselectChange="handleGetConnectTpyeValue"
       />
-    </div>
-    <template v-if="formdata.connectTpye !== 'tcp'">
-      <div class="positionRel">
-        <span class="positionAbs text-danger symbolRequired">*</span>
+      <template v-if="formdata.connectTpye !== 'tcp'">
         <mySelect
           :mySelectOption="serialPortOptionSettings"
           @myselectChange="handleGetSerialPortValue"
         />
-      </div>
-    </template>
-    <template v-else>
-      <div class="positionRel">
-        <span class="positionAbs text-danger symbolRequired">*</span>
+      </template>
+      <template v-else>
         <mt-field
           label="IP地址"
           placeholder="请输入分机地址"
           v-model="formdata.eqpIp"
         ></mt-field>
-      </div>
-      <div class="positionRel">
-        <span class="positionAbs text-danger symbolRequired">*</span>
         <mt-field
           label="端口"
           placeholder="请输入端口"
           v-model="formdata.eqpPort"
         ></mt-field>
-      </div>
-    </template>
-    <div class="positionRel">
-      <span class="positionAbs text-danger symbolRequired">*</span>
+      </template>
       <mySelect
         :mySelectOption="protocolOptionSettings"
         @myselectChange="handleGetProtocolValue"
       />
+      <template v-for="param in paramlist">
+        <mt-field
+          :key="param.paramName"
+          :label="param.paramDesc"
+          placeholder="请输入"
+          v-model="formdata[param.paramName]"
+        ></mt-field>
+      </template>
     </div>
-    <div class="positionRel">
-      <span class="positionAbs text-danger symbolRequired">*</span>
-      <mt-field
-        label="Modbus地址"
-        placeholder="请输入Modbus地址"
-        v-model="formdata.ModbusAddress"
-      ></mt-field>
-    </div>
+
     <div class="largeBtnContainer mt10 mb10">
       <mt-button
         size="large"
@@ -89,11 +74,13 @@ export default {
   },
   data() {
     return {
+      // 头部状态栏配置
       headerOptionSettings: {
         hideleft: false,
         title: "添加分机",
         routePath: "home"
       },
+      // 串口下拉框配置数据
       serialPortOptionSettings: {
         cellTitle: "串口",
         cellIcon: "",
@@ -109,6 +96,7 @@ export default {
           }
         ]
       },
+      // 连接类型下拉框配置数据
       connectTpyeOptionSettings: {
         cellTitle: "连接类型",
         cellIcon: "",
@@ -124,6 +112,7 @@ export default {
           }
         ]
       },
+      // 协议类型下拉框配置数据
       protocolOptionSettings: {
         cellTitle: "协议类型",
         cellIcon: "",
@@ -132,13 +121,16 @@ export default {
         slots: [
           {
             flex: 1,
-            values: this.$store.getters.protocolDatas,
+            values: this.$store.getters.protocolDatas[
+              this.$route.query.testType
+            ],
             className: "slot1",
             textAlign: "center",
             defaultIndex: 0
           }
         ]
       },
+      // 页面表单数据
       formdata: {
         eqpName: "",
         connectTpye: "tcp",
@@ -150,10 +142,13 @@ export default {
         protocol: "",
         protocol_dsc: "",
         ModbusAddress: ""
-      }
+      },
+      // 协议参数列表
+      paramlist: []
     };
   },
   methods: {
+    // 连接类型下拉框事件绑定
     handleGetConnectTpyeValue(val) {
       let that = this;
       that.formdata.connectTpye = val[0].value;
@@ -173,16 +168,25 @@ export default {
         }
       });
     },
+    // 协议类型下拉框事件绑定
     handleGetProtocolValue(val) {
       this.formdata.protocol = val[0].value;
       this.protocolOptionSettings.cellValue = val[0].label + "▼";
       this.formdata.protocol_dsc = val[0].label;
+      this.paramlist = this.$store.getters.protocolParamsDatas[
+        val[0].value
+      ].paramList;
+      this.paramlist.map(param => {
+        this.formdata[param.paramName] = "";
+      });
     },
+    // 串口下拉框事件绑定
     handleGetSerialPortValue(val) {
       this.formdata.serialPort = val[0].value;
       this.serialPortOptionSettings.cellValue = val[0].label + "▼";
       this.formdata.serialPort_dsc = val[0].label;
     },
+    // 底部操作按钮事件绑定
     handleSaveEqpInfo(type) {
       console.log(this.formdata, "save");
       if (

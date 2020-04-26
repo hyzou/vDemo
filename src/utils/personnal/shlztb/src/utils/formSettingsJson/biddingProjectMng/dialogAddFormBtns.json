@@ -1,0 +1,14 @@
+[
+  {
+    "flag": "save",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "saveSpecialItem"
+  },
+  {
+    "flag": "flow",
+    "label": "提交",
+    "styleType": "primary",
+    "postUrl": "flowSpecialItem"
+  }
+]

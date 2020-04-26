@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "update",
+    "label": "下一步",
+    "styleType": "primary",
+    "postUrl": "updateStd"
+  }
+]

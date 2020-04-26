@@ -1,0 +1,14 @@
+[
+  {
+    "flag": "save",
+    "label": "注册",
+    "styleType": "primary",
+    "postUrl": "addMember"
+  },
+  {
+    "flag": "reset",
+    "label": "重置",
+    "styleType": "primary",
+    "postUrl": ""
+  }
+]

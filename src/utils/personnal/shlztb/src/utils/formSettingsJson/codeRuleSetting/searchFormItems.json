@@ -1,0 +1,14 @@
+[
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "sysCode",
+    "span": 6
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 6
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "keyWords": "add",
+    "name": "添加",
+    "type": "success",
+    "icon": "el-icon-circle-plus-outline",
+    "postUrl": ""
+  }
+]

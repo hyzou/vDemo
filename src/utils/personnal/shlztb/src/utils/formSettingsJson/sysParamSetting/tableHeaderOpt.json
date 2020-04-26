@@ -1,0 +1,22 @@
+[
+  {
+    "prop": "code",
+    "lable": "编码",
+    "width": ""
+  },
+  {
+    "prop": "name",
+    "lable": "名称",
+    "width": ""
+  },
+  {
+    "prop": "value",
+    "lable": "配置值",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

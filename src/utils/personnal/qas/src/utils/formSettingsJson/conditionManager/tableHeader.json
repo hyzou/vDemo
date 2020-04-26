@@ -1,0 +1,22 @@
+[
+  {
+    "prop": "name",
+    "lable": "名称"
+  },
+  {
+    "prop": "gradedName",
+    "lable": "是否用于定等级"
+  },
+  {
+    "prop": "busintypeName",
+    "lable": "字典表类型"
+  },
+  {
+    "prop": "grainBreedName",
+    "lable": "粮食品种"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作"
+  }
+]

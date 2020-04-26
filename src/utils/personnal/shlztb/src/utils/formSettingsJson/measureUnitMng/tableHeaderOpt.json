@@ -1,0 +1,22 @@
+[
+  {
+    "prop": "sysCode",
+    "lable": "编码",
+    "width": ""
+  },
+  {
+    "prop": "name",
+    "lable": "名称",
+    "width": ""
+  },
+  {
+    "prop": "statusName",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

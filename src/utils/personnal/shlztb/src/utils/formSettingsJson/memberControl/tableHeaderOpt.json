@@ -1,0 +1,29 @@
+[
+  {
+    "prop": "loginName",
+    "lable": "登录用户名",
+    "width": "",
+    "clickVarKey": "basMemberId",
+    "clickable": true
+  },
+  {
+    "prop": "memName",
+    "lable": "姓名",
+    "width": ""
+  },
+  {
+    "prop": "companyName",
+    "lable": "会员名称",
+    "width": ""
+  },
+  {
+    "prop": "memStatus__dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

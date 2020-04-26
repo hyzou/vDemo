@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "insert",
+    "label": "下一步",
+    "styleType": "primary",
+    "postUrl": "addStd"
+  }
+]

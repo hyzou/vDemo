@@ -1,0 +1,23 @@
+[
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "sysCode",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "内容",
+    "name": "content",
+    "span": 24,
+    "disabled": true
+  }
+]

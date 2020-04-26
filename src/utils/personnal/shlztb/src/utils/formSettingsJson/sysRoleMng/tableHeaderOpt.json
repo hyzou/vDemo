@@ -1,0 +1,27 @@
+[
+  {
+    "prop": "rolename",
+    "lable": "角色名称",
+    "width": ""
+  },
+  {
+    "prop": "roleid",
+    "lable": "角色编码",
+    "width": ""
+  },
+  {
+    "prop": "roledesc",
+    "lable": "角色描述",
+    "width": ""
+  },
+  {
+    "prop": "status_dsc",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": "300px"
+  }
+]

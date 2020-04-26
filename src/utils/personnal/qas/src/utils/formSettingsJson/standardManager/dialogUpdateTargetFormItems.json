@@ -1,0 +1,120 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "qasStdId",
+    "name": "qasStdId",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "type",
+    "name": "type",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "标准编码",
+    "name": "stdNo",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "date",
+    "label": "发布日期",
+    "name": "strissuedDt",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "name": "status",
+    "data": [
+      {
+        "label": "现行",
+        "value": "1"
+      },
+      {
+        "label": "过期",
+        "value": "2"
+      },
+      {
+        "label": "作废",
+        "value": "9"
+      }
+    ],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "产品类别",
+    "name": "productType",
+    "filterable": true,
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "分类条件",
+    "name": "criteriaTags",
+    "filterable": true,
+    "multiple":true,
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "颁布组织",
+    "name": "issuedBy",
+    "filterable": true,
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "代替的标准编号",
+    "name": "replacedStdNo",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "是否禁用",
+    "name": "disable",
+    "data": [
+      {
+        "label": "禁用",
+        "value": "Y"
+      },
+      {
+        "label": "启用",
+        "value": "N"
+      }
+    ],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "textarea",
+    "label": "描述",
+    "name": "DESCRIPTION",
+    "span": 24,
+    "width": "120px"
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "prop": "title",
+    "lable": "标题",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  },
+  {
+    "prop": "code",
+    "lable": "文号",
+    "width": ""
+  },
+  {
+    "prop": "extd1",
+    "lable": "发布时间",
+    "width": ""
+  },
+  {
+    "prop": "statusName",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

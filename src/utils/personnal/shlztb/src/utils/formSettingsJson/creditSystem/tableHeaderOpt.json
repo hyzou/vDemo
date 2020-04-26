@@ -1,0 +1,20 @@
+[
+  {
+    "prop": "memberName",
+    "lable": "会员名称",
+    "width": "",
+    "clickVarKey": "memberId",
+    "clickable": true
+  },
+  {
+    "prop": "comevaluate",
+    "lable": "综合星级",
+    "type": "rate",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

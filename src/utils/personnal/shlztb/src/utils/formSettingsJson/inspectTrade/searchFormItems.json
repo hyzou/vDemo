@@ -1,0 +1,10 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "sysParentid",
+    "data": [],
+    "span": 8,
+    "filterable": true
+  }
+]

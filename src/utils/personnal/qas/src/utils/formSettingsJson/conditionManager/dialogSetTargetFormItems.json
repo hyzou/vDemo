@@ -1,0 +1,66 @@
+[
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "select",
+    "label": "是否用于定等级",
+    "name": "graded",
+    "linkName": "graded",
+    "data":[
+      {
+        "value":"Y",
+        "label":"是"
+      },
+      {
+        "value":"N",
+        "label":"否"
+      }
+    ],
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "select",
+    "label": "分类条件类型",
+    "name": "condictType",
+    "linkName": "condictType",
+    "hideItem": true,
+    "data":[
+      {
+        "value":"dicType",
+        "label":"字典表类型"
+      },
+      {
+        "value":"breedType",
+        "label":"粮食品种"
+      }
+    ],
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "select",
+    "label": "字典表类型",
+    "name": "busintypeid",
+    "hideItem": true,
+    "filterable": true,
+    "data":[],
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "select",
+    "label": "粮食品种",
+    "name": "grainbreedId",
+    "hideItem": true,
+    "filterable": true,
+    "data":[],
+    "span": 12,
+    "width": "130px"
+  }
+]

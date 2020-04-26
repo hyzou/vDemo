@@ -1,0 +1,86 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "qasBasItemId",
+    "name": "qasBasItemId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "分类编码",
+    "name": "code",
+    "disabled": true,
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "select",
+    "label": "数据类型",
+    "name": "dataType",
+    "linkName": "busintypeid",
+    "data":[
+      {
+        "value":"N",
+        "label":"数字"
+      },
+      {
+        "value":"S",
+        "label":"字符"
+      },
+      {
+        "value":"O",
+        "label":"下拉选项"
+      }
+    ],
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "select",
+    "label": "关联字典表",
+    "name": "busintypeid",
+    "filterable": true,
+    "data":[],
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "计量单位",
+    "name": "munit",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "排序",
+    "name": "sortNo",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "select",
+    "label": "是否禁用",
+    "name": "disable",
+    "data":[
+      {
+        "value":"N",
+        "label":"启用"
+      },
+      {
+        "value":"Y",
+        "label":"禁用"
+      }
+    ],
+    "span": 12,
+    "width": "100px"
+  }
+]

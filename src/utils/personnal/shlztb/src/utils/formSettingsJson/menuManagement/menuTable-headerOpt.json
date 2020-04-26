@@ -1,0 +1,39 @@
+[
+  {
+    "prop": "text",
+    "lable": "菜单名称",
+    "width": "120"
+  },
+  {
+    "prop": "id",
+    "lable": "编码",
+    "width": "120"
+  },
+  {
+    "prop": "isaction",
+    "lable": "类型",
+    "width": ""
+  },
+  {
+    "prop": "menuaction",
+    "lable": "链接",
+    "width": ""
+  },
+  {
+    "prop": "state",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "",
+    "lable": "操作",
+    "width": "120",
+    "operationButtons": [
+      {
+        "type": "change",
+        "lable": "修改",
+        "symbol": "id"
+      }
+    ]
+  }
+]

@@ -1,0 +1,147 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "sysParentid",
+    "data": [],
+    "span": 12,
+    "width": "165px",
+    "linkName": "delay,delayscreen,highestprice,priceGap",
+    "disabled": false,
+    "filterable": true
+  },
+  {
+    "type": "input",
+    "label": "标的号",
+    "name": "no",
+    "span": 12,
+    "width": "165px"
+  },
+  {
+    "type": "input",
+    "label": "品名",
+    "name": "name",
+    "span": 12,
+    "width": "165px"
+  },
+  {
+    "type": "stepInput",
+    "label": "数量",
+    "name": "num",
+    "span": 12,
+    "width": "165px",
+    "min": 0,
+    "precision": 0,
+    "step": 1
+  },
+  {
+    "type": "stepInput",
+    "label": "需保证金数量(元/单位)",
+    "name": "deposit",
+    "span": 12,
+    "width": "165px",
+    "min": 0,
+    "precision": 2,
+    "step": 1
+  },
+  {
+    "type": "stepInput",
+    "label": "延时秒数",
+    "name": "delay",
+    "span": 12,
+    "width": "165px",
+    "min": 0,
+    "precision": 0,
+    "step": 1,
+    "hideItem": true
+  },
+  {
+    "type": "stepInput",
+    "label": "等待期秒数",
+    "name": "delayscreen",
+    "span": 12,
+    "width": "165px",
+    "min": 0,
+    "precision": 0,
+    "step": 1,
+    "hideItem": true
+  },
+  {
+    "type": "stepInput",
+    "label": "最高限价(元/单位)",
+    "name": "highestprice",
+    "span": 12,
+    "width": "165px",
+    "min": 0,
+    "precision": 2,
+    "step": 1,
+    "hideItem": true
+  },
+  {
+    "type": "stepInput",
+    "label": "最低限价(元/单位)",
+    "name": "lowestprice",
+    "span": 12,
+    "width": "165px",
+    "min": 0,
+    "precision": 2,
+    "step": 1,
+    "hideItem": true
+  },
+  {
+    "type": "stepInput",
+    "label": "价差(元/单位)",
+    "name": "rangeprice",
+    "span": 12,
+    "width": "165px",
+    "min": 0,
+    "precision": 2,
+    "step": 1,
+    "hideItem": true
+  },
+  {
+    "type": "select",
+    "label": "标的属性",
+    "name": "propCode",
+    "data": [],
+    "span": 12,
+    "width": "165px",
+    "linkName": "propListStr"
+  },
+  {
+    "type": "activTable",
+    "label": "标的属性",
+    "name": "propListStr",
+    "span": 24,
+    "width": "165px",
+    "useType": "add",
+    "headers": [
+      {
+        "title": "属性名称",
+        "key": "name",
+        "disabled": false
+      },
+      {
+        "title": "属性编号",
+        "key": "code",
+        "disabled": false
+      },
+      {
+        "title": "属性值",
+        "key": "value",
+        "disabled": false
+      },
+      {
+        "title": "操作",
+        "key": "btnOpt"
+      }
+    ],
+    "tableItems": [
+      {
+        "name": "",
+        "code": "",
+        "value": ""
+      }
+    ]
+  }
+]

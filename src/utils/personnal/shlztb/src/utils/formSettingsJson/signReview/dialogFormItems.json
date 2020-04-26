@@ -1,0 +1,63 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "projectId",
+    "linkName": "scoreListStr",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "filterable": true
+  },
+  {
+    "type": "textarea",
+    "label": "备注",
+    "name": "note",
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "textarea",
+    "label": "文件列表",
+    "name": "files",
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "inputTable",
+    "label": "综合分评定规则",
+    "name": "scoreListStr",
+    "span": 24,
+    "width": "120px",
+    "useType": "use",
+    "headers": [
+      {
+        "title": "打分项",
+        "key": "itemName",
+        "disabled": true
+      },
+      {
+        "title": "评分标准",
+        "key": "itemStandard",
+        "disabled": true
+      },
+      {
+        "title": "分值",
+        "key": "itemScore",
+        "disabled": true
+      },
+      {
+        "title": "自评",
+        "key": "selfScore",
+        "disabled": true
+      }
+    ]
+  }
+]

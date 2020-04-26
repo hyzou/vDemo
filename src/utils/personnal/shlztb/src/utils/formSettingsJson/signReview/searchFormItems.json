@@ -1,0 +1,27 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "op": "equal",
+    "name": "projectId",
+    "data": [],
+    "span": 8,
+    "filterable": true
+  },
+  {
+    "type": "select",
+    "label": "会员名称",
+    "op": "equal",
+    "name": "memberId",
+    "data": [],
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "流程状态",
+    "op": "equal",
+    "name": "processinstStatus",
+    "data": [],
+    "span": 8
+  }
+]

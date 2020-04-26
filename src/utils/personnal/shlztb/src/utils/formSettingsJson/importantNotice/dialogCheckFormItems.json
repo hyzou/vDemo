@@ -1,0 +1,108 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "taskId",
+    "name": "taskId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "processinstId",
+    "name": "processinstId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "标题",
+    "name": "title",
+    "width": "120px",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "文号",
+    "name": "code",
+    "width": "120px",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "公告类型",
+    "name": "type",
+    "width": "120px",
+    "data": [
+      {
+        "value": "06",
+        "label": "重要通知"
+      }
+    ],
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "发布时间",
+    "name": "extd1",
+    "width": "120px",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "disabled": true
+  },
+  {
+    "type": "html",
+    "label": "内容",
+    "name": "content",
+    "width": "120px",
+    "span": 24,
+    "disabled": true
+  },
+  {
+    "type": "image",
+    "label": "已传附件",
+    "name": "viewfiles",
+    "width": "120px",
+    "span": 24
+  },
+  {
+    "type": "flowComment",
+    "label": "历次审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "120px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  },
+  {
+    "type": "textarea",
+    "label": "审批意见",
+    "name": "flowComment",
+    "width": "120px",
+    "span": 24,
+    "disabled": false
+  }
+]

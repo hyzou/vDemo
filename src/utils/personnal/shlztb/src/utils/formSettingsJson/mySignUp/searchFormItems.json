@@ -1,0 +1,20 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "op": "equal",
+    "name": "sysId",
+    "data": [],
+    "span": 8,
+    "filterable": true
+  },
+  {
+    "type": "select",
+    "label": "委托方",
+    "filterable": true,
+    "op": "equal",
+    "name": "clientid",
+    "data": [],
+    "span": 8
+  }
+]

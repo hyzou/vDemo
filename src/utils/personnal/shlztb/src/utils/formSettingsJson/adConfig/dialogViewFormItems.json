@@ -1,0 +1,42 @@
+[
+  {
+    "type": "input",
+    "label": "链接名称",
+    "name": "name",
+    "span": 24,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "链接地址",
+    "name": "href",
+    "span": 24,
+    "disabled": true
+  },
+  {
+    "type": "image",
+    "label": "链接图片",
+    "name": "files",
+    "span": 24
+  },
+  {
+    "type": "date",
+    "label": "开始时间",
+    "name": "begintime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "结束时间",
+    "name": "endtime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "disabled": true
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "type": "input",
+    "label": "链接名称",
+    "name": "name",
+    "span": 24,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "链接地址",
+    "name": "href",
+    "span": 24,
+    "disabled": true
+  },
+  {
+    "type": "image",
+    "label": "链接图片",
+    "name": "files",
+    "span": 24
+  }
+]

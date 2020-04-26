@@ -1,0 +1,33 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "code",
+    "span": 12
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12
+  },
+  {
+    "type": "input",
+    "label": "配置值",
+    "name": "value",
+    "span": 24
+  },
+  {
+    "type": "html",
+    "label": "备注",
+    "name": "flowComments",
+    "span": 24
+  }
+]

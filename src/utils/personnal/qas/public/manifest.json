@@ -1,0 +1,15 @@
+{
+  "name": "qas",
+  "short_name": "qas",
+  "icons": [
+    {
+      "src": "./img/icons/favicon-32.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#4DBA87"
+}

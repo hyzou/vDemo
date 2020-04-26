@@ -1,0 +1,30 @@
+[
+  {
+    "type": "input",
+    "label": "角色编码",
+    "name": "roleid",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "角色名称",
+    "name": "rolename",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "角色分组",
+    "name": "groupid",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "角色描述",
+    "name": "roledesc",
+    "span": 24,
+    "disabled": true
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "prop": "projectName",
+    "lable": "专场名称",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  },
+  {
+    "prop": "projectClient",
+    "lable": "会员名称",
+    "width": ""
+  },
+  {
+    "prop": "enrolltime",
+    "lable": "报名时间",
+    "width": ""
+  },
+  {
+    "prop": "processinstStatus__dsp",
+    "lable": "流程状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

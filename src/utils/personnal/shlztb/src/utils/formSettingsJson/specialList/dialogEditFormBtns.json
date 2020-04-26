@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "save",
+    "label": "确认",
+    "styleType": "primary",
+    "postUrl": "biddingPrice"
+  }
+]

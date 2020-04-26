@@ -1,0 +1,106 @@
+[
+  {
+    "type": "input",
+    "label": "机构名称",
+    "name": "orgname",
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "机构类型",
+    "name": "orgtypeid",
+    "data": [
+      {
+        "label": "一般机构",
+        "value": "1"
+      }
+    ],
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "机构编码",
+    "name": "orgcode",
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "机构地址",
+    "name": "orgaddress",
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "地址编码",
+    "name": "addresscode",
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "联系人",
+    "name": "linkman",
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "联系电话",
+    "name": "linkmantel",
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "电子邮件",
+    "name": "email",
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "资金能否共享",
+    "name": "flagFund",
+    "data": [],
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "机构负责人",
+    "name": "managerid",
+    "data": [],
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "公司网站",
+    "name": "weburl",
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "简介",
+    "name": "memo",
+    "span": 12,
+    "width": "100px",
+    "disabled": true
+  }
+]

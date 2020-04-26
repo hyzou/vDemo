@@ -1,0 +1,11 @@
+[
+  {
+    "prop": "text",
+    "lable": "检测指标"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": "145"
+  }
+]

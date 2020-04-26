@@ -1,0 +1,22 @@
+[
+  {
+    "prop": "fileName",
+    "lable": "名称",
+    "width": ""
+  },
+  {
+    "prop": "fileSize",
+    "lable": "文件大小",
+    "width": ""
+  },
+  {
+    "prop": "fileTime",
+    "lable": "上传时间",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "prop": "name",
+    "lable": "任务名称",
+    "width": "",
+    "clickVarKey": "scheduleTaskId",
+    "clickable": true
+  },
+  {
+    "prop": "group",
+    "lable": "任务分组",
+    "width": ""
+  },
+  {
+    "prop": "jobClass",
+    "lable": "调用类名",
+    "width": ""
+  },
+  {
+    "prop": "lastRunTime",
+    "lable": "上次运行时间",
+    "width": ""
+  },
+  {
+    "prop": "nextRunTime",
+    "lable": "下次运行时间",
+    "width": ""
+  },
+  {
+    "prop": "runCount",
+    "lable": "运行次数",
+    "width": ""
+  },
+  {
+    "prop": "enabled_dsp",
+    "lable": "是否启用",
+    "width": ""
+  },
+  {
+    "prop": "state_dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": "230px"
+  }
+]

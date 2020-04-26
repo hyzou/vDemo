@@ -1,0 +1,29 @@
+[
+  {
+    "prop": "name",
+    "lable": "名称",
+    "width": "",
+    "clickVarKey": "sysCode",
+    "clickable": true
+  },
+  {
+    "prop": "sysCode",
+    "lable": "编码",
+    "width": ""
+  },
+  {
+    "prop": "sortSeq",
+    "lable": "排序",
+    "width": ""
+  },
+  {
+    "prop": "status__dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

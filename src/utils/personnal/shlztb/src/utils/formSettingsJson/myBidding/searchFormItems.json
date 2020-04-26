@@ -1,0 +1,25 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "name",
+    "data": [],
+    "filterable": true,
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "name": "status",
+    "data": [],
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "委托单位",
+    "name": "clientid",
+    "data": [],
+    "span": 8,
+    "filterable": true
+  }
+]

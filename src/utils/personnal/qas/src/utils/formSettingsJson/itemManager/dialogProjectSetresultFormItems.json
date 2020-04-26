@@ -1,0 +1,25 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "qasBasItemTypeId",
+    "name": "qasBasItemTypeId",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "qasBasJudgeDictId",
+    "name": "qasBasJudgeDictId",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "select",
+    "label": "关联字典表",
+    "name": "busintypeid",
+    "filterable": true,
+    "data":[],
+    "span": 12,
+    "width": "100px"
+  }
+]

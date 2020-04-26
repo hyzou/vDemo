@@ -1,0 +1,78 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "name": "projectId",
+    "data": [],
+    "span": 12,
+    "width": "130px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "备注",
+    "name": "note",
+    "span": 24,
+    "width": "130px",
+    "disabled": true
+  },
+  {
+    "type": "inputTable",
+    "label": "综合分评定规则",
+    "name": "scoreListStr",
+    "span": 24,
+    "width": "130px",
+    "useType": "use",
+    "headers": [
+      {
+        "title": "打分项",
+        "key": "itemName",
+        "disabled": true
+      },
+      {
+        "title": "评分标准",
+        "key": "itemStandard",
+        "disabled": true
+      },
+      {
+        "title": "分值",
+        "key": "itemScore",
+        "disabled": true
+      },
+      {
+        "title": "自评",
+        "key": "selfScore",
+        "disabled": true
+      }
+    ],
+    "disabled": true
+  },
+  {
+    "type": "image",
+    "label": "综合分自评证明",
+    "name": "viewfiles",
+    "span": 24,
+    "width": "130px"
+  },
+  {
+    "type": "flowComment",
+    "label": "历次审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "130px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  }
+]

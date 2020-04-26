@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "addContractComment",
+    "label": "提交评价",
+    "styleType": "primary",
+    "postUrl": "addContractComment"
+  }
+]

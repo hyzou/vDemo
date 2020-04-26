@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "newStd",
+    "label": "添加标准",
+    "styleType": "primary",
+    "postUrl": "addStd"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "type": "date",
+    "label": "申请时间",
+    "name": "sysAddtime",
+    "dateType": "daterange",
+    "dateRangeSeparator": "至",
+    "dateStartPlaceholder": "开始日期",
+    "dateEndPlaceholder": "结束日期",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "span": 8
+  }
+]

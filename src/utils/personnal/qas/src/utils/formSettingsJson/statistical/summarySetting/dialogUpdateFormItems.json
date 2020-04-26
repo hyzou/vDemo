@@ -1,0 +1,45 @@
+[
+  {
+    "type": "input",
+    "label": "标题",
+    "name": "title",
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "select",
+    "label": "产品品种",
+    "name": "productBreed",
+    "linkName": "productBreed",
+    "filterable": true,
+    "data": [],
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "select",
+    "label": "监管环节",
+    "name": "link",
+    "linkName": "link",
+    "filterable": true,
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "计划性质",
+    "name": "nature",
+    "linkName": "nature",
+    "data": [],
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "qasStatRuleId",
+    "name": "qasStatRuleId",
+    "span": 12,
+    "width": "130px"
+  }
+]

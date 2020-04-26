@@ -1,0 +1,29 @@
+[
+  {
+    "prop": "year",
+    "lable": "年审年度",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  },
+  {
+    "prop": "member",
+    "lable": "会员名称",
+    "width": ""
+  },
+  {
+    "prop": "status__dsp",
+    "lable": "状态",
+    "width": ""
+  },
+  {
+    "prop": "temporaryCheck_dsp",
+    "lable": "临时审核",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

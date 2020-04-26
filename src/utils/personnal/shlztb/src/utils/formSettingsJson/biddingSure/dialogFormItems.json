@@ -1,0 +1,33 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "quoteId",
+    "name": "quoteId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "bidId",
+    "name": "bidId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "定标",
+    "name": "type",
+    "span": 12,
+    "data": [
+      {
+        "value": "1",
+        "label": "中标"
+      },
+      {
+        "value": "2",
+        "label": "备选"
+      }
+    ],
+    "width": "120px"
+  }
+]

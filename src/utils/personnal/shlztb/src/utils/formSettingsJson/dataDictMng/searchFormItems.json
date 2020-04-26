@@ -1,0 +1,16 @@
+[
+  {
+    "type": "input",
+    "label": "业务类型编号",
+    "name": "busintypeid",
+    "span": 6,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "业务类型名称",
+    "name": "busintypename",
+    "span": 6,
+    "width": "120px"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "type": "input",
+    "label": "专场名称",
+    "name": "project",
+    "span": 8,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "中标会员",
+    "name": "BIDDERNAME",
+    "span": 8,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "委托方",
+    "name": "CLIENT",
+    "span": 8,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "标的物",
+    "name": "name",
+    "span": 8,
+    "width": "120px"
+  },
+  {
+    "type": "date",
+    "label": "成交时间(起)",
+    "name": "addtime1",
+    "span": 8,
+    "width": "120px",
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss"
+  },
+  {
+    "type": "date",
+    "label": "成交时间(止)",
+    "name": "addtime2",
+    "span": 8,
+    "width": "120px",
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss"
+  }
+]

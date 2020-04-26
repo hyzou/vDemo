@@ -1,0 +1,8 @@
+[
+  {
+    "type": "input",
+    "label": "链接名称",
+    "name": "name",
+    "span": 6
+  }
+]

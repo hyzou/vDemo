@@ -1,0 +1,27 @@
+[
+  {
+    "prop": "statusName",
+    "lable": "状态",
+    "width": "80"
+  },
+  {
+    "prop": "title",
+    "lable": "标题",
+    "width": ""
+  },
+  {
+    "prop": "content",
+    "lable": "内容",
+    "width": ""
+  },
+  {
+    "prop": "sysAddtime",
+    "lable": "发布时间",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

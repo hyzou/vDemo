@@ -1,0 +1,168 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "group",
+    "span": 24,
+    "name": "1",
+    "title": "基本信息"
+  },
+  {
+    "type": "input",
+    "label": "登录用户名",
+    "name": "loginName",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "密码",
+    "password": true,
+    "name": "loginPassword",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "姓名",
+    "name": "memName",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "电子邮箱",
+    "name": "memEmail",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "联系电话",
+    "name": "memPhone",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "手机",
+    "name": "memMobile",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "select",
+    "label": "会员类型",
+    "name": "memType",
+    "data": [
+      {
+        "value": "3",
+        "label": "会员"
+      }
+    ],
+    "span": 12,
+    "width": "200px",
+    "disabled": true
+  },
+  {
+    "type": "group",
+    "span": 24,
+    "name": "2",
+    "title": "法人代表信息"
+  },
+  {
+    "type": "input",
+    "label": "法人代表姓名",
+    "name": "legalman",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "法人代表联系电话",
+    "name": "lawphone",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "法人代表手机",
+    "name": "lawmobile",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "法人代表电子邮箱",
+    "name": "lawemail",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "group",
+    "span": 24,
+    "name": "3",
+    "title": "公司信息"
+  },
+  {
+    "type": "input",
+    "label": "公司名称",
+    "name": "companyName",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "统一社会信用代码",
+    "name": "companyCode",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "公司所在地详细地址",
+    "name": "companyAddress",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "开户银行",
+    "name": "companyBank",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "银行账号",
+    "name": "companyBankAccount",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "input",
+    "label": "银行开户名",
+    "name": "companyBankAccountName",
+    "span": 12,
+    "width": "200px"
+  },
+  {
+    "type": "select",
+    "label": "发票种类",
+    "name": "invoicetype",
+    "data": [{
+      "label":"普通发票",
+      "value":"1"
+    },{
+      "label":"专用发票",
+      "value":"2"
+    }],
+    "span": 12,
+    "width": "200px"
+  }
+]

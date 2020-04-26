@@ -1,0 +1,20 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "可添加人员",
+    "name": "operatorids",
+    "multiple": true,
+    "placeHolder": "请选择人员（可多选）",
+    "filterable": true,
+    "data": [],
+    "span": 24,
+    "width": "100px"
+  }
+]

@@ -1,0 +1,60 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "type",
+    "name": "type",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "链接名称",
+    "name": "name",
+    "span": 24
+  },
+  {
+    "type": "input",
+    "label": "链接地址",
+    "name": "href",
+    "span": 24
+  },
+  {
+    "type": "upload",
+    "label": "链接图片",
+    "name": "file",
+    "requireSymbol": "*",
+    "requierstyle":"updPicture",
+    "actionUrl": "abc",
+    "multiple": false,
+    "choseBtn": "选取文件",
+    "acceptType": "image/*",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传图片文件，且不超过500kb",
+    "span": 24
+  },
+  {
+    "type": "date",
+    "label": "开始时间",
+    "name": "begintime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss"
+  },
+  {
+    "type": "date",
+    "label": "结束时间",
+    "name": "endtime",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss"
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "prop": "name",
+    "clickVarKey": "qasStdId",
+    "clickable": true,
+    "clickType": "first",
+    "lable": "名称"
+  },
+  {
+    "prop": "stdNo",
+    "lable": "标准编码"
+  },
+  {
+    "prop": "statusName",
+    "lable": "状态"
+  },
+  {
+    "prop": "productTypeName",
+    "lable": "产品类别"
+  },
+  {
+    "prop": "issuedByName",
+    "lable": "颁布组织"
+  },
+  {
+    "prop": "replacedStdNo",
+    "lable": "代替的标准编号"
+  },
+  {
+    "prop": "issuedDt",
+    "lable": "发布日期"
+  },
+  {
+    "prop": "reviseDt",
+    "lable": "修订日期"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作"
+  }
+]

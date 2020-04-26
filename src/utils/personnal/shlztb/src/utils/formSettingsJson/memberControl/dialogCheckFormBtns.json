@@ -1,0 +1,14 @@
+[
+  {
+    "flag": "pass",
+    "label": "审核通过",
+    "styleType": "primary",
+    "postUrl": "flowTradeInformation"
+  },
+  {
+    "flag": "back",
+    "label": "审核不通过",
+    "styleType": "primary",
+    "postUrl": "flowTradeInformation"
+  }
+]

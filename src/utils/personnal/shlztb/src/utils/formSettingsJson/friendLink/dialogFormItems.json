@@ -1,0 +1,46 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "type",
+    "name": "type",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "链接名称",
+    "name": "name",
+    "span": 24
+  },
+  {
+    "type": "input",
+    "label": "链接地址",
+    "name": "href",
+    "span": 24
+  },
+  {
+    "type": "upload",
+    "label": "链接图片",
+    "name": "linkFile",
+    "acceptType": "image/*",
+    "actionUrl": "",
+    "multiple": false,
+    "choseBtn": "选取文件",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传jpg/png文件，且不超过500kb",
+    "span": 24
+  },
+  {
+    "type": "input",
+    "label": "排序",
+    "name": "sortField",
+    "span": 12
+  }
+]

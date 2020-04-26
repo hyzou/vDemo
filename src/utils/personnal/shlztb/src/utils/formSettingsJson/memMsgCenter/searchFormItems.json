@@ -1,0 +1,31 @@
+[
+  {
+    "type": "date",
+    "label": "发布时间",
+    "name": "sysAddtime",
+    "dateType": "daterange",
+    "dateRangeSeparator": "至",
+    "dateStartPlaceholder": "开始日期",
+    "dateEndPlaceholder": "结束日期",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "name": "status",
+    "placeHolder": "请选择",
+    "data": [
+      {
+        "label": "未读",
+        "value": "0"
+      },
+      {
+        "label": "已读",
+        "value": "1"
+      }
+    ],
+    "span": 6
+  }
+]

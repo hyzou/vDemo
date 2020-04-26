@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "save",
+    "label": "交付",
+    "styleType": "primary",
+    "postUrl": "addContractAttract"
+  }
+]

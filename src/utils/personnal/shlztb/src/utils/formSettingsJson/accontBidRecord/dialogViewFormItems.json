@@ -1,0 +1,50 @@
+[
+  {
+    "type": "select",
+    "label": "会员名称",
+    "name": "memberid",
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "出入类型",
+    "name": "type",
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "数量",
+    "name": "num",
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "交易类型",
+    "name": "biztype",
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "添加类型",
+    "name": "sysAddtype",
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "备注",
+    "name": "note",
+    "span": 24,
+    "width": "120px",
+    "disabled": true
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "sysCode",
+    "span": 12
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12
+  },
+  {
+    "type": "textarea",
+    "label": "内容",
+    "name": "content",
+    "span": 24
+  }
+]

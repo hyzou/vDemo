@@ -1,0 +1,9 @@
+[
+  {
+    "keyWords": "add",
+    "name": "完成定标",
+    "type": "success",
+    "icon": "el-icon-check",
+    "postUrl": "addmenu"
+  }
+]

@@ -1,0 +1,103 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "菜单编码",
+    "name": "menuid",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "菜单名称",
+    "name": "menuname",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "是否叶子菜单",
+    "name": "isleaf",
+    "data": [
+      {
+        "value": "Y",
+        "label": "叶子菜单"
+      },
+      {
+        "value": "N",
+        "label": "非叶子菜单"
+      }
+    ],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "业务功能",
+    "name": "sysType",
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "菜单类型",
+    "name": "isaction",
+    "data": [
+      {
+        "label": "资源",
+        "value": "1"
+      },
+      {
+        "label": "菜单",
+        "value": "0"
+      }
+    ],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "textarea",
+    "label": "菜单活动",
+    "name": "menuaction",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "显示顺序",
+    "name": "displayorder",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "图片路径",
+    "name": "menuview",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "name": "status",
+    "data": [
+      {
+        "label": "启用",
+        "value": "1"
+      },
+      {
+        "label": "禁用",
+        "value": "0"
+      }
+    ],
+    "span": 12,
+    "width": "120px"
+  }
+]

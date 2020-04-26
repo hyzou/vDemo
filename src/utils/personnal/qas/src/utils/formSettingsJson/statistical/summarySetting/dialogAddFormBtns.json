@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "addRule",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "addSummaryRule"
+  }
+]

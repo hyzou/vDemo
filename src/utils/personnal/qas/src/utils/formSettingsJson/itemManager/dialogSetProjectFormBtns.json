@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "addProject",
+    "label": "添加检测项",
+    "styleType": "primary",
+    "postUrl": "addTestProject"
+  }
+]

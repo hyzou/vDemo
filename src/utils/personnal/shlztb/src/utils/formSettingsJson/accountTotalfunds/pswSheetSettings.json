@@ -1,0 +1,23 @@
+[
+  {
+    "type": "html",
+    "label": "总交易金(元):",
+    "name": "num",
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "html",
+    "label": "总锁定金(元):",
+    "name": "numLock",
+    "span": 24,
+    "width": "120px"
+  },
+  {
+    "type": "html",
+    "label": "总可用金(元):",
+    "name": "numUse",
+    "span": 24,
+    "width": "120px"
+  }
+]

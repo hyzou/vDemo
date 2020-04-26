@@ -1,0 +1,74 @@
+.card{
+  &-container{
+    border: 0;
+    box-shadow: 0 !important;
+    .borderRadius(0);
+    // padding: 5px 10px;
+    min-height: 260px;
+    .el-card__header, .el-card__body{
+      .pd0;
+      border: 0;
+    }
+    .el-card__body{
+      .pt10;
+      .pl10;
+    }
+    &-header{
+      border-bottom: 2px solid @mainBgColor;
+      &-title{
+        display: inline-block;
+        // padding: 0 15px;
+        height:34px;
+        // text-align: center;
+        font-size:16px;
+        font-weight:400;
+        // line-height:34px;
+        // border-left: 5px solid @mainBgColor;
+        &-seperator{
+          width: 5px;
+          margin-top: 6px;
+          height: 20px;
+          background: @mainBgColor;
+        }
+        &-text{
+          line-height: 34px;
+          margin-top: 0; 
+        }
+      }
+      &-operateBtn{
+        font-size:12px;
+        font-family:PingFangSC;
+        font-weight:400;
+        color:rgba(0,145,255,1);
+        line-height:24px;
+      }
+    }
+    &-item{
+      font-size:14px;
+      font-weight:400;
+      color:rgba(34,34,34,1);
+      line-height:16px;
+      cursor: pointer;
+      &-text{
+        &-icon{
+          .borderRadius(50%);
+          width: 14px;
+          height: 14px;
+          border: 1px solid @cardItemCircle;
+        }
+      }
+      &-date{
+        color: @color999;
+      }
+      &-download{
+        color: @mainBgColor;
+        &:hover{
+          color: @mainBgColorLight;
+        }
+      }
+      &:hover > &-text > &-text-icon{
+        border: 1px solid @mainBgColorLight;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "save",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "scoreTarget"
+  }
+]

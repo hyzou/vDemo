@@ -1,0 +1,26 @@
+[
+  {
+    "prop": "name",
+    "lable": "库点名称"
+  },
+  {
+    "prop": "code",
+    "lable": "库点编号"
+  },
+  {
+    "prop": "num",
+    "lable": "库存数量"
+  },
+  {
+    "prop": "address",
+    "lable": "地址"
+  },
+  {
+    "prop": "note",
+    "lable": "备注"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作"
+  }
+]

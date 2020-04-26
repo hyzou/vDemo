@@ -1,0 +1,22 @@
+.paragraph{
+  padding: 20px 5px;
+  &-title{
+    text-align: center;
+    margin-bottom: 20px
+  }
+  &-text{
+    line-height: 30px;
+    margin-bottom: 15px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    table{
+      .textAlignCenter;
+      border: 1px solid @color999;
+      td{
+        .textAlignCenter;
+        border: 1px solid @color999;
+      }
+    }
+  }
+}

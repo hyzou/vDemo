@@ -1,0 +1,71 @@
+[
+  {
+    "type": "select",
+    "label": "登录状态",
+    "name": "loginStatus",
+    "placeHolder": "请选择",
+    "data": [
+      {
+        "label": "成功",
+        "value": "0"
+      },
+      {
+        "label": "失败",
+        "value": "1"
+      }
+    ],
+    "span": 8
+  },
+  {
+    "type": "select",
+    "label": "审计日志级别",
+    "name": "auditLevel",
+    "placeHolder": "请选择",
+    "data": [
+      {
+        "label": "低",
+        "value": "0"
+      },
+      {
+        "label": "中",
+        "value": "1"
+      },
+      {
+        "label": "高",
+        "value": "2"
+      }
+    ],
+    "span": 8,
+    "width": "100px"
+  },
+  {
+    "type": "select",
+    "label": "日志类型",
+    "name": "logType",
+    "placeHolder": "请选择",
+    "data": [
+      {
+        "label": "登录日志",
+        "value": "1"
+      },
+      {
+        "label": "审计日志",
+        "value": "2"
+      }
+    ],
+    "span": 8,
+    "width": "100px"
+  },
+  {
+    "type": "date",
+    "label": "记录时间",
+    "name": "created",
+    "dateType": "daterange",
+    "dateRangeSeparator": "至",
+    "dateStartPlaceholder": "开始日期",
+    "dateEndPlaceholder": "结束日期",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "span": 8
+  }
+]

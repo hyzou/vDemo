@@ -1,0 +1,47 @@
+[
+  {
+    "prop": "logId",
+    "lable": "日志编号",
+    "width": ""
+  },
+  {
+    "prop": "operatorname",
+    "lable": "登录用户名",
+    "width": ""
+  },
+  {
+    "prop": "userid",
+    "lable": "用户登录名",
+    "width": ""
+  },
+  {
+    "prop": "hostIp",
+    "lable": "用户登录ip",
+    "width": ""
+  },
+  {
+    "prop": "logType_dsc",
+    "lable": "日志类型",
+    "width": ""
+  },
+  {
+    "prop": "created",
+    "lable": "记录时间",
+    "width": ""
+  },
+  {
+    "prop": "actionName",
+    "lable": "活动名称",
+    "width": ""
+  },
+  {
+    "prop": "loginStatus_dsc",
+    "lable": "登录状态",
+    "width": ""
+  },
+  {
+    "prop": "auditLevel_dsc",
+    "lable": "审计级别",
+    "width": ""
+  }
+]

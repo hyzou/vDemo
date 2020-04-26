@@ -1,0 +1,9 @@
+[
+  {
+    "type": "image",
+    "label": "已传文件",
+    "name": "viewfiles",
+    "span": 24,
+    "width": "130px"
+  }
+]

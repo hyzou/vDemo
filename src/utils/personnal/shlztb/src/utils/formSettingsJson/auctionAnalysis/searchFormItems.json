@@ -1,0 +1,9 @@
+[
+  {
+    "type": "input",
+    "label": "专场名称",
+    "name": "name",
+    "span": 8,
+    "width": "120px"
+  }
+]

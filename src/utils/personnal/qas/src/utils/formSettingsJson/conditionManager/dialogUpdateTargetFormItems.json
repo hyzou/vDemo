@@ -1,0 +1,51 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "qasBasCriteriaTagId",
+    "name": "qasBasCriteriaTagId",
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "select",
+    "label": "是否用于定等级",
+    "name": "graded",
+    "data":[
+      {
+        "value":"Y",
+        "label":"是"
+      },
+      {
+        "value":"N",
+        "label":"否"
+      }
+    ],
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "select",
+    "label": "字典表类型",
+    "name": "busintypeid",
+    "filterable": true,
+    "data":[],
+    "span": 12,
+    "width": "130px"
+  },
+  {
+    "type": "select",
+    "label": "粮食品种",
+    "name": "grainbreedId",
+    "filterable": true,
+    "data":[],
+    "span": 12,
+    "width": "130px"
+  }
+]

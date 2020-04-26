@@ -1,0 +1,11 @@
+[
+  {
+    "type": "select",
+    "label": "专场名称",
+    "op": "equal",
+    "name": "projectId",
+    "data": [],
+    "span": 8,
+    "filterable": true
+  }
+]

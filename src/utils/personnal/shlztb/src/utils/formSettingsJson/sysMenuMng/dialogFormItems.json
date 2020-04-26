@@ -1,0 +1,79 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "菜单名称",
+    "name": "menuname",
+    "span": 12,
+    "width": "140px"
+  },
+  {
+    "type": "input",
+    "label": "菜单编码",
+    "name": "menuid",
+    "span": 12,
+    "width": "140px"
+  },
+  {
+    "type": "input",
+    "label": "菜单活动(url)",
+    "name": "menuaction",
+    "span": 12,
+    "width": "140px"
+  },
+  {
+    "type": "select",
+    "label": "是否叶子结点",
+    "name": "isleaf",
+    "data": [
+      {
+        "label": "是",
+        "value": "Y"
+      },
+      {
+        "label": "否",
+        "value": "N"
+      }
+    ],
+    "span": 12,
+    "width": "140px"
+  },
+  {
+    "type": "select",
+    "label": "菜单类型",
+    "name": "isaction",
+    "data": [
+      {
+        "label": "menu",
+        "value": "0"
+      },
+      {
+        "label": "action",
+        "value": "1"
+      },
+      {
+        "label": "app",
+        "value": "2"
+      },
+      {
+        "label": "hidden-menu",
+        "value": "3"
+      }
+    ],
+    "span": 12,
+    "width": "140px"
+  },
+  {
+    "type": "input",
+    "label": "显示顺序",
+    "name": "displayorder",
+    "span": 12,
+    "width": "140px"
+  }
+]

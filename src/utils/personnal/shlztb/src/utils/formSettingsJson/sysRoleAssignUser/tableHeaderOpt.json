@@ -1,0 +1,32 @@
+[
+  {
+    "prop": "rolename",
+    "lable": "角色名称",
+    "width": ""
+  },
+  {
+    "prop": "operatorname",
+    "lable": "用户名称",
+    "width": ""
+  },
+  {
+    "prop": "typeName",
+    "lable": "用户类型",
+    "width": ""
+  },
+  {
+    "prop": "userid",
+    "lable": "用户id",
+    "width": ""
+  },
+  {
+    "prop": "userStatus_dsp",
+    "lable": "用户状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

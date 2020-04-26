@@ -1,0 +1,47 @@
+[
+  {
+    "prop": "biddername",
+    "lable": "会员名称",
+    "width": ""
+  },
+  {
+    "prop": "price",
+    "lable": "报价",
+    "width": ""
+  },
+  {
+    "prop": "updated",
+    "lable": "报价时间",
+    "width": ""
+  },
+  {
+    "prop": "selfscoreTotal",
+    "lable": "综合分自评分",
+    "width": ""
+  },
+  {
+    "prop": "adminscoreTotal",
+    "lable": "综合分",
+    "width": ""
+  },
+  {
+    "prop": "priceScore",
+    "lable": "价格分",
+    "width": ""
+  },
+  {
+    "prop": "totalScore",
+    "lable": "总分",
+    "width": ""
+  },
+  {
+    "prop": "winCompany",
+    "lable": "中标状态",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

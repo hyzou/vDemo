@@ -1,0 +1,39 @@
+[
+  {
+    "type": "input",
+    "label": "标题",
+    "name": "title",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "文号",
+    "name": "code",
+    "span": 12,
+    "disabled": true
+  },
+  {
+    "type": "date",
+    "label": "发布时间",
+    "name": "extd1",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd HH:mm:ss",
+    "valueFormat": "yyyy-MM-dd HH:mm:ss",
+    "disabled": true
+  },
+  {
+    "type": "html",
+    "label": "内容",
+    "name": "content",
+    "span": 24,
+    "disabled": true
+  },
+  {
+    "type": "image",
+    "label": "已传附件",
+    "name": "viewfiles",
+    "span": 24
+  }
+]

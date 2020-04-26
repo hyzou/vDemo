@@ -1,0 +1,24 @@
+[
+  {
+    "prop": "name",
+    "lable": "名称",
+    "width": "",
+    "clickVarKey": "sysId",
+    "clickable": true
+  },
+  {
+    "prop": "href",
+    "lable": "链接地址",
+    "width": ""
+  },
+  {
+    "prop": "typeName",
+    "lable": "分类",
+    "width": ""
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": ""
+  }
+]

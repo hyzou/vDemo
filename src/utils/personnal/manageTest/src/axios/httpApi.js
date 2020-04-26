@@ -1,4 +1,6 @@
 const apiInterface = {
+  /* 获取token */
+  // getToken: "_data/testConfig/config/connectController",
   /* 建立控制器 */
   connectController: "_data/testConfig/config/connectController",
   /* 更新控制值 */

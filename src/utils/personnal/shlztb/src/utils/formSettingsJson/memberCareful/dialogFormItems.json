@@ -1,0 +1,63 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "taskId",
+    "name": "taskId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "processinstId",
+    "name": "processinstId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "upload",
+    "label": "年审文件",
+    "name": "files",
+    "multiple": true,
+    "actionUrl": "",
+    "choseBtn": "选取文件",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传jpg/png文件，且不超过500kb",
+    "span": 24,
+    "width": "130px"
+  },
+  {
+    "type": "image",
+    "label": "已传文件",
+    "name": "viewfiles",
+    "span": 24,
+    "width": "130px"
+  },
+  {
+    "type": "flowComment",
+    "label": "历次审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "130px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  }
+]

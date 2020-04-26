@@ -1,0 +1,77 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "sysId",
+    "name": "sysId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "taskId",
+    "name": "taskId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "processinstId",
+    "name": "processinstId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "会员名称",
+    "name": "memberid",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "交易金额",
+    "name": "num",
+    "span": 12,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "备注",
+    "name": "note",
+    "span": 24,
+    "width": "120px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "审批意见",
+    "name": "flowComment",
+    "span": 24,
+    "width": "120px",
+    "disabled": false
+  },
+  {
+    "type": "flowComment",
+    "label": "历次审批意见",
+    "name": "flowComments",
+    "span": 24,
+    "width": "120px",
+    "headers": [
+      {
+        "title": "审批人",
+        "key": "userId__dsp"
+      },
+      {
+        "title": "审批时间",
+        "key": "time"
+      },
+      {
+        "title": "审批意见",
+        "key": "fullMessage"
+      }
+    ]
+  }
+]
