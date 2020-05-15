@@ -17,35 +17,35 @@ const eqpjson = {
         paramName: "LT_NUM",
         paramDesc: "串口彩灯主机彩灯数量",
         paramRange: "0-1024",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "144"
       },
       {
         paramName: "LT_TYPE",
         paramDesc: "串口彩灯主机灯带类型",
         paramRange: "1-16",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "2"
       },
       {
         paramName: "LT_PORT",
         paramDesc: "串口彩灯主机端口号",
         paramRange: "0-30",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "0"
       },
       {
         paramName: "LT_GROUPADDR",
         paramDesc: "串口彩灯主机组地址",
         paramRange: "0-1024",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "0"
       },
       {
         paramName: "LT_DEVICEADDR",
         paramDesc: "串口彩灯主机设备地址",
         paramRange: "0-4096",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "0"
       }
     ]
@@ -56,7 +56,7 @@ const eqpjson = {
         paramName: "OMRON_UNIT_NO",
         paramDesc: "ormon单元地址",
         paramRange: "0-30",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "0"
       }
     ]
@@ -81,7 +81,7 @@ const eqpjson = {
         paramName: "FORCE_HANDLER_CHANNEL_TYPE",
         paramDesc: "Modbus通道类型",
         paramRange: "SERIAL/TCPIP",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "TCPIP"
       },
       {
@@ -155,14 +155,14 @@ const eqpjson = {
         paramName: "BEIBO_ADDR",
         paramDesc: "贝博粮情控制器分机号",
         paramRange: "1-240",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "1"
       },
       {
         paramName: "LAYER_NUM",
         paramDesc: "贝博粮情控制器电缆层数",
         paramRange: "正整数",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "4"
       }
     ]
@@ -173,21 +173,21 @@ const eqpjson = {
         paramName: "OHID_ADDR",
         paramDesc: "ohid设备地址",
         paramRange: "0-255",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "0"
       },
       {
         paramName: "CHANNEL_BASE_ADDR",
         paramDesc: "ohid通道地址",
         paramRange: "0-255",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "200"
       },
       {
         paramName: "CHANNEL_COUNT",
         paramDesc: "ohid通道数量",
         paramRange: "正整数",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "15"
       }
     ]
@@ -201,7 +201,7 @@ const eqpjson = {
         paramName: "JH_TCP_NO",
         paramDesc: "佳华RTU主机TCP编号值",
         paramRange: "1-240",
-        paramRequired: "true",
+        paramRequired: "false",
         paramDefault: "1"
       }
     ]

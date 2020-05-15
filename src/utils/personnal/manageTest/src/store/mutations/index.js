@@ -7,11 +7,17 @@ const mutations = {
   SET_EQPINFO: (state, eqpInfo) => {
     eqpInfo.status = "未测试";
     eqpInfo.title = eqpInfo.eqpName;
+    let itmeIdx;
     if (!eqpInfo.id && eqpInfo.id !== 0) {
       eqpInfo.id = state.eqpInfo.length;
       state.eqpInfo.push(eqpInfo);
     } else {
-      state.eqpInfo.splice(eqpInfo.id, 1, eqpInfo);
+      state.eqpInfo.map((eqp, idx) => {
+        if (eqp.id == eqpInfo.id) {
+          itmeIdx = idx;
+        }
+      });
+      state.eqpInfo.splice(itmeIdx, 1, eqpInfo);
     }
   },
   // 设置设备测试信息
@@ -29,6 +35,14 @@ const mutations = {
   // 设置已选择的测试流程
   SET_CHOSEDPROCESS: (state, chosedProcess) => {
     state.chosedProcess = chosedProcess;
+  },
+  // 设置已选择的测试流程
+  SET_PLCTESTERRORINFO: (state, plcTestErrorInfo) => {
+    state.plcTestErrorInfo = plcTestErrorInfo;
+  },
+  // 设置plc测试结果
+  SET_PLCTESTRESULT: (state, plcTestResult) => {
+    state.plcTestResult = plcTestResult;
   }
 };
 export default mutations;

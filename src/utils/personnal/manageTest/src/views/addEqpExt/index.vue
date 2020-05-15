@@ -29,7 +29,16 @@
         v-model="formdata[field.key]"
       ></mt-field>
     </div>
-    <div class="largeBtnContainer mb10">
+    <div class="largeBtnContainer mb10 mt10" v-if="this.$route.query.testEqpId">
+      <mt-button
+        size="large"
+        type="primary"
+        @click.native="handleSaveEqpInfo('update')"
+      >
+        更新
+      </mt-button>
+    </div>
+    <div class="largeBtnContainer mb10" v-else>
       <mt-button
         size="large"
         type="primary"
@@ -53,6 +62,7 @@
         type="primary"
         @click.native="handleSaveEqpInfo('program')"
       >
+        <!-- :disabled="remoteTestDisabled" -->
         程控测试
       </mt-button>
     </div>
@@ -92,7 +102,10 @@ export default {
         eqpName: "",
         eqpTpye: "",
         eqpTpye_dsc: ""
-      }
+      },
+      localTestDisabled: true,
+      remoteTestDisabled: true,
+      deviceId: this.$route.query.testEqpId ? this.$route.query.testEqpId : ""
     };
   },
   methods: {
@@ -110,6 +123,7 @@ export default {
       this.eqpTpyeOptionSettings.cellValue = val[0].label + "▼";
     },
     handleSaveEqpInfo(type) {
+      let _this = this;
       if (!this.formdata.eqpName || !this.formdata.eqpTpye) {
         this.$messagebox.alert("请完善必填项", "提示");
         return false;
@@ -122,33 +136,69 @@ export default {
       }
       let obj = JSON.parse(JSON.stringify(this.formdata));
       let newobj = {
-        eqpName: this.formdata.eqpName,
-        eqpTpye: this.formdata.eqpTpye,
-        id: this.formdata.id || ""
+        storePointId: this.$store.getters.userInfo.storePointId,
+        deviceName: this.formdata.eqpName,
+        deviceType: this.formdata.eqpTpye,
+        controllerId: this.formdata.id || "",
+        deviceParameter: JSON.stringify(obj)
       };
-      this.fieldlist.map(fItem => {
-        newobj[fItem.key] = obj[fItem.key];
-      });
-      this.$store.dispatch("setTestInfos", newobj);
-      if (type == "save") {
-        this.$router.push({ path: "equipmentList", query: this.$route.query });
+
+      let postUrl = "",
+        postData = {};
+      if (type === "save") {
+        postUrl = _this.$api.saveDeviceConfig;
+        postData = newobj;
       } else {
-        let testQuery = this.$route.query;
-        testQuery.controlType = type;
-        this.$router.push({
-          path: "selectTest",
-          query: testQuery
-        });
+        postUrl = _this.$api.updateDeviceConfig;
+        postData.testDeviceDto = newobj;
+        postData.deviceId = _this.$route.query.testEqpId;
       }
+      _this.$postData(postUrl, postData).then(xhr => {
+        if (xhr && xhr.data && xhr.data > 0) {
+          _this.remoteTestDisabled = true;
+          _this.localTestDisabled = false;
+          if (type === "save" || type === "update") {
+            this.$router.push({
+              path: "equipmentList",
+              query: { eqpId: _this.$route.query.eqpId }
+            });
+          } else {
+            let testQuery = this.$route.query;
+            testQuery.controlType = type;
+            this.$router.push({
+              path: "selectTest",
+              query: testQuery
+            });
+          }
+        }
+      });
+    },
+    getDeviceConfig(testEqpId) {
+      let _this = this;
+      _this
+        .$postData(_this.$api.getDeviceConfig, { deviceId: testEqpId })
+        .then(xhr => {
+          if (xhr && xhr.data) {
+            _this.deviceId = xhr.data.deviceId;
+            _this.formdata = JSON.parse(xhr.data.testDeviceDto.deviceParameter);
+            _this.eqpTpyeOptionSettings.slots[0].values.forEach((e, i) => {
+              if (e.value == _this.formdata.eqpTpye) {
+                _this.eqpTpyeOptionSettings.slots[0].defaultIndex = i;
+              }
+            });
+          }
+        });
     }
   },
   mounted() {
-    if (this.$route.query.testEqpId || this.$route.query.testEqpId == 0) {
-      this.formdata = JSON.parse(
-        JSON.stringify(
-          this.$store.getters.testInfo[this.$route.query.testEqpId]
-        )
-      );
+    this.$data.formdata.id = this.$route.query.eqpId;
+    if (this.$route.query.testEqpId) {
+      this.localTestDisabled = false;
+      if (this.$route.query.localTest === "false") {
+        this.remoteTestDisabled = true;
+      }
+      this.headerOptionSettings.title = "修改测试设备";
+      this.getDeviceConfig(this.$route.query.testEqpId);
     }
   },
   computed: {

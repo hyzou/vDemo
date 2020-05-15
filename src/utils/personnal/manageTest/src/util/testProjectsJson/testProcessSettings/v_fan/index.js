@@ -22,7 +22,7 @@ const testJson = [
         isEnd: "false",
         stepButtons: [
           { label: "终止测试", instruction: "stopTest" },
-          { label: "开始测试", instruction: "nextStep" }
+          { label: "开始测试", instruction: "nextStep", status: "start" }
         ],
         operateButtons: []
       },

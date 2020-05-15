@@ -1,21 +1,9 @@
 <template>
   <div class="manage">
     <myheader :myheaderOption="headerOption" />
-    <mt-field
-      label="设备名"
-      placeholder="请输入设备名"
-      v-model="formdata.eqpName"
-    ></mt-field>
-    <mt-field
-      label="状态寄存器地址"
-      placeholder="请输入状态寄存器地址"
-      v-model="formdata.statusRegister"
-    ></mt-field>
-    <mt-field
-      label="控制寄存器地址"
-      placeholder="请输入控制寄存器地址"
-      v-model="formdata.controlRegister"
-    ></mt-field>
+    <mt-cell title="设备名" :value="formdata.eqpName"></mt-cell>
+    <mt-cell title="状态寄存器地址" :value="formdata.statusRegister"></mt-cell>
+    <mt-cell title="控制寄存器地址" :value="formdata.controlRegister"></mt-cell>
     <div class="pl15 mt15 mb15">
       <mt-cell title="打开仓窗"></mt-cell>
       <ul class="pl10 text-info">

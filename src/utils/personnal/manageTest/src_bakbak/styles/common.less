@@ -1,0 +1,54 @@
+// 头部样式颜色由蓝色修改成绿色
+.mint-header{
+  background-color: @mainBgColor;
+}
+// 默认按钮样式由蓝色变成绿色
+.mint-button--primary{
+  background-color: @mainBgColor;
+}
+// 整体背景色设置为浅灰
+body{
+  background-color: @mainBodyColor;
+}
+// 大型按钮容器
+.largeBtnContainer{
+  .width(90%);
+  .textAlignCenter;
+  .mgAuto;
+}
+// 半屏按钮容器
+.harfBtnContainer{
+  .width(48%);
+  .floatLeft;
+  &:nth-child(2){
+    .floatRight;
+  }
+}
+// 必填标志
+.symbolRequired{
+  top: 15px;
+  left: 3px;
+  z-index: 9;
+}
+// 添加分机类型radio样式修改
+.testTypeRadioGroup{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .eqpTypeBtn{
+    width: 28%;
+    .textAlignCenter;
+    border: 1px solid @color999;
+    .borderRadius(30px);
+    background-color: @mainWhite;
+    .lh(30px);
+    .mb15;
+    color: @color666;
+    &-active{
+      background-color: @mainBgColor;
+      color: @mainWhite;
+      border: 1px solid @mainBgColor;
+    }
+  }
+}

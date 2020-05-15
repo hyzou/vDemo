@@ -10,6 +10,15 @@
 body{
   background-color: @mainBodyColor;
 }
+.home{
+  .bgfff;
+  .positionFix;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
 // 大型按钮容器
 .largeBtnContainer{
   .width(90%);
@@ -50,5 +59,53 @@ body{
       color: @mainWhite;
       border: 1px solid @mainBgColor;
     }
+  }
+}
+.mint-radio-input:checked + .mint-radio-core {
+  background-color:@mainBgColor;
+  border-color: @mainBgColor;
+}
+// 加载动画背景
+.loadingGifBg{
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  background:rgba(0,0,0,0.3)
+}
+// plc测试流程倒计时
+.countDownNumber{
+  right: 10px;
+  top:5px;
+  color: @mainWhite;
+  font-size: 16px;
+  z-index: 999;
+  border: 1px solid @mainWhite;
+}
+.ah-header-group{
+  .width100;
+  height: 40px;
+  .positionFix;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+.manage{
+  .pb20;
+  .pt40;
+}
+// 选择流程页面修改cell高度
+.selectTestProcess{
+  min-height: 60px;
+  .mint-cell-wrapper{
+    min-height: 60px;
+  }
+}
+// 测试结果页面出错流程标题
+.testResultTitle{
+  .mint-cell-text{
+    color: red;
+    border: 1px solid red;
+    padding: 5px;
   }
 }

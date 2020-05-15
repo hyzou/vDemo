@@ -11,6 +11,15 @@
 body {
   background-color: #EFEFF3;
 }
+.home {
+  background-color: #fff !important;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
 .largeBtnContainer {
   width: 90%;
   text-align: center !important;
@@ -33,10 +42,21 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #24AA57;
 }
-.testTypeRadioGroup .text- .eqpTypeBtn {
-  width: 25%;
+.testTypeRadioGroup .eqpTypeBtn {
+  width: 28%;
+  text-align: center !important;
+  border: 1px solid #999;
+  border-radius: 30px;
+  background-color: #fff;
+  line-height: 30px;
+  margin-bottom: 15px !important;
+  color: #666;
+}
+.testTypeRadioGroup .eqpTypeBtn-active {
+  background-color: #24AA57;
+  color: #fff;
+  border: 1px solid #24AA57;
 }
 body,
 div,
@@ -136,6 +156,11 @@ ul {
 }
 .positionFix {
   position: fixed;
+}
+.positionCenter {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .displayBlock {
   display: block;

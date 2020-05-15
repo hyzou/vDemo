@@ -21,13 +21,17 @@ export default {
     /* 获取接口数据post方法 */
     _Vue.prototype.$postData = (urlstr, params, isFormdata, hasOwnUrl) => {
       let formflag = isFormdata ? isFormdata : false;
-      return new Promise(resolve => {
+      return new Promise((resolve, reject) => {
         axios(
           requestInterface["postMethod"](urlstr, formflag, hasOwnUrl),
           params
-        ).then(xhr => {
-          resolve(xhr);
-        });
+        )
+          .then(xhr => {
+            resolve(xhr);
+          })
+          .catch(err => {
+            reject(err);
+          });
       });
     };
     /* 获取接口数据所有方法 */
@@ -35,12 +39,11 @@ export default {
       let formflag = isFormdata ? isFormdata : false,
         method = type ? type : "get";
       return new Promise(resolve => {
-        axios(
-          requestInterface["kindMethod"](method, urlstr, formflag),
-          params
-        ).then(xhr => {
-          resolve(xhr);
-        });
+        axios(requestInterface["kindMethod"](method, urlstr, formflag), params)
+          .then(xhr => {
+            resolve(xhr);
+          })
+          .catch(() => {});
       });
     };
   }

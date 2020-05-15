@@ -7,6 +7,10 @@ const getters = {
   eqpInfo: state => {
     return state.eqpInfo;
   },
+  // 分机类型对应路由信息表
+  equipTypeToPaht: state => {
+    return state.equipTypeToPaht;
+  },
   // 分机类型
   testTypeDatas: state => {
     return state.testTypeDatas;
@@ -46,6 +50,18 @@ const getters = {
   // 已选中的测试流程
   chosedProcess: state => {
     return state.chosedProcess;
+  },
+  // 测温转换函数
+  switchTempratureFunctions: state => {
+    return state.switchTempratureFunctions;
+  },
+  // plc测试流程错误信息
+  plcTestErrorInfo: state => {
+    return state.plcTestErrorInfo;
+  },
+  // plc测试流程结果信息
+  plcTestResult: state => {
+    return state.plcTestResult;
   }
 };
 export default getters;

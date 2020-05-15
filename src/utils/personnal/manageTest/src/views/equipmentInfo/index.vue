@@ -94,7 +94,6 @@ export default {
   },
   methods: {
     getConnectTpyeValue(val) {
-      console.log(val);
       this.formdata.connectTpye = val[0].value;
       this.connectTpyeOption.cellValue = val[0].label + "▼";
       // this.$nextTick(function() {
@@ -114,16 +113,13 @@ export default {
       // });
     },
     getProtocolValue(val) {
-      console.log(val);
       this.formdata.protocol = val[0].value;
       this.protocolOption.cellValue = val[0].label + "▼";
     },
     saveEqpInfo() {
-      console.log(this.formdata, "save");
       this.$router.push("home");
     },
     testEqpInfo() {
-      console.log(this.formdata, "test");
       this.$router.push("equipmentList");
     }
   }

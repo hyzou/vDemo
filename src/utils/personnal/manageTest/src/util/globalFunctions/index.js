@@ -12,8 +12,8 @@ const globalFncs = {
   //汉字转 Unicode 编码
   cnwordToCharCode: import("./cnwordToCharCode"),
   //socket连接
-  socketConnect: () => import("./socketJs"),
+  socketConnect: import("./socketJs"),
   //touchFnc
-  touchFnc: () => import("./touchJs")
+  touchFnc: import("./touchJs")
 };
 export default globalFncs;

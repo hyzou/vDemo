@@ -1,61 +1,35 @@
 <template>
-  <div class="manage">
+  <div class="manage" v-if="formdata">
     <myheader
       :myheaderOption="headerOptionSettings"
       @myheaderRightFnc="handleMyheaderRightFnc"
     />
-    <mt-field
-      label="分机名"
-      placeholder="请输入分机名"
-      v-model="formdata.eqpName"
-      readonly
-    ></mt-field>
-    <mt-field
-      label="连接类型"
-      placeholder="请输入连接类型"
-      v-model="formdata.connectTpye_dsc"
-      readonly
-    ></mt-field>
-    <template v-if="formdata.connectTpye != 'tcp'">
-      <mt-field
-        label="串口"
-        placeholder="请输入串口"
-        v-model="formdata.serialPort_dsc"
-        readonly
-      ></mt-field>
+    <mt-cell title="分机名" :value="formdata.controllerName"></mt-cell>
+    <mt-cell title="连接类型" :value="formdata.connectionType_dsc"></mt-cell>
+    <template v-if="formdata.connectionType !== 'tcp'">
+      <mt-cell title="串口" :value="formdata.port"></mt-cell>
     </template>
     <template v-else>
-      <mt-field
-        label="IP地址"
-        placeholder="请输入IP地址"
-        v-model="formdata.eqpIp"
-        readonly
-      ></mt-field>
-      <mt-field
-        label="端口"
-        placeholder="请输入端口"
-        v-model="formdata.eqpPort"
-        readonly
-      ></mt-field>
+      <mt-cell title="IP地址" :value="formdata.host"></mt-cell>
+      <mt-cell title="端口" :value="formdata.port"></mt-cell>
     </template>
-    <mt-field
-      label="协议类型"
-      placeholder="请输入协议类型"
-      v-model="formdata.protocol_dsc"
-      readonly
-    ></mt-field>
-    <mt-field
-      label="Modbus地址"
-      placeholder="请输入Modbus地址"
-      v-model="formdata.ModbusAddress"
-      readonly
-    ></mt-field>
+    <mt-cell title="协议类型" :value="formdata.protocolType"></mt-cell>
+    <template v-for="param in paramlist">
+      <mt-cell
+        v-if="formdata.protocolParameter[param.paramName]"
+        :key="param.paramName"
+        :title="param.paramDesc"
+        :value="formdata.protocolParameter[param.paramName]"
+      ></mt-cell>
+    </template>
     <div v-if="equipmentList.length > 0">
       <mt-cell
         v-for="equipment in equipmentList"
         :key="equipment.id"
         :title="equipment.title"
-        @click.native="handleRouterTo(equipment.id)"
+        @click.native="
+          handleRouterTo(equipment.id, equipment.local, equipment.remote)
+        "
         is-link
         :value="equipment.status"
       >
@@ -90,8 +64,11 @@ export default {
         routePath: "home",
         rightIcon: "tianjia"
       },
-      formdata: this.$store.getters.eqpInfo[this.$route.query.eqpId],
-      equipmentList: this.$store.getters.testInfo
+      formdata: {},
+      equipmentList: [],
+      paramlist: [],
+      // 控制器id
+      controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : ""
     };
   },
   methods: {
@@ -101,11 +78,84 @@ export default {
         query: { eqpId: this.$route.query.eqpId }
       });
     },
-    handleRouterTo(id) {
+    handleRouterTo(id, local, remote) {
       let routeQuery = this.$route.query;
-      routeQuery.testEqpId = id;
-      this.$router.push({ path: "addEqpExt", query: routeQuery });
+      let query = {
+        eqpId: routeQuery.eqpId,
+        testEqpId: id,
+        localTest: local,
+        remoteTest: remote
+      };
+      this.$router.push({ path: "addEqpExt", query: query });
+    },
+    //获取分机信息
+    getControllerConfig(eqpId) {
+      if (!eqpId && eqpId != 0) {
+        return;
+      }
+      let _this = this;
+      _this
+        .$postData(_this.$api.getControllerConfig, {
+          controllerId: eqpId
+        })
+        .then(xhr => {
+          if (xhr && xhr.data) {
+            xhr.data.testControllerDto.connectionType_dsc =
+              xhr.data.testControllerDto.connectionType == "serial"
+                ? "串口"
+                : "TCP";
+            _this.paramlist =
+              _this.$store.getters.protocolParamsDatas[
+                xhr.data.testControllerDto.protocolType
+              ].paramList;
+            _this.formdata = xhr.data.testControllerDto;
+            _this.controllerId = xhr.data.controllerId;
+          }
+        });
+      // .catch(err => {});
+    },
+    //获取分机对应的设备列表
+    getDeviceConfigList(eqpId) {
+      if (!eqpId && eqpId != 0) {
+        return;
+      }
+      let _this = this;
+      _this
+        .$postData(_this.$api.getDeviceList, {
+          controllerId: eqpId
+        })
+        .then(xhr => {
+          if (xhr && xhr.data && xhr.data.length > 0) {
+            xhr.data.forEach(device => {
+              let json = {
+                id: device.deviceId,
+                title: device.deviceName,
+                status: "",
+                local: null
+              };
+              if (device.localTestResult === "notDetected") {
+                json.status = "柜控未测试,";
+                json.local = false;
+              } else {
+                json.status = "柜控已测试,";
+                json.local = true;
+              }
+              if (device.remoteTestResult === "notDetected") {
+                json.status += "程控未测试";
+                json.remote = false;
+              } else {
+                json.status += "程控已测试";
+                json.remote = true;
+              }
+              _this.equipmentList.push(json);
+            });
+          }
+        });
     }
+  },
+  mounted() {
+    this.getControllerConfig(this.$route.query.eqpId);
+    this.getDeviceConfigList(this.$route.query.eqpId);
   }
 };
 </script>

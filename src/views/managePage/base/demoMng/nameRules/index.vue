@@ -34,7 +34,7 @@
               </dt>
               <dt>
                 ② 如果是<span class="text-danger">接口请求类函数</span
-                >，统一命名方式为："get"+需获取的列表（英文名称），如"getTableData"；
+                >，统一命名方式为："http"+需获取的列表（英文名称），如"httpGetTableData"；
               </dt>
               <dt>
                 ③ <span class="text-danger">接口数据处理函数</span>

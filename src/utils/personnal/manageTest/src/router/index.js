@@ -15,9 +15,24 @@ export default new Router({
       component: () => import("@/views/Home")
     },
     {
+      path: "/selectEqumentType",
+      name: "selectEqumentType",
+      component: () => import("@/views/selectEqumentType")
+    },
+    {
       path: "/addEquipment",
       name: "addEquipment",
       component: () => import("@/views/addEquipment")
+    },
+    {
+      path: "/addTemperatureEquipment",
+      name: "addTemperatureEquipment",
+      component: () => import("@/views/addTemperatureEquipment")
+    },
+    {
+      path: "/temperatureResult",
+      name: "temperatureResult",
+      component: () => import("@/views/temperatureResult")
     },
     {
       path: "/equipmentList",

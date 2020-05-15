@@ -8,7 +8,7 @@ const socket = {};
 socket.socketConnect = json => {
   let stompClient = null,
     wsurl = json.url,
-    userName = json.userName,
+    userName = json.username,
     callback = json.callback,
     flag = true;
 
@@ -74,7 +74,7 @@ socket.openSubscribe = json => {
 socket.closeSubscribe = subscribeObjs => {
   if (subscribeObjs) {
     if (subscribeObjs instanceof Array) {
-      subscribeObjs.map(function(subscribeObj) {
+      subscribeObjs.map(subscribeObj => {
         subscribeObj.unsubscribe();
       });
     } else {
@@ -83,7 +83,7 @@ socket.closeSubscribe = subscribeObjs => {
   } else {
     Toast({
       message: "未找到订阅对象！",
-      iconClass: "icon icon-success"
+      iconClass: "icon icon-error"
     });
   }
 };

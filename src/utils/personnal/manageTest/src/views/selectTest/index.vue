@@ -2,6 +2,7 @@
   <div class="manage">
     <myheader :myheaderOption="headerOptionSettings" />
     <mt-cell
+      class="selectTestProcess"
       v-for="testProcess in testProcessList"
       :key="testProcess.id"
       :title="testProcess.name"
@@ -31,18 +32,31 @@ export default {
     };
   },
   methods: {
+    // 项目点击事件，测试流程点击跳转
     handleRouterTo(processObj) {
-      console.log(processObj);
       this.$store.dispatch("setChosedProcess", processObj);
       let queryObj = this.$route.query;
       queryObj.testProcessId = processObj.id;
       queryObj.testProcessStepId = 0;
       this.$router.push({ path: "preTestEqp", query: queryObj });
+    },
+    // 获取设备信息
+    getDeviceConfig(testEqpId) {
+      let _this = this;
+      _this
+        .$postData(_this.$api.getDeviceConfig, { deviceId: testEqpId })
+        .then(xhr => {
+          if (xhr && xhr.data) {
+            _this.formdata = JSON.parse(xhr.data.testDeviceDto.deviceParameter);
+          }
+        });
     }
   },
   mounted() {
     if (this.$route.query.testEqpId || this.$route.query.testEqpId == 0) {
-      this.formdata = this.$store.getters.testInfo[this.$route.query.testEqpId];
+      if (this.$route.query.testEqpId) {
+        this.getDeviceConfig(this.$route.query.testEqpId);
+      }
     }
   },
   computed: {

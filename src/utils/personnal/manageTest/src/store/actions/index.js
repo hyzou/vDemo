@@ -14,6 +14,14 @@ const actions = {
   // 设置设备测试流程
   setChosedProcess({ commit }, chosedProcess) {
     commit("SET_CHOSEDPROCESS", chosedProcess);
+  },
+  // 保存当前plc测试流程出错信息
+  setPlcTestErrorInfo({ commit }, plcTestErrorInfo) {
+    commit("SET_PLCTESTERRORINFO", plcTestErrorInfo);
+  },
+  // 保存当前plc测试流程结果信息
+  setPlcTestResult({ commit }, plcTestResult) {
+    commit("SET_PLCTESTRESULT", plcTestResult);
   }
 };
 export default actions;

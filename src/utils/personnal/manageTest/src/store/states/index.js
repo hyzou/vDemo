@@ -6,14 +6,19 @@ import registersjson from "@/util/testProjectsJson/registersSettings";
 import testProcessjson from "@/util/testProjectsJson/testProcessSettings";
 import protocolParamsjson from "@/util/testProjectsJson/protocolParamsListSettings";
 import testTypejson from "@/util/testProjectsJson/testTypeSettings";
+import controllerTypeRouterPathjson from "@/util/testProjectsJson/controllerTypeRouterPath";
+import switchFunctionsSettingsjson from "@/util/testProjectsJson/switchFunctionsSettings";
 
 const state = {
   // 登录用户信息
   userInfo: {
-    userName: "crk"
+    userName: "crk",
+    storePointId: "271"
   },
   // 分机信息列表
   eqpInfo: [],
+  // 分机类型对应路由信息表
+  equipTypeToPaht: controllerTypeRouterPathjson,
   // 设备测试信息
   testInfo: [],
   // 添加分机类型列表
@@ -33,6 +38,12 @@ const state = {
   // 测试流程
   testProcess: testProcessjson,
   // 已选中的测试流程
-  chosedProcess: {}
+  chosedProcess: {},
+  // 测温协议转换函数
+  switchTempratureFunctions: switchFunctionsSettingsjson,
+  // plc测试流程错误信息
+  plcTestErrorInfo: {},
+  // plc测试结果
+  plcTestResult: ""
 };
 export default state;

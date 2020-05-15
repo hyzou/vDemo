@@ -62,6 +62,16 @@
 							label: "名字",
 							value: "c",
 							isshow: true
+						}],
+						
+						
+						routes:[{
+							path:"",
+							name:"",
+							children:[{
+								path:"",
+								name:"",
+							}]
 						}]
 					}
 				},
@@ -91,12 +101,14 @@
 					console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
 					console.log("%c%s", "color:red", "data   : " + this.$data); //undefined 
 					console.log("%c%s", "color:red", "message: " + this.message)
+					console.log("%c%s", "color:red", "testGetValue: " + this.testGetValue)
 				},
 				created: function() {
 					console.group('created 创建完毕状态===============》');
 					console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
 					console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化 
 					console.log("%c%s", "color:red", "message: " + this.message); //已被初始化
+					console.log("%c%s", "color:red", "testGetValue: " + this.testGetValue)
 				},
 				beforeMount: function() {
 					console.group('beforeMount 挂载前状态===============》');
@@ -104,6 +116,7 @@
 					console.log(this.$el);
 					console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化  
 					console.log("%c%s", "color:red", "message: " + this.message); //已被初始化  
+					console.log("%c%s", "color:red", "testGetValue: " + this.testGetValue)
 				},
 				mounted: function() {
 					console.group('mounted 挂载结束状态===============》');
@@ -111,6 +124,7 @@
 					console.log(this.$el);
 					console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
 					console.log("%c%s", "color:red", "message: " + this.message); //已被初始化 
+					console.log("%c%s", "color:red", "testGetValue: " + this.testGetValue)
 				},
 				beforeUpdate: function() {
 					console.group('beforeUpdate 更新前状态===============》');
