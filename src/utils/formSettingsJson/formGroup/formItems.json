@@ -47,7 +47,15 @@
       }
     ],
     "span": 12,
-    "width": "150px"
+    "width": "150px",
+    "buttonBehind":true,
+    "buttonAttr":{
+      "span":6,
+      "label":"添加分类",
+      "type":"primary",
+      "size": "small",
+      "flag":"addCriteriaTags"
+    }
   },
   {
     "type": "stepInput",

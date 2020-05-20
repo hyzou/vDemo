@@ -442,7 +442,54 @@
               :label-width="formItem.width"
               :prop="formItem.name"
             >
-              <el-select
+              <el-col
+                :span="
+                  formItem.buttonBehind
+                    ? 24 - parseInt(formItem.buttonAttr.span)
+                    : 24
+                "
+              >
+                <el-select
+                  class="width100"
+                  v-model="formGroupSettings.formGroupValues[formItem.name]"
+                  :placeholder="formItem.placeHolder"
+                  :disabled="formItem.disabled"
+                  :filterable="formItem.filterable"
+                  :multiple="formItem.multiple"
+                  :defaultFirstOption="formItem.multiple"
+                  :clearable="!formItem.cannotClear"
+                  auto-complete="off"
+                  @change="
+                    handleChangeSelect(
+                      formItem.linkName,
+                      formGroupSettings.formGroupValues[formItem.name]
+                    )
+                  "
+                >
+                  <el-option
+                    v-for="opt in formItem.data"
+                    :key="opt.value"
+                    :label="opt.label"
+                    :value="opt.value"
+                  ></el-option>
+                </el-select>
+              </el-col>
+              <el-col
+                v-if="formItem.buttonBehind"
+                :span="formItem.buttonAttr.span"
+                class="textAlignRight"
+              >
+                <el-button
+                  :class="formItem.buttonAttr.buttonClass"
+                  :type="formItem.buttonAttr.type"
+                  :size="formItem.buttonAttr.size"
+                  @click="handleInlineFnc(formItem.buttonAttr.flag)"
+                >
+                  {{ formItem.buttonAttr.label }}
+                </el-button>
+              </el-col>
+
+              <!-- <el-select
                 class="width100"
                 v-model="formGroupSettings.formGroupValues[formItem.name]"
                 :placeholder="formItem.placeHolder"
@@ -465,7 +512,7 @@
                   :label="opt.label"
                   :value="opt.value"
                 ></el-option>
-              </el-select>
+              </el-select> -->
             </el-form-item>
             <!-- item:editor -->
             <el-form-item
@@ -599,6 +646,13 @@ export default {
   //   this.fileList = [];
   // },
   methods: {
+    handleInlineFnc(flag) {
+      if (!flag) {
+        console.log("没有定义按钮功能");
+        return;
+      }
+      this.$emit("inlineFncs", flag);
+    },
     //inputtable取值
     getTableData(data) {
       console.log(data, "data");

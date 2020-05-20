@@ -6,6 +6,7 @@
           :formGroupSettings="formGroupSettings"
           @formGroupSubmit="handleFormButtons"
           @linkSelect="handleSelectChange"
+          @inlineFncs="inlineFncs"
         />
       </el-col>
       <el-col :span="24">
@@ -258,6 +259,9 @@ export default {
     };
   },
   methods: {
+    inlineFncs(flag) {
+      console.log(flag);
+    },
     /* 表单按钮点击事件 */
     handleFormButtons(flag, data) {
       //do something
