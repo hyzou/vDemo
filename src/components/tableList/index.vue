@@ -99,7 +99,7 @@
                 </el-button>
               </template>
               <template v-else>
-                {{ scope.row[head.prop] }}
+                {{ scope.row[head.prop] || "—" }}
               </template>
             </p>
           </template>
