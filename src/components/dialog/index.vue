@@ -17,6 +17,7 @@
       :formGroupSettings="dialogFormSettings.dialogFormItems"
       @formGroupSubmit="handleButtonSubmit"
       @linkSelect="handleSelectChange"
+      @inlineFncs="inlineFncs"
     />
     <img
       v-if="dialogFormSettings.dialogType == 'image'"
@@ -36,6 +37,9 @@ export default {
     formGroup
   },
   methods: {
+    inlineFncs(flag) {
+      this.$emit("inlineFncs", flag);
+    },
     handleSelectChange(link, data) {
       this.$emit("linkSelect", link, data);
     },

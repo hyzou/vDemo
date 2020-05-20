@@ -49,6 +49,7 @@
       :dialogFormSettings="dialogFormSettings"
       @handleDialogForm="handleDialogForm"
       @linkSelect="handleDialogSelectChange"
+      @inlineFncs="inlineFncs"
     />
   </div>
 </template>
@@ -115,6 +116,9 @@ export default {
     };
   },
   methods: {
+    inlineFncs(flag) {
+      this.$emit("inlineFncs", flag);
+    },
     /* operateButtons点击事件 */
     handleOperateButton(button) {
       if (button.flag == "form") {
