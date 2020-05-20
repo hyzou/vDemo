@@ -97,6 +97,7 @@ export default {
           formGroupList: [],
           formGroupValues: {},
           formButtonList: [],
+          buttonGroupClass: "textAlignRight",
           rules: dialogFormRules.rule
         }
       },

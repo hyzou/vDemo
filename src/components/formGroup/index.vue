@@ -535,11 +535,12 @@
         <el-col :span="formGroupSettings.fullScreen ? 24 : 4">
           <el-form-item
             label-width="0"
-            :class="
+            :class="[
               formGroupSettings.fullScreen
                 ? 'textAlignCenter'
-                : 'textAlignRight'
-            "
+                : 'textAlignRight',
+              formGroupSettings.buttonGroupClass
+            ]"
           >
             <el-button
               v-for="formBtn in formGroupSettings.formButtonList"

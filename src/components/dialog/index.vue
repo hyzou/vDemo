@@ -5,7 +5,7 @@
     :close-on-click-modal="false"
     append-to-body
     :destroy-on-close="true"
-    width="900px"
+    :width="dialogFormSettings.width ? dialogFormSettings.width : '900px'"
   >
     <!-- @opened="closeDialog" -->
     <formGroup
