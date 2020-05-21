@@ -6,6 +6,7 @@
       {
         "type":"add",
         "styleType": "text",
+        "className":"aa",
         "id":1,
         "text":"添加"
       },
@@ -20,6 +21,27 @@
         "styleType": "danger",
         "id":1,
         "text":"删除"
+      }
+    ],
+    "operateBtns2": [
+      {
+        "type":"add",
+        "styleType": "text",
+        "className":"aa",
+        "id":1,
+        "text":"添加2"
+      },
+      {
+        "type":"edit",
+        "styleType": "warning",
+        "id":1,
+        "text":"编辑3"
+      },
+      {
+        "type":"remove",
+        "styleType": "danger",
+        "id":1,
+        "text":"删除4"
       }
     ],
     "expandList": [

@@ -85,17 +85,17 @@
               >{{ scope.row[head.prop] }}</a
             >
             <p v-else>
-              <template v-if="head.prop == 'operateBtns'">
+              <template v-if="head.propType == 'operateBtns'">
                 <el-button
                   v-for="operateBtn in scope.row[head.prop]"
+                  :class="operateBtn.className"
                   :key="operateBtn.type"
                   size="mini"
                   :type="operateBtn.styleType"
                   v-show="!operateBtn.showflag || operateBtn.showflag == 'true'"
-                  @click.native.prevent="
-                    handleRowButton(operateBtn.id, operateBtn.type)
-                  "
-                  >{{ operateBtn.text }}
+                  @click.native.prevent="handleRowButton(scope.row, operateBtn)"
+                >
+                  {{ operateBtn.text }}
                 </el-button>
               </template>
               <template v-else>
