@@ -179,58 +179,67 @@
               :label-width="formItem.width"
               :prop="formItem.name"
             >
-              <el-table
-                size="mini"
-                :data="formGroupSettings.formGroupValues[formItem.name]"
-                border
-                style="width: 100%;margin:auto;"
-                highlight-current-row
-              >
-                <el-table-column
-                  v-for="(item, index) in formItem.headers"
-                  :label="item.title"
-                  :prop="item.key"
-                  :width="item.width"
-                  :key="index"
+              <div :class="['inputTable', formItem.tableName]">
+                <el-table
+                  size="mini"
+                  :data="formGroupSettings.formGroupValues[formItem.name]"
+                  border
+                  style="width: 100%;margin:auto;"
+                  highlight-current-row
                 >
-                  <template slot-scope="scope">
-                    <el-input
-                      v-if="item.inputType !== 'number'"
-                      type="textarea"
-                      size="mini"
-                      :autosize="true"
-                      :disabled="item.disabled"
-                      placeholder="请输入内容"
-                      v-model="scope.row[item.key]"
-                    ></el-input>
-                    <el-input-number
-                      v-else
-                      size="mini"
-                      class="width100"
-                      :precision="2"
-                      :disabled="item.disabled"
-                      v-model="scope.row[item.key]"
-                      :step="1"
-                      :min="1"
-                    ></el-input-number>
-                    <!-- <div v-else v-html="scope.row[item.key]"></div> -->
-                  </template>
-                </el-table-column>
-                <el-table-column
-                  label="操作"
-                  class="textAlignCenter"
-                  v-if="formItem.useType == 'add'"
-                >
-                  <template slot-scope="scope">
-                    <el-button
-                      type="danger"
-                      size="mini"
-                      @click="removeDomain(scope.row, formItem.name)"
-                      >删除</el-button
-                    >
-                  </template>
-                </el-table-column>
-              </el-table>
+                  <el-table-column
+                    v-for="(item, index) in formItem.headers"
+                    :label="item.title"
+                    :prop="item.key"
+                    :width="item.width"
+                    :key="index"
+                  >
+                    <template slot-scope="scope">
+                      <el-input
+                        v-if="item.inputType == 'input'"
+                        size="mini"
+                        :disabled="item.disabled"
+                        placeholder="请输入内容"
+                        v-model="scope.row[item.key]"
+                      ></el-input>
+                      <el-input-number
+                        v-else-if="item.inputType == 'number'"
+                        size="mini"
+                        class="width100"
+                        :precision="2"
+                        :disabled="item.disabled"
+                        v-model="scope.row[item.key]"
+                        :step="1"
+                        :min="1"
+                      ></el-input-number>
+                      <el-input
+                        v-else
+                        type="textarea"
+                        size="mini"
+                        :autosize="true"
+                        :disabled="item.disabled"
+                        placeholder="请输入内容"
+                        v-model="scope.row[item.key]"
+                      ></el-input>
+                      <!-- <div v-else v-html="scope.row[item.key]"></div> -->
+                    </template>
+                  </el-table-column>
+                  <el-table-column
+                    label="操作"
+                    class="textAlignCenter"
+                    v-if="formItem.useType == 'add'"
+                  >
+                    <template slot-scope="scope">
+                      <el-button
+                        type="danger"
+                        size="mini"
+                        @click="removeDomain(scope.row, formItem.name)"
+                        >删除</el-button
+                      >
+                    </template>
+                  </el-table-column>
+                </el-table>
+              </div>
               <el-row v-if="formItem.useType && formItem.useType == 'add'">
                 <el-col :span="6" :offset="18" class="textAlignCenter mt10">
                   <el-button
