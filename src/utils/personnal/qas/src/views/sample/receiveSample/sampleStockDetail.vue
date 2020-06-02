@@ -327,6 +327,7 @@
           :data="sampleList"
           tooltip-effect="dark"
           style="width: 100%"
+          :border="true"
           max-height="500px"
         >
           <el-table-column prop="code" label="样品标号"> </el-table-column>
@@ -623,7 +624,7 @@ export default {
   },
   watch: {
     qasSampleId: {
-      handler(val) {
+      handler() {
         this.findMsg();
         this.findTaskFile();
         this.findSampleMsg();

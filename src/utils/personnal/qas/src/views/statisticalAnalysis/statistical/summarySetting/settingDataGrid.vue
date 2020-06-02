@@ -1,53 +1,67 @@
 <template>
   <div>
-    <el-collapse v-model="activeName" accordion>
+    <el-collapse v-model="activeName" accordion class="pl15 pr15 bgfff">
       <el-collapse-item name="first">
         <template slot="title">
           <span class="panel_tit">查询条件</span>
         </template>
-        <el-row>
-          <el-col :span="24">
-            <label class="search_label">规则名称</label>
-            <el-input v-model="searchName" class="search_input"></el-input>
-            <el-button type="primary" class="search_btn" @click="searchData()">
-              查询
-            </el-button>
-          </el-col>
-        </el-row>
+        <el-form label-width="auto" :inline="true">
+          <el-row>
+            <el-col :span="21">
+              <el-col :span="8">
+                <el-form-item label="规则名称">
+                  <el-input v-model="searchParam.searchName"></el-input>
+                </el-form-item>
+              </el-col>
+            </el-col>
+            <el-col :span="3" class="textAlignRight">
+              <el-button
+                type="primary"
+                class="search_btn"
+                @click="searchData()"
+              >
+                查询
+              </el-button>
+            </el-col>
+          </el-row>
+        </el-form>
       </el-collapse-item>
     </el-collapse>
     <div class="common_table_container">
       <div class="tool-bar">
-        <el-button
-          type="primary"
-          @click="dialogSetting.ruleSettingShow = true"
-          v-show="defaultSearchData.menuid"
-        >
+        <el-button type="primary" @click="addSetting">
           新增规则
         </el-button>
       </div>
-      <template>
+      <div class="mt20 ml20 mr20">
         <el-table
           ref="ruleTable"
           :data="ruleDataArray"
           stripe
+          :border="true"
           style="width: 100%"
         >
-          <el-table-column type="index" label="序号"> </el-table-column>
-          <el-table-column prop="title" label="名称"> </el-table-column>
+          <el-table-column type="index" label="序号" width="50">
+          </el-table-column>
+          <el-table-column prop="title" label="名称" width="380px">
+          </el-table-column>
           <el-table-column prop="notes" label="备注"> </el-table-column>
           <el-table-column fixed="right" label="操作" width="180px">
             <template slot-scope="scope">
-              <el-button type="text" size="small" @click="editRule(scope.row)"
-                >编辑</el-button
+              <el-button type="text" size="small" @click="editRule(scope.row)">
+                编辑
+              </el-button>
+              <el-button
+                type="text"
+                size="small"
+                @click="deleteRule(scope.row)"
               >
-              <el-button type="text" size="small" @click="deleteRule(scope.row)"
-                >删除</el-button
-              >
+                删除
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
-      </template>
+      </div>
       <div class="block">
         <el-pagination
           @size-change="handleSizeChange"
@@ -67,12 +81,29 @@
       :visible.sync="dialogSetting.ruleSettingShow"
       :width="$constants.dialog_width"
       :top="$constants.dialog_margin_top"
+      v-if="dialogSetting.ruleSettingShow"
     >
-      <settingRuleSet
-        ref="settingRuleDialog"
-        v-if="dialogSetting.ruleSettingShow"
-        :ruleId="ruleId"
-      ></settingRuleSet>
+      <reap-setting-rule-set
+        ref="ruleSettingDialog"
+        :defaultSearchData="defaultSearchData"
+        :rule-id="ruleId"
+        @ruleSaveSuccess="ruleSaveSuccess"
+        v-if="dialogSetting.reapRuleSettingShow"
+      ></reap-setting-rule-set>
+      <stockSettingRuleSet
+        ref="ruleSettingDialog"
+        :defaultSearchData="defaultSearchData"
+        :rule-id="ruleId"
+        @ruleSaveSuccess="ruleSaveSuccess"
+        v-if="dialogSetting.stockRuleSettingShow"
+      ></stockSettingRuleSet>
+      <marketSettingRuleSet
+        ref="ruleSettingDialog"
+        :defaultSearchData="defaultSearchData"
+        :rule-id="ruleId"
+        @ruleSaveSuccess="ruleSaveSuccess"
+        v-if="dialogSetting.marketRuleSettingShow"
+      ></marketSettingRuleSet>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="saveSetting">
           保存
@@ -86,28 +117,41 @@
 </template>
 
 <script>
-import settingRuleSet from "./settingRuleSet";
+import reapSettingRuleSet from "./reap/reapSettingRuleSet";
+import stockSettingRuleSet from "./stock/stockSettingRuleSet";
+import marketSettingRuleSet from "./market/marketSettingRuleSet";
 export default {
   name: "settingDataGrid",
   data() {
     return {
       activeName: "first",
       ruleDataArray: [],
-      searchName: "",
+      links: [],
+      menuDataSource: [], //目录
       dialogSetting: {
         title: "新增规则", //默认
-        ruleSettingShow: false
+        ruleSettingShow: false,
+        reapRuleSettingShow: false,
+        stockRuleSettingShow: false,
+        marketRuleSettingShow: false
       },
       pageSetting: {
         totalNumbers: 0,
         currentPage: 1,
         pageSize: this.$constants.numberPerpage
       },
-      ruleId: "" //规则id
+      ruleId: "", //规则id
+      searchParam: {
+        searchName: "",
+        selectedLink: "",
+        menuId: ""
+      }
     };
   },
   components: {
-    settingRuleSet
+    reapSettingRuleSet,
+    stockSettingRuleSet,
+    marketSettingRuleSet
   },
   methods: {
     //获取数据
@@ -117,11 +161,13 @@ export default {
       }
       let param = {
         page: this.pageSetting.currentPage,
-        rows: this.pageSetting.pageSize,
-        menuId: this.defaultSearchData.menuid
+        rows: this.pageSetting.pageSize
       };
-      if (this.searchName) {
-        param.title = this.searchName;
+      if (this.defaultSearchData.menuid) {
+        param.menuId = this.defaultSearchData.menuid;
+      }
+      if (this.searchParam.searchName) {
+        param.title = encodeURIComponent(this.searchParam.searchName);
       }
       this.$get({
         url: "/_data/statistical/ruleSetting/getRulePage",
@@ -144,57 +190,24 @@ export default {
       this.pageSetting.currentPage = val;
       this.searchData();
     },
-    //保存
-    saveSetting() {
-      if (!this.defaultSearchData.menuid) {
+    editRule(scopeRow) {
+      this.ruleId = scopeRow.qasStatRuleId;
+      this.dialogSetting.ruleSettingShow = true;
+      this.dialogSetting.reapRuleSettingShow = false;
+      this.dialogSetting.stockRuleSettingShow = false;
+      this.dialogSetting.marketRuleSettingShow = false;
+      if (this.defaultSearchData.selectedLink == this.$constants.LINK_REAP) {
+        this.dialogSetting.reapRuleSettingShow = true;
         return false;
       }
-      const $this = this;
-      //执行校验
-      this.$refs.settingRuleDialog.$refs["settingRuleForm"].validate(valid => {
-        if (!valid) {
-          return false;
-        }
-        //表单数据源
-        let settingRuleDataSource =
-          $this.$refs.settingRuleDialog.settingRuleDataSource;
-        let param = settingRuleDataSource;
-        param.title = settingRuleDataSource.name;
-        param.menuId = this.defaultSearchData.menuid;
-        //检测项数据源
-        let checkItemDataSoource =
-          $this.$refs.settingRuleDialog.checkItemDataSourec;
-        param.basCheckitemList = checkItemDataSoource;
-        this.dialogSetting.ruleSettingShow = false;
-        let url = "/_data/statistical/ruleSetting/insertInfo"; //默认新增
-        if ($this.ruleId) {
-          //修改
-          url = "/_data/statistical/ruleSetting/updateInfo";
-          param.qasStatRuleId = $this.ruleId;
-        }
-        this.$post({
-          url: url,
-          param: param,
-          fnc: data => {
-            if (!data.success) {
-              this.$message({
-                type: "warn",
-                message: data.msg
-              });
-              return false;
-            }
-            this.$message({
-              type: "success",
-              message: "保存成功"
-            });
-            $this.searchData();
-          }
-        });
-      });
-    },
-    editRule(scopeRow) {
-      this.dialogSetting.ruleSettingShow = true;
-      this.ruleId = scopeRow.qasStatRuleId;
+      if (this.defaultSearchData.selectedLink == this.$constants.LINK_STOCK) {
+        this.dialogSetting.stockRuleSettingShow = true;
+        return false;
+      }
+      if (this.defaultSearchData.selectedLink == this.$constants.LINK_MARKET) {
+        this.dialogSetting.marketRuleSettingShow = true;
+        return false;
+      }
     },
     deleteRule(scopeRow) {
       const $this = this;
@@ -229,9 +242,43 @@ export default {
             message: "已取消操作"
           });
         });
+    },
+    addSetting() {
+      this.ruleId = "";
+      this.dialogSetting.ruleSettingShow = true;
+      this.dialogSetting.reapRuleSettingShow = false;
+      this.dialogSetting.stockRuleSettingShow = false;
+      this.dialogSetting.marketRuleSettingShow = false;
+      if (this.defaultSearchData.selectedLink == this.$constants.LINK_REAP) {
+        this.dialogSetting.reapRuleSettingShow = true;
+        return false;
+      }
+      if (this.defaultSearchData.selectedLink == this.$constants.LINK_STOCK) {
+        this.dialogSetting.stockRuleSettingShow = true;
+        return false;
+      }
+      if (this.defaultSearchData.selectedLink == this.$constants.LINK_MARKET) {
+        this.dialogSetting.marketRuleSettingShow = true;
+        return false;
+      }
+    },
+    saveSetting() {
+      this.$refs.ruleSettingDialog.saveSetting();
+    },
+    ruleSaveSuccess() {
+      this.searchData();
+      this.dialogSetting.ruleSettingShow = false;
+      this.dialogSetting.reapRuleSettingShow = false;
+      this.dialogSetting.stockRuleSettingShow = false;
+      this.dialogSetting.marketRuleSettingShow = false;
     }
   },
-
+  created() {},
+  mounted() {
+    //this.findLinks();
+    //this.getMenu();
+    //this.searchData();
+  },
   props: {
     defaultSearchData: {
       type: Object
@@ -240,9 +287,7 @@ export default {
   watch: {
     defaultSearchData: {
       handler(val) {
-        if (!val.menuid) {
-          return false;
-        }
+        this.searchParam.searchName = "";
         this.searchData();
       },
       immediate: true

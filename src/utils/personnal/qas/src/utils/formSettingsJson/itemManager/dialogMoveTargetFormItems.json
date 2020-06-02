@@ -1,0 +1,20 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "qasBasItemId",
+    "name": "qasBasItemId",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "selectTree",
+    "label": "所属检测项",
+    "name": "qasBasItemTypeId",
+    "span": 12,
+    "data":[],
+    "filterable":true,
+    "multiple":false,
+    "clearable":true,
+    "width": "150px"
+  }
+]

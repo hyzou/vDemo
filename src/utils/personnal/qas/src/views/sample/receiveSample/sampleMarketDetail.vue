@@ -204,6 +204,7 @@
         <el-table
           ref="sampleListTable"
           :data="sampleList"
+          :border="true"
           tooltip-effect="dark"
           style="width: 100%"
           max-height="500px"
@@ -500,7 +501,7 @@ export default {
   },
   watch: {
     qasSampleId: {
-      handler(val) {
+      handler() {
         this.findMsg();
         this.findTaskFile();
         this.findSampleMsg();

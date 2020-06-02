@@ -6,7 +6,7 @@
       ></approvalPlanData_grid>
     </div>
     <div class="contentRightLayout">-->
-      <approvalSampleData></approvalSampleData>
+    <approvalSampleData></approvalSampleData>
     <!--</div>-->
   </div>
 </template>
@@ -23,8 +23,7 @@ export default {
   components: {
     approvalSampleData: approvalSampleData
   },
-  methods: {
-  },
+  methods: {},
   created() {
     //面包屑导航
     let breadcrumbNameArray = this.$dateUtl.getBreadcrumbNameArray(

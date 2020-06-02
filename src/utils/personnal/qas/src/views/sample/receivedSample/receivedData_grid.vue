@@ -16,6 +16,7 @@
         :data="get_data()"
         stripe
         style="width: 100%"
+        :border="true"
       >
         <el-table-column type="selection" width="50"> </el-table-column>
         <el-table-column type="index" label="序号"> </el-table-column>

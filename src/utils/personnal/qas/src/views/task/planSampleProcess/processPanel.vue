@@ -5,76 +5,91 @@
         <template slot="title">
           <span class="panel_tit">查询条件</span>
         </template>
-        <el-row>
-          <el-col :span="12">
-            <label class="search_label fir_label">监管环节</label>
-            <el-select
-              v-model="search.link"
-              placeholder="请选择"
-              @change="changeNature"
-            >
-              <template v-for="item in links">
-                <el-option
-                  :key="item.value"
-                  :label="item.text"
-                  :value="item.value"
-                  v-if="item.value != 9"
-                >
-                </el-option>
-              </template>
-            </el-select>
-            <label class="search_label">计划性质</label>
-            <el-select v-model="search.nature" placeholder="请选择" clearable>
-              <el-option
-                v-for="item in natures"
-                :key="item.value"
-                :label="item.text"
-                :value="item.value"
+        <el-form label-width="80px" :inline="true">
+          <el-row>
+            <el-col :span="21">
+              <el-col :span="6">
+                <el-form-item label="监管环节">
+                  <el-select
+                    v-model="search.link"
+                    placeholder="请选择"
+                    @change="changeNature"
+                  >
+                    <template v-for="item in links">
+                      <el-option
+                        :key="item.value"
+                        :label="item.text"
+                        :value="item.value"
+                        v-if="item.value != 9"
+                      >
+                      </el-option>
+                    </template>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="计划性质">
+                  <el-select
+                    v-model="search.nature"
+                    placeholder="请选择"
+                    clearable
+                  >
+                    <el-option
+                      v-for="item in natures"
+                      :key="item.value"
+                      :label="item.text"
+                      :value="item.value"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="创建时间">
+                  <el-date-picker
+                    v-model="search.createdS"
+                    type="date"
+                    placeholder="选择日期时间"
+                    value-format="yyyy-MM-dd"
+                    class="search_date"
+                  >
+                  </el-date-picker>
+                  <label class="search_label">至</label>
+                  <el-date-picker
+                    v-model="search.createdE"
+                    type="date"
+                    placeholder="选择日期时间"
+                    value-format="yyyy-MM-dd"
+                    class="search_date"
+                  >
+                  </el-date-picker>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="监测级别">
+                  <el-select
+                    v-model="search.adminLevel"
+                    placeholder="请选择"
+                    clearable
+                  >
+                    <el-option
+                      v-for="item in $store.getters.admins"
+                      :key="item.text"
+                      :label="item.text"
+                      :value="item.value"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+            </el-col>
+            <el-col :span="3" class="textAlignRight">
+              <el-button type="primary" class="search_btn" @click="do_search()"
+                >查询</el-button
               >
-              </el-option>
-            </el-select>
-            <label class="search_label">监测级别</label>
-            <el-select
-              v-model="search.adminLevel"
-              placeholder="请选择"
-              class="search_input"
-              clearable
-            >
-              <el-option
-                v-for="item in $store.getters.admins"
-                :key="item.text"
-                :label="item.text"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-          </el-col>
-          <el-col :span="8">
-            <label class="search_label">创建时间</label>
-            <el-date-picker
-              v-model="search.createdS"
-              type="date"
-              placeholder="选择日期时间"
-              value-format="yyyy-MM-dd"
-              class="search_date"
-            >
-            </el-date-picker>
-            <label class="search_label">至</label>
-            <el-date-picker
-              v-model="search.createdE"
-              type="date"
-              placeholder="选择日期时间"
-              value-format="yyyy-MM-dd"
-              class="search_date"
-            >
-            </el-date-picker>
-          </el-col>
-          <el-col :span="4">
-            <el-button type="primary" class="search_btn" @click="do_search()"
-              >查询</el-button
-            >
-          </el-col>
-        </el-row>
+            </el-col>
+          </el-row>
+        </el-form>
       </el-collapse-item>
     </el-collapse>
   </div>

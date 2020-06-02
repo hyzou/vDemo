@@ -39,15 +39,20 @@
           <el-button type="primary" @click="toSearchUser">查询</el-button>
         </el-form-item>
         <div class="tool-bar-float-right">
-          <el-button type="primary" @click="doSlectedAction" :disabled="btnShow"
-            >确认勾选</el-button
+          <el-button
+            type="primary"
+            @click="doSlectedAction"
+            :disabled="btnShow"
           >
+            确认勾选
+          </el-button>
         </div>
       </el-form>
       <el-table
         :data="tableData_user"
         style="width: 100%"
         class="sampler_table"
+        :border="true"
         @selection-change="orgPersonSelectionChange"
         max-height="400px"
       >

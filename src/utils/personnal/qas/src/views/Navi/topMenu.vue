@@ -5,6 +5,7 @@
     :popper-append-to-body="popperAppendToBody"
     :show-timeout="timeOut"
     :hide-timeout="timeOut"
+    popper-class="submenuItems"
   >
     <template slot="title">
       <i :class="menu.menuview"></i>{{ menu.text }}

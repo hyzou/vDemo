@@ -7,6 +7,7 @@
         :data="get_data()"
         stripe
         style="width: 100%"
+        :border="true"
       >
         <el-table-column type="index" label="序号"></el-table-column>
         <el-table-column prop="name" label="样品名称"></el-table-column>

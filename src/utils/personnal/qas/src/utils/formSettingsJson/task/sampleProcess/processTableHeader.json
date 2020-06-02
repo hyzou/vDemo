@@ -1,7 +1,7 @@
 [
   {
     "prop": "name",
-    "lable": "任务标题",
+    "lable": "计划名称",
     "isHide": false
   },
   {
@@ -12,7 +12,7 @@
   },
   {
     "prop": "taskNum",
-    "lable": "子任务数",
+    "lable": "任务数",
     "width":120,
     "isHide": false
   },

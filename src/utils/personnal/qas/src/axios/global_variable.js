@@ -1,3 +1,5 @@
+// http://10.10.7.22:8081/oh-qas/_data/base/operator/getUserSeesion
+
 const mainPrefix = "/oh-qas";
 const constants = {
   // 项目基础前缀
@@ -60,7 +62,30 @@ const constants = {
   //==========字典表菜单
   QAS_PLAN_REAP_STATISTICAL_CATALOG: "qas_plan_reap_statistical_catalog",
   QAS_PLAN_STOCK_STATISTICAL_CATALOG: "qas_plan_stock_statistical_catalog",
-  QAS_PLAN_MARKET_STATISTICAL_CATALOG: "qas_plan_market_statistical_catalog"
+  QAS_PLAN_MARKET_STATISTICAL_CATALOG: "qas_plan_market_statistical_catalog",
+  //=========等级字典type
+  GRAINRANK: "qas_bas_grainrank",
+  //====判定标准套装字典type
+  STDSUITSTYPE: "qas_bas_std_type",
+  //========统计汇总目录=====
+  QAS_PLAN_REAP_STATISTICAL_CATALOG_4: "4qas_plan_reap_statistical_catalog",
+  QAS_PLAN_REAP_STATISTICAL_CATALOG_5: "5qas_plan_reap_statistical_catalog",
+  QAS_PLAN_REAP_STATISTICAL_CATALOG_6: "6qas_plan_reap_statistical_catalog",
+  QAS_PLAN_REAP_STATISTICAL_CATALOG_8: "8qas_plan_reap_statistical_catalog",
+  QAS_PLAN_REAP_STATISTICAL_CATALOG_9: "9qas_plan_reap_statistical_catalog",
+  QAS_PLAN_STOCK_STATISTICAL_CATALOG_4: "4qas_plan_stock_statistical_catalog",
+  QAS_PLAN_STOCK_STATISTICAL_CATALOG_5: "5qas_plan_stock_statistical_catalog",
+  QAS_PLAN_STOCK_STATISTICAL_CATALOG_6: "6qas_plan_stock_statistical_catalog",
+  QAS_PLAN_STOCK_STATISTICAL_CATALOG_7: "7qas_plan_stock_statistical_catalog",
+  QAS_PLAN_STOCK_STATISTICAL_CATALOG_8: "8qas_plan_stock_statistical_catalog",
+  QAS_PLAN_STOCK_STATISTICAL_CATALOG_10: "10qas_plan_stock_statistical_catalog",
+  QAS_PLAN_STOCK_STATISTICAL_CATALOG_9: "9qas_plan_stock_statistical_catalog",
+  QAS_PLAN_MARKET_STATISTICAL_CATALOG_4: "4qas_plan_market_statistical_catalog",
+  QAS_PLAN_MARKET_STATISTICAL_CATALOG_5: "5qas_plan_market_statistical_catalog",
+  QAS_PLAN_MARKET_STATISTICAL_CATALOG_6: "6qas_plan_market_statistical_catalog",
+  QAS_PLAN_MARKET_STATISTICAL_CATALOG_7: "7qas_plan_market_statistical_catalog",
+  QAS_PLAN_MARKET_STATISTICAL_CATALOG_8: "8qas_plan_market_statistical_catalog"
+  //========统计汇总目录end====
 };
 
 export default constants;

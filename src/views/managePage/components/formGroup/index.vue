@@ -157,9 +157,6 @@
 </template>
 
 <script>
-// 组件引入
-import formGroup from "@/components/formGroup";
-import tableList from "@/components/tableList";
 // 配置数据引入
 import tableHeaderOpts from "@/utils/formSettingsJson/tableCommonHeaders/tableHeaderOpt.json";
 import formBtnList from "@/utils/formSettingsJson/formGroup/formBtns.json";
@@ -171,10 +168,6 @@ import dialogFormRules from "@/utils/formRulesJson/formGroup/dialogRule";
 
 export default {
   name: "formGroupPage",
-  components: {
-    formGroup,
-    tableList
-  },
   data() {
     return {
       /**

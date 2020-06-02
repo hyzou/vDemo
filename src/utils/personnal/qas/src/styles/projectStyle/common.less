@@ -125,15 +125,11 @@
   i{
     color: @mainWhite !important;        
   }
-  .el-submenu{
-    .el-menu-item{
-      min-width: 150px;
-      width: 150px;
+  .submenuItems{
+    .el-submenu, .el-menu--popup,.el-menu-item{
+      min-width: 165px;
+      width: 165px;
     }
-  }
-  .el-submenu, .el-menu--popup{
-    min-width: 150px;
-    width: 150px;
   }
 }
 .head-row {
@@ -154,10 +150,6 @@
 
 .is_toggle {
   width: 50px !important;
-}
-
-.bread {
-  margin-bottom: 10px;
 }
 
 .left {
@@ -188,19 +180,23 @@
   height: 500px;
 }
 
-.el-menu-vertical-demo > li > .el-submenu__title {
+.leftMenuDiv > li > .el-submenu__title {
   font-size: 16px;
   font-weight: 400;
   color: rgba(61, 73, 102, 1);
 }
 
-.el-menu-vertical-demo > li > .el-submenu__title:hover {
+.leftMenuDiv >.el-submenu >.el-submenu__title:hover {
   border-left: 4px solid #3377FF !important;
   background-color: #F7F9FC !important;
   color: #3377FF !important;
 }
-
-.el-menu-vertical-demo > .el-submenu > .el-menu > .is-active {
+.leftMenuDiv > .el-submenu > .el-menu >li.is-active {
+  border-left: 4px solid #3377FF !important;
+  background-color: #F7F9FC !important;
+  color: #3377FF !important;
+}
+.leftMenuDiv >li.leftMenuMenu.is-active {
   border-left: 4px solid #3377FF !important;
   background-color: #F7F9FC !important;
   color: #3377FF !important;
@@ -301,4 +297,67 @@
 }
 .contentRightLayout{
   margin-left: 10px;width: 78%;float: left;height: 100%;
+}
+.flexContent{
+  display: flex;
+  height: 100%;
+}
+.flexLeftLayout{
+  .width(280px);
+  align-items:stretch;
+}
+.flexRightLayout{
+  .width100;
+  align-items:stretch;
+  flex:1;
+}
+.dateCss{
+  width: 100px !important;
+}
+.borderRed {
+  border-color: @mainRed !important;
+}
+.treeClass{
+  .el-tree-node__content {
+    height: 40px;
+    .span-ellipsis{
+      .textEllipsis;
+      .lheight18;
+      .fontSize16;
+    }
+  }
+  .el-tree-node__children{
+    .span-ellipsis{
+      .textEllipsis;
+      .lheight18;
+      .fontSize14;
+    }
+  }
+  .el-tree-node__expand-icon {
+    font-size: 20px;
+    color: #303133;
+  }
+
+  .el-tree-node__content:hover {
+    background-color: #3377ff;
+    color: white;
+  }
+  .el-tree-node__content:hover > .el-tree-node__expand-icon {
+    color: white;
+  }
+  .el-tree-node__content:hover > .el-tree-node__expand-icon.is-leaf {
+    color: transparent;
+  }
+  .el-tree-node__expand-icon.is-leaf {
+    color: transparent;
+    cursor: default;
+  }
+  .el-tree-node:focus > .el-tree-node__content {
+    background-color: #3377ff;
+    color: white;
+  }
+  .treeClass > .el-tree-node > .el-tree-node__content > .el-tree-node__label {
+    font-size: 18px;
+    font-weight: bolder;
+  }
 }

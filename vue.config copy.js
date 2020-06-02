@@ -1,12 +1,14 @@
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 module.exports = {
+  runtimeCompiler: true,
   publicPath: process.env.NODE_ENV === "production" ? "/oh-qas/" : "/", // 基本路径
   outputDir: "oh-production", // 输出文件目录
   configureWebpack: config => {
-    config["externals"] = {
-      T: "T"
-    };
+    // cdn加速引入的依赖，无需打包
+    // config["externals"] = {
+    //   T: "T"
+    // };
     if (process.env.NODE_ENV === "production") {
       // 为生产环境修改配置...
       config.mode = "production";
@@ -73,11 +75,11 @@ module.exports = {
   devServer: {
     open: process.platform === "darwin",
     host: "0.0.0.0", // 允许外部ip访问
-    port: 3033, // 端口
+    port: 3333, // 端口
     https: false, // 启用https
     overlay: {
-      warnings: true,
-      errors: true
+      warnings: false,
+      errors: false
     }, // 错误、警告在页面弹出
     proxy: {
       "/api": {

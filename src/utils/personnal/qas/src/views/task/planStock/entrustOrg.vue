@@ -13,14 +13,16 @@
             type="primary"
             @click="doSamplerTabsAction"
             :disabled="btnShow"
-            >确认勾选</el-button
           >
+            确认勾选
+          </el-button>
         </div>
       </el-form>
       <el-table
         :data="tableData_org"
         style="width: 100%"
         class="sampler_table"
+        :border="true"
         @selection-change="sampleOrgSelectionChange"
         max-height="400px"
       >

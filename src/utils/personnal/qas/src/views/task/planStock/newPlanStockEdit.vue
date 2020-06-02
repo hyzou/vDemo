@@ -118,10 +118,10 @@ export default {
               "sampleRequest[" + index + "].sampleCopyNum",
               sampleRequestObject.sampleCopyNum
             );
-            if (sampleRequestObject.requiredGrade) {
+            if (sampleRequestObject.requiredGradeList) {
               uploadForm.append(
-                "sampleRequest[" + index + "].requiredGrade",
-                sampleRequestObject.requiredGrade
+                "sampleRequest[" + index + "].requiredGradeList",
+                sampleRequestObject.requiredGradeList
               );
             }
           }

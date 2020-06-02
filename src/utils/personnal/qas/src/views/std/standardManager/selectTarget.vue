@@ -18,7 +18,11 @@
         <el-input v-else v-model="form.basItemName" readonly></el-input>
       </el-form-item>
       <el-form-item label="检测方法">
-        <el-select v-model="form.stdItem.testMethodStdId" placeholder="请选择">
+        <el-select
+          v-model="form.stdItem.testMethodStdId"
+          placeholder="请选择"
+          filterable
+        >
           <el-option
             v-for="item in methodStdList"
             :key="item.value"
@@ -51,17 +55,6 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="合格判定值">
-        <el-select v-model="form.judgeValueIfTrue" placeholder="请选择">
-          <el-option
-            v-for="item in judgeList"
-            :key="item.businid"
-            :label="item.businname"
-            :value="item.businid"
-          >
-          </el-option>
-        </el-select>
-      </el-form-item>
       <el-form-item label="判定表达式" prop="expr">
         <el-input
           :disabled="!refValueIsInput"
@@ -76,7 +69,17 @@
           10；且：x>21&&x&lt; 100； 备注：x必须设定
         </div>
       </el-col>
-
+      <el-form-item label="合格判定值">
+        <el-select v-model="form.judgeValueIfTrue" placeholder="请选择">
+          <el-option
+            v-for="item in judgeList"
+            :key="item.businid"
+            :label="item.businname"
+            :value="item.businid"
+          >
+          </el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="优先级" prop="priority">
         <el-input-number v-model="form.priority" :min="1"></el-input-number>
       </el-form-item>
@@ -93,7 +96,6 @@
               <el-checkbox
                 v-for="dic in type.dicList"
                 :label="dic.dicId"
-                :name="type.busintypeid"
                 :key="dic.dicId"
               >
                 {{ dic.businname }}
@@ -102,10 +104,21 @@
           </el-form-item>
         </template>
       </el-form-item>
+      <el-form-item label="等级结果">
+        <el-select v-model="form.gradeResult" placeholder="请选择">
+          <el-option
+            v-for="item in gradeResultList"
+            :key="item.value"
+            :label="item.text"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item class="textAlignRight">
-        <el-button type="primary" @click="handleSubmit('selTargetform')"
-          >提交</el-button
-        >
+        <el-button type="primary" @click="handleSubmit('selTargetform')">
+          提交
+        </el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -128,24 +141,20 @@ export default {
       default: () => {
         return {
           qasStdItemCriteriaId: "",
-          stdItem: {
-            testMethodStdId: "",
-            qasStdId: ""
-          },
-          qasBasItemId: "",
-          displayRefValue: "",
-          judgeValueIfTrue: "",
-          expr: "",
-          priority: 1,
-          type: {}
+          qasStdId: "",
+          flag: ""
         };
       }
     }
   },
   data() {
     return {
+      // 当页显示多个指标信息
+      isMultipleTargetInfo: this.flag == "single" ? false : true,
       // 标准值下拉列表
       refValueList: [],
+      // 等级结果下拉列表
+      gradeResultList: [],
       // 标准值是否为input
       refValueIsInput: true,
       // 检测方法下拉列表
@@ -182,7 +191,23 @@ export default {
       /**
        * formGroup 表单组配置
        */
-      form: JSON.parse(JSON.stringify(this.defaultdatas)),
+      form: {
+        qasStdItemCriteriaId: this.defaultdatas.qasStdItemCriteriaId
+          ? this.defaultdatas.qasStdItemCriteriaId
+          : "",
+        stdItem: {
+          testMethodStdId: "",
+          qasStdId: this.defaultdatas.qasStdId ? this.defaultdatas.qasStdId : ""
+        },
+        qasBasItemId: "",
+        displayRefValue: "",
+        judgeValueIfTrue: "",
+        expr: "",
+        gradeResult: "",
+        priority: 1,
+        criteriaTags: [],
+        type: {}
+      },
       // 当前表单组的校验信息
       rules: seledtTarget.rule
     };
@@ -353,22 +378,60 @@ export default {
       this.$Api.getProjectResults({ qasBasItemTypeId: id }).then(data => {
         this.judgeList = data;
       });
+    },
+    /* 根据id获取的指标基本信息 */
+    getStdBindSingleTargetInfo() {
+      this.$Api
+        .getStdBindSingleTargetInfo({
+          qasStdItemCriteriaId: this.defaultdatas.qasStdItemCriteriaId
+        })
+        .then(xhr => {
+          xhr.data.stdItem = {
+            testMethodStdId: xhr.data.testMethodStdId
+              ? xhr.data.testMethodStdId
+              : "",
+            qasStdId: this.defaultdatas.qasStdId
+              ? this.defaultdatas.qasStdId
+              : ""
+          };
+          Object.assign(this.form, xhr.data);
+          if (
+            this.form.stdItemCriteriaTags &&
+            this.form.stdItemCriteriaTags.length > 0
+          ) {
+            this.form.stdItemCriteriaTags.map(tag => {
+              if (this.form.type[tag.qasBasCriteriaTagId]) {
+                this.form.type[tag.qasBasCriteriaTagId] = tag.tagValus.split(
+                  ","
+                );
+              }
+            });
+          }
+          this.getTestTargetlist();
+        });
     }
   },
   mounted() {
-    this.getTestTargetlist();
     this.$Api.getDicData({ _refKey: "qasStd", type: "2" }).then(data => {
       this.methodStdList = data;
     });
+    this.$Api
+      .getDicData({ _refKey: "dict", busintypeid: "qas_bas_grainrank" })
+      .then(data => {
+        this.gradeResultList = data;
+      });
     this.$Api
       .getStdBindConditions({ stdId: this.form.stdItem.qasStdId })
       .then(data => {
         this.typelist = data;
         this.typelist.map(item => {
-          if (!this.form.type[item.qasBasCriteriaTagId]) {
-            this.$set(this.form.type, item.qasBasCriteriaTagId, []);
-          }
+          this.$set(this.form.type, item.qasBasCriteriaTagId, []);
         });
+        if (this.defaultdatas.qasStdItemCriteriaId) {
+          this.getStdBindSingleTargetInfo();
+        } else {
+          this.getTestTargetlist();
+        }
       });
   }
 };

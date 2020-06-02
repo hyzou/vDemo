@@ -1,20 +1,20 @@
 <template>
-  <div class="common_table_container">
-    <div class="contentLeftLayout">
+  <div class="flexContent">
+    <div class="flexLeftLayout pl10 pr10 bgfff">
       <settingMenu @returnData="returnData"></settingMenu>
     </div>
-    <div class="contentRightLayout">
-      <summaryDataGrid :menuData="searchData"></summaryDataGrid>
+    <div class="flexRightLayout ml10 bgfff">
+      <summaryDataGrid :defaultSearchData="searchData"></summaryDataGrid>
     </div>
   </div>
 </template>
 
 <script>
-import settingMenu from "@/views/statisticalAnalysis/statistical/summarySetting/settingMenu";
+import settingMenu from "../summarySetting/settingMenu";
 import summaryDataGrid from "./summaryDataGrid";
 export default {
   name: "summaryIndex",
-  components: { settingMenu, summaryDataGrid },
+  components: { summaryDataGrid, settingMenu },
   data() {
     return {
       searchData: {

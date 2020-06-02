@@ -1,55 +1,21 @@
 <!-- 统计设计的目录 -->
 <template>
   <div>
-    <el-collapse v-model="activeName">
-      <el-collapse-item name="1" disabled>
-        <el-row>
-          <el-col :span="24">
-            <label class="search_label">监管环节</label>
-            <el-select
-              v-model="selectedLink"
-              placeholder="请选择"
-              @change="findData"
-            >
-              <template v-for="item in links">
-                <el-option
-                  :key="item.value"
-                  :label="item.text"
-                  :value="item.value"
-                  v-if="item.value != 9"
-                >
-                </el-option>
-              </template>
-            </el-select>
-          </el-col>
-        </el-row>
-      </el-collapse-item>
-    </el-collapse>
-    <el-table
-      ref="settingMenuTable"
+    <el-tree
       :data="menuDataSource"
-      row-key="id"
-      :default-expand-all="true"
-      :tree-props="{ hasChildren: 'hasChildren', children: 'children' }"
-      reserve-selection="true"
-      :show-header="false"
-      height="700"
-      max-height="700"
+      :props="defaultProps"
+      node-key="id"
+      default-expand-all
+      :current-node-key="defaultCheckedKey"
+      @node-click="handleNodeClick"
+      :highlight-current="true"
+      ref="menuTree"
+      class="treeClass pt15 pd15"
     >
-      <el-table-column>
-        <template slot-scope="scope">
-          <el-link
-            v-if="scope.row.state == 'open'"
-            @click="showSetting(scope.row)"
-            v-bind:class="{ activefont: scope.row.id == selectedMenuId }"
-            >{{ scope.row.text }}</el-link
-          >
-          <span v-else style="font-weight: bold;font-size: 16px">{{
-            scope.row.text
-          }}</span>
-        </template>
-      </el-table-column>
-    </el-table>
+      <span class="span-ellipsis" slot-scope="{ node, data }">
+        <span :title="node.label">{{ node.label }}</span>
+      </span>
+    </el-tree>
   </div>
 </template>
 
@@ -58,60 +24,94 @@ export default {
   name: "searchMenu",
   data() {
     return {
-      activeName: "1",
-      links: [],
-      selectedLink: "1", //默认是新粮收获
       menuDataSource: [], //目录
-      selectedMenuId: "" //选中的菜单id
+      selectedMenuId: "", //选中的菜单id
+      defaultProps: {
+        children: "children",
+        label: "text"
+      },
+      selectedLink: "",
+      defaultCheckedKey: ""
     };
   },
   methods: {
     //获取目录
     getMenu() {
-      if (!this.selectedLink) {
+      let param_id = this.$route.params.id;
+      if (!param_id) {
         return false;
       }
-      let busintypeId = this.$constants.QAS_PLAN_REAP_STATISTICAL_CATALOG;
-      if (this.$constants.LINK_STOCK == this.selectedLink) {
+      let busintypeId;
+      if (this.$constants.ROUTEID_SAMPLEREAP == param_id) {
+        busintypeId = this.$constants.QAS_PLAN_REAP_STATISTICAL_CATALOG;
+        this.selectedLink = this.$constants.LINK_REAP;
+      } else if (this.$constants.ROUTEID_SAMPLESTOCK == param_id) {
         //库存承储
         busintypeId = this.$constants.QAS_PLAN_STOCK_STATISTICAL_CATALOG;
-      } else if (this.$constants.LINK_MARKET == this.selectedLink) {
+        this.selectedLink = this.$constants.LINK_STOCK;
+      } else if (this.$constants.ROUTEID_SAMPLEMARKET == param_id) {
         //供销粮食
         busintypeId = this.$constants.QAS_PLAN_MARKET_STATISTICAL_CATALOG;
+        this.selectedLink = this.$constants.LINK_MARKET;
       }
-      this.$Api.getDicDataTree({ busintypeid: busintypeId }).then(xhr => {
-        this.menuDataSource = xhr[0].children;
-      });
-    },
-    findLinks() {
       const $this = this;
-      this.$Api.getDic("qas_plan_link").then(data => {
-        $this.links = data;
-        $this.selectedLink = data && data.length > 0 ? data[0].value : "";
+      this.$Api.getDicDataTree({ busintypeid: busintypeId }).then(xhr => {
+        let menuTee = xhr[0].children;
+        //去除不需要显示的节点
+        if ($this.menuType) {
+          menuTee = $this.setNode(menuTee);
+        }
+        $this.menuDataSource = menuTee;
+        $this.defaultCheckedKey = $this.menuDataSource[0].children[0].id;
+        $this.handleNodeClick({ id: $this.defaultCheckedKey });
+        this.$nextTick(function() {
+          this.$refs.menuTree.setCurrentKey(
+            $this.menuDataSource[0].children[0].id
+          );
+        });
       });
     },
-    showSetting(scopeRow) {
-      /*const $this = this;
-      this.menuDataSource.map(item => {
-        $this.$set(item, "isActive", false);
-      });
-      $this.$set(scopeRow, "isActive", true);*/
-      this.selectedMenuId = scopeRow.id;
+    handleNodeClick(data) {
       let returnData = {
         selectedLink: this.selectedLink,
-        menuid: scopeRow.id
+        menuid: data.id
       };
       this.$emit("returnData", returnData);
     },
-    findData() {
-      this.getMenu();
+    setNode(nodes) {
+      if (!nodes || nodes.length == 0) {
+        return nodes;
+      }
+      let newNods = [];
+      for (let index in nodes) {
+        let obj = nodes[index];
+        let childrenArray = [];
+        for (let i in obj.children) {
+          let childrenObj = obj.children[i];
+          let id = childrenObj.id;
+          if (
+            this.$constants.QAS_PLAN_MARKET_STATISTICAL_CATALOG_8 == id ||
+            this.$constants.QAS_PLAN_STOCK_STATISTICAL_CATALOG_9 == id ||
+            this.$constants.QAS_PLAN_STOCK_STATISTICAL_CATALOG_10 == id
+          ) {
+            continue;
+          }
+          childrenArray.push(childrenObj);
+        }
+        obj.children = childrenArray;
+        newNods.push(obj);
+      }
+      return newNods;
     }
   },
   created() {
     this.getMenu();
-    this.findLinks();
+  },
+  props: {
+    menuType: {
+      type: String,
+      default: ""
+    }
   }
 };
 </script>
-
-<style scoped></style>

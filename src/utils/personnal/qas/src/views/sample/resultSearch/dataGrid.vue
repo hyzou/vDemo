@@ -6,6 +6,7 @@
         ref="multipleTable"
         :data="get_data()"
         stripe
+        :border="true"
         style="width: 100%"
       >
         <el-table-column type="index" label="序号"></el-table-column>

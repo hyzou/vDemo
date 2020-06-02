@@ -17,6 +17,9 @@ const store = new Vuex.Store({
     areaLevel: [] //当前用户有权限的行政区划
   },
   getters: {
+    userInfo: function(state) {
+      return state.userInfo;
+    },
     get_tableData: function(state) {
       return state.table_data;
     },

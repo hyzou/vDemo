@@ -4,5 +4,11 @@
     "label": "添加标准",
     "styleType": "primary",
     "postUrl": "addStd"
+  },
+  {
+    "flag": "newStdMehtod",
+    "label": "添加检测方法",
+    "styleType": "primary",
+    "postUrl": "addStdMethod"
   }
 ]

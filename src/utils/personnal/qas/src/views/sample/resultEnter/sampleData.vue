@@ -1,48 +1,37 @@
 <template>
   <div>
-    <el-collapse v-model="activeName" accordion>
+    <el-collapse v-model="activeName" accordion class="pl15 pr15">
       <el-collapse-item name="first">
         <template slot="title">
           <span class="panel_tit">查询条件</span>
         </template>
-        <el-row>
-          <el-col :span="24">
-            <label class="search_label">监管环节</label>
-            <el-select
-              v-model="search.link"
-              placeholder="请选择"
-              @change="findPlan"
-            >
-              <template v-for="item in links">
-                <el-option
-                  :key="item.value"
-                  :label="item.text"
-                  :value="item.value"
-                  v-if="item.value != 9"
-                >
-                </el-option>
-              </template>
-            </el-select>
-            <label class="search_label">所属任务</label>
-            <el-select
-              v-model="search.qasPlanId"
-              placeholder="请选择"
-              clearable
-              filterable
-            >
-              <el-option
-                v-for="item in plans"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-            <label class="search_label">任务性质</label>
+        <el-form label-width="auto" :inline="true">
+          <el-row>
+            <el-col :span="21">
+              <el-col :span="6">
+                <el-form-item label="监管环节">
+                  <el-select
+                    v-model="search.link"
+                    placeholder="请选择"
+                    @change="findPlan"
+                  >
+                    <template v-for="item in links">
+                      <el-option
+                        :key="item.value"
+                        :label="item.text"
+                        :value="item.value"
+                        v-if="item.value != 9"
+                      >
+                      </el-option>
+                    </template>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <!-- <label class="search_label">任务性质</label>
             <el-select
               v-model="search.nature"
               placeholder="请选择"
-              class="search_input"
               clearable
             >
               <el-option
@@ -52,47 +41,71 @@
                 :value="item.value"
               >
               </el-option>
-            </el-select>
-            <label class="search_label">产品品种</label>
-            <el-select
-              v-model="search.product"
-              placeholder="请选择"
-              class="search_input"
-              clearable
-              @change="selectChange"
-            >
-              <el-option
-                v-for="item in products"
-                :key="item.sysId"
-                :label="item.name"
-                :value="item.sysId"
-              >
-              </el-option>
-            </el-select>
-            <label class="search_label">样品编号</label>
-            <el-input
-              v-model="search.sampleCode"
-              class="search_input"
-            ></el-input>
-            <el-button type="primary" class="search_btn" @click="do_search()">
-              查询
-            </el-button>
-          </el-col>
-        </el-row>
+            </el-select>-->
+                <el-form-item label="所属计划">
+                  <el-select
+                    v-model="search.qasPlanId"
+                    placeholder="请选择"
+                    clearable
+                    filterable
+                  >
+                    <el-option
+                      v-for="item in plans"
+                      :key="item.qasPlanId"
+                      :label="item.name"
+                      :value="item.qasPlanId"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="产品品种">
+                  <el-select
+                    v-model="search.product"
+                    placeholder="请选择"
+                    clearable
+                    @change="selectChange"
+                  >
+                    <el-option
+                      v-for="item in products"
+                      :key="item.sysId"
+                      :label="item.name"
+                      :value="item.sysId"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="样品编号">
+                  <el-input v-model="search.sampleCode"></el-input>
+                </el-form-item>
+              </el-col>
+            </el-col>
+            <el-col :span="3" class="textAlignRight">
+              <el-button type="primary" class="search_btn" @click="do_search()">
+                查询
+              </el-button>
+            </el-col>
+          </el-row>
+        </el-form>
       </el-collapse-item>
     </el-collapse>
     <div class="common_table_container">
       <div class="tool-bar"></div>
-      <template>
+      <div class="mt20 ml20 mr20">
         <el-table
           ref="multipleTable"
           :data="sampleDataArray"
           stripe
+          :border="true"
           style="width: 100%"
           @selection-change="selectionRowsChange"
         >
           <el-table-column type="selection" width="50"> </el-table-column>
-          <el-table-column type="index" label="序号"> </el-table-column>
+          <el-table-column type="index" label="序号" width="50">
+          </el-table-column>
           <el-table-column prop="name" label="样品名称"> </el-table-column>
           <el-table-column prop="productName" label="产品名称">
           </el-table-column>
@@ -110,37 +123,39 @@
                 type="text"
                 size="small"
                 @click="sampleDetail(scope.row)"
-                >查询样品</el-button
               >
+                查询样品
+              </el-button>
               <el-button
                 type="text"
                 size="small"
                 @click="resultEnter(scope.row)"
-                >录入结果</el-button
-              ><el-button
+              >
+                录入结果
+              </el-button>
+              <el-button
                 type="text"
                 size="small"
                 @click="successSample(scope.row)"
-                >完成</el-button
               >
+                完成
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
-      </template>
-      <template>
-        <div class="block">
-          <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            :current-page="currentPage"
-            :page-sizes="[10, 20, 30, 40]"
-            :page-size="pageSizeSet"
-            :layout="$constants.paginationlayout"
-            :total="totalNum"
-          >
-          </el-pagination>
-        </div>
-      </template>
+      </div>
+      <div class="block">
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage"
+          :page-sizes="[10, 20, 30, 40]"
+          :page-size="pageSizeSet"
+          :layout="$constants.paginationlayout"
+          :total="totalNum"
+        >
+        </el-pagination>
+      </div>
     </div>
 
     <el-dialog
@@ -300,7 +315,7 @@ export default {
           ? productObject[0].name
           : "";
     },
-    findNatures() {
+    /* findNatures() {
       if (!this.search.link) {
         return [];
       }
@@ -320,7 +335,7 @@ export default {
       this.$Api.getDic(type).then(data => {
         $this.natures = data;
       });
-    },
+    },*/
     resultEnter(scopeRow) {
       this.resultEnterObject = null;
       this.resultEnterObject = scopeRow;
@@ -398,7 +413,8 @@ export default {
         let param = {
           qasSample: $this.$refs.resultEnter.dataSource.sampleInfo,
           qasTestVoList:
-            $this.$refs.resultEnter.dataSource.sampleCheckItemsDataArray
+            $this.$refs.resultEnter.dataSource.sampleCheckItemsDataArray,
+          stdSuitList: $this.$refs.resultEnter.dataSource.sampleInfo.stdSuitList
         };
         $this.$post({
           url: "/_data/sample/sample/enterSampleSave",
@@ -421,7 +437,7 @@ export default {
       this.$Api.getDic("qas_plan_link").then(data => {
         $this.links = data;
         $this.search.link = data && data.length > 0 ? data[0].value : "";
-        $this.findNatures($this.search.link);
+        //$this.findNatures($this.search.link);
       });
     },
     findPlan() {

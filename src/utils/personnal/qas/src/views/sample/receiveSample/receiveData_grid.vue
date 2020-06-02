@@ -4,19 +4,14 @@
       <gridData></gridData>
     </div>
     <div class="common_table_container" v-else>
-      <div class="tool-bar">
-        <div
-          style="    float: left;
-    line-height: 40px;
-    color: #606266;"
-        >
+      <div class="mt20 ml20 mr20">
+        <div class="textAlignLeft lheight40">
           已收样品:
         </div>
-      </div>
-      <template>
         <el-table
           ref="multipleTable"
           :data="get_data()"
+          :border="true"
           stripe
           style="width: 100%"
         >
@@ -24,7 +19,8 @@
           type="selection"
           width="50">
         </el-table-column>-->
-          <el-table-column type="index" label="序号"> </el-table-column>
+          <el-table-column type="index" label="序号" width="50">
+          </el-table-column>
           <el-table-column prop="testCode" label="检测编号"> </el-table-column>
           <el-table-column prop="name" label="样品名称"> </el-table-column>
           <el-table-column prop="productName" label="产品名称">
@@ -36,8 +32,6 @@
           <el-table-column prop="receiveDtStr" label="收样时间">
           </el-table-column>
         </el-table>
-      </template>
-      <template>
         <!-- <div class="block">
           <el-pagination
             @size-change="handleSizeChange"
@@ -50,7 +44,7 @@
           >
           </el-pagination>
         </div>-->
-      </template>
+      </div>
     </div>
   </div>
 </template>

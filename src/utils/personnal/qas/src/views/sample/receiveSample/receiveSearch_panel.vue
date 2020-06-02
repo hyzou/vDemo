@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div style="width: 100%;padding: 10px">
-      <div style="width: 100%;">
+    <div class="width100 pd15">
+      <div class="width100">
         <label class="search_label">收样方式:</label>
         <el-radio-group v-model="radio" @change="receiveSampleChange">
           <el-radio label="1">输入样品编号收样</el-radio>
           <el-radio label="2">查询列表收样</el-radio>
         </el-radio-group>
       </div>
-      <div style="width: 100%;margin-top: 10px" v-if="radio == '1'">
+      <div class="width100 mt15" v-if="radio == '1'">
         <el-input
           v-model="search.sampleCode"
           placeholder="请输入样品编号"

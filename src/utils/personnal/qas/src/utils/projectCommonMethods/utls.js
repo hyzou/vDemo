@@ -200,9 +200,9 @@ const dateUtl = {
     metadata.map(item => {
       if (options.propFlag && options.propFlagValue) {
         if (item[options.propFlag] == options.propFlagValue) {
-          item[options.propName] = options.propParent;
-        } else {
           item[options.propName] = options.propChild;
+        } else {
+          item[options.propName] = options.propParent;
         }
         if (item[options.propNode]) {
           this.addPropInTreedata(item[options.propNode], options);

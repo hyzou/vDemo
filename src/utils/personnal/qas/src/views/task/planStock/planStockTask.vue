@@ -11,78 +11,107 @@
       :model="planFormTask"
       ref="planFormTaskForm"
     >
-      <el-form-item label="任务编号:">
-        <el-input v-model="planFormTask.taskNo" class="dialog_input"></el-input>
-      </el-form-item>
-      <el-form-item label="是否完成:">
-        <el-select v-model="planFormTask.flag" clearable class="dialog_input">
-          <el-option
-            v-for="item in flags"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="是否作废:">
-        <el-select v-model="planFormTask.drop" clearable class="dialog_input">
-          <el-option
-            v-for="item in drops"
-            :key="item.value"
-            :label="item.text"
-            :value="item.value"
-          ></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="扦样地区:">
-        <el-cascader
-          v-model="planFormTask.areaSelected"
-          :options="areas"
-          :props="{
-            expandTrigger: 'hover',
-            label: 'text',
-            value: 'id',
-            checkStrictly: true
-          }"
-          clearable
-          ref="planFormTaskArea"
-          @change="taskAreaChange"
-          class="dialog_input"
-        ></el-cascader>
-      </el-form-item>
-      <el-form-item label="扦样库点:">
-        <el-select
-          v-model="planFormTask.storePoint"
-          clearable
-          filterable
-          class="dialog_input"
-        >
-          <el-option
-            v-for="item in storePoints"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="扦样人:">
-        <el-select
-          v-model="planFormTask.people"
-          clearable
-          filterable
-          class="dialog_input"
-        >
-          <el-option
-            v-for="item in peoples"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
-      </el-form-item>
-      <el-button type="primary" class="search_btn" @click="doSearchTask"
-        >查询</el-button
-      >
+      <el-row>
+        <el-col :span="21">
+          <el-col :span="6">
+            <el-form-item label="任务编号">
+              <el-input
+                v-model="planFormTask.taskNo"
+                class="dialog_input"
+              ></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="是否完成">
+              <el-select
+                v-model="planFormTask.flag"
+                clearable
+                class="dialog_input"
+              >
+                <el-option
+                  v-for="item in flags"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="是否作废">
+              <el-select
+                v-model="planFormTask.drop"
+                clearable
+                class="dialog_input"
+              >
+                <el-option
+                  v-for="item in drops"
+                  :key="item.value"
+                  :label="item.text"
+                  :value="item.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="扦样地区">
+              <el-cascader
+                v-model="planFormTask.areaSelected"
+                :options="areas"
+                :props="{
+                  expandTrigger: 'hover',
+                  label: 'text',
+                  value: 'id',
+                  checkStrictly: true
+                }"
+                clearable
+                ref="planFormTaskArea"
+                @change="taskAreaChange"
+                class="dialog_input"
+              ></el-cascader>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="扦样库点">
+              <el-select
+                v-model="planFormTask.storePoint"
+                clearable
+                filterable
+                class="dialog_input"
+              >
+                <el-option
+                  v-for="item in storePoints"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="扦样人">
+              <el-select
+                v-model="planFormTask.people"
+                clearable
+                filterable
+                class="dialog_input"
+              >
+                <el-option
+                  v-for="item in peoples"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+        </el-col>
+        <el-col :span="3" class="textAlignRight">
+          <el-button type="primary" class="search_btn" @click="doSearchTask">
+            查询
+          </el-button>
+        </el-col>
+      </el-row>
     </el-form>
     <!--</el-collapse-item>
     </el-collapse>-->
@@ -127,6 +156,13 @@
       >
         定点布点
       </el-button>
+      <el-button
+        type="primary"
+        class="s-tool-btn"
+        @click="dialog_copy_task = true"
+      >
+        复制计划新增任务
+      </el-button>
     </div>
     <template>
       <el-table
@@ -134,6 +170,7 @@
         :data="tableDataTask"
         tooltip-effect="dark"
         style="width: 100%"
+        :border="true"
         :max-height="maxHeight"
         @selection-change="selectionRowsChange"
       >
@@ -272,6 +309,21 @@
         <el-button @click="dialog_summaryTask = false">关闭</el-button>
       </div>
     </el-dialog>
+    <!--复制计划新增任务弹窗-->
+    <el-dialog
+      :close-on-click-modal="false"
+      title="复制计划新增任务"
+      :visible.sync="dialog_copy_task"
+      v-if="dialog_copy_task"
+      :top="mg_top"
+      width="85%"
+      :append-to-body="true"
+    >
+      <copy-task-by-plan
+        :planType="planType"
+        @copyPlanTask="copyTaskByPlan"
+      ></copy-task-by-plan>
+    </el-dialog>
   </div>
 </template>
 
@@ -282,6 +334,7 @@ import sampler from "../../common/sampler";
 import checker from "../../common/checker";
 import taskEdit from "../../common/taskEdit";
 import summaryTask from "./summaryTask";
+import copyTaskByPlan from "../common/copyTaskByPlan";
 
 export default {
   name: "planStockTask",
@@ -295,6 +348,8 @@ export default {
       dialog_samp: false,
       dialog_taskEdit: false,
       dialog_summaryTask: false,
+      dialog_copy_task: false,
+      planType: this.$constants.LINK_STOCK, //当前计划环节
       activeName: "1",
       disabledBathDen: true,
       flags: [],
@@ -338,7 +393,8 @@ export default {
     sampler: sampler,
     checker: checker,
     taskEdit: taskEdit,
-    summaryTask
+    summaryTask,
+    copyTaskByPlan
   },
 
   methods: {
@@ -690,6 +746,35 @@ export default {
     taskSummaryOutput() {
       //debugger;
       this.$refs.taskSummary.outputToExcel();
+    },
+    // 复制任务按钮事件
+    copyTaskByPlan(selectPlanParams) {
+      //debugger;
+      let planId = selectPlanParams.planIds;
+      //let selectRows = selectPlanParams.rows;
+      if (planId.length > 0) {
+        this.$post({
+          url: "_data/task/samplingTask/copyTask",
+          fnc: data => {
+            if (data.success) {
+              this.doSearchTask();
+              if (data.data != "0") {
+                this.dialog_copy_task = false;
+                this.$message({
+                  type: "success",
+                  message: "操作成功"
+                });
+              } else {
+                this.$message({
+                  type: "success",
+                  message: "当前计划不存在可复制的任务"
+                });
+              }
+            }
+          },
+          param: { value: this.qasPlanId, commonEntityValues: planId }
+        });
+      }
     }
   },
   watch: {

@@ -1,83 +1,95 @@
 <template>
   <div>
-    <el-collapse v-model="activeName" accordion>
+    <el-collapse v-model="activeName" class="pl15 pr15" accordion>
       <el-collapse-item name="first">
         <template slot="title">
           <span class="panel_tit">查询条件</span>
         </template>
-        <el-row>
-          <el-col :span="24">
-            <label class="search_label">监管环节</label>
-            <el-select
-              v-model="search.link"
-              placeholder="请选择"
-            >
-              <template v-for="item in links">
-                <el-option
-                  :key="item.value"
-                  :label="item.text"
-                  :value="item.value"
-                  v-if="item.value != 9"
-                >
-                </el-option>
-              </template>
-            </el-select>
-            <label class="search_label">所属任务</label>
-            <el-select
-              v-model="search.qasPlanId"
-              placeholder="请选择"
-              clearable
-              filterable
-            >
-              <el-option
-                v-for="item in plans"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-            <!--</el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="24">-->
-            <label class="search_label fir_label">扦样时间</label>
-            <el-date-picker
-              v-model="search.createdS"
-              type="date"
-              placeholder="请选择"
-              value-format="yyyy-MM-dd"
-            >
-            </el-date-picker>
-            <label class="search_label">-</label>
-            <el-date-picker
-              v-model="search.createdE"
-              type="date"
-              placeholder="请选择"
-              value-format="yyyy-MM-dd"
-            >
-            </el-date-picker>
-            <label class="search_label">产品品种</label>
-            <el-select
-              v-model="search.product"
-              placeholder="请选择"
-              class="search_input"
-              clearable
-              @change="selectChange"
-            >
-              <el-option
-                v-for="item in products"
-                :key="item.sysId"
-                :label="item.name"
-                :value="item.sysId"
-              >
-              </el-option>
-            </el-select>
-            <el-button type="primary" class="search_btn" @click="do_search()">
-              查询
-            </el-button>
-          </el-col>
-        </el-row>
+        <el-form label-width="auto" :inline="true">
+          <el-row>
+            <el-col :span="21">
+              <el-col :span="6">
+                <el-form-item label="监管环节">
+                  <el-select
+                    v-model="search.link"
+                    placeholder="请选择"
+                    @change="findPlan"
+                  >
+                    <template v-for="item in links">
+                      <el-option
+                        :key="item.value"
+                        :label="item.text"
+                        :value="item.value"
+                        v-if="item.value != 9"
+                      >
+                      </el-option>
+                    </template>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="所属计划">
+                  <el-select
+                    v-model="search.qasPlanId"
+                    placeholder="请选择"
+                    clearable
+                    filterable
+                  >
+                    <el-option
+                      v-for="item in plans"
+                      :key="item.qasPlanId"
+                      :label="item.name"
+                      :value="item.qasPlanId"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="扦样时间">
+                  <el-date-picker
+                    v-model="search.createdS"
+                    type="date"
+                    placeholder="请选择"
+                    value-format="yyyy-MM-dd"
+                  >
+                  </el-date-picker>
+                  <label class="search_label">-</label>
+                  <el-date-picker
+                    v-model="search.createdE"
+                    type="date"
+                    placeholder="请选择"
+                    value-format="yyyy-MM-dd"
+                  >
+                  </el-date-picker>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="产品品种">
+                  <el-select
+                    v-model="search.product"
+                    placeholder="请选择"
+                    clearable
+                    @change="selectChange"
+                  >
+                    <el-option
+                      v-for="item in products"
+                      :key="item.sysId"
+                      :label="item.name"
+                      :value="item.sysId"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+            </el-col>
+            <el-col :span="3" class="textAlignRight">
+              <el-button type="primary" class="search_btn" @click="do_search()">
+                查询
+              </el-button>
+            </el-col>
+          </el-row>
+        </el-form>
       </el-collapse-item>
     </el-collapse>
     <div class="common_table_container">
@@ -102,6 +114,7 @@
           :data="sampleDataArray"
           stripe
           style="width: 100%"
+          :border="true"
           @selection-change="selectionRowsChange"
         >
           <el-table-column type="selection" width="50"> </el-table-column>
@@ -121,14 +134,16 @@
                 type="text"
                 size="small"
                 @click="showReceiveSampleDetail(scope.row)"
-                >详情</el-button
               >
+                详情
+              </el-button>
               <el-button
                 type="text"
                 size="small"
                 @click="doReceiveSample(scope.row)"
-                >收样</el-button
               >
+                收样
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -232,16 +247,18 @@ export default {
       });
     },
     do_search() {
-      if (!this.search.qasPlanId) {
+      /*if (!this.search.qasPlanId) {
         return;
-      }
+      }*/
       const $this = this;
       let param = {
         page: this.currentPage,
         rows: this.pageSizeSet,
-        qasPlanId: this.search.qasPlanId,
         link: this.search.link
       };
+      if (this.search.qasPlanId) {
+        param.qasPlanId = this.search.qasPlanId;
+      }
       if (this.search.createdS) {
         param.createdS = this.search.createdS;
       }
@@ -351,7 +368,6 @@ export default {
       this.$Api.getDic("qas_plan_link").then(data => {
         $this.links = data;
         $this.search.link = data && data.length > 0 ? data[0].value : "";
-        $this.findNatures($this.search.link);
       });
     },
     findPlan() {

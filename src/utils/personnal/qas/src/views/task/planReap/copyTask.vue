@@ -57,6 +57,7 @@
       :data="tableData"
       style="width: 100%"
       class="copyTask_table"
+      :border="true"
       @selection-change="selectionChange"
     >
       <el-table-column type="selection" width="55"> </el-table-column>

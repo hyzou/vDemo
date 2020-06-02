@@ -579,6 +579,26 @@
                 :options="formItem.data"
               />
             </el-form-item>
+            <!-- item:selectTree -->
+            <el-form-item
+              v-if="formItem.type == 'selectTree' && !formItem.hideItem"
+              :label="formItem.label"
+              :label-width="formItem.width"
+              :prop="formItem.name"
+            >
+              <kt-select-tree
+                class="selectTree"
+                v-model="formGroupSettings.formGroupValues[formItem.name]"
+                :data="formItem.data"
+                :width="formItem.treeWidth"
+                :size="formItem.treeSize"
+                :canChoseItem="formItem.canChoseItem"
+                :filterable="formItem.filterable"
+                :multiple="formItem.multiple"
+                :clearable="formItem.clearable"
+                :disabled="formItem.disabled"
+              ></kt-select-tree>
+            </el-form-item>
             <!-- item:group -->
             <el-form-item
               v-if="formItem.type == 'group'"

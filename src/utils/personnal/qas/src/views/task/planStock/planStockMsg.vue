@@ -110,7 +110,7 @@
       </el-form-item>
       <!--表单第四行-->
       <el-form-item label="委托单位:" prop="entrustOrg">
-        <el-input
+        <!-- <el-input
           placeholder="委托单位"
           v-model="planForm.entrustOrg"
           class="input-with-select"
@@ -122,7 +122,41 @@
             icon="el-icon-search"
             @click="doSearchEntrustOrg"
           ></el-button>
-        </el-input>
+        </el-input>-->
+        <el-autocomplete
+          v-model="planForm.entrustOrg"
+          :fetch-suggestions="querySearchAsync"
+          placeholder="委托单位"
+          @select="handleSelect"
+          :trigger-on-focus="false"
+          value-key="orgname"
+          value="orgname"
+        >
+          <span slot-scope="{ item }">
+            <span :title="item.orgname"> {{ item.orgname }}</span>
+          </span>
+        </el-autocomplete>
+        <!-- <el-select
+          multiple
+          filterable
+          remote
+          reserve-keyword
+          placeholder="委托单位"
+          v-model="planForm.entrustOrg"
+          class="input-with-select"
+          v-bind:class="{ fontMainBlack: disabledParam }"
+          :disabled="disabledParam"
+          :remote-method="remoteMethod"
+          :loading="loading"
+        >
+          <el-option
+            v-for="item in entrustOrgS"
+            :key="item.orgid"
+            :label="item.orgname"
+            :value="item.orgid"
+          >
+          </el-option>
+        </el-select>-->
       </el-form-item>
       <el-form-item label="标准类别:" prop="stdSuitsArray">
         <el-select
@@ -170,6 +204,7 @@
             ref="productsTable"
             :data="planForm.sampleRequest"
             stripe
+            :border="true"
             :row-key="row_key"
             style="width: 100%"
           >
@@ -216,13 +251,17 @@
                 </el-form-item>
               </template>
             </el-table-column>
-            <el-table-column label="判定等级">
+            <el-table-column label="样品等级要求">
               <template slot-scope="scope">
                 <el-form-item>
                   <el-select
                     placeholder="请选择"
                     :size="table_input"
-                    v-model="planForm.sampleRequest[scope.$index].requiredGrade"
+                    v-model="
+                      planForm.sampleRequest[scope.$index].requiredGradeList
+                    "
+                    multiple
+                    clearable
                     v-bind:class="{ fontMainBlack: disabledParam }"
                     :disabled="disabledParam"
                   >
@@ -346,7 +385,7 @@
     </el-collapse>
 
     <!--  指定委托单位 -->
-    <el-dialog
+    <!--<el-dialog
       :close-on-click-modal="false"
       title="指定委托单位"
       :visible.sync="dialog_entrustOrg"
@@ -357,12 +396,12 @@
       :append-to-body="true"
     >
       <entrustOrg @transfEntrustOrg="getEntrustOrg"></entrustOrg>
-    </el-dialog>
+    </el-dialog>-->
   </div>
 </template>
 
 <script>
-import entrustOrg from "./entrustOrg";
+/*import entrustOrg from "./entrustOrg";*/
 
 export default {
   name: "planStockMsg",
@@ -499,11 +538,12 @@ export default {
           return time1 < time2;
         }
       },
-      stdSuitsDataSource: []
+      stdSuitsDataSource: [],
+      restaurants: [] //搜索的数据源
     };
   },
   components: {
-    entrustOrg: entrustOrg
+    /*entrustOrg: entrustOrg*/
   },
   methods: {
     //组件初始化
@@ -521,6 +561,27 @@ export default {
       //获取判定结果标准
       this.$Api.getDic(this.$constants.STDSUITSTYPE).then(data => {
         vm.stdSuitsDataSource = data;
+      });
+      this.restAurants();
+    },
+    restAurants() {
+      const $this = this;
+      let userInfo = this.$store.getters.get_userInfo;
+      this.$get({
+        url:
+          "/_data/base/org/listByTypes?types=" +
+          this.$constants.ORGTYPE_ID001 +
+          "&types=" +
+          this.$constants.ORGTYPE_ID005 +
+          "&orgid=" +
+          (userInfo && userInfo.orgId ? userInfo.orgId : "") +
+          "&scope=1",
+        fnc: data => {
+          if (!data.success || !data.data || data.data.length == 0) {
+            return false;
+          }
+          $this.restaurants = data.data;
+        }
       });
     },
     //检测级别下拉框事件
@@ -662,6 +723,28 @@ export default {
       let titleName =
         this.$dateUtl.getYear() + "库存承储" + this.adminName + this.natureName;
       this.planForm.name = titleName;
+    },
+    querySearchAsync(queryString, cb) {
+      if (!queryString) {
+        return false;
+      }
+      let restaurants = this.restaurants;
+      let results = queryString
+        ? restaurants.filter(this.createStateFilter(queryString))
+        : restaurants;
+      cb(results);
+    },
+    createStateFilter(queryString) {
+      return restaurant => {
+        return (
+          restaurant.orgname.toLowerCase().indexOf(queryString.toLowerCase()) >
+          -1
+        );
+      };
+    },
+
+    handleSelect(item) {
+      console.log("handleSelect:" + item);
     }
   },
   beforeMount() {

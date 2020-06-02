@@ -8,6 +8,7 @@
       :data="taskLists"
       style="width: 100%"
       max-height="400px"
+      :border="true"
       stripe
       @selection-change="selectionRowsChange"
     >

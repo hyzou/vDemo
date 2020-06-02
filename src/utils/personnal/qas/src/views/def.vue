@@ -19,10 +19,10 @@
         </div>
       </div>
       <div class="defSecondCss">
-        <div class="defSecondCssDivF">
+        <div class="defSecondCssDivF pt10">
           <div ref="taskStatusCount" style="width:100%;height: 100%;"></div>
         </div>
-        <div class="defSecondCssDivS">
+        <div class="defSecondCssDivS pt10">
           <div ref="monthTaskCount" style="width:100%;height: 100%;"></div>
         </div>
       </div>
@@ -30,10 +30,14 @@
     <!-- 历史统计 -->
     <div class="defMainWith70pCss">
       <div class="defFirstCss_header"><span>历史统计</span></div>
-      <!-- 样品等级统计 -->
-      <div ref="gradeCount" style="width:45%;height: 100%;float: left"></div>
+      <!-- 样品等级统计  -->
+      <!-- <div ref="gradeCount" style="width:45%;height: 100%;float: left"></div>-->
       <!-- 合格率和合格数统计 -->
-      <div ref="passCount" style="width:55%;height: 90%;float: left"></div>
+      <div
+        ref="passCount"
+        class="floatLeft width100 pt10 pl10"
+        style="height: 90%;"
+      ></div>
     </div>
     <!-- 待办任务 -->
     <div class="defMainWith28pCss">
@@ -42,27 +46,39 @@
         <el-table
           :data="tableData"
           border
-          stripe
           style="width: 100%"
           max-height="450px;"
           height="450px"
+          :row-class-name="tableRowClass"
         >
           <el-table-column type="index" label="序号" width="50">
           </el-table-column>
           <el-table-column label="名称">
             <template slot-scope="scope">
-              <el-button type="text" @click="showDetail(scope.row)">{{
-                scope.row.planName
-              }}</el-button>
+              <el-tag
+                v-if="scope.row.overDate || scope.row.overDateStr"
+                size="mini"
+                :type="
+                  scope.row.overDate == true
+                    ? 'danger'
+                    : scope.row.overDateStr
+                    ? 'warning'
+                    : ''
+                "
+                disable-transitions
+                >{{
+                  scope.row.overDate == true
+                    ? "已超期"
+                    : scope.row.overDateStr
+                    ? scope.row.overDateStr + "天后超期"
+                    : ""
+                }}
+              </el-tag>
+              <el-button type="text" @click="showDetail(scope.row)">
+                {{ scope.row.planName }}
+              </el-button>
             </template>
           </el-table-column>
-          <!--<el-table-column
-              label="状态"
-              width="100px">
-              <template slot-scope="scope">
-                待处理操作
-              </template>
-            </el-table-column>-->
           <el-table-column prop="deadlineDt" label="截止日期" width="100">
           </el-table-column>
         </el-table>
@@ -170,7 +186,7 @@ export default {
     this.monthTaskCount();
     // this.adminLevelTaskCount();
     // 样品等级统计
-    this.gradeCount();
+    // this.gradeCount();
     //合格数和合格率相关统计
     this.passCount();
   },
@@ -274,7 +290,8 @@ export default {
     setLinkNatureOption(chartId, title, xdata, ydata, index) {
       chartId.setOption({
         title: {
-          text: title
+          text: title,
+          x: "center"
         },
 
         tooltip: {
@@ -286,12 +303,15 @@ export default {
             data: xdata,
             axisTick: {
               alignWithLabel: true
-            }
+            },
+            name: "监管环节"
           }
         ],
         yAxis: [
           {
-            type: "value"
+            type: "value",
+            minInterval: "1",
+            name: "任务数"
           }
         ],
         series: [
@@ -435,6 +455,18 @@ export default {
               {
                 name: "",
                 type: "pie",
+                radius: "55%",
+                center: ["40%", "50%"],
+                data: seriesdata,
+                emphasis: {
+                  itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: "rgba(0, 0, 0, 0.5)"
+                  }
+                }
+                /*name: "",
+                type: "pie",
                 radius: ["30%", "50%"],
                 avoidLabelOverlap: true,
                 label: {
@@ -451,12 +483,7 @@ export default {
                     }
                   }
                 },
-                labelLine: {
-                  normal: {
-                    show: true
-                  }
-                },
-                data: seriesdata
+                data: seriesdata*/
               }
             ]
           });
@@ -532,6 +559,7 @@ export default {
                 type: "value",
                 scale: true,
                 name: "合格数量",
+                minInterval: "1",
                 min: 0
               } //'#2AD7D7', '#82DFDF'
             ],
@@ -616,6 +644,10 @@ export default {
         this.dialogReapDetailVisible = false;
         this.resetReapDetail_dialog = false;
       }
+    },
+    tableRowClass({ row, index }) {
+      //判断是 超期 还是即将到期还是 正常
+      return row.overDate ? "overRow" : row.overDateStr ? "musOverRow" : "";
     }
   },
   created() {
@@ -645,5 +677,11 @@ export default {
 .el-collapse-item__header {
   font-size: 1.17em;
   font-weight: bold;
+}
+.overRow {
+  color: #f56c6c;
+}
+.musOverRow {
+  color: #e6a23c;
 }
 </style>

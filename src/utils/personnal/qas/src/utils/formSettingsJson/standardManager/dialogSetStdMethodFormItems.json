@@ -1,0 +1,109 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "qasStdId",
+    "name": "qasStdId",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "type",
+    "name": "type",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "name",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "stdNo",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "date",
+    "label": "发布日期",
+    "name": "strissuedDt",
+    "span": 12,
+    "dateType": "datetime",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "name": "status",
+    "data": [
+      {
+        "label": "现行",
+        "value": "1"
+      },
+      {
+        "label": "过期",
+        "value": "2"
+      },
+      {
+        "label": "作废",
+        "value": "9"
+      }
+    ],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "产品类别",
+    "name": "productType",
+    "filterable": true,
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "颁布组织",
+    "filterable": true,
+    "name": "issuedBy",
+    "data": [],
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "switch",
+    "label": "是否启用",
+    "name": "disable",
+    "activeValue":"N",
+    "inactiveValue":"Y",
+    "span": 12,
+    "width": "120px"
+  },
+  {
+    "type": "selectTree",
+    "label": "指标",
+    "name": "basItems",
+    "span": 12,
+    "data":[],
+    "canChoseItem":"ITEM",
+    "filterable":true,
+    "multiple":true,
+    "clearable":true,
+    "treeWidth":"100%",
+    "treeSize":"large",
+    "width": "120px"
+  },
+  {
+    "type": "textarea",
+    "label": "描述",
+    "name": "DESCRIPTION",
+    "span": 24,
+    "width": "120px"
+  }
+]

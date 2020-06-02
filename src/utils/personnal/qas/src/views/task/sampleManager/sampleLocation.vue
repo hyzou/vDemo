@@ -178,6 +178,7 @@ export default {
     },
     //获取到的结果
     MarkerEndLocation(e) {
+      let T = mapConst.T;
       this.qasSample.qasSamplingTask.longitude = e.lnglat.getLng().toFixed(6);
       this.qasSample.qasSamplingTask.latitude = e.lnglat.getLat().toFixed(6);
       let lnglat = e.lnglat;
@@ -199,7 +200,7 @@ export default {
           addressComponent.addressComponent.county_code
             ? addressComponent.addressComponent.county_code.substring(3)
             : "";
-        console.log(adddistrict);
+        /* console.log(adddistrict);
         let province =
           addressComponent &&
           addressComponent.addressComponent &&
@@ -211,7 +212,7 @@ export default {
           addressComponent.addressComponent &&
           addressComponent.addressComponent.county
             ? addressComponent.addressComponent.county
-            : "";
+            : "";*/
         this.district = adddistrict;
         this.qasSample.qasSamplingTask.town = addressComponent.poi;
         this.qasSample.qasSamplingTask.address = result.getAddress();

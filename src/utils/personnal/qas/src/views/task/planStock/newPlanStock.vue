@@ -112,10 +112,10 @@ export default {
               "sampleRequest[" + index + "].sampleCopyNum",
               sampleRequestObject.sampleCopyNum
             );
-            if (sampleRequestObject.requiredGrade) {
+            if (sampleRequestObject.requiredGradeList) {
               uploadForm.append(
-                "sampleRequest[" + index + "].requiredGrade",
-                sampleRequestObject.requiredGrade
+                "sampleRequest[" + index + "].requiredGradeList",
+                sampleRequestObject.requiredGradeList
               );
             }
           }
@@ -200,6 +200,10 @@ export default {
     }
   },
   mounted() {
+    //设置当前登录用户的单位
+    let userInfo = this.$store.getters.get_userInfo;
+    let orgName = userInfo && userInfo.orgName ? userInfo.orgName : "";
+    this.$refs.planStockMsg.planForm.entrustOrg = orgName;
     this.$refs.planStockMsg.titleCreate();
   }
 };

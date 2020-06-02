@@ -4,6 +4,7 @@
       <!-- tab1 质检结果信息 -->
       <el-tab-pane label="质检结果录入" class="tab_panel" name="0">
         <el-collapse
+          class="borderNone pb0"
           v-model="collapseActiveName"
           accordion
           @change="collapseActive"
@@ -55,12 +56,22 @@
                       disabled
                     ></el-input>
                   </el-form-item>
-                  <el-form-item label="样品检测等级:" prop="requiredGrade__dsp">
-                    <el-input
-                      v-model="dataSource.sampleInfo.requiredGrade__dsp"
+                  <el-form-item label="样品等级要求:">
+                    <el-select
+                      v-model="dataSource.sampleInfo.requiredGradeList"
+                      placeholder="样品等级要求"
                       class="dialog_input fontMainBlack"
+                      multiple
                       disabled
-                    ></el-input>
+                    >
+                      <el-option
+                        v-for="item in grades"
+                        :key="item.value"
+                        :label="item.text"
+                        :value="item.value"
+                      >
+                      </el-option>
+                    </el-select>
                   </el-form-item>
                   <br />
                   <el-form-item
@@ -123,19 +134,44 @@
             </el-row>
           </el-collapse-item>
         </el-collapse>
-        <div style="margin-top: 10px">
+        <div class="mt25">
           <h1
             class="el-collapse-item__header"
             style="border: 0px;cursor: default"
           >
             检测项目
           </h1>
+          <div
+            style="float: left;position: absolute;margin-top: -45px;margin-left: 122px;"
+          >
+            <div
+              v-for="item in dataSource.sampleInfo.stdSuitList"
+              :key="item.value"
+              style="margin-left: 10px; float: left;"
+            >
+              {{ item.label }}
+              <el-select
+                placeholder="请选择"
+                v-model="typeArray[item.value]"
+                @change="checkItemStd(item.value)"
+                clearable
+              >
+                <el-option
+                  v-for="stdItem in stdOptionDataSource[item.value]"
+                  :key="stdItem.qasStdId"
+                  :label="stdItem.name"
+                  :value="stdItem.qasStdId"
+                >
+                </el-option>
+              </el-select>
+            </div>
+          </div>
 
           <template>
             <el-table
               ref="sampleCheckItemsTable"
               :data="dataSource.sampleCheckItemsDataArray"
-              style="width: 100%"
+              class="width100 mt10"
               :max-height="maxHeight"
               border
             >
@@ -143,13 +179,9 @@
               </el-table-column>
               <el-table-column prop="basItem.name" label="检验指标">
               </el-table-column>
-              <el-table-column
-                prop="basItem.munit"
-                label="法定单位"
-                width="120"
-              >
+              <el-table-column prop="basItem.munit" label="法定单位" width="80">
               </el-table-column>
-              <el-table-column label="结果值" width="300">
+              <el-table-column label="结果值" width="160">
                 <template slot-scope="scope">
                   <el-select
                     v-if="scope.row.basItem.dataType == 'O'"
@@ -175,16 +207,72 @@
                 </template>
               </el-table-column>
               <el-table-column
-                prop="displayRefValue"
-                label="参考值"
-                width="300"
+                v-for="item in dataSource.sampleInfo.stdSuitList"
+                :label="item.label"
+                :key="item.value"
               >
-              </el-table-column>
-              <el-table-column
-                prop="judgeNameIfTrue"
-                label="判定结果"
-                width="300"
-              >
+                <el-table-column prop="" label="标准" width="180">
+                  <template slot-scope="scope">
+                    <el-select
+                      placeholder="请选择"
+                      v-if="item.value == '0'"
+                      v-model="scope.row.stdValueNK"
+                      @change="judgeItem(scope.row, scope.$index)"
+                      clearable
+                    >
+                      <el-option
+                        v-for="stdItem in scope.row.selectDatas[item.value]"
+                        :key="stdItem.qasStdId"
+                        :label="stdItem.name"
+                        :value="stdItem.qasStdId"
+                      >
+                      </el-option>
+                    </el-select>
+                    <el-select
+                      placeholder="请选择"
+                      v-else
+                      v-model="scope.row.stdValueTY"
+                      @change="judgeItem(scope.row, scope.$index)"
+                      clearable
+                    >
+                      <el-option
+                        v-for="stdItem in scope.row.selectDatas[item.value]"
+                        :key="stdItem.qasStdId"
+                        :label="stdItem.name"
+                        :value="stdItem.qasStdId"
+                      >
+                      </el-option>
+                    </el-select>
+                  </template>
+                </el-table-column>
+                <el-table-column
+                  v-if="item.value == '0'"
+                  prop="displayRefValueNK"
+                  label="参考值"
+                  width="120"
+                >
+                </el-table-column>
+                <el-table-column
+                  v-else
+                  prop="displayRefValueTY"
+                  label="参考值"
+                  width="120"
+                >
+                </el-table-column>
+                <el-table-column
+                  v-if="item.value == '0'"
+                  prop="judgeNameIfTrueNK"
+                  label="判定结果"
+                  width="120"
+                >
+                </el-table-column>
+                <el-table-column
+                  v-else
+                  prop="judgeNameIfTrueTY"
+                  label="判定结果"
+                  width="120"
+                >
+                </el-table-column>
               </el-table-column>
             </el-table>
           </template>
@@ -212,8 +300,9 @@
               style="margin-right: 10px"
               :disabled="uploadBtnDisabled"
               @click="uploadFileToServe"
-              >上传服务器</el-button
             >
+              上传服务器
+            </el-button>
           </div>
           <template>
             <el-table
@@ -252,8 +341,9 @@
               type="primary"
               :disabled="batchDeleteBtnDisabled"
               @click="batchDeleteFile"
-              >批量删除</el-button
             >
+              批量删除
+            </el-button>
           </div>
           <template>
             <el-table
@@ -344,7 +434,10 @@ export default {
       batchDeleteBtnDisabled: true,
       selectCheckReportServeFiles: [],
       maxHeight: "310px",
-      selectFileRow: {}
+      selectFileRow: {},
+      stdOptionDataSource: {},
+      typeArray: [],
+      grades: []
     };
   },
   components: {
@@ -352,7 +445,7 @@ export default {
   },
   methods: {
     //获取样品信息
-    findSampleInfo() {
+    findSampleInfo(callback) {
       if (
         !this.resultEnterEntity ||
         !this.resultEnterEntity.qasSampleId ||
@@ -374,6 +467,9 @@ export default {
                 ? $this.$dateUtl.getTime(dataData.testDt)
                 : $this.$dateUtl.getNowTime()
             );
+            if (callback) {
+              callback();
+            }
           }
         },
         param: { qasSampleId: this.resultEnterEntity.qasSampleId }
@@ -393,6 +489,25 @@ export default {
         url: "/_data/sample/sample/findSampleQasPlanQaItem",
         fnc: data => {
           if (data.success) {
+            data.data.map(item => {
+              item.selectDatas = $this.stdOptionDataSource;
+              item.stdValueTY = item.stdValueTY ? item.stdValueTY : "";
+              item.stdValueNK = item.stdValueNK ? item.stdValueNK : "";
+              item.displayRefValueNK = item.displayRefValueNK
+                ? item.displayRefValueNK
+                : "";
+              item.displayRefValueTY = item.displayRefValueTY
+                ? item.displayRefValueTY
+                : "";
+              item.judgeNameIfTrueNK = item.judgeNameIfTrueNK
+                ? item.judgeNameIfTrueNK
+                : "";
+              item.judgeNameIfTrueTY = item.judgeNameIfTrueTY
+                ? item.judgeNameIfTrueTY
+                : "";
+              item.judgeResultNK = item.judgeResultNK ? item.judgeResultNK : "";
+              item.judgeResultTY = item.judgeResultTY ? item.judgeResultTY : "";
+            });
             $this.dataSource.sampleCheckItemsDataArray = data.data;
           }
         },
@@ -401,36 +516,48 @@ export default {
     },
     //判断检测结果
     judgeItem(scopeRow, index) {
-      if (!scopeRow.value) {
+      if (
+        !this.dataSource.sampleInfo.stdSuitList ||
+        this.dataSource.sampleInfo.stdSuitList.length == 0
+      ) {
         return false;
       }
       /*  scopeRow.judgeResult = index == 4 ? "13":"11";
         scopeRow.qasStdId = "494";*/
-      //根据输入的内容以及检测项id获取判定结果
-      let param = {
-        resultValue: scopeRow.value,
-        itemId: scopeRow.qasBasItemId,
-        gradeValue: this.dataSource.sampleInfo.requiredGrade,
-        grainBreedId: this.dataSource.sampleInfo.grainbreedId
-      };
-      const $this = this;
-      this.$get({
-        url: "/_data/std/itemCriteria/bestStdItemCriteria",
-        param: param,
-        fnc: data => {
-          if (!data) {
-            $this.$set(scopeRow, "judgeResult", "");
-            $this.$set(scopeRow, "qasStdId", "");
-            $this.$set(scopeRow, "displayRefValue", "");
-            $this.$set(scopeRow, "judgeNameIfTrue", "");
-            return false;
-          }
-          $this.$set(scopeRow, "judgeResult", data.judgeValueIfTrue);
-          $this.$set(scopeRow, "qasStdId", data.qasStdId);
-          $this.$set(scopeRow, "displayRefValue", data.displayRefValue);
-          $this.$set(scopeRow, "judgeNameIfTrue", data.judgeNameIfTrue);
+      for (let index in this.dataSource.sampleInfo.stdSuitList) {
+        let data = this.dataSource.sampleInfo.stdSuitList[index];
+        let stdTYpe = data.value;
+        let stdValue =
+          stdTYpe == "0" ? scopeRow.stdValueNK : scopeRow.stdValueTY;
+        if (!stdValue || !scopeRow.value) {
+          //没有选择标准
+          this.$set(
+            scopeRow,
+            stdTYpe == "0" ? "judgeResultNK" : "judgeResultTY",
+            ""
+          );
+          this.$set(
+            scopeRow,
+            stdTYpe == "0" ? "displayRefValueNK" : "displayRefValueTY",
+            ""
+          );
+          this.$set(
+            scopeRow,
+            stdTYpe == "0" ? "judgeNameIfTrueNK" : "judgeNameIfTrueTY",
+            ""
+          );
+          continue;
         }
-      });
+        //根据输入的内容以及检测项id获取判定结果
+        let param = {
+          resultValue: scopeRow.value,
+          itemId: scopeRow.qasBasItemId,
+          gradeValue: this.dataSource.sampleInfo.requiredGrade,
+          grainBreedId: this.dataSource.sampleInfo.grainbreedId,
+          qasStdId: stdValue
+        };
+        this.findItemJudge(scopeRow, param, stdTYpe);
+      }
     },
     loadFiles(file) {
       let kbsize = file.size / 1024;
@@ -485,6 +612,7 @@ export default {
           }
           //清除表格数据源
           $this.checkReportFiles = [];
+          $this.uploadBtnDisabled = true;
           //成功之后执行获取方法
           $this.findCheckReport();
         }
@@ -571,13 +699,154 @@ export default {
     },
     collapseActive(activeNames) {
       if (activeNames) {
-        console.log("激活");
         this.maxHeight = "310px";
         return false;
       }
       this.maxHeight = "510px";
-      console.log(activeNames);
+    },
+    findStdValue(param1, index) {
+      const $this = this;
+      let param = {
+        stdSuit: param1
+      };
+      this.$get({
+        url: "/_data/std/std/getStdsBySuit",
+        fnc: data => {
+          if (!data || !data.success || !data.data) {
+            $this.$set($this.stdOptionDataSource, param1, []);
+            return false;
+          }
+          //获取标准数据然后存储到数据集合中
+          $this.$set($this.stdOptionDataSource, param1, data.data);
+        },
+        param: param
+      });
+    },
+    findStd() {
+      let stdSuitList = this.dataSource.sampleInfo.stdSuitList;
+      if (!stdSuitList) {
+        return false;
+      }
+      for (let index in stdSuitList) {
+        this.findStdValue(stdSuitList[index].value, index);
+      }
+    },
+    //批量选中标准
+    checkItemStd(stdType) {
+      if (!stdType) {
+        return false;
+      }
+      let stdValue = this.typeArray[stdType];
+      if (!stdValue) {
+        return false;
+      }
+      const $this = this;
+      let param = { qasStdId: stdValue };
+      this.$get({
+        url: "/_data/std/stdItem/list",
+        fnc: data => {
+          if (
+            !data ||
+            !data.success ||
+            !data.data ||
+            !$this.dataSource.sampleCheckItemsDataArray ||
+            $this.dataSource.sampleCheckItemsDataArray.length == 0
+          ) {
+            return false;
+          }
+          let itemData = data.data;
+          let basItemArray = [];
+          itemData.forEach(item => {
+            basItemArray.push(item.qasBasItemId);
+          });
+          let basItemStr = basItemArray.join(",");
+          basItemStr += ",";
+          //获取交集
+          let intersection = $this.dataSource.sampleCheckItemsDataArray.filter(
+            function(val) {
+              return basItemStr.indexOf(val.qasBasItemId + ",") > -1;
+            }
+          );
+          if (!intersection || intersection.length == 0) {
+            return false;
+          }
+          //存在交集则将交集的赋值
+          for (let index in intersection) {
+            let intersectionData = intersection[index];
+            if (stdType == "0") {
+              //内控
+              $this.$set(intersectionData, "stdValueNK", stdValue);
+            } else {
+              //通用
+              $this.$set(intersectionData, "stdValueTY", stdValue);
+            }
+            if (intersectionData.value) {
+              let param = {
+                resultValue: intersectionData.value,
+                itemId: intersectionData.qasBasItemId,
+                gradeValue: this.dataSource.sampleInfo.requiredGrade,
+                grainBreedId: this.dataSource.sampleInfo.grainbreedId,
+                qasStdId: stdValue
+              };
+              $this.findItemJudge(intersectionData, param, stdType);
+            }
+          }
+        },
+        param: param
+      });
+    },
+    findItemJudge(scopeRow, param, stdTYpe) {
+      const $this = this;
+      this.$get({
+        url: "/_data/std/itemCriteria/bestStdItemCriteria",
+        param: param,
+        fnc: data => {
+          if (!data) {
+            $this.$set(
+              scopeRow,
+              stdTYpe == "0" ? "judgeResultNK" : "judgeResultTY",
+              ""
+            );
+            $this.$set(
+              scopeRow,
+              stdTYpe == "0" ? "displayRefValueNK" : "displayRefValueTY",
+              ""
+            );
+            $this.$set(
+              scopeRow,
+              stdTYpe == "0" ? "judgeNameIfTrueNK" : "judgeNameIfTrueTY",
+              ""
+            );
+            return false;
+          }
+          $this.$set(
+            scopeRow,
+            stdTYpe == "0" ? "judgeResultNK" : "judgeResultTY",
+            data.judgeValueIfTrue
+          );
+          $this.$set(
+            scopeRow,
+            stdTYpe == "0" ? "displayRefValueNK" : "displayRefValueTY",
+            data.displayRefValue
+          );
+          $this.$set(
+            scopeRow,
+            stdTYpe == "0" ? "judgeNameIfTrueNK" : "judgeNameIfTrueTY",
+            data.judgeNameIfTrue
+          );
+        }
+      });
+    },
+    get_grade(vm) {
+      //获取判定等级
+      this.$Api.getDic(this.$constants.GRAINRANK).then(data => {
+        vm.grades = data;
+      });
     }
+  },
+  mounted() {
+    const $this = this;
+    $this.get_grade($this);
   },
   props: {
     resultEnterObject: {
@@ -587,9 +856,17 @@ export default {
   watch: {
     resultEnterObject: {
       handler(val) {
+        const $this = this;
+        let callBackObject = {
+          sampleInfoCallBack: function() {
+            $this.findStd();
+          }
+        };
         this.resultEnterEntity = val;
-        this.findSampleInfo();
+        this.findSampleInfo(callBackObject.sampleInfoCallBack);
+        //setTimeout(function() {
         this.findSampleCheckItem();
+        //}, 0);
         this.findCheckReport();
       },
       immediate: true

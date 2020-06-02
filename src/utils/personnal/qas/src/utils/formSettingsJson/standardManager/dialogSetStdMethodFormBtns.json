@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "insert",
+    "label": "提交",
+    "styleType": "primary",
+    "postUrl": "addStdMethod"
+  }
+]

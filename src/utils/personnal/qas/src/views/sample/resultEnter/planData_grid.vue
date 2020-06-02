@@ -6,6 +6,7 @@
           data => !searchName || data.name.includes(searchName)
         )
       "
+      :border="true"
       style="width: 100%;height: 760px;max-height: 760px;"
     >
       <el-table-column>

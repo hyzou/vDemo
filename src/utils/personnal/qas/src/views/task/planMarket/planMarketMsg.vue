@@ -140,20 +140,29 @@
           <template slot="title">
             <span class="sub-tit" style="margin-right: 10px">产品信息</span>
           </template>
-          <div class="tool-bar bgfff">
-            <el-button
-              type="primary"
-              class="s-tool-btn"
-              @click="handler_row(0, { action: '新增' })"
-              v-show="!disabledParam"
-            >
-              新增
-            </el-button>
-          </div>
+          <!-- <div> 注释collapse,放开下面的注释，减小边距，但是没有收起功能-->
+          <!-- <div class="tool-bar bgfff pt10" style="border-top:1px solid #ccc;"> -->
+          <el-row>
+            <!-- <el-col :span="12" class="textAlignLeft">
+              <span class="lheight50 textFontBold">产品信息</span>
+            </el-col> -->
+            <el-col :span="24" class="textAlignRight mb10">
+              <el-button
+                type="primary"
+                class="s-tool-btn"
+                @click="handler_row(0, { action: '新增' })"
+                v-show="!disabledParam"
+              >
+                新增
+              </el-button>
+            </el-col>
+          </el-row>
+          <!-- </div> -->
           <el-table
             ref="productsTable"
             :data="planForm.sampleRequest"
             stripe
+            :border="true"
             :row-key="row_key"
             style="width: 100%"
           >
@@ -200,13 +209,17 @@
                 </el-form-item>
               </template>
             </el-table-column>
-            <el-table-column label="判定等级">
+            <el-table-column label="样品等级要求">
               <template slot-scope="scope">
                 <el-form-item>
                   <el-select
                     placeholder="请选择"
                     :size="table_input"
-                    v-model="planForm.sampleRequest[scope.$index].requiredGrade"
+                    v-model="
+                      planForm.sampleRequest[scope.$index].requiredGradeList
+                    "
+                    multiple
+                    clearable
                     :disabled="disabledParam"
                     v-bind:class="{ fontMainBlack: disabledParam }"
                   >
@@ -298,6 +311,7 @@
               </template>
             </el-table-column>
           </el-table>
+          <!-- </div> -->
         </el-collapse-item>
       </el-collapse>
     </el-form>

@@ -67,19 +67,11 @@
     "width": "100px"
   },
   {
-    "type": "select",
-    "label": "是否禁用",
+    "type": "switch",
+    "label": "是否启用",
     "name": "disable",
-    "data":[
-      {
-        "value":"N",
-        "label":"启用"
-      },
-      {
-        "value":"Y",
-        "label":"禁用"
-      }
-    ],
+    "activeValue":"N",
+    "inactiveValue":"Y",
     "span": 12,
     "width": "100px"
   }

@@ -1,0 +1,35 @@
+[
+  {
+    "prop": "displayRefValue",
+    "lable": "标准值",
+    "width": "100"
+  },
+  {
+    "prop": "expr",
+    "lable": "判定表达式",
+    "width": "200"
+  },
+  {
+    "prop": "judgeNameIfTrue",
+    "lable": "合格判定值",
+    "width": "100"
+  },
+  {
+    "prop": "priority",
+    "lable": "优先级",
+    "width": "100"
+  },
+  {
+    "prop": "tagDisplay",
+    "lable": "选择分类"
+  },
+  {
+    "prop": "gradeResult__dsp",
+    "lable": "等级结果"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "width": "100"
+  }
+]

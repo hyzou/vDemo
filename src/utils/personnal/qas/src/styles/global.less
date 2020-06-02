@@ -15,6 +15,7 @@
 // @import "./components/paragraph.less";
 // @import "./components/idcard.less";
 // @import "./components/tree.less";
+@import "./components/ktSelectTree.less";
 
 // 引入工程内通用样式
 @import "./projectStyle/common.less";
@@ -134,6 +135,9 @@ p,ul {
 	text-overflow:ellipsis;
 	white-space: nowrap;
 }
+.textFontBold{
+    font-weight: bold;
+}
 .borderNone{
 	border: 0 !important;
 }
@@ -167,6 +171,12 @@ p,ul {
 .textColorLightBlue{
 	color: @mainBgColorLight;
 }
+// 文字溢出显示省略号
+.textEllipsis{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
 .mgAuto{
 	margin: auto;
 }
@@ -183,7 +193,7 @@ p,ul {
 
 //循环背景色样式，调用时可直接在页面上使用<div class="bgfff">
 //定义bg数组，从define定义的颜色中取色值名称，生成样式名：bgfff，bgeee......
-@bgList: fff eee e6a23c;
+@bgList: fff eee e6a23c fef9f9 f5faff;
 .bg-loop(@list,@i:1,@val:extract(@list,@i)) when (length(@list)>=@i){
     .bg@{val}{
         background-color: ~"#@{val}" !important;
@@ -205,7 +215,7 @@ p,ul {
 
 //循环生成行高样式，调用时可直接在页面上使用<div class="lheight30">
 //定义lineHeight数组，生成样式名：lheight20，lheight30,lheight40......
-@lineHeightList: 20 30 40 60;
+@lineHeightList: 18 20 30 40 50 60;
 .lh-loop(@list,@i:1,@val:extract(@list,@i)) when (length(@list)>=@i){
     .lheight@{val}{
         line-height:@val + 0px !important;
@@ -216,7 +226,7 @@ p,ul {
 
 //循环生成行高样式，调用时可直接在页面上使用<div class="lheight30">
 //定义lineHeight数组，生成样式名：lheight20，lheight30,lheight40......
-@fontSizeList: 20 30 40 60;
+@fontSizeList: 14 16 18 20 30 40 60;
 .fS-loop(@list,@i:1,@val:extract(@list,@i)) when (length(@list)>=@i){
     .fontSize@{val}{
         font-size:@val + 0px !important;
@@ -229,7 +239,7 @@ p,ul {
 //定义要生成的class名称数组
 @distantName:pd pl pr pt pb mg ml mr mt mb;
 //定义要生成的边距距离数组
-@distant:0 3 5 6 10 14 15 20 24 25 28 30 40 50 60 100 110;
+@distant:0 3 5 6 10 14 15 20 24 25 28 30 40 45 50 60 100 110;
 .loop3(@index) when (@index < length(@distantName)+1) {
     .loop2(@counter,@val:extract(@distant,@counter)) when (@counter < length(@distant)+1) {
         & when (extract(@distantName, @index) = pd) {

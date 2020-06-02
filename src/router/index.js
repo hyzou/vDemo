@@ -288,6 +288,34 @@ export const asyncRouterMap_Manager = [
           //   }
           // }
           {
+            path: "/managePage/components/threeSence",
+            name: "threeSence",
+            hidden: false,
+            component: () => import("@/views/managePage/components/threeSence"),
+            meta: {
+              title: "three 3d渲染"
+            }
+          },
+          {
+            path: "/managePage/components/videoPlayer",
+            name: "videoPlayer",
+            hidden: false,
+            component: () =>
+              import("@/views/managePage/components/videoPlayer"),
+            meta: {
+              title: "videoPlayer 视频播放"
+            }
+          },
+          {
+            path: "/managePage/components/treeSelect",
+            name: "treeSelect",
+            hidden: false,
+            component: () => import("@/views/managePage/components/treeSelect"),
+            meta: {
+              title: "treeSelect 树下拉"
+            }
+          },
+          {
             path: "/managePage/components/card",
             name: "card",
             hidden: false,

@@ -5,64 +5,76 @@
         <template slot="title">
           <span class="panel_tit">查询条件</span>
         </template>
-        <el-row>
-          <el-col :span="24">
-            <label class="search_label">扦样时间</label>
-            <el-date-picker
-              v-model="search.createdS"
-              type="date"
-              placeholder="请选择"
-              value-format="yyyy-MM-dd"
-            >
-            </el-date-picker>
-            <label class="search_label">-</label>
-            <el-date-picker
-              v-model="search.createdE"
-              type="date"
-              placeholder="请选择"
-              value-format="yyyy-MM-dd"
-            >
-            </el-date-picker>
-            <label class="search_label">产品品种</label>
-            <el-select
-              v-model="search.product"
-              placeholder="请选择"
-              class="search_input"
-              clearable
-              @change="selectChange"
-            >
-              <el-option
-                v-for="item in products"
-                :key="item.sysId"
-                :label="item.name"
-                :value="item.sysId"
+        <el-form label-width="auto" :inline="true">
+          <el-row>
+            <el-col :span="21">
+              <el-col :span="12">
+                <el-form-item label="扦样时间">
+                  <el-date-picker
+                    v-model="search.createdS"
+                    type="date"
+                    placeholder="请选择"
+                    value-format="yyyy-MM-dd"
+                  >
+                  </el-date-picker>
+                  <label class="search_label">-</label>
+                  <el-date-picker
+                    v-model="search.createdE"
+                    type="date"
+                    placeholder="请选择"
+                    value-format="yyyy-MM-dd"
+                  >
+                  </el-date-picker>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="产品品种">
+                  <el-select
+                    v-model="search.product"
+                    placeholder="请选择"
+                    clearable
+                    @change="selectChange"
+                  >
+                    <el-option
+                      v-for="item in products"
+                      :key="item.sysId"
+                      :label="item.name"
+                      :value="item.sysId"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="计划">
+                  <!-- 是否禁用渐变动画 是的话设置参数为disable-transitions="true" -->
+                  <el-tag
+                    v-for="tag in selectPlans"
+                    :key="tag.qasPlanId"
+                    closable
+                    @close="clearPlan(tag)"
+                    disable-transitions="false"
+                  >
+                    {{ tag.name }}
+                  </el-tag>
+                </el-form-item>
+              </el-col>
+            </el-col>
+            <el-col :span="3" class="textAlignRight">
+              <el-button
+                icon="el-icon-search"
+                @click="choosePlan"
+                style=" margin-left: 10px;"
+                round
               >
-              </el-option>
-            </el-select>
-            <label class="search_label">计划</label>
-            <!-- 是否禁用渐变动画 是的话设置参数为disable-transitions="true" -->
-            <el-tag
-              v-for="tag in selectPlans"
-              :key="tag.qasPlanId"
-              closable
-              @close="clearPlan(tag)"
-              disable-transitions="false"
-            >
-              {{ tag.name }}
-            </el-tag>
-            <el-button
-              icon="el-icon-search"
-              @click="choosePlan"
-              style=" margin-left: 10px;"
-              round
-            >
-              选择计划
-            </el-button>
-            <el-button type="primary" class="search_btn" @click="do_search()">
-              查询
-            </el-button>
-          </el-col>
-        </el-row>
+                选择计划
+              </el-button>
+              <el-button type="primary" class="search_btn" @click="do_search()">
+                查询
+              </el-button>
+            </el-col>
+          </el-row>
+        </el-form>
       </el-collapse-item>
     </el-collapse>
     <el-dialog

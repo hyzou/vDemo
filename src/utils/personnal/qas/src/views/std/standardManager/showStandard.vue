@@ -130,6 +130,15 @@ export default {
     this.getProductType();
     this.getStdConditions();
     this.getOrg();
+    this.$Api
+      .getDicData({ _refKey: "dict", busintypeid: "qas_bas_std_type" })
+      .then(xhr => {
+        dialogSetTargetFormItems.map(item => {
+          if (item.name == "stdSuit") {
+            item.data = this.$dateUtl.dealDicData(xhr, "text", "value");
+          }
+        });
+      });
   }
 };
 </script>

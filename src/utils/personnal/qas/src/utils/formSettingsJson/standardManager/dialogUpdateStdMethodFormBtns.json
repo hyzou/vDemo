@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "update",
+    "label": "提交",
+    "styleType": "primary",
+    "postUrl": "updateStdMethod"
+  }
+]

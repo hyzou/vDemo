@@ -1,9 +1,9 @@
 <template>
-  <div class="common_table_container">
-    <div class="contentLeftLayout">
-      <settingMenu @returnData="returnData"></settingMenu>
+  <div class="flexContent">
+    <div class="flexLeftLayout pl10 pr10 bgfff">
+      <settingMenu @returnData="returnData" :menuType="ruleSet"></settingMenu>
     </div>
-    <div class="contentRightLayout">
+    <div class="flexRightLayout ml10 bgfff">
       <settingDataGrid :defaultSearchData="searchData"></settingDataGrid>
     </div>
   </div>
@@ -20,6 +20,7 @@ export default {
   },
   data() {
     return {
+      ruleSet: "ruleSet",
       searchData: {
         selectedLink: "",
         menuid: ""

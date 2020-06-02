@@ -73,12 +73,12 @@ export default {
             uploadForm.append(filed.labelFor, filed.fieldValue);
         });
         if (
-          $this.$refs.planStockMsg.planForm.stdSuitsArray &&
-          $this.$refs.planStockMsg.planForm.stdSuitsArray.length > 0
+          $this.$refs.planMarketMsg.planForm.stdSuitsArray &&
+          $this.$refs.planMarketMsg.planForm.stdSuitsArray.length > 0
         ) {
           uploadForm.append(
             "stdSuits",
-            $this.$refs.planStockMsg.planForm.stdSuitsArray.join(",")
+            $this.$refs.planMarketMsg.planForm.stdSuitsArray.join(",")
           );
         }
         //产品信息
@@ -119,10 +119,10 @@ export default {
               "sampleRequest[" + index + "].sampleCopyNum",
               sampleRequestObject.sampleCopyNum
             );
-            if (sampleRequestObject.requiredGrade) {
+            if (sampleRequestObject.requiredGradeList) {
               uploadForm.append(
-                "sampleRequest[" + index + "].requiredGrade",
-                sampleRequestObject.requiredGrade
+                "sampleRequest[" + index + "].requiredGradeList",
+                sampleRequestObject.requiredGradeList
               );
             }
           }

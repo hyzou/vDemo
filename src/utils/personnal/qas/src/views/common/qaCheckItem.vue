@@ -36,7 +36,7 @@
             style="width: 100%;"
             :height="tableStyle.height"
             :max-height="tableStyle.maxHeight"
-            border
+            :border="true"
           >
             <el-table-column>
               <template slot="header" slot-scope="scope">
@@ -90,7 +90,6 @@
       title="选择检验指标"
       :visible.sync="chooseCheckItemDialog"
       v-if="chooseCheckItemDialog"
-      width="75%"
       top="4%"
       :append-to-body="true"
     >

@@ -23,7 +23,6 @@
 <script>
 // @ is an alias to /src
 import headerBar from "@/components/headerBar";
-import formGroup from "@/components/formGroup";
 
 import dialogEditFormItemslist from "@/utils/formSettingsJson/signUp/dialogFormItems.json";
 import dialogFormAddBtnlist from "@/utils/formSettingsJson/signUp/dialogAddFormBtns.json";
@@ -31,8 +30,7 @@ import dialogFormRules from "@/utils/formRulesJson/memberRegist/dialogRule";
 export default {
   name: "signUp",
   components: {
-    headerBar,
-    formGroup
+    headerBar
   },
   data() {
     return {

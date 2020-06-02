@@ -5,20 +5,14 @@ let rule = {
     { required: true, message: "请填写发布日期", trigger: "change" }
   ],
   criteriaTags: [
-    { required: true, message: "请填写分类条件", trigger: "change" }
+    { required: true, message: "请填写分类标签", trigger: "change" }
   ],
-  type: [{ required: true, message: "请填写标准类型", trigger: "change" }],
   status: [{ required: true, message: "请填写状态", trigger: "change" }],
   productType: [
     { required: true, message: "请填写产品类别", trigger: "change" }
   ],
   issuedBy: [{ required: true, message: "请填写颁布组织", trigger: "change" }],
-  // replacedStdNo: [
-  //   { required: true, message: "请填写代替的标准编号", trigger: "blur" }
-  // ],
-  disable: [
-    { required: true, message: "请填写代替的是否禁用", trigger: "change" }
-  ]
+  stdSuit: [{ required: true, message: "请填写是否通用", trigger: "change" }]
 };
 
 export default {

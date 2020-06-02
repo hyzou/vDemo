@@ -47,6 +47,7 @@
         :data="filtedData"
         tooltip-effect="dark"
         style="width: 100%"
+        :border="true"
         max-height="550"
         @selection-change="handleSampleDtlSelectionChange"
       >

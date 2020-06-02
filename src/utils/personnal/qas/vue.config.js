@@ -1,6 +1,7 @@
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 module.exports = {
+  runtimeCompiler: true,
   publicPath: process.env.NODE_ENV === "production" ? "/oh-qas/" : "/", // 基本路径
   outputDir: "oh-production", // 输出文件目录
   configureWebpack: config => {
@@ -76,8 +77,8 @@ module.exports = {
     port: 3333, // 端口
     https: false, // 启用https
     overlay: {
-      warnings: true,
-      errors: true
+      warnings: false,
+      errors: false
     }, // 错误、警告在页面弹出
     proxy: {
       "/api": {

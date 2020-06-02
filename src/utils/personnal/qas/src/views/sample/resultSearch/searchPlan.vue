@@ -6,36 +6,43 @@
           <span class="panel_tit">查询条件</span>
         </template>
         <el-row>
-          <el-col :span="24">
-            <label class="search_label">监管环节</label>
-            <el-select
-              v-model="search.link"
-              placeholder="请选择"
-              @change="findNatures"
-            >
-              <template v-for="item in links">
+          <el-col :span="21">
+            <el-col :span="6">
+              <label class="search_label">监管环节</label>
+              <el-select
+                v-model="search.link"
+                placeholder="请选择"
+                @change="findNatures"
+              >
+                <template v-for="item in links">
+                  <el-option
+                    :key="item.value"
+                    :label="item.text"
+                    :value="item.value"
+                    v-if="item.value != 9"
+                  >
+                  </el-option>
+                </template>
+              </el-select>
+            </el-col>
+            <el-col :span="6">
+              <label class="search_label">计划性质</label>
+              <el-select v-model="search.nature" placeholder="请选择" clearable>
                 <el-option
+                  v-for="item in natures"
                   :key="item.value"
                   :label="item.text"
                   :value="item.value"
-                  v-if="item.value != 9"
                 >
                 </el-option>
-              </template>
-            </el-select>
-            <label class="search_label">计划性质</label>
-            <el-select v-model="search.nature" placeholder="请选择" clearable>
-              <el-option
-                v-for="item in natures"
-                :key="item.value"
-                :label="item.text"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-            <label class="search_label">计划标题</label>
-            <el-input placeholder="" v-model="search.name" class="search_input">
-            </el-input>
+              </el-select>
+            </el-col>
+            <el-col :span="6">
+              <label class="search_label">计划标题</label>
+              <el-input placeholder="" v-model="search.name"> </el-input>
+            </el-col>
+          </el-col>
+          <el-col :span="3" class="textAlignRight">
             <el-button type="primary" class="search_btn" @click="do_search()"
               >查询</el-button
             >
@@ -49,6 +56,7 @@
         ref="planTable"
         :data="planData"
         stripe
+        :border="true"
         style="width: 100%"
         @selection-change="selectionRowsChange"
         class="sampler_table"

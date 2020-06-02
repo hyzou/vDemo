@@ -1,0 +1,8 @@
+[
+  {
+    "flag": "moveTarget",
+    "label": "确定",
+    "styleType": "primary",
+    "postUrl": "updateItemParent"
+  }
+]

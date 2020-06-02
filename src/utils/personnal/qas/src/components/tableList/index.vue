@@ -80,7 +80,8 @@
               @click="
                 handleItemName(
                   scope.row[head.clickVarKey],
-                  head.clickType || ''
+                  head.clickType || '',
+                  scope.row
                 )
               "
               >{{ scope.row[head.prop] }}</a
@@ -89,6 +90,7 @@
               <template v-if="head.prop == 'operateBtns'">
                 <el-button
                   v-for="operateBtn in scope.row[head.prop]"
+                  :class="operateBtn.className"
                   :key="operateBtn.type"
                   size="mini"
                   :type="operateBtn.styleType"
@@ -98,7 +100,7 @@
                 </el-button>
               </template>
               <template v-else>
-                {{ scope.row[head.prop] }}
+                {{ scope.row[head.prop] || "——" }}
               </template>
             </span>
           </template>
@@ -133,8 +135,8 @@ export default {
     handleRowButton(rowData, button) {
       this.$emit("handleTableRowButton", rowData, button);
     },
-    handleItemName(id, type) {
-      this.$emit("handleTableItem", id, type);
+    handleItemName(id, type, rowdata) {
+      this.$emit("handleTableItem", id, type, rowdata);
     }
   }
 };

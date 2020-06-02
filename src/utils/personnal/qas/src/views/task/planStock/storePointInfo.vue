@@ -2,32 +2,42 @@
   <div>
     <!-- 查询条件 -->
     <el-form label-width="80px" :inline="true">
-      <el-form-item label="库点名称:">
-        <el-input
-          class="dialog_input"
-          v-model="searchForm.storePointName"
-          placeholder="库点名称"
-        ></el-input>
-      </el-form-item>
-      <el-form-item label="行政区域:">
-        <el-cascader
-          v-model="distinct"
-          :options="area_tableData"
-          :props="{
-            expandTrigger: 'hover',
-            label: 'text',
-            value: 'id',
-            checkStrictly: true
-          }"
-          clearable
-          placeholder="行政区域"
-          ref="searchArea"
-          @change="districtChange"
-        ></el-cascader>
-      </el-form-item>
-      <el-button type="primary" class="search_btn" @click="doSearch">
-        查询
-      </el-button>
+      <el-row>
+        <el-col :span="21">
+          <el-col :span="6">
+            <el-form-item label="库点名称:">
+              <el-input
+                class="dialog_input"
+                v-model="searchForm.storePointName"
+                placeholder="库点名称"
+              ></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="行政区域:">
+              <el-cascader
+                v-model="distinct"
+                :options="area_tableData"
+                :props="{
+                  expandTrigger: 'hover',
+                  label: 'text',
+                  value: 'id',
+                  checkStrictly: true
+                }"
+                clearable
+                placeholder="行政区域"
+                ref="searchArea"
+                @change="districtChange"
+              ></el-cascader>
+            </el-form-item>
+          </el-col>
+        </el-col>
+        <el-col :span="3" class="textAlignRight">
+          <el-button type="primary" class="search_btn" @click="doSearch">
+            查询
+          </el-button>
+        </el-col>
+      </el-row>
     </el-form>
     <!-- 列表信息 -->
     <div class="tool-bar bgfff">

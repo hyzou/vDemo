@@ -40,6 +40,7 @@
           :span-method="tableSpanMethod"
           style="width: 100%"
           max-height="400px"
+          :border="true"
           stripe
           @selection-change="selectionRowsChange"
         >

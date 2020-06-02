@@ -6,26 +6,27 @@
           批量操作<i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item :disabled="disabledItem" command="sd"
-            >下发计划</el-dropdown-item
-          >
-          <el-dropdown-item :disabled="disabledItem" command="s" divided
-            >完成计划</el-dropdown-item
-          >
-          <el-dropdown-item :disabled="disabledItem" command="d" divided
-            >删除计划</el-dropdown-item
-          >
+          <el-dropdown-item :disabled="disabledItem" command="sd">
+            下发计划
+          </el-dropdown-item>
+          <el-dropdown-item :disabled="disabledItem" command="s" divided>
+            完成计划
+          </el-dropdown-item>
+          <el-dropdown-item :disabled="disabledItem" command="d" divided>
+            删除计划
+          </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <el-button type="primary" class="s-tool-btn" @click="show_dialog"
-        >创建计划</el-button
-      >
+      <el-button type="primary" class="s-tool-btn" @click="show_dialog">
+        创建计划
+      </el-button>
     </div>
-    <template>
+    <div class="mt20 ml20 mr20">
       <el-table
         ref="multipleTable"
         :data="get_data()"
         stripe
+        :border="true"
         style="width: 100%"
         @selection-change="selectionRowsChange"
       >
@@ -44,7 +45,7 @@
           v-if="gridColumnShowVisiable"
         >
         </el-table-column>
-        <el-table-column prop="taskNum" label="子任务数"> </el-table-column>
+        <el-table-column prop="taskNum" label="任务数"> </el-table-column>
         <el-table-column prop="deadlineDt" label="要求完成时间">
         </el-table-column>
         <el-table-column prop="overFlagLabel" label="是否已完成">
@@ -79,21 +80,19 @@
           </template>
         </el-table-column>
       </el-table>
-    </template>
-    <template>
-      <div class="block">
-        <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page="currentPage"
-          :page-sizes="[10, 20, 30, 40]"
-          :page-size="pageSizeSet"
-          :layout="$constants.paginationlayout"
-          :total="totalNum"
-        >
-        </el-pagination>
-      </div>
-    </template>
+    </div>
+    <div class="block">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="pageSizeSet"
+        :layout="$constants.paginationlayout"
+        :total="totalNum"
+      >
+      </el-pagination>
+    </div>
     <el-dialog
       :close-on-click-modal="false"
       :title="dialogTitle"

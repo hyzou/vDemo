@@ -97,7 +97,7 @@
             </el-form-item>
             <!-- item:textarea -->
             <el-form-item
-              v-if="formItem.type == 'textarea'"
+              v-if="formItem.type == 'textarea' && !formItem.hideItem"
               :label="formItem.label"
               :label-width="formItem.width"
               :prop="formItem.name"
@@ -111,7 +111,7 @@
             </el-form-item>
             <!-- item:html -->
             <el-form-item
-              v-if="formItem.type == 'html'"
+              v-if="formItem.type == 'html' && !formItem.hideItem"
               :label="formItem.label"
               :label-width="formItem.width"
               :prop="formItem.name"
@@ -121,9 +121,43 @@
                 v-html="formGroupSettings.formGroupValues[formItem.name]"
               ></div>
             </el-form-item>
+            <!-- item:switch -->
+            <el-form-item
+              v-if="formItem.type == 'switch' && !formItem.hideItem"
+              :label="formItem.label"
+              :label-width="formItem.width"
+              :prop="formItem.name"
+            >
+              <el-switch
+                :active-value="formItem.activeValue"
+                :inactive-value="formItem.inactiveValue"
+                :disabled="formItem.disabled"
+                v-model="formGroupSettings.formGroupValues[formItem.name]"
+              ></el-switch>
+            </el-form-item>
+            <!-- item:selectTree -->
+            <el-form-item
+              v-if="formItem.type == 'selectTree' && !formItem.hideItem"
+              :label="formItem.label"
+              :label-width="formItem.width"
+              :prop="formItem.name"
+            >
+              <kt-select-tree
+                class="selectTree"
+                v-model="formGroupSettings.formGroupValues[formItem.name]"
+                :data="formItem.data"
+                :width="formItem.treeWidth"
+                :size="formItem.treeSize"
+                :canChoseItem="formItem.canChoseItem"
+                :filterable="formItem.filterable"
+                :multiple="formItem.multiple"
+                :clearable="formItem.clearable"
+                :disabled="formItem.disabled"
+              ></kt-select-tree>
+            </el-form-item>
             <!-- item:rate -->
             <el-form-item
-              v-if="formItem.type == 'rate'"
+              v-if="formItem.type == 'rate' && !formItem.hideItem"
               :label="formItem.label"
               :label-width="formItem.width"
               :prop="formItem.name"
@@ -138,7 +172,7 @@
             </el-form-item>
             <!-- item:date -->
             <el-form-item
-              v-if="formItem.type == 'date'"
+              v-if="formItem.type == 'date' && !formItem.hideItem"
               :label="formItem.label"
               :label-width="formItem.width"
               :prop="formItem.name"
@@ -162,34 +196,55 @@
               :label-width="formItem.width"
               :prop="formItem.name"
             >
-              <el-select
-                class="width100"
-                v-model="formGroupSettings.formGroupValues[formItem.name]"
-                :placeholder="formItem.placeHolder"
-                :disabled="formItem.disabled"
-                :filterable="formItem.filterable"
-                :multiple="formItem.multiple"
-                :defaultFirstOption="formItem.multiple"
-                :clearable="!formItem.cannotClear"
-                auto-complete="off"
-                @change="
-                  handleChangeSelect(
-                    formItem.linkName,
-                    formGroupSettings.formGroupValues[formItem.name]
-                  )
+              <el-col
+                :span="
+                  formItem.buttonBehind
+                    ? 24 - parseInt(formItem.buttonAttr.span)
+                    : 24
                 "
               >
-                <el-option
-                  v-for="opt in formItem.data"
-                  :key="opt.value"
-                  :label="opt.label"
-                  :value="opt.value"
-                ></el-option>
-              </el-select>
+                <el-select
+                  class="width100"
+                  v-model="formGroupSettings.formGroupValues[formItem.name]"
+                  :placeholder="formItem.placeHolder"
+                  :disabled="formItem.disabled"
+                  :filterable="formItem.filterable"
+                  :multiple="formItem.multiple"
+                  :defaultFirstOption="formItem.multiple"
+                  :clearable="!formItem.cannotClear"
+                  auto-complete="off"
+                  @change="
+                    handleChangeSelect(
+                      formItem.linkName,
+                      formGroupSettings.formGroupValues[formItem.name]
+                    )
+                  "
+                >
+                  <el-option
+                    v-for="opt in formItem.data"
+                    :key="opt.value"
+                    :label="opt.label"
+                    :value="opt.value"
+                  ></el-option>
+                </el-select>
+              </el-col>
+              <el-col
+                v-if="formItem.buttonBehind"
+                :span="formItem.buttonAttr.span"
+                class="textAlignRight"
+              >
+                <el-button
+                  :type="formItem.buttonAttr.type"
+                  :size="formItem.buttonAttr.size"
+                  @click="handleInlineFnc(formItem.buttonAttr.flag)"
+                >
+                  {{ formItem.buttonAttr.label }}
+                </el-button>
+              </el-col>
             </el-form-item>
             <!-- item:elTreeSelect -->
             <el-form-item
-              v-if="formItem.type == 'elTreeSelect'"
+              v-if="formItem.type == 'elTreeSelect' && !formItem.hideItem"
               :label="formItem.label"
               :label-width="formItem.width || '0px'"
               :prop="formItem.name"
@@ -204,7 +259,7 @@
             </el-form-item>
             <!-- item:elCheckbox -->
             <el-form-item
-              v-if="formItem.type == 'elCheckbox'"
+              v-if="formItem.type == 'elCheckbox' && !formItem.hideItem"
               :label="formItem.label"
               :label-width="formItem.width || '0px'"
               :prop="formItem.name"
@@ -218,7 +273,7 @@
             </el-form-item>
             <!-- item:elCheckboxArea -->
             <el-form-item
-              v-if="formItem.type == 'elCheckboxArea'"
+              v-if="formItem.type == 'elCheckboxArea' && !formItem.hideItem"
               :label="formItem.label"
               :label-width="formItem.width || '0px'"
               :prop="formItem.name"
@@ -302,6 +357,13 @@ export default {
     });
   },
   methods: {
+    handleInlineFnc(flag) {
+      if (!flag) {
+        console.log("没有定义按钮功能");
+        return;
+      }
+      this.$emit("inlineFncs", flag);
+    },
     handleChangeBox(val) {
       console.log(val, "checkbox");
     },

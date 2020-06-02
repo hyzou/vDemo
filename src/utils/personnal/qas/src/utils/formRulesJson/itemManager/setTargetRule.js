@@ -6,7 +6,7 @@ let rule = {
   ],
   munit: [{ required: true, message: "请填写计量单位", trigger: "blur" }],
   sortNo: [{ required: true, message: "请填写排序", trigger: "blur" }],
-  disable: [{ required: true, message: "请填写是否禁用", trigger: "change" }],
+  disable: [{ required: true, message: "请选择是否启用", trigger: "change" }],
   qasBasItemTypeId: [
     { required: true, message: "请填写所属检测项", trigger: "change" }
   ]

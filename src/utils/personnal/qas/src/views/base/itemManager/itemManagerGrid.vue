@@ -1,7 +1,6 @@
 <template>
   <div class="common_table_container">
     <!-- <itemManagerSearch @doSearch="doSearch" /> -->
-    <!-- <itemManagerSearch @doSearch="doSearch" /> -->
     <div class="tool-bar">
       <operateButtonsGroup
         :operateButtonsSettings="operateButtonsSettings"
@@ -9,17 +8,24 @@
         @handleDropItemButton="handleDropItemButton"
       />
     </div>
-    <el-tabs v-model="activeName" class="standar_tabs pb20" type="card">
-      <el-tab-pane label="指标管理" name="target">
-        <div class="table-tabs">
-          <tableList
-            :tablelistSettings="demoTableSettings"
-            @handleTableRowButton="handleTableRowButton"
-            @handleTableMutiChecked="handleSelectionChange"
-          />
-        </div>
-      </el-tab-pane>
-    </el-tabs>
+    <div class="pd20">
+      <tableList
+        :tablelistSettings="demoTableSettings"
+        @handleTableRowButton="handleTableRowButton"
+        @handleTableMutiChecked="handleSelectionChange"
+      />
+    </div>
+    <!-- yarn add vue-video-player依赖安装 -->
+    <!-- <el-row class="mb20">
+      <el-col :span="14">
+        <video-player
+          class="video-player vjs-custom-skin"
+          ref="videoPlayer"
+          :playsinline="true"
+          :options="playerOptions"
+        ></video-player>
+      </el-col>
+    </el-row> -->
     <dialogForm
       v-if="dialogFormSettings.dialogFormVisible"
       :dialogFormSettings="dialogFormSettings"
@@ -31,22 +37,34 @@
 
 <script>
 // import itemManagerSearch from "./itemManagerSearch";
-// 配置数据引入
+/*配置数据引入👇*/
+// table表头设置
 import tableHeader from "@/utils/formSettingsJson/itemManager/tableHeader.json";
+// 移动指标
+import dialogMoveTargetFormBtns from "@/utils/formSettingsJson/itemManager/dialogMoveTargetFormBtns.json";
+import dialogMoveTargetFormItems from "@/utils/formSettingsJson/itemManager/dialogMoveTargetFormItems.json";
+// 新建指标
 import dialogSetTargetFormBtns from "@/utils/formSettingsJson/itemManager/dialogSetTargetFormBtns.json";
 import dialogSetTargetFormItems from "@/utils/formSettingsJson/itemManager/dialogSetTargetFormItems.json";
+// 新增检测项
 import dialogSetProjectFormBtns from "@/utils/formSettingsJson/itemManager/dialogSetProjectFormBtns.json";
 import dialogSetProjectFormItems from "@/utils/formSettingsJson/itemManager/dialogSetProjectFormItems.json";
+// 更新指标
 import dialogUpdateTargetFormBtns from "@/utils/formSettingsJson/itemManager/dialogUpdateTargetFormBtns.json";
 import dialogUpdateTargetFormItems from "@/utils/formSettingsJson/itemManager/dialogUpdateTargetFormItems.json";
+// 更新检测项
 import dialogProjectSetresultFormBtns from "@/utils/formSettingsJson/itemManager/dialogProjectSetresultFormBtns.json";
 import dialogProjectUpdateresultFormBtns from "@/utils/formSettingsJson/itemManager/dialogProjectUpdateresultFormBtns.json";
 import dialogProjectSetresultFormItems from "@/utils/formSettingsJson/itemManager/dialogProjectSetresultFormItems.json";
 import operateButtonListData from "@/utils/formSettingsJson/itemManager/operateButtonListData.json";
-// 校验规则
+/*配置数据引入👆*/
+
+/*校验规则👇*/
+
 import setTargetRule from "@/utils/formRulesJson/itemManager/setTargetRule";
 import setProjectRule from "@/utils/formRulesJson/itemManager/setProjectRule";
 import setResultRule from "@/utils/formRulesJson/itemManager/setResultRule";
+/*校验规则👆*/
 
 export default {
   name: "itemManagerGrid",
@@ -55,6 +73,40 @@ export default {
   },
   data() {
     return {
+      /**
+       * video 基本数据配置
+       */
+      playerOptions: {
+        playbackRates: [0.7, 1.0, 1.5, 2.0], //播放速度
+        autoplay: false, //如果true,浏览器准备好时开始回放。
+        muted: false, // 默认情况下将会消除任何音频。
+        loop: false, // 导致视频一结束就重新开始。
+        preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
+        language: "zh-CN",
+        aspectRatio: "16:9", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+        fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+        sources: [
+          {
+            src:
+              "https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218114723HDu3hhxqIT.mp4", // 路径
+            type: "video/mp4" // 类型
+          },
+          {
+            src:
+              "https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218093206z8V1JuPlpe.mp4",
+            type: "video/mp4"
+          }
+        ],
+        poster: "@/assets/logo.png", //你的封面地址
+        // width: document.documentElement.clientWidth,
+        notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
+        controlBar: {
+          timeDivider: true,
+          durationDisplay: true,
+          remainingTimeDisplay: false,
+          fullscreenToggle: true //全屏按钮
+        }
+      },
       // table复选框已勾选集合
       checkedTableRow: [],
       // 检测指标树
@@ -127,7 +179,6 @@ export default {
       if (!(nodes && nodes.length)) {
         return [];
       }
-
       const newChildren = [];
       for (const node of nodes) {
         if (predicate(node)) {
@@ -141,7 +192,8 @@ export default {
         }
       }
       return newChildren;
-    } /* operateButtons点击事件 */,
+    },
+    /* operateButtons点击事件 */
     handleOperateButton(button) {
       if (button.flag == "duplicateOperation") return false;
       if (button.flag == "selectTarget") {
@@ -163,7 +215,7 @@ export default {
           busintypeid: "",
           munit: "",
           sortNo: "",
-          disable: "",
+          disable: "N",
           qasBasItemTypeId: ""
         };
       }
@@ -217,6 +269,16 @@ export default {
         this.dialogFormSettings.dialogFormItems.rules = setTargetRule.rule;
         this.dialogFormSettings.dialogFormVisible = true;
         this.dialogFormSettings.dialogType = "form";
+      } else if (button.type == "move") {
+        this.dialogFormSettings.dialogFormItems.formGroupValues = {
+          qasBasItemId: rowData.id,
+          qasBasItemTypeId: rowData.parentId
+        };
+        this.dialogFormSettings.dialogFormItems.rules = setResultRule.rule;
+        this.dialogFormSettings.dialogFormTitle = "移动指标";
+        this.dialogFormSettings.dialogFormItems.formGroupList = dialogMoveTargetFormItems;
+        this.dialogFormSettings.dialogFormVisible = true;
+        this.dialogFormSettings.dialogFormItems.formButtonList = dialogMoveTargetFormBtns;
       } else if (button.type == "set") {
         this.$Api
           .getProjectResultsInfoById({ qasBasItemTypeId: rowData.id })
@@ -316,7 +378,7 @@ export default {
         let addPropOptions = {
           propName: "operateBtns", //必填
           propFlag: "type",
-          propFlagValue: "ITEMTYPE",
+          propFlagValue: "ITEM",
           propNode: "children",
           propParent: [
             {
@@ -330,6 +392,11 @@ export default {
               type: "edit",
               styleType: "text",
               text: "编辑"
+            },
+            {
+              type: "move",
+              styleType: "text",
+              text: "移动"
             },
             {
               type: "remove",
@@ -365,11 +432,12 @@ export default {
     },
     formatData(data) {
       data.map(item => {
-        if (item.type && item.type == "ITEMTYPE") {
-          item.typeDsc = "检测项";
-        }
-        if (item.type && item.type != "ITEMTYPE") {
+        if (item.type && item.type == "ITEMTYPE_CATEGORY") {
+          item.typeDsc = "检测项分类";
+        } else if (item.type && item.type == "ITEM") {
           item.typeDsc = "指标";
+        } else {
+          item.typeDsc = "检测项";
         }
         if (item.children) {
           this.formatData(item.children);
@@ -380,6 +448,11 @@ export default {
     getTestProjectlist() {
       this.$Api.getTestProjectlist({}).then(data => {
         this.testProjectlist = data[0].children || [];
+        dialogMoveTargetFormItems.map(tarItem => {
+          if (tarItem.name == "qasBasItemTypeId") {
+            tarItem.data = this.testProjectlist;
+          }
+        });
         dialogSetTargetFormItems.map(tarItem => {
           if (tarItem.name == "qasBasItemTypeId") {
             tarItem.data = this.testProjectlist;

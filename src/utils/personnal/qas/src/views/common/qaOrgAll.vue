@@ -24,6 +24,7 @@
         class="sampler_table"
         @selection-change="qaOrgSelectionChange"
         max-height="400px"
+        :border="true"
       >
         <el-table-column type="selection" width="55"> </el-table-column>
         <el-table-column prop="orgname" label="机构名"> </el-table-column>

@@ -12,21 +12,17 @@
         @handleDropItemButton="handleDropItemButton"
       />
     </div>
-    <el-tabs v-model="activeName" class="standar_tabs" type="card">
-      <el-tab-pane label="分类条件管理" name="condition">
-        <div class="table-tabs">
-          <tableList
-            :tablelistSettings="demoTableSettings"
-            @handleTableRowButton="handleTableRowButton"
-            @handleTableMutiChecked="handleSelectionChange"
-          />
-        </div>
-      </el-tab-pane>
-    </el-tabs>
-    <pagination
-      :paginationSettings="paginationSettings"
-      @handlePaginationPagenumber="handlePaginationPagenumber"
-    />
+    <div class="mt20 ml20 mr20">
+      <tableList
+        :tablelistSettings="demoTableSettings"
+        @handleTableRowButton="handleTableRowButton"
+        @handleTableMutiChecked="handleSelectionChange"
+      />
+      <pagination
+        :paginationSettings="paginationSettings"
+        @handlePaginationPagenumber="handlePaginationPagenumber"
+      />
+    </div>
     <dialogForm
       :dialogFormSettings="dialogFormSettings"
       @handleDialogForm="handleDialogForm"

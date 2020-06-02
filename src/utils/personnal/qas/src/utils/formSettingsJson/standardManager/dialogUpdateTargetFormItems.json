@@ -14,6 +14,13 @@
     "width": "120px"
   },
   {
+    "type": "inputHidden",
+    "label": "orgid",
+    "name": "orgid",
+    "span": 12,
+    "width": "120px"
+  },
+  {
     "type": "input",
     "label": "名称",
     "name": "name",
@@ -69,13 +76,21 @@
   },
   {
     "type": "select",
-    "label": "分类条件",
+    "label": "分类标签",
     "name": "criteriaTags",
     "filterable": true,
     "multiple":true,
     "data": [],
     "span": 12,
-    "width": "120px"
+    "width": "120px",
+    "buttonBehind":true,
+    "buttonAttr":{
+      "span":6,
+      "label":"添加分类",
+      "type":"primary",
+      "size": "small",
+      "flag":"addCriteriaTags"
+    }
   },
   {
     "type": "select",
@@ -94,21 +109,22 @@
     "width": "120px"
   },
   {
-    "type": "select",
-    "label": "是否禁用",
+    "type": "switch",
+    "label": "是否启用",
     "name": "disable",
-    "data": [
-      {
-        "label": "禁用",
-        "value": "Y"
-      },
-      {
-        "label": "启用",
-        "value": "N"
-      }
-    ],
+    "activeValue":"N",
+    "inactiveValue":"Y",
     "span": 12,
     "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "是否通用",
+    "name": "stdSuit",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "linkName":"stdSuit"
   },
   {
     "type": "textarea",

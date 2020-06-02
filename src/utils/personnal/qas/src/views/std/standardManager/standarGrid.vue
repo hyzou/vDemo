@@ -11,33 +11,14 @@
         @handleOperateButton="handleOperateButton"
       />
     </div>
-    <el-tabs
-      v-model="activeName"
-      class="standar_tabs"
-      type="card"
-      @tab-click="handleTabChange"
-    >
-      <el-tab-pane label="检测标准" name="standard">
-        <div class="table-tabs">
-          <tableList
-            :tablelistSettings="demoTableSettings"
-            @handleTableItem="handleTableItem"
-            @handleTableRowButton="handleTableRowButton"
-            @handleTableMutiChecked="handleSelectionChange"
-          />
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="检测方法" name="condition">
-        <div class="table-tabs">
-          <tableList
-            :tablelistSettings="demoTableSettings"
-            @handleTableItem="handleTableItem"
-            @handleTableRowButton="handleTableRowButton"
-            @handleTableMutiChecked="handleSelectionChange"
-          />
-        </div>
-      </el-tab-pane>
-    </el-tabs>
+    <div class="mt20 ml20 mr20">
+      <tableList
+        :tablelistSettings="demoTableSettings"
+        @handleTableItem="handleTableItem"
+        @handleTableRowButton="handleTableRowButton"
+        @handleTableMutiChecked="handleSelectionChange"
+      />
+    </div>
     <pagination
       :paginationSettings="paginationSettings"
       @handlePaginationPagenumber="handlePaginationPagenumber"
@@ -45,6 +26,7 @@
     <el-dialog
       v-if="dialogVisible"
       title="标准设定"
+      width="960px"
       :visible.sync="dialogVisible"
       :close-on-click-modal="false"
       :destroy-on-close="true"
@@ -52,6 +34,20 @@
       <newStandard
         ref="newstd"
         :defaultData="standardData"
+        @refreshlist="refreshlist"
+      />
+    </el-dialog>
+    <el-dialog
+      v-if="dialogMethodVisible"
+      title="检测方法设定"
+      width="960px"
+      :visible.sync="dialogMethodVisible"
+      :close-on-click-modal="false"
+      :destroy-on-close="true"
+    >
+      <newStandardMethod
+        ref="newstdMethod"
+        :defaultData="standardMethodData"
         @refreshlist="refreshlist"
       />
     </el-dialog>
@@ -70,6 +66,7 @@
 <script>
 // 页面组件引入
 import newStandard from "./newStandard";
+import newStandardMethod from "./newStandardMethod";
 import showStandard from "./showStandard";
 import standarSearch from "./standarSearch";
 
@@ -81,6 +78,7 @@ export default {
   name: "standarGrid",
   components: {
     newStandard,
+    newStandardMethod,
     showStandard,
     standarSearch
   },
@@ -89,7 +87,21 @@ export default {
       // 搜索栏默认下拉数据
       defaultSearchData: {
         productTypelist: [],
-        issuedBylist: []
+        issuedBylist: [],
+        standartTypelist: [
+          {
+            label: "产品判定标准",
+            value: "1"
+          },
+          {
+            label: "检测方法",
+            value: "2"
+          },
+          {
+            label: "其他",
+            value: "9"
+          }
+        ]
       },
       // 搜索条件
       searchData: {},
@@ -97,10 +109,14 @@ export default {
       page: 1,
       // 显示标准设定对话框默认值，不可更改
       dialogViewVisible: false,
-      // 标准设定对话框，新建修改
+      // 检测标准设定对话框，新建修改
       dialogVisible: false,
-      // 标准设定默认值
+      // 检测方法设定对话框，新建修改
+      dialogMethodVisible: false,
+      // 检测标准设定默认值
       standardData: {},
+      // 检测方法设定默认值
+      standardMethodData: {},
       // table复选框已勾选集合
       checkedTableRow: [],
       // 检测指标树
@@ -111,8 +127,6 @@ export default {
        * 当前tab激活状态值，获取标准列表的type值也是从此取值
        */
       activeName: "standard",
-      // tab激活页码
-      standardType: "1", //1-检测标准;2-检测方法;9-其他
       /**
        * operateButtons 按钮组配置
        */
@@ -156,27 +170,28 @@ export default {
     doSearch(query) {
       this.page = 1;
       this.searchData = query;
-      console.log(query);
-      this.getMainTableData();
-    },
-    /* tab切换事件 */
-    handleTabChange(tab) {
-      if (tab.name == "condition") {
-        this.standardType = "2";
-        this.demoTableSettings.tableDatas = this.testTargetlist;
-      }
-      if (tab.name == "standard") {
-        this.standardType = "1";
-        this.demoTableSettings.tableDatas = this.testProjectlist;
-      }
       this.getMainTableData();
     },
     /* operateButtons点击事件 */
-    handleOperateButton() {
-      this.standardData = {
-        criteriaTags: []
-      };
-      this.dialogVisible = true;
+    handleOperateButton(btn) {
+      if (btn.flag == "newStdMehtod") {
+        this.standardMethodData = {
+          type: "2",
+          criteriaTags: [],
+          stdSuit: "1",
+          disable: "N",
+          readonly: "false"
+        };
+        this.dialogMethodVisible = true;
+      } else {
+        this.standardData = {
+          type: "1",
+          criteriaTags: [],
+          stdSuit: "1",
+          disable: "N"
+        };
+        this.dialogVisible = true;
+      }
     },
     /* 点击分页器页码按钮操作 */
     handlePaginationPagenumber(num) {
@@ -184,25 +199,49 @@ export default {
       this.getMainTableData();
     },
     /* 点击table可点击项操作操作 */
-    handleTableItem(id) {
-      this.standardData = {};
-      this.$Api.getSingleStd({ qasStdId: id }).then(xhr => {
-        xhr.data.strissuedDt = xhr.data.issuedDt;
-        this.standardData = xhr.data;
-        this.dialogViewVisible = true;
-      });
-    },
-    /* 点击table操作栏按钮操作 */
-    handleTableRowButton(rowData, button) {
-      if (button.type == "edit") {
+    handleTableItem(id, type, rowdata) {
+      if (rowdata.type == "1") {
         this.standardData = {};
-        this.$Api.getSingleStd({ qasStdId: rowData.qasStdId }).then(xhr => {
+        this.$Api.getSingleStd({ qasStdId: id }).then(xhr => {
           xhr.data.strissuedDt = this.$globalFnc.dateStampFormat(
             xhr.data.issuedDt,
             "ymd"
           );
           this.standardData = xhr.data;
-          this.dialogVisible = true;
+          this.dialogViewVisible = true;
+        });
+      } else {
+        this.standardData = {};
+        this.$Api.getSingleStdMethod({ qasStdId: id }).then(xhr => {
+          xhr.data.strissuedDt = this.$globalFnc.dateStampFormat(
+            xhr.data.issuedDt,
+            "ymd"
+          );
+          xhr.data.basItems = xhr.data.basItemIds;
+          this.standardMethodData = xhr.data;
+          this.standardMethodData.readonly = "true";
+          this.dialogMethodVisible = true;
+        });
+      }
+    },
+    /* 点击table操作栏按钮操作 */
+    handleTableRowButton(rowData, button) {
+      if (button.type == "edit") {
+        this.standardData = {};
+        this.$Api[button.postUrl]({ qasStdId: rowData.qasStdId }).then(xhr => {
+          xhr.data.strissuedDt = this.$globalFnc.dateStampFormat(
+            xhr.data.issuedDt,
+            "ymd"
+          );
+          if (rowData.type == "1") {
+            this.standardData = xhr.data;
+            this.dialogVisible = true;
+          } else {
+            xhr.data.basItems = xhr.data.basItemIds;
+            this.standardMethodData = xhr.data;
+            this.standardMethodData.readonly = "false";
+            this.dialogMethodVisible = true;
+          }
         });
       } else {
         rowData.deleted = "1";
@@ -213,7 +252,14 @@ export default {
           type: "warning"
         })
           .then(() => {
-            this.$Api[button.postUrl](rowData).then(() => {
+            let postdataObj = {};
+            postdataObj = rowData;
+            // if (rowData.type == "1") {
+            //   postdataObj = rowData;
+            // } else {
+            //   postdataObj.qasStd = { qasStdId: rowData.qasStdId };
+            // }
+            this.$Api[button.postUrl](postdataObj).then(() => {
               this.getMainTableData();
               this.$message.success("删除成功!");
             });
@@ -227,45 +273,74 @@ export default {
     handleSelectionChange(data) {
       this.checkedTableRow = data;
     },
-    refreshlist() {
+    refreshlist(type) {
+      if (type == "addMethods") {
+        this.dialogMethodVisible = false;
+      }
       this.getMainTableData();
     },
     /* 获取检测标准列表 */
     getMainTableData() {
-      let queryParam = JSON.parse(JSON.stringify(this.searchData));
+      let queryParam = {};
       queryParam.page = this.page;
       queryParam.rows = this.$constants.numberPerpage;
-      queryParam.type = this.standardType;
+      queryParam.type = "1";
       queryParam.deleted = 0;
+      Object.assign(queryParam, this.searchData);
       this.$Api.getStdlist(queryParam).then(data => {
         if (data.rows && data.rows.length > 0) {
           data.rows.map(row => {
             let issuedDt = this.$globalFnc.dateStampFormat(row.issuedDt, "ymd"),
-              reviseDt = this.$globalFnc.dateStampFormat(row.reviseDt, "ymd");
+              reviseDt = this.$globalFnc.dateStampFormat(row.reviseDt, "ymd"),
+              stdItemOptions = [
+                {
+                  type: "edit",
+                  styleType: "text",
+                  text: "编辑",
+                  postUrl: "getSingleStd"
+                },
+                {
+                  type: "remove",
+                  styleType: "text",
+                  text: "删除",
+                  postUrl: "updateStd"
+                }
+              ],
+              methodOptions = [
+                {
+                  type: "edit",
+                  styleType: "text",
+                  text: "编辑",
+                  postUrl: "getSingleStdMethod"
+                },
+                {
+                  type: "remove",
+                  styleType: "text",
+                  text: "删除",
+                  // postUrl: "deleteStdMethod"
+                  postUrl: "updateStd"
+                }
+              ];
             row.issuedDt = issuedDt;
             row.reviseDt = reviseDt;
+            switch (row.type) {
+              case "1":
+                row.type_dsc = "产品判定标准";
+                row.operateBtns = stdItemOptions;
+                break;
+              case "2":
+                row.type_dsc = "检测方法";
+                row.operateBtns = methodOptions;
+                break;
+              default:
+                row.type_dsc = "其他";
+                row.operateBtns = stdItemOptions;
+                break;
+            }
           });
         }
-        let options = {
-          propName: "operateBtns", //必填
-          propParent: [
-            {
-              type: "edit",
-              styleType: "text",
-              text: "编辑",
-              postUrl: "updateStd"
-            },
-            {
-              type: "remove",
-              styleType: "text",
-              text: "删除",
-              postUrl: "updateStd"
-            }
-          ]
-        };
-        this.$dateUtl.addPropInTreedata(data.rows, options);
+        // this.$dateUtl.addPropInTreedata(data.rows, options);
         this.testProjectlist = data.rows;
-        // this.issuedDt = this.issuedDt
         this.demoTableSettings.tableDatas = this.testProjectlist;
         this.paginationSettings.totalNumbers = data.total;
       });

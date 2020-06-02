@@ -115,27 +115,15 @@ const router = new Router({
               }
             }
           ]
-        },
-        {
-          path: "sampleProcess/:id", //进度管理
-          name: "sampleProcess",
-          components: {
-            search: processPanel,
-            dataGrid: processGrid
-          },
-          meta: {
-            title: "进度管理"
-          }
         }
       ]
     },
-
     //质检管理
     {
       path: "/quality",
       component: data_table,
       meta: {
-        title: "数据直报"
+        title: ""
       },
       children: [
         {
@@ -148,18 +136,6 @@ const router = new Router({
           meta: {
             title: "样品收样"
           }
-        },
-
-        {
-          path: "receivedSample/:id",
-          name: "receivedSample", //已收样管理
-          components: {
-            search: receivedSearch_panel,
-            dataGrid: receivedData_grid
-          },
-          meta: {
-            title: "已收样管理"
-          }
         }
       ]
     },
@@ -169,8 +145,7 @@ const router = new Router({
       name: "resultEnter", //结果录入
       component: resultEnterData_grid,
       meta: {
-        title: "数据直报",
-        title2: "质检结果录入"
+        title: "质检结果录入"
       }
     },
     //质检结果审批
@@ -179,8 +154,7 @@ const router = new Router({
       name: "resultApproval",
       component: resultApprovalData_grid,
       meta: {
-        title: "数据直报",
-        title2: "质检结果审批"
+        title: "质检结果审批"
       }
     },
     //基础数据
@@ -264,17 +238,50 @@ const router = new Router({
       }
     },
     //=====统计管理end
-    //=====质检结果查看
+    //====查询结果管理
+    {
+      path: "/sampling",
+      component: data_table,
+      children: [
+        {
+          path: "sampleProcess/:id", //进度管理
+          name: "sampleProcess",
+          components: {
+            search: processPanel,
+            dataGrid: processGrid
+          },
+          meta: {
+            title: "进度管理"
+          }
+        }
+      ]
+    },
+    {
+      path: "/quality",
+      component: data_table,
+      children: [
+        {
+          path: "receivedSample/:id",
+          name: "receivedSample", //已收样管理
+          components: {
+            search: receivedSearch_panel,
+            dataGrid: receivedData_grid
+          },
+          meta: {
+            title: "已收样管理"
+          }
+        }
+      ]
+    },
     {
       path: "/quality/resultSearch/:id",
       name: "resultSearch",
       component: resultSearchIndex,
       meta: {
-        title: "数据直报",
-        title2: "质检结果查看"
+        title: "质检结果查看"
       }
     }
-    //=====质检结果查看end
+    //=====查询结果管理end
   ]
 });
 export default router;

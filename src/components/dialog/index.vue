@@ -23,18 +23,15 @@
       v-if="dialogFormSettings.dialogType == 'image'"
       :src="dialogFormSettings.imgSrc"
       width="100%"
+      alt=""
     />
   </el-dialog>
 </template>
 <script>
-import formGroup from "@/components/formGroup";
 export default {
   name: "dialogForm",
   props: {
     dialogFormSettings: Object
-  },
-  components: {
-    formGroup
   },
   methods: {
     inlineFncs(flag) {

@@ -30,7 +30,9 @@ const qas_api = {
   getDic(type) {
     return new Promise(function(resolve, reject) {
       get({
-        url: "/_data/frame/ref/list?_refKey=dict&busintypeid=" + type,
+        url:
+          "/_data/frame/ref/list?_refKey=dict&_orders=[{'field':'sort','dir':'asc'}]&busintypeid=" +
+          type,
         fnc: resolve,
         rej: reject
       });
@@ -246,6 +248,51 @@ const qas_api = {
       });
     });
   },
+
+  //检测方法查看指标树
+  testMethodtree(param) {
+    return new Promise(function(resolve, reject) {
+      get({
+        url: "/_data/std/std/testMethodtree",
+        fnc: resolve,
+        rej: reject,
+        param: param
+      });
+    });
+  },
+  //新增检测方法基本信息
+  addStdMethod(param) {
+    return new Promise(function(resolve, reject) {
+      post({
+        url: "/_data/std/stdItem/addStdMethod",
+        fnc: resolve,
+        rej: reject,
+        param: param
+      });
+    });
+  },
+  //修改检测方法基本信息
+  updateStdMethod(param) {
+    return new Promise(function(resolve, reject) {
+      post({
+        url: "/_data/std/stdItem/updateStdMethod",
+        fnc: resolve,
+        rej: reject,
+        param: param
+      });
+    });
+  },
+  //删除检测方法基本信息
+  deleteStdMethod(param) {
+    return new Promise(function(resolve, reject) {
+      post({
+        url: "/_data/std/stdItem/deleteStdMethod",
+        fnc: resolve,
+        rej: reject,
+        param: param
+      });
+    });
+  },
   //批量禁用检测标准
   batchUpdate(param) {
     return new Promise(function(resolve, reject) {
@@ -268,6 +315,17 @@ const qas_api = {
       });
     });
   },
+  //获取单条显示标准基础信息
+  getSingleStdMethod(param) {
+    return new Promise(function(resolve, reject) {
+      get({
+        url: "/_data/std/stdItem/loadStdMethod",
+        fnc: resolve,
+        rej: reject,
+        param: param
+      });
+    });
+  },
   //添加检测指标标准值
   addSingleStdSet(param) {
     return new Promise(function(resolve, reject) {
@@ -284,6 +342,39 @@ const qas_api = {
     return new Promise(function(resolve, reject) {
       post({
         url: "/_data/std/itemCriteria/updateStdItemCriteria",
+        fnc: resolve,
+        rej: reject,
+        param: param
+      });
+    });
+  },
+  //批量添加检测指标标准值
+  addStdItemCriteriaList(param) {
+    return new Promise(function(resolve, reject) {
+      post({
+        url: "/_data/std/itemCriteria/addStdItemCriteriaList",
+        fnc: resolve,
+        rej: reject,
+        param: param
+      });
+    });
+  },
+  //批量修改检测指标标准值
+  updateStdItemCriteriaList(param) {
+    return new Promise(function(resolve, reject) {
+      post({
+        url: "/_data/std/itemCriteria/updateStdItemCriteriaList",
+        fnc: resolve,
+        rej: reject,
+        param: param
+      });
+    });
+  },
+  //获取批量添加的检测指标标准值
+  listStdItemCriteria(param) {
+    return new Promise(function(resolve, reject) {
+      get({
+        url: "/_data/std/itemCriteria/listStdItemCriteria",
         fnc: resolve,
         rej: reject,
         param: param
@@ -427,6 +518,17 @@ const qas_api = {
     return new Promise(function(resolve, reject) {
       get({
         url: "/_data/base/judgeDict/dics",
+        fnc: resolve,
+        rej: reject,
+        param: params
+      });
+    });
+  },
+  // 移动指标，选择所属检测项
+  updateItemParent(params) {
+    return new Promise(function(resolve, reject) {
+      post({
+        url: "/_data/base/item/updateItemParent",
         fnc: resolve,
         rej: reject,
         param: params
@@ -683,7 +785,7 @@ const qas_api = {
   getReportServer() {
     return new Promise(function(resolve, reject) {
       post({
-        url: "/_data/basic/property/report",
+        url: "/_data/statistical/ruleSetting/findDataService",
         fnc: resolve,
         rej: reject
       });

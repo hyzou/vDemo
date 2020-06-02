@@ -2,24 +2,33 @@
   <div>
     <!-- 查询条件 -->
     <el-form label-width="110px" :inline="true">
-      <el-form-item label="仓房/油罐名称:">
-        <el-input
-          class="dialog_input"
-          v-model="searchForm.name"
-          placeholder="仓房/油罐名称"
-        ></el-input>
-      </el-form-item>
-
-      <el-form-item label="仓房/油罐编号:">
-        <el-input
-          class="dialog_input"
-          v-model="searchForm.code"
-          placeholder="仓房/油罐编号"
-        ></el-input>
-      </el-form-item>
-      <el-button type="primary" class="search_btn" @click="doSearch"
-        >查询</el-button
-      >
+      <el-row>
+        <el-col :span="21">
+          <el-col :span="6">
+            <el-form-item label="仓房/油罐名称:">
+              <el-input
+                class="dialog_input"
+                v-model="searchForm.name"
+                placeholder="仓房/油罐名称"
+              ></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="仓房/油罐编号:">
+              <el-input
+                class="dialog_input"
+                v-model="searchForm.code"
+                placeholder="仓房/油罐编号"
+              ></el-input>
+            </el-form-item>
+          </el-col>
+        </el-col>
+        <el-col :span="3" class="textAlignRight">
+          <el-button type="primary" class="search_btn" @click="doSearch">
+            查询
+          </el-button>
+        </el-col>
+      </el-row>
     </el-form>
     <!-- 列表信息 -->
     <div class="tool-bar bgfff">

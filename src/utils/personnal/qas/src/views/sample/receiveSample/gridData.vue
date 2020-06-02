@@ -6,7 +6,7 @@
       ></receivePlanDataGrid>
     </div>
     <div class="contentRightLayout">-->
-      <receiveSampleData></receiveSampleData>
+    <receiveSampleData></receiveSampleData>
     <!--</div>-->
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     };
   },
   components: {
-   /* receivePlanDataGrid: receivePlanDataGrid,*/
+    /* receivePlanDataGrid: receivePlanDataGrid,*/
     receiveSampleData: receiveSampleData
   },
   methods: {

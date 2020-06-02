@@ -19,15 +19,15 @@
               class="headerToolbar-icon el-icon-switch-button cursor floatRight lheight60 text-white"
               @click="logout"
             ></span>
-            <span class="mr40 floatRight lheight60 text-white">
+            <span class="mr20 floatRight lheight60 text-white">
               {{ userName }}
             </span>
             <span
-              class="mr15 headerToolbar-icon el-icon-s-custom currentUser floatRight lheight60 text-white"
+              class="mr5 headerToolbar-icon el-icon-s-custom currentUser floatRight lheight60 text-white"
             ></span>
             <el-menu
               :default-active="activeIndex"
-              class="borderNone floatRight topMenu mr30"
+              class="borderNone floatRight topMenu mr110"
               mode="horizontal"
               @select="handleSelect"
               :unique-opened="true"
@@ -36,9 +36,9 @@
               active-text-color="#ffd04b"
               ref="elMenuTop"
             >
-              <el-menu-item :index="$constants.DEF_MENU_INDEX_INDEX"
-                >首页</el-menu-item
-              >
+              <el-menu-item :index="$constants.DEF_MENU_INDEX_INDEX">
+                首页
+              </el-menu-item>
               <top-menu
                 v-for="menuItem in menuItemArray"
                 :key="menuItem.id"
@@ -65,87 +65,16 @@
           >
             <!--最外层模板循环-->
             <template v-for="item in current_menu" @topselect="menuChange">
-              <!-- 判断是否有子目录 -->
-              <template v-if="item.children && item.children.length">
-                <el-submenu :index="item.id" :key="item.id">
-                  <template slot="title">
-                    <i
-                      :class="item.menuview ? item.menuview : 'el-icon-menu'"
-                    ></i>
-                    <span class="left_text">{{ item.text }}</span>
-                  </template>
-                  <!--遍历二级目录-->
-                  <template v-for="subitem in item.children">
-                    <!--判断是否存在三级目录-->
-                    <template
-                      v-if="subitem.children && subitem.children.length"
-                    >
-                      <el-submenu :index="subitem.id" :key="subitem.id">
-                        <template slot="title">
-                          <i
-                            :class="
-                              subitem.menuview
-                                ? subitem.menuview
-                                : 'el-icon-menu'
-                            "
-                          ></i>
-                          <span class="left_text">{{ subitem.text }}</span>
-                        </template>
-                        <!--遍历三级目录-->
-                        <el-menu-item
-                          v-for="menuitem in subitem.children"
-                          :index="menuitem.menuaction"
-                          :key="menuitem.id"
-                        >
-                          <template slot="title">
-                            <i
-                              :class="
-                                menuitem.menuview
-                                  ? menuitem.menuview
-                                  : 'el-icon-menu'
-                              "
-                            ></i>
-                            {{ menuitem.text }}
-                          </template>
-                        </el-menu-item>
-                      </el-submenu>
-                    </template>
-                    <!--无三级目录时 作为导航-->
-                    <template v-else>
-                      <el-menu-item
-                        :index="subitem.menuaction"
-                        class="leftMenuMenu"
-                        :key="subitem.id"
-                      >
-                        <template slot="title">
-                          <i :class="subitem.menuview"></i>
-                          {{ subitem.text }}
-                        </template>
-                      </el-menu-item>
-                    </template>
-                  </template>
-                </el-submenu>
-              </template>
-              <!--无子目录时 作为导航-->
-              <template v-else>
-                <el-menu-item
-                  :index="item.menuaction"
-                  :key="item.id"
-                  class="leftMenuMenu"
-                >
-                  <i :class="item.menuview"></i>
-                  <span class="left_text" slot="title">{{ item.text }}</span>
-                </el-menu-item>
-              </template>
+              <leftMenu :menu="item" :key="item.id"></leftMenu>
             </template>
           </el-menu>
         </el-aside>
-        <el-main class="mainContainer">
+        <el-main class="mainContainer" id="mainContent">
           <!--面包屑菜单-->
           <el-breadcrumb
             v-show="!isOnlyContent"
             separator-class="el-icon-arrow-right"
-            class="bread"
+            class="pb15"
           >
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item
@@ -166,7 +95,7 @@
 </template>
 <script type="text/ecmascript-6">
 import topMenu from './views/Navi/topMenu'
-
+import leftMenu from './views/Navi/leftMenu'
 export default {
   name: "app",
   data() {
@@ -185,6 +114,7 @@ export default {
   },
   components: {
     topMenu: topMenu,//顶部菜单
+      leftMenu
   },
   methods: {
     handleOpen() {
@@ -263,49 +193,22 @@ export default {
       this.breadcrumbNameArray = obj;
     },
     getMenu() {
+        const $this = this;
       //获取菜单
       this.$get({
         url: "/_data/base/menu/getMenuTreeByUser?sysType=oh-qas",
         fnc: data => {
           if (data) {
             //要用的菜单
-            this.menuItemArray = data[0].children[0].children;
+              $this.menuItemArray = data[0].children[0].children;
             //hash模式下解析当前路径,并手动跳转
-            this.$dateUtl.refresh(this);
+              $this.$dateUtl.refresh(this);
             //遍历菜单找出当前目录
-            let menus = this.menuItemArray;
-            let find = false;
-            for (let i = 0; i < menus.length; i++) {
-              //二级菜单
-              if (menus[i].children) {
-                let sec = menus[i].children;
-                for (let j = 0; j < sec.length; j++) {
-                  //三级菜单
-                  if (sec[j].children) {
-                    let third = sec[j].children;
-                    for (let k = 0; k < third.length; k++) {
-                      if (this.current_active == third[k].menuaction) {
-                        this.current_menu = menus[i].children;
-                        find = true;
-                        break;
-                      }
-                    }
-                  } else {
-                    //没有三级菜单时尝试在二级菜单中匹配
-                    if (sec[j].menuaction) {
-                      if (this.current_active == sec[j].menuaction) {
-                        this.current_menu = menus[i].children;
-                        find = true;
-                        break;
-                      }
-                    }
-                  }
-                }
-              }
-            }
+            let menus = $this.menuItemArray;
+            let find = $this.setMenu(menus);
             //没有匹配的目录时则使用菜单第一条数据
             if (!find) {
-              this.current_menu = this.menuItemArray[0].children;
+                $this.current_menu = $this.menuItemArray[0].children;
             }
           }
         },
@@ -334,11 +237,59 @@ export default {
                 $this.$store.dispatch("set_areaLevel",data && data.length > 0 ? data[0].children : []);
             }
         });
-    }
+    },
+      setMenu(menus){
+          let find = false;
+          for (let i = 0; i < menus.length; i++) {
+              //如果当前对象没有子菜单 则判断当前对象是否有链接 有的话判断是否和当前活动路径相同 相同的话赋值为父菜单的子菜单信息
+              let menuObject = menus[i];
+              if (!menuObject.children || menuObject.children.length == 0){
+                  continue;
+              }
+              //有子对象 则循环子对象判断是否相等
+              find = this.doSetMenu(menuObject.children,menuObject);
+              if (find){
+                  break;
+              }
+          }
+          return find;
+      },
+      doSetMenu(menus,parentMenu){
+        let find = false;
+          for (let j = 0; j < menus.length; j++) {
+              let menuObject = menus[j];
+              //先判断是否符合
+              if (this.current_active == menuObject.menuaction) {
+                  this.current_menu =parentMenu.children;
+                  find = true;
+                  break;
+              }
+              //不符合的话 判断是否有子项
+              //没有的话
+              if (!menuObject.children || menuObject.children == 0){
+                  if (menuObject.menuaction) {
+                      if (this.current_active == menuObject.menuaction) {
+                          this.current_menu =parentMenu.children;
+                          find = true;
+                          break;
+                      }
+                  }
+                  continue;
+              }
+
+              let childrenObject = menuObject.children;
+              find = this.doSetMenu(childrenObject,parentMenu == null ? menuObject : parentMenu);
+              //如果找到了就跳出循环
+              if (find){
+                  break;
+              }
+          }
+          return find;
+      }
   },
   created() {
     this.isOnlyContent = (window.location.hash.indexOf("isOnlyContent") > -1) ? true:false;
-    const  $this = this;
+    const $this = this;
     this.$get({
       url: "/_data/base/operator/getUserSeesion",
       fnc: data => {

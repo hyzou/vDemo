@@ -4,7 +4,8 @@ import "normalize.css/normalize.css";
 
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-import VueUeditorWrap from "vue-ueditor-wrap";
+import "video.js/dist/video-js.css";
+
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -18,18 +19,17 @@ import globalFunctions from "./utils/globalFunctions";
 import globalMethods from "./utils/projectCommonMethods";
 import * as filters from "./utils/filters";
 Vue.config.productionTip = false;
-import ECharts from "vue-echarts";
-import "echarts/lib/chart/bar";
-import "echarts/lib/chart/line";
-import "echarts/lib/chart/pie";
 Vue.prototype.$api = api;
 Vue.prototype.$global = globalVariable;
 Vue.prototype.$globalFnc = globalFunctions;
+Vue.prototype.$qs = qs;
+// 组件
+import vueComponent from "@/components";
+import "@/components/treeSelect/kt-select-tree";
 
 Vue.use(ElementUI);
-Vue.prototype.$qs = qs;
-Vue.component("vue-ueditor-wrap", VueUeditorWrap);
-Vue.component("chart", ECharts);
+Vue.use(vueComponent);
+
 Vue.use(globalMethods);
 
 Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));

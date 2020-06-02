@@ -6,50 +6,60 @@
           <span class="panel_tit">查询条件</span>
         </template>
         <el-form label-width="auto" :inline="true">
-          <el-form-item label="监管环节">
-            <el-select
-              v-model="search.link"
-              placeholder="请选择"
-              class="dialog_input"
-              @change="findNatures"
-            >
-              <template v-for="item in links">
-                <el-option
-                  :key="item.value"
-                  :label="item.text"
-                  :value="item.value"
-                  v-if="item.value != 9"
-                >
-                </el-option>
-              </template>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="计划性质">
-            <el-select
-              v-model="search.nature"
-              class="dialog_input"
-              placeholder="请选择"
-              clearable
-            >
-              <el-option
-                v-for="item in natures"
-                :key="item.value"
-                :label="item.text"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="计划标题">
-            <el-input
-              placeholder="计划标题"
-              class="dialog_input"
-              v-model="search.name"
-            ></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="do_search()">查询</el-button>
-          </el-form-item>
+          <el-row>
+            <el-col :span="21">
+              <el-col :span="6">
+                <el-form-item label="监管环节">
+                  <el-select
+                    v-model="search.link"
+                    placeholder="请选择"
+                    class="dialog_input"
+                    @change="findNatures"
+                  >
+                    <template v-for="item in links">
+                      <el-option
+                        :key="item.value"
+                        :label="item.text"
+                        :value="item.value"
+                        v-if="item.value != 9"
+                      >
+                      </el-option>
+                    </template>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="计划性质">
+                  <el-select
+                    v-model="search.nature"
+                    class="dialog_input"
+                    placeholder="请选择"
+                    clearable
+                  >
+                    <el-option
+                      v-for="item in natures"
+                      :key="item.value"
+                      :label="item.text"
+                      :value="item.value"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="计划标题">
+                  <el-input
+                    placeholder="计划标题"
+                    class="dialog_input"
+                    v-model="search.name"
+                  ></el-input>
+                </el-form-item>
+              </el-col>
+            </el-col>
+            <el-col :span="3" class="textAlignRight">
+              <el-button type="primary" @click="do_search()">查询</el-button>
+            </el-col>
+          </el-row>
         </el-form>
       </el-collapse-item>
     </el-collapse>
@@ -59,6 +69,7 @@
         ref="planTable"
         :data="planData"
         stripe
+        :border="true"
         style="width: 100%"
         @selection-change="selectionRowsChange"
         class="sampler_table"

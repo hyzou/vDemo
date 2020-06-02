@@ -85,7 +85,7 @@
   },
   {
     "type": "select",
-    "label": "分类条件",
+    "label": "分类标签",
     "disabled": true,
     "name": "criteriaTags",
     "filterable": true,
@@ -113,22 +113,24 @@
     "width": "120px"
   },
   {
-    "type": "select",
-    "label": "是否禁用",
+    "type": "switch",
+    "label": "是否启用",
     "disabled": true,
     "name": "disable",
-    "data": [
-      {
-        "label": "禁用",
-        "value": "Y"
-      },
-      {
-        "label": "启用",
-        "value": "N"
-      }
-    ],
+    "activeValue":"N",
+    "inactiveValue":"Y",
     "span": 12,
     "width": "120px"
+  },
+  {
+    "type": "select",
+    "label": "是否通用",
+    "disabled": true,
+    "name": "stdSuit",
+    "data": [],
+    "span": 12,
+    "width": "120px",
+    "linkName":"stdSuit"
   },
   {
     "type": "textarea",

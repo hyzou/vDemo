@@ -87,12 +87,13 @@
             </el-form-item>
             <br />
             <el-form-item
-              label="判定等级:"
+              label="样品等级要求:"
               prop="sampleRequest[0].requiredGrade"
             >
               <el-select
                 v-model="planForm.sampleRequest[0].requiredGrade"
-                placeholder="判定等级"
+                placeholder="样品等级要求"
+                multiple
                 class="dialog_input"
                 :disabled="disabledParam"
                 v-bind:class="{ fontMainBlack: disabledParam }"
@@ -214,55 +215,82 @@
       <el-tab-pane label="任务管理" name="second" :disabled="tabs2_act">
         <div class="plan_from height600">
           <el-form
-            label-width="80px"
-            :inline="true"
+            label-width="100px"
             :model="planFormTask"
             ref="planFormTaskForm"
           >
-            <el-form-item label="任务编号:">
-              <el-input
-                v-model="planFormTask.taskNo"
-                class="dialog_input"
-              ></el-input>
-            </el-form-item>
-            <el-form-item label="是否完成:">
-              <el-select v-model="planFormTask.flag" clearable>
-                <el-option
-                  v-for="item in flags"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                ></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="扦样地区:">
-              <el-cascader
-                v-model="planFormTask.areaSelected"
-                :options="area"
-                :props="{
-                  expandTrigger: 'hover',
-                  label: 'text',
-                  value: 'id',
-                  checkStrictly: true
-                }"
-                clearable
-                ref="planFormTaskArea"
-                @change="taskAreaChange"
-              ></el-cascader>
-            </el-form-item>
-            <el-form-item label="扦样人:">
-              <el-select v-model="planFormTask.people" clearable filterable>
-                <el-option
-                  v-for="item in people"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                ></el-option>
-              </el-select>
-            </el-form-item>
-            <el-button type="primary" class="search_btn" @click="doSearchTask">
-              查询
-            </el-button>
+            <el-row>
+              <el-col :span="21">
+                <el-col :span="6">
+                  <el-form-item label="任务编号:">
+                    <el-input
+                      v-model="planFormTask.taskNo"
+                      class="dialog_input"
+                    ></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="是否完成:">
+                    <el-select
+                      v-model="planFormTask.flag"
+                      clearable
+                      class="width100"
+                    >
+                      <el-option
+                        v-for="item in flags"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      ></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="扦样地区:">
+                    <el-cascader
+                      class="width100"
+                      v-model="planFormTask.areaSelected"
+                      :options="area"
+                      :props="{
+                        expandTrigger: 'hover',
+                        label: 'text',
+                        value: 'id',
+                        checkStrictly: true
+                      }"
+                      clearable
+                      ref="planFormTaskArea"
+                      @change="taskAreaChange"
+                    ></el-cascader>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="6">
+                  <el-form-item label="扦样人:">
+                    <el-select
+                      v-model="planFormTask.people"
+                      class="width100"
+                      clearable
+                      filterable
+                    >
+                      <el-option
+                        v-for="item in people"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      ></el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+              </el-col>
+              <el-col :span="3" class="textAlignRight">
+                <el-button
+                  type="primary"
+                  class="search_btn"
+                  @click="doSearchTask"
+                >
+                  查询
+                </el-button>
+              </el-col>
+            </el-row>
           </el-form>
           <!--  </el-collapse-item>
                     </el-collapse>-->
@@ -276,6 +304,7 @@
               ref="taskTable"
               :data="tableDataTask"
               tooltip-effect="dark"
+              :border="true"
               style="width: 100%"
               :max-height="maxHeight"
             >

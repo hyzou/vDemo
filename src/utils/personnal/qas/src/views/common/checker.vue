@@ -30,6 +30,7 @@
           :data="tableData_org"
           style="width: 100%"
           class="sampler_table"
+          :border="true"
           @selection-change="qaOrgSelectionChange"
           max-height="400px"
         >

@@ -1,5 +1,6 @@
 const Timestamp = new Date().getTime();
 module.exports = {
+  runtimeCompiler: true,
   transpileDependencies: ["vue-echarts", "resize-detector"],
   // 设置输出路径(相对路径或绝对路径，绝对路径用反斜杠\\)
   //"../oh-production"可使用相对路径打包到目的文件夹，文件夹名称支持自定义，默认为dist，本项目自定义设置为oh-production

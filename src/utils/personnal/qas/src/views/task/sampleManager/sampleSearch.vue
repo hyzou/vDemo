@@ -6,56 +6,66 @@
           <span class="panel_tit">查询条件</span>
         </template>
         <el-form label-width="auto" :inline="true">
-          <el-form-item label="扦样时间">
-            <el-date-picker
-              v-model="search.createdS"
-              type="date"
-              placeholder="请选择"
-              value-format="yyyy-MM-dd"
-            >
-            </el-date-picker>
-          </el-form-item>
-          <el-form-item label="产品品种">
-            <el-select
-              v-model="search.product"
-              placeholder="请选择"
-              clearable
-              @change="selectChange"
-            >
-              <el-option
-                v-for="item in products"
-                :key="item.sysId"
-                :label="item.name"
-                :value="item.sysId"
-              >
-              </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="计划">
-            <!-- 是否禁用渐变动画 是的话设置参数为disable-transitions="true" -->
-            <el-tag
-              v-for="tag in selectPlans"
-              :key="tag.qasPlanId"
-              closable
-              @close="clearPlan(tag)"
-              disable-transitions="false"
-            >
-              {{ tag.name }}
-            </el-tag>
-            <el-button
-              icon="el-icon-search"
-              @click="choosePlan"
-              style=" margin-left: 10px;"
-              round
-            >
-              选择计划
-            </el-button>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" class="search_btn" @click="do_search()">
-              查询
-            </el-button>
-          </el-form-item>
+          <el-row>
+            <el-col :span="21">
+              <el-col :span="6">
+                <el-form-item label="扦样时间">
+                  <el-date-picker
+                    v-model="search.createdS"
+                    type="date"
+                    placeholder="请选择"
+                    value-format="yyyy-MM-dd"
+                  >
+                  </el-date-picker>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="产品品种">
+                  <el-select
+                    v-model="search.product"
+                    placeholder="请选择"
+                    clearable
+                    @change="selectChange"
+                  >
+                    <el-option
+                      v-for="item in products"
+                      :key="item.sysId"
+                      :label="item.name"
+                      :value="item.sysId"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="计划">
+                  <!-- 是否禁用渐变动画 是的话设置参数为disable-transitions="true" -->
+                  <el-tag
+                    v-for="tag in selectPlans"
+                    :key="tag.qasPlanId"
+                    closable
+                    @close="clearPlan(tag)"
+                    disable-transitions="false"
+                  >
+                    {{ tag.name }}
+                  </el-tag>
+                  <el-button
+                    icon="el-icon-search"
+                    @click="choosePlan"
+                    style=" margin-left: 10px;"
+                    round
+                  >
+                    选择计划
+                  </el-button>
+                </el-form-item>
+              </el-col>
+            </el-col>
+            <el-col :span="3" class="textAlignRight">
+              <el-button type="primary" class="search_btn" @click="do_search()">
+                查询
+              </el-button>
+            </el-col>
+          </el-row>
         </el-form>
       </el-collapse-item>
     </el-collapse>

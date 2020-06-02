@@ -1,117 +1,132 @@
 <template>
   <div>
-    <el-collapse v-model="activeName" accordion>
+    <el-collapse v-model="activeName" class="pl15 pr15" accordion>
       <el-collapse-item name="1">
-        <el-row>
-          <el-col :span="5">
-            <label class="search_label">监管环节</label>
-            <el-select
-              v-model="search.link"
-              placeholder="请选择"
-              @change="changeNature"
-            >
-              <template v-for="item in links">
-                <el-option
-                  :key="item.value"
-                  :label="item.text"
-                  :value="item.value"
-                  v-if="item.value != 9"
-                >
-                </el-option>
-              </template>
-            </el-select>
-          </el-col>
+        <el-form label-width="auto" :inline="true">
+          <el-row>
+            <el-col :span="21">
+              <el-col :span="6">
+                <el-form-item label="监管环节">
+                  <el-select
+                    v-model="search.link"
+                    placeholder="请选择"
+                    @change="changeNature"
+                  >
+                    <template v-for="item in links">
+                      <el-option
+                        :key="item.value"
+                        :label="item.text"
+                        :value="item.value"
+                        v-if="item.value != 9"
+                      >
+                      </el-option>
+                    </template>
+                  </el-select>
+                </el-form-item>
+              </el-col>
 
-          <el-col :span="5">
-            <label class="search_label">任务性质</label>
-            <el-select v-model="search.nature" placeholder="请选择" clearable>
-              <el-option
-                v-for="item in natures"
-                :key="item.value"
-                :label="item.text"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-          </el-col>
+              <el-col :span="6">
+                <el-form-item label="任务性质">
+                  <el-select
+                    v-model="search.nature"
+                    placeholder="请选择"
+                    clearable
+                  >
+                    <el-option
+                      v-for="item in natures"
+                      :key="item.value"
+                      :label="item.text"
+                      :value="item.value"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
 
-          <el-col :span="5">
-            <label class="search_label">产品品种</label>
-            <el-select
-              v-model="search.product"
-              placeholder="请选择"
-              filterable
-              clearable
-              @change="findProductName"
-            >
-              <el-option
-                v-for="item in products"
-                :key="item.id"
-                :label="item.text"
-                :value="item.id"
-              >
-              </el-option>
-            </el-select>
-          </el-col>
+              <el-col :span="6">
+                <el-form-item label="产品品种">
+                  <el-select
+                    v-model="search.product"
+                    placeholder="请选择"
+                    filterable
+                    clearable
+                    @change="findProductName"
+                  >
+                    <el-option
+                      v-for="item in products"
+                      :key="item.id"
+                      :label="item.text"
+                      :value="item.id"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
 
-          <el-col :span="5">
-            <label class="search_label">所属任务</label>
-            <el-select
-              v-model="search.planId"
-              placeholder="请选择"
-              filterable
-              clearable
-            >
-              <el-option
-                v-for="item in plans"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="10">
-            <label class="search_label fir_label">扦样时间</label>
-            <el-date-picker
-              v-model="search.createdS"
-              type="date"
-              placeholder="请选择"
-              value-format="yyyy-MM-dd"
-            >
-            </el-date-picker>
-            <label class="search_label">-</label>
-            <el-date-picker
-              v-model="search.createdE"
-              type="date"
-              placeholder="请选择"
-              value-format="yyyy-MM-dd"
-            >
-            </el-date-picker>
-          </el-col>
-
-          <el-col :span="5">
-            <label class="search_label">状态</label>
-            <el-select v-model="search.status" placeholder="请选择" clearable>
-              <template v-for="item in statuss">
-                <el-option
-                  :key="item.value"
-                  :label="item.text"
-                  :value="item.value"
-                  v-if="item.value != '0' && item.value != '9'"
-                >
-                </el-option>
-              </template>
-            </el-select>
-          </el-col>
-          <el-col :span="5">
-            <el-button type="primary" class="search_btn" @click="do_search()"
-              >查询</el-button
-            >
-          </el-col>
-        </el-row>
+              <el-col :span="6">
+                <el-form-item label="所属计划">
+                  <el-select
+                    v-model="search.planId"
+                    placeholder="请选择"
+                    filterable
+                    clearable
+                  >
+                    <el-option
+                      v-for="item in plans"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="扦样时间">
+                  <el-date-picker
+                    v-model="search.createdS"
+                    type="date"
+                    placeholder="请选择"
+                    value-format="yyyy-MM-dd"
+                  >
+                  </el-date-picker>
+                  <label class="search_label">-</label>
+                  <el-date-picker
+                    v-model="search.createdE"
+                    type="date"
+                    placeholder="请选择"
+                    value-format="yyyy-MM-dd"
+                  >
+                  </el-date-picker>
+                </el-form-item>
+              </el-col>
+              <el-col :span="6">
+                <el-form-item label="状态">
+                  <el-select
+                    v-model="search.status"
+                    placeholder="请选择"
+                    clearable
+                  >
+                    <template v-for="item in statuss">
+                      <el-option
+                        :key="item.value"
+                        :label="item.text"
+                        :value="item.value"
+                        v-if="item.value != '0' && item.value != '9'"
+                      >
+                      </el-option>
+                    </template>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+            </el-col>
+            <el-col :span="3" class="textAlignRight">
+              <el-button type="primary" class="search_btn" @click="do_search()">
+                查询
+              </el-button>
+            </el-col>
+          </el-row>
+        </el-form>
       </el-collapse-item>
     </el-collapse>
   </div>

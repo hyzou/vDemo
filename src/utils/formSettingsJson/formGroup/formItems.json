@@ -224,6 +224,112 @@
     "width": "120px"
   },
   {
+    "type": "selectTree",
+    "label": "指标",
+    "name": "basItems",
+    "span": 12,
+    "data":[
+      {
+        "id": "0",
+        "text": "检测项目",
+        "parentId": null,
+        "checked": false,
+        "state": "open",
+        "children": [
+          {
+            "id": "100",
+            "text": "质量品质",
+            "parentId": "0",
+            "checked": false,
+            "state": "closed",
+            "code": "100.",
+            "type": "ITEMTYPE_CATEGORY",
+            "refValue": "",
+            "children": [
+              {
+                "id": "1001",
+                "text": "理化指标",
+                "parentId": "100",
+                "checked": false,
+                "state": "closed",
+                "code": "100.1001.",
+                "type": "ITEMTYPE",
+                "refValue": "",
+                "children": [
+                  {
+                    "id": "1003",
+                    "text": "不完善粒",
+                    "parentId": "1001",
+                    "checked": false,
+                    "state": "closed",
+                    "code": "100.1001.1003",
+                    "type": "SUB_ITEMTYPE",
+                    "refValue": "",
+                    "children": [
+                      {
+                        "id": "100380",
+                        "text": "生霉粒",
+                        "parentId": "1003",
+                        "checked": false,
+                        "state": "open",
+                        "code": "unsound_mildew",
+                        "dataType": "S",
+                        "busintypeid": null,
+                        "type": "ITEM",
+                        "refValue": ""
+                      },
+                      {
+                        "id": "100381",
+                        "text": "虫蚀粒",
+                        "parentId": "1003",
+                        "checked": false,
+                        "state": "open",
+                        "code": "unsound_wormeaten",
+                        "dataType": "S",
+                        "busintypeid": null,
+                        "type": "ITEM",
+                        "refValue": ""
+                      },
+                      {
+                        "id": "100382",
+                        "text": "病斑粒",
+                        "parentId": "1003",
+                        "checked": false,
+                        "state": "open",
+                        "code": "unsound_scab",
+                        "dataType": "S",
+                        "busintypeid": null,
+                        "type": "ITEM",
+                        "refValue": ""
+                      }
+                    ]
+                  },
+                  {
+                    "id": "1004",
+                    "text": "不完善粒1",
+                    "parentId": "1001",
+                    "checked": false,
+                    "state": "closed",
+                    "code": "100.1001.1003",
+                    "type": "SUB_ITEMTYPE",
+                    "refValue": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "canChoseItem":"ITEM",
+    "filterable":true,
+    "multiple":true,
+    "clearable":true,
+    "treeWidth":"100%",
+    "treeSize":"large",
+    "width": "120px"
+  },
+  {
     "type": "elTreeSelect",
     "label": "树下拉",
     "name": "elTreeSelect1",

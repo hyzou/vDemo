@@ -35,6 +35,10 @@
     "lable": "修订日期"
   },
   {
+    "prop": "type_dsc",
+    "lable": "标准类别"
+  },
+  {
     "prop": "operateBtns",
     "lable": "操作"
   }
