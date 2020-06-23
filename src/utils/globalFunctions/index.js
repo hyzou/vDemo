@@ -10,8 +10,10 @@ import arrayToFormDropdown from "./arrayToFormDropdown";
 import postArrtoString from "./postArrtoString";
 import parseNumberToCnMoney from "./parseNumberToCnMoney";
 import cnwordToCharCode from "./cnwordToCharCode";
+import deepCopy from "./deepCopy";
 
 const globalFncs = {
+  deepCopy: deepCopy,
   // 文件格式转换
   fileFormat: fileFormat,
   // 时间戳转日期

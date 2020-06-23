@@ -125,32 +125,7 @@ export default {
           that.$store.dispatch("setTokenLogin", postdata).then(() => {
             that.$store.dispatch("setUserInfo", postdata).then(data => {
               that.$store.dispatch("setUnreadNotice");
-              // that.$store.dispatch("setRouterList", {}).then(routerObj => {
-              // 全局订阅函数
-              // that.$globalFnc.socketConnect().then(xhr => {
-              // that.$globalFnc.socketDescribNotice().then(notice => {
-              //   that.$store.dispatch("setNoticeStatus", notice);
-              // });
-              // that.$globalFnc.socketDescribOffline().then(offline => {
-              //   if (offline && offline.body) {
-              //     if (typeof offline.body == "string") {
-              //       offline.body = JSON.parse(offline.body);
-              //     }
-              //     that.$alert(offline.body.msg, "下线提示", {
-              //       confirmButtonText: "确定",
-              //       callback: () => {
-              //         if (that.$global.commonObjects.noticeTopic) {
-              //           that.$global.commonObjects.noticeTopic.unsubscribe();
-              //         }
-              //         if (that.$global.commonObjects.offlineTopic) {
-              //           that.$global.commonObjects.offlineTopic.unsubscribe();
-              //         }
-              //         location.href = that.$global.logout;
-              //       }
-              //     });
-              //   }
-              // });
-              let asyncRouter;
+              let asyncRouter = [];
               if (data.type == "3") {
                 localStorage.setItem("roleStatus", "client");
                 asyncRouter = asyncRouterMap_Client;
@@ -173,15 +148,11 @@ export default {
               if (data.type == "3" || data.type == "2") {
                 that.$router.push({ name: "memberPage" });
               } else if (data.type == "1") {
-                // that.$router.push({ name: routerObj.index });
                 that.$router.push({ name: "demoMng" });
               }
-              // });
-              // });
             });
           });
         } else {
-          //console.log("error submit!!");
           return false;
         }
       });

@@ -31,6 +31,7 @@
                   <img
                     v-if="imgItem.viewPic"
                     :src="imgItem.imgSrc"
+                    alt=""
                     width="100%"
                   />
                   <a
@@ -40,12 +41,11 @@
                     :href="imgItem.imgSrc"
                     target="_blank"
                   >
-                    <!-- :href="imgItem.imgSrc" -->
-                    <i
+                    <em
                       class="el-icon-picture-outline"
                       v-if="imgItem.isImage == 'true'"
-                    ></i>
-                    <i class="el-icon-files" v-else></i>
+                    ></em>
+                    <em class="el-icon-files" v-else></em>
                     <span class="ml10">{{ imgItem.fileName }}</span>
                   </a>
                 </el-col>
@@ -195,33 +195,96 @@
                     :key="index"
                   >
                     <template slot-scope="scope">
-                      <el-input
-                        v-if="item.inputType == 'input'"
-                        size="mini"
-                        :disabled="item.disabled"
-                        placeholder="请输入内容"
-                        v-model="scope.row[item.key]"
-                      ></el-input>
-                      <el-input-number
-                        v-else-if="item.inputType == 'number'"
-                        size="mini"
-                        class="width100"
-                        :precision="2"
-                        :disabled="item.disabled"
-                        v-model="scope.row[item.key]"
-                        :step="1"
-                        :min="1"
-                      ></el-input-number>
-                      <el-input
-                        v-else
-                        type="textarea"
-                        size="mini"
-                        :autosize="true"
-                        :disabled="item.disabled"
-                        placeholder="请输入内容"
-                        v-model="scope.row[item.key]"
-                      ></el-input>
-                      <!-- <div v-else v-html="scope.row[item.key]"></div> -->
+                      <template v-if="item.inputTypeByDate">
+                        <el-select
+                          v-if="scope.row.inputType == 'select'"
+                          size="mini"
+                          :disabled="scope.row.disabled"
+                          :placeholder="scope.row.placeHolder || '请选择'"
+                          v-model="scope.row[item.key]"
+                          class="width100"
+                          auto-complete="off"
+                        >
+                          <el-option
+                            v-for="opt in scope.row.data"
+                            :key="opt.value"
+                            :label="opt.label"
+                            :value="opt.value"
+                          ></el-option>
+                        </el-select>
+                        <el-input
+                          v-else-if="scope.row.inputType == 'input'"
+                          size="mini"
+                          :disabled="scope.row.disabled"
+                          placeholder="请输入内容"
+                          v-model="scope.row[item.key]"
+                        ></el-input>
+                        <el-input-number
+                          v-else-if="scope.row.inputType == 'number'"
+                          size="mini"
+                          class="width100"
+                          :precision="scope.row.precision || 0"
+                          :disabled="scope.row.disabled"
+                          v-model="scope.row[item.key]"
+                          :step="scope.row.step || 1"
+                          :min="scope.row.min"
+                          :max="scope.row.max"
+                        ></el-input-number>
+                        <el-input
+                          v-else
+                          type="textarea"
+                          size="mini"
+                          :autosize="true"
+                          :disabled="scope.row.disabled"
+                          placeholder="请输入内容"
+                          v-model="scope.row[item.key]"
+                        ></el-input>
+                      </template>
+                      <template v-else>
+                        <el-select
+                          v-if="item.inputType == 'select'"
+                          size="mini"
+                          :disabled="item.disabled"
+                          :placeholder="item.placeHolder || '请选择'"
+                          v-model="scope.row[item.key]"
+                          class="width100"
+                          auto-complete="off"
+                        >
+                          <el-option
+                            v-for="opt in item.data"
+                            :key="opt.value"
+                            :label="opt.label"
+                            :value="opt.value"
+                          ></el-option>
+                        </el-select>
+                        <el-input
+                          v-else-if="item.inputType == 'input'"
+                          size="mini"
+                          :disabled="item.disabled"
+                          placeholder="请输入内容"
+                          v-model="scope.row[item.key]"
+                        ></el-input>
+                        <el-input-number
+                          v-else-if="item.inputType == 'number'"
+                          size="mini"
+                          class="width100"
+                          :precision="item.precision || 0"
+                          :disabled="item.disabled"
+                          v-model="scope.row[item.key]"
+                          :step="item.step || 1"
+                          :min="item.min"
+                          :max="item.max"
+                        ></el-input-number>
+                        <el-input
+                          v-else
+                          type="textarea"
+                          size="mini"
+                          :autosize="true"
+                          :disabled="item.disabled"
+                          placeholder="请输入内容"
+                          v-model="scope.row[item.key]"
+                        ></el-input>
+                      </template>
                     </template>
                   </el-table-column>
                   <el-table-column
@@ -497,31 +560,6 @@
                   {{ formItem.buttonAttr.label }}
                 </el-button>
               </el-col>
-
-              <!-- <el-select
-                class="width100"
-                v-model="formGroupSettings.formGroupValues[formItem.name]"
-                :placeholder="formItem.placeHolder"
-                :disabled="formItem.disabled"
-                :filterable="formItem.filterable"
-                :multiple="formItem.multiple"
-                :defaultFirstOption="formItem.multiple"
-                :clearable="!formItem.cannotClear"
-                auto-complete="off"
-                @change="
-                  handleChangeSelect(
-                    formItem.linkName,
-                    formGroupSettings.formGroupValues[formItem.name]
-                  )
-                "
-              >
-                <el-option
-                  v-for="opt in formItem.data"
-                  :key="opt.value"
-                  :label="opt.label"
-                  :value="opt.value"
-                ></el-option>
-              </el-select> -->
             </el-form-item>
             <!-- item:editor -->
             <el-form-item
@@ -560,7 +598,7 @@
                 :auto-upload="false"
               >
                 <el-button slot="trigger" size="small" type="primary">
-                  <i class="el-icon-plus"></i>
+                  <em class="el-icon-plus"></em>
                   {{ formItem.choseBtn }}
                 </el-button>
               </el-upload>

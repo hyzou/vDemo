@@ -1,38 +1,97 @@
-const Timestamp = new Date().getTime();
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
+const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 module.exports = {
   runtimeCompiler: true,
-  transpileDependencies: ["vue-echarts", "resize-detector"],
-  // 设置输出路径(相对路径或绝对路径，绝对路径用反斜杠\\)
-  //"../oh-production"可使用相对路径打包到目的文件夹，文件夹名称支持自定义，默认为dist，本项目自定义设置为oh-production
-  outputDir: "oh-production",
-  assetsDir: "static",
-  // webpack 配置
-  configureWebpack: {
-    output: {
-      // 输出重构  打包编译后的 文件名称  【模块名称.时间戳】
-      filename: `static/js/[name].${Timestamp}.js`,
-      chunkFilename: `static/js/[name].${Timestamp}.js`
+  publicPath: process.env.NODE_ENV === "production" ? "/oh-qas/" : "/", // 基本路径
+  outputDir: "oh-production", // 输出文件目录
+  configureWebpack: config => {
+    // cdn加速引入的依赖，无需打包
+    // config["externals"] = {
+    //   T: "T"
+    // };
+    if (process.env.NODE_ENV === "production") {
+      // 为生产环境修改配置...
+      config.mode = "production";
+      // 将每个依赖包打包成单独的js文件
+      let optimization = {
+        runtimeChunk: "single",
+        splitChunks: {
+          chunks: "all",
+          maxInitialRequests: Infinity,
+          minSize: 20000,
+          cacheGroups: {
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name(module) {
+                // get the name. E.g. node_modules/packageName/not/this/part.js
+                // or node_modules/packageName
+                const packageName = module.context.match(
+                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+                )[1];
+                // npm package names are URL-safe, but some servers don't like @ symbols
+                return `npm.${packageName.replace("@", "")}`;
+              }
+            }
+          }
+        }
+      };
+      Object.assign(config, {
+        optimization
+      });
+    } else {
+      // 为开发环境修改配置...
+      config.mode = "development";
     }
+    const plugins = [];
+
+    // Begin 生成 gzip 压缩文件
+    plugins.push(
+      new CompressionWebpackPlugin({
+        filename: "[path].gz[query]",
+        algorithm: "gzip",
+        test: productionGzipExtensions,
+        threshold: 10240,
+        minRatio: 0.8
+      })
+    );
+    // End 生成 gzip 压缩文件
+
+    config.plugins = [...config.plugins, ...plugins];
   },
-  // 配置本地启动服务端口号
+  productionSourceMap: false, // 生产环境是否生成 sourceMap 文件
+  // css相关配置
+  css: {
+    extract: true, // 是否使用css分离插件 ExtractTextPlugin
+    sourceMap: false, // 开启 CSS source maps?
+    loaderOptions: {
+      css: {}, // 这里的选项会传递给 css-loader
+      postcss: {} // 这里的选项会传递给 postcss-loader
+    }, // css预设器配置项
+    modules: false // 启用 CSS modules for all css / pre-processor files.
+  },
+  parallel: require("os").cpus().length > 1, // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
+  pwa: {}, // PWA 插件相关配置 see https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
+  // webpack-dev-server 相关配置
   devServer: {
-    port: "3033", //本地服务代理端口
-    open: false, //项目启动时是否自动打开浏览器，设置为false不打开，true表示打开
+    open: process.platform === "darwin",
+    host: "0.0.0.0", // 允许外部ip访问
+    port: 3333, // 端口
+    https: false, // 启用https
+    overlay: {
+      warnings: false,
+      errors: false
+    }, // 错误、警告在页面弹出
     proxy: {
-      "/admin": {
-        //代理api
-        target: "http://192.168.21.13:8280/oh-shlztb/", //本地服务器api地址
-        changeOrigin: true, //是否跨域
-        ws: false, // proxy websockets
+      "/api": {
+        target: "http://10.10.7.22:8081/oh-qas",
+        changeOrigin: true, // 允许websockets跨域
+        // ws: true,
         pathRewrite: {
-          //重写路径,本地代理地址替代服务端地址
           "^/admin": ""
         }
       }
-    }
+    } // 代理转发配置，用于调试环境
   },
-  productionSourceMap: false, // 设置上线后是否加载webpack文件
-  lintOnSave: true, //保存即用eslint格式化代码
-  // 配置线上生产环境打包项目地址
-  publicPath: process.env.NODE_ENV === "production" ? "././" : "/"
+  // 第三方插件配置
+  pluginOptions: {}
 };

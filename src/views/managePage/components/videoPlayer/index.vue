@@ -15,14 +15,8 @@
 
 <script>
 // 组件引入
-// import { videoPlayer } from "vue-video-player";
-// import "video.js/dist/video-js.css";
-// https://github.com/surmon-china/vue-video-player
 export default {
   name: "videoPlayerPage",
-  // components: {
-  //   videoPlayer
-  // },
   data() {
     return {
       /**

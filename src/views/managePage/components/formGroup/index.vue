@@ -187,7 +187,36 @@ export default {
           elTreeSelect1: "9",
           comevaluate: 3,
           htmlStr: "<span class='text-danger'>我是html</span>文本",
-          scoreListStr: [],
+          scoreListStr: [
+            {
+              itemName: "1",
+              itemStandard: "0",
+              itemScore: "1",
+              inputType: "select",
+              data: [
+                {
+                  label: "是",
+                  value: "1"
+                },
+                {
+                  label: "否",
+                  value: "0"
+                }
+              ]
+            },
+            {
+              itemName: "2",
+              itemStandard: "1",
+              itemScore: 2,
+              inputType: "number"
+            },
+            {
+              itemName: "3",
+              itemStandard: "1",
+              itemScore: "wwww",
+              inputType: "input"
+            }
+          ],
           viewfiles: this.$globalFnc.fileFormat(
             [
               {

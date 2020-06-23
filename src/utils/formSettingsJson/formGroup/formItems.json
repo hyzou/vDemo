@@ -133,13 +133,21 @@
       {
         "title": "评分标准",
         "key": "itemStandard",
-        "disabled": false
+        "disabled": false,
+        "inputType": "select",
+        "data":[{
+          "label":"是",
+          "value":"1"
+        },{
+          "label":"否",
+          "value":"0"
+        }]
       },
       {
         "title": "分值",
         "key": "itemScore",
         "disabled": false,
-        "inputType": "number"
+        "inputTypeByDate": true
       }
     ],
     "tableItems": {

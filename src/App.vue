@@ -11,7 +11,7 @@ export default {
     window.addEventListener("beforeunload", () => {
       sessionStorage.setItem(
         "userInfo",
-        JSON.stringify(this.$store.getters.userInfo)
+        JSON.stringify(this.$store.getters.user.userInfo)
       );
     });
   }
