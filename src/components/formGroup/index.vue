@@ -15,6 +15,20 @@
             :key="formItem.name"
             :span="formItem.span"
           >
+            <!-- item:hideSymbol -->
+            <!--    {
+                      "type": "hideSymbol",
+                      "name":"hideSymbol",
+                      "span": 12,
+                      "width": "130px"
+                    },
+            -->
+            <el-form-item
+              v-if="formItem.type == 'hideSymbol'"
+              class="visiHidden"
+            >
+              <el-input></el-input>
+            </el-form-item>
             <!-- item:image -->
             <el-form-item
               v-if="formItem.type == 'image'"
