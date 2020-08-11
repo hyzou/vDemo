@@ -57,7 +57,9 @@ export default {
       headerOption: {
         hideleft: false,
         title:
-          this.$route.query.controlType == "tank" ? "柜控测试" : "程控测试",
+          this.$store.getters.mainTestInfo.controlType == "tank"
+            ? "柜控测试"
+            : "程控测试",
         routePath: "selectTest"
       },
       value2: ["0", "1"],
@@ -100,8 +102,13 @@ export default {
     }
   },
   mounted() {
-    if (this.$route.query.testEqpId || this.$route.query.testEqpId == 0) {
-      this.formdata = this.$store.getters.testInfo[this.$route.query.testEqpId];
+    if (
+      this.$store.getters.mainTestInfo.testEqpId ||
+      this.$store.getters.mainTestInfo.testEqpId === 0
+    ) {
+      this.formdata = this.$store.getters.testInfo[
+        this.$store.getters.mainTestInfo.testEqpId
+      ];
     }
     console.log(this.formdata);
   }

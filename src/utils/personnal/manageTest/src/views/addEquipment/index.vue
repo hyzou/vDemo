@@ -66,8 +66,52 @@
           :label="param.paramDesc"
           placeholder="请输入"
           v-model="formdata.protocolParameter[param.paramName]"
+          @focus.native.capture="handleCommentFocus"
         ></mt-field>
       </div>
+      <template
+        v-if="$store.getters.mainTestInfo.testType == 'testTemperature'"
+      >
+        <div class="positionRel">
+          <span class="positionAbs text-danger symbolRequired">*</span>
+          <mt-field
+            label="线缆数量"
+            placeholder="请输入线缆数量"
+            v-model="formdata.customParameters.lineNumbers"
+          >
+          </mt-field>
+        </div>
+        <div class="positionRel">
+          <span class="positionAbs text-danger symbolRequired">*</span>
+          <mt-field
+            label="每根线缆点位数量"
+            placeholder="请输入线缆数量"
+            v-model="formdata.customParameters.pointNumPerLine"
+          >
+          </mt-field>
+        </div>
+        <div class="positionRel">
+          <span class="positionAbs text-danger symbolRequired">*</span>
+          <mt-field
+            label="起始线缆号"
+            placeholder="请输入起始线缆号"
+            v-model="formdata.customParameters.startLineNo"
+          >
+          </mt-field>
+        </div>
+        <mt-field
+          label="仓温仓湿1线缆号（选填）"
+          placeholder="请输入线缆号"
+          v-model="formdata.customParameters.temHumlineNo1"
+        >
+        </mt-field>
+        <mt-field
+          label="仓温仓湿2线缆号（选填）"
+          placeholder="请输入线缆号"
+          v-model="formdata.customParameters.temHumlineNo2"
+        >
+        </mt-field>
+      </template>
     </div>
     <div class="largeBtnContainer mt10 mb10">
       <mt-button
@@ -102,6 +146,34 @@ export default {
     return {
       // 保存按钮置灰
       saveCannotClick: false,
+      // 数字类型项目列表
+      numberTypeFormKey: [
+        {
+          key: "lineNumbers",
+          formChildName: "customParameters",
+          formName: "线缆数量"
+        },
+        {
+          key: "pointNumPerLine",
+          formChildName: "customParameters",
+          formName: "每根线缆点位数量"
+        },
+        {
+          key: "startLineNo",
+          formChildName: "customParameters",
+          formName: "起始线缆号"
+        },
+        {
+          key: "temHumlineNo1",
+          formChildName: "customParameters",
+          formName: "仓温仓湿1线缆号"
+        },
+        {
+          key: "temHumlineNo2",
+          formChildName: "customParameters",
+          formName: "仓温仓湿2线缆号"
+        }
+      ],
       // 必填项key值
       requiredFormKey: [
         {
@@ -112,18 +184,6 @@ export default {
           key: "connectionType",
           formName: "连接类型"
         },
-        // {
-        //   key: "host",
-        //   formName: "IP地址"
-        // },
-        // {
-        //   key: "port",
-        //   formName: "端口"
-        // },
-        // {
-        //   key: "port",
-        //   formName: "串口"
-        // },
         {
           key: "protocolType",
           formName: "协议类型"
@@ -135,7 +195,9 @@ export default {
       headerOptionSettings: {
         hideleft: false,
         title: "设备分机",
-        routePath: this.$route.query.eqpId ? "home" : "selectEqumentType"
+        routePath: this.$store.getters.mainTestInfo.eqpId
+          ? "home"
+          : "selectEqumentType"
       },
       // 连接类型下拉框配置数据
       connectTpyeOptionSettings: {
@@ -179,7 +241,7 @@ export default {
           {
             flex: 1,
             values: this.$store.getters.protocolDatas[
-              this.$route.query.testType
+              this.$store.getters.mainTestInfo.testType
             ],
             className: "slot1",
             textAlign: "center",
@@ -190,9 +252,11 @@ export default {
       // 页面表单数据
       formdata: {
         storePointId: this.$store.getters.userInfo.storePointId,
-        controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : "",
+        controllerId: this.$store.getters.mainTestInfo.eqpId
+          ? this.$store.getters.mainTestInfo.eqpId
+          : "",
         channelParameter: "",
-        testType: this.$route.query.testEquipment,
+        testType: this.$store.getters.mainTestInfo.testEquipment,
         controllerName: "",
         connectionType: "tcp",
         connectTpye_dsc: "",
@@ -202,42 +266,50 @@ export default {
         port: "",
         protocolType: "",
         protocol_dsc: "",
-        // ModbusAddress: "",
         protocolParameter: {},
-        controllerType: this.$route.query.testType
+        customParameters: {},
+        controllerType: this.$store.getters.mainTestInfo.testType
       },
       // 协议参数列表
       paramlist: [],
       // 控制器id
-      controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : "",
+      controllerId: this.$store.getters.mainTestInfo.eqpId
+        ? this.$store.getters.mainTestInfo.eqpId
+        : "",
       protocolParams: null //保存ajax获取到的配置数据
     };
   },
   methods: {
+    handleCommentFocus() {
+      this.saveCannotClick = true;
+    },
     // 连接类型下拉框事件绑定
     handleGetConnectTpyeValue(val) {
       let that = this;
       that.formdata.connectionType = val[0].value;
       that.connectTpyeOptionSettings.cellValue = val[0].label + "▼";
       that.formdata.connectTpye_dsc = val[0].label;
+      that.formdata.serialPort = this.$store.getters.serialPortDatas[0].value;
     },
     // 协议类型下拉框事件绑定
     handleGetProtocolValue(val) {
       let that = this;
-      that.formdata.protocolType = val[0].value;
-      that.protocolOptionSettings.cellValue = val[0].label + "▼";
-      that.formdata.protocol_dsc = val[0].label;
-      that.formdata.protocolParameter = {};
-      that.paramlist =
-        that.$store.getters.protocolParamsDatas[val[0].value].paramList;
-      that.paramlist.map(param => {
-        if (that.protocolParams && that.protocolParams[param.paramName]) {
-          that.formdata.protocolParameter[param.paramName] =
-            that.protocolParams[param.paramName];
-        } else if (!that.formdata.protocolParameter[param.paramName]) {
-          that.formdata.protocolParameter[param.paramName] = "";
-        }
-      });
+      setTimeout(() => {
+        that.formdata.protocolType = val[0].value;
+        that.protocolOptionSettings.cellValue = val[0].label + "▼";
+        that.formdata.protocol_dsc = val[0].label;
+        that.formdata.protocolParameter = {};
+        that.paramlist =
+          that.$store.getters.protocolParamsDatas[val[0].value].paramList;
+        that.paramlist.map(param => {
+          if (that.protocolParams && that.protocolParams[param.paramName]) {
+            that.formdata.protocolParameter[param.paramName] =
+              that.protocolParams[param.paramName];
+          } else if (!that.formdata.protocolParameter[param.paramName]) {
+            that.formdata.protocolParameter[param.paramName] = "";
+          }
+        });
+      }, 100);
     },
     // 串口下拉框事件绑定
     handleGetSerialPortValue(val) {
@@ -249,7 +321,9 @@ export default {
     // 底部操作按钮事件绑定
     handleSaveEqpInfo(type) {
       let postUrl = "",
-        postData = {};
+        postData = {},
+        regNumber = /^([0-9]|[1-9]\d{1,3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])$/, // /^\d+$/,
+        regIpv4 = /^(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}$/;
       for (let prop in this.formdata.protocolParameter) {
         if (!this.formdata.protocolParameter[prop]) {
           delete this.formdata.protocolParameter[prop];
@@ -270,7 +344,7 @@ export default {
           return false;
         }
       }
-      this.formdata.controllerType = this.$route.query.testType;
+      this.formdata.controllerType = this.$store.getters.mainTestInfo.testType;
       if (this.formdata.connectionType == "serial") {
         this.formdata.host = "localhost";
         this.formdata.port = this.formdata.serialPort;
@@ -283,22 +357,35 @@ export default {
           this.$messagebox.alert("请完善必填项", "提示");
           return false;
         }
+        if (!regNumber.test(this.formdata.port)) {
+          this.$messagebox.alert("端口号只能填写数字", "提示");
+          return false;
+        }
+        if (!regIpv4.test(this.formdata.host)) {
+          this.$messagebox.alert("IP地址格式校验不通过", "提示");
+          return false;
+        }
       }
-      if (!this.$route.query.eqpId) {
+      if (!this.$store.getters.mainTestInfo.eqpId) {
         postUrl = this.$api.saveControllerConfig;
         postData = this.formdata;
       } else {
         postUrl = this.$api.updateControllerConfig;
-        postData.controllerId = this.$route.query.eqpId;
+        postData.controllerId = this.$store.getters.mainTestInfo.eqpId;
         postData.testControllerDto = this.formdata;
       }
       this.$postData(postUrl, postData).then(xhr => {
         if (type == "save") {
           this.$router.push("home");
         } else {
+          if (!this.$store.getters.mainTestInfo.eqpId) {
+            this.$store.dispatch("setMainTestInfo", {
+              key: "eqpId",
+              value: xhr.data
+            });
+          }
           this.$router.push({
-            path: "equipmentList",
-            query: { eqpId: xhr.data }
+            path: "equipmentList"
           });
         }
       });
@@ -306,11 +393,11 @@ export default {
     // 根据分机id获取分机信息
     getControllerConfig() {
       this.$postData(this.$api.getControllerConfig, {
-        controllerId: this.$route.query.eqpId,
+        controllerId: this.$store.getters.mainTestInfo.eqpId,
         storePointId: this.$store.getters.userInfo.storePointId
       }).then(xhr => {
-        xhr.data.controllerId = this.$route.query.eqpId
-          ? this.$route.query.eqpId
+        xhr.data.controllerId = this.$store.getters.mainTestInfo.eqpId
+          ? this.$store.getters.mainTestInfo.eqpId
           : "";
         xhr.data.channelParameter = "";
         this.protocolParams = xhr.data.testControllerDto.protocolParameter;
@@ -366,7 +453,9 @@ export default {
     }
   },
   watch: {
-    // 深度监听当前页面是否经过编辑，编辑过可以点击，否则不让点击
+    /**
+     * 深度监听当前页面是否经过编辑，编辑过可以点击，否则不让点击
+     */
     formdata: {
       handler() {
         this.saveCannotClick = true;
@@ -375,7 +464,7 @@ export default {
     }
   },
   mounted() {
-    if (this.$route.query.eqpId) {
+    if (this.$store.getters.mainTestInfo.eqpId) {
       this.getControllerConfig();
     } else {
       setTimeout(() => {

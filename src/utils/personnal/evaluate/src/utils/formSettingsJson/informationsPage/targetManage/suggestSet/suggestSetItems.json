@@ -1,0 +1,138 @@
+[
+  {
+    "type": "selectTree",
+    "label": "收件人",
+    "name": "receivedName",
+    "span": 24,
+    "width": "150px",
+    "multiple": true,
+    "canChoseItem":"",
+    "filterable":true,
+    "clearable":true,
+    "treeWidth":"100%",
+    "treeSize":"large",
+    "data": []
+  },
+  {
+    "type": "selectTree",
+    "label": "抄送人",
+    "name": "ccName",
+    "span": 24,
+    "width": "150px",
+    "multiple": true,
+    "canChoseItem":"",
+    "filterable":true,
+    "clearable":true,
+    "treeWidth":"100%",
+    "treeSize":"large",
+    "hideItem": true,
+    "data": []
+  },
+  {
+    "type": "selectTree",
+    "label": "密送人",
+    "name": "bccName",
+    "span": 24,
+    "width": "150px",
+    "multiple": true,
+    "canChoseItem":"",
+    "filterable":true,
+    "clearable":true,
+    "treeWidth":"100%",
+    "treeSize":"large",
+    "hideItem": true,
+    "data": []
+  },
+  {
+    "type": "button",
+    "label": "",
+    "name": "button",
+    "linkName": "sendCCButton",
+    "span": 24,
+    "width": "150px",
+    "data": [
+      {
+        "flag": "ccOn",
+        "label": "显示抄送"
+      },
+      {
+        "flag": "bccOn",
+        "label": "显示密送"
+      }
+    ]
+  },
+  {
+    "type": "input",
+    "label": "主题",
+    "name": "topic",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "checkbox",
+    "label": "发送选项",
+    "name": "sendType",
+    "span": 24,
+    "width": "150px",
+    "data": [{
+      "label": "紧急",
+      "value": "0"
+    },{
+      "label": "回执",
+      "value": "1"
+    },{
+      "label": "签名",
+      "value": "2"
+    },{
+      "label": "匿名",
+      "value": "3"
+    }]
+  },
+  {
+    "type": "upload",
+    "label": "上传附件",
+    "name": "upload",
+    "span": 24,
+    "width": "150px",
+    "choseBtn": "上传附件"
+  },
+  {
+    "type": "radio",
+    "label": "正文格式",
+    "name": "format",
+    "span": 24,
+    "width": "150px",
+    "linkName": "formatType",
+    "data": [{
+      "label": "文本",
+      "value": "text"
+    },{
+      "label": "HTML",
+      "value": "html"
+    }]
+  },
+  {
+    "type": "textarea",
+    "label": "",
+    "name": "formatTextarea",
+    "span": 24,
+    "width": "150px",
+    "hideItem": true,
+    "rows": 5
+  },
+  {
+    "type": "editor",
+    "label": "",
+    "name": "formatEditor",
+    "span": 24,
+    "width": "150px",
+    "config": {
+      "autoHeightEnabled": false,
+      "initialFrameHeight": 240,
+      "initialFrameWidth": "100%",
+      "serverUrl": "",
+      "UEDITOR_HOME_URL": "/ueditor/",
+      "zIndex": 998
+    }
+  }
+]

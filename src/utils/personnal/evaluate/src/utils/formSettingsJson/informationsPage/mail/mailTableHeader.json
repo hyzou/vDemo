@@ -1,0 +1,31 @@
+[
+  {
+    "prop": "status",
+    "lable": "状态",
+    "width" : "100px"
+  },
+  {
+    "prop": "priority",
+    "lable": "优先级",
+    "width" : "150px"
+  },
+  {
+    "prop": "sendName",
+    "lable": "发件人",
+    "width" : "150px"
+  },
+  {
+    "prop": "topic",
+    "lable": "主题"
+  },
+  {
+    "prop": "size",
+    "lable": "附件大小",
+    "width" : "100px"
+  },
+  {
+    "prop": "sendTime",
+    "lable": "发送时间",
+    "width" : "200px"
+  }
+]

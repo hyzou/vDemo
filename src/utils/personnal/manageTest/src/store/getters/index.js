@@ -3,13 +3,17 @@ const getters = {
   userInfo: state => {
     return state.userInfo;
   },
+  // 测试主体信息
+  mainTestInfo: state => {
+    return state.mainTestInfo;
+  },
   // 设备分机信息
   eqpInfo: state => {
     return state.eqpInfo;
   },
   // 分机类型对应路由信息表
-  equipTypeToPaht: state => {
-    return state.equipTypeToPaht;
+  equipTypeToPath: state => {
+    return state.equipTypeToPath;
   },
   // 分机类型
   testTypeDatas: state => {
@@ -62,6 +66,10 @@ const getters = {
   // plc测试流程结果信息
   plcTestResult: state => {
     return state.plcTestResult;
+  },
+  // plc测试流程结果信息
+  plcCanTestProgram: state => {
+    return state.plcCanTestProgram;
   }
 };
 export default getters;

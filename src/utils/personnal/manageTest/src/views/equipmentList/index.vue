@@ -23,17 +23,46 @@
       ></mt-cell>
     </template>
     <div v-if="equipmentList.length > 0">
-      <mt-cell
-        v-for="equipment in equipmentList"
-        :key="equipment.id"
-        :title="equipment.title"
-        @click.native="
-          handleRouterTo(equipment.id, equipment.local, equipment.remote)
-        "
-        is-link
-        :value="equipment.status"
-      >
-      </mt-cell>
+      <div v-for="equipmentP in equipmentList" :key="equipmentP.deviceType">
+        <div class="title">
+          <mt-cell
+            :title="equipmentP.deviceType_dsc"
+            @click.native="equipmentP.expand = !equipmentP.expand"
+          >
+            <iconSvg iconClass="iconjiantoushang" v-show="equipmentP.expand" />
+            <iconSvg iconClass="iconjiantouxia" v-show="!equipmentP.expand" />
+          </mt-cell>
+        </div>
+        <div class="pl10 bgfff" v-show="equipmentP.expand">
+          <mt-cell
+            v-for="equipmentItem in equipmentP.deviceList"
+            :key="equipmentItem.id"
+            :title="equipmentItem.title"
+            @click.native="handleRouterTo(equipmentItem.id, equipmentItem)"
+            is-link
+          >
+            <span
+              :class="
+                equipmentItem.localTestResult !== '1'
+                  ? 'text-danger'
+                  : 'text-success'
+              "
+            >
+              {{ equipmentItem.localTestStatus }}
+            </span>
+            <span
+              :class="
+                equipmentItem.remoteTestResult !== '1'
+                  ? 'text-danger'
+                  : 'text-success'
+              "
+            >
+              {{ equipmentItem.remoteTestStatus }}
+            </span>
+            <!-- <span style="color: green">{{ equipmentItem.status }}</span> -->
+          </mt-cell>
+        </div>
+      </div>
     </div>
     <div v-else>
       <mt-cell title="还没有测试过设备！"></mt-cell>
@@ -54,7 +83,8 @@
 export default {
   name: "equipmentList",
   components: {
-    myheader: () => import("@/components/myheader")
+    myheader: () => import("@/components/myheader"),
+    iconSvg: () => import("@/components/iconFontSvg")
   },
   data() {
     return {
@@ -62,31 +92,28 @@ export default {
         hideleft: false,
         title: "设备分机",
         routePath: "home",
-        rightIcon: "tianjia"
+        rightIcon: "icontianjia"
       },
       formdata: {},
       equipmentList: [],
       paramlist: [],
       // 控制器id
-      controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : ""
+      controllerId: this.$store.getters.mainTestInfo.eqpId
+        ? this.$store.getters.mainTestInfo.eqpId
+        : ""
     };
   },
   methods: {
     handleMyheaderRightFnc() {
+      this.$store.getters.mainTestInfo.testEqpId = "";
       this.$router.push({
-        path: "addEqpExt",
-        query: { eqpId: this.$route.query.eqpId }
+        path: "addEqpExt"
       });
     },
-    handleRouterTo(id, local, remote) {
-      let routeQuery = this.$route.query;
-      let query = {
-        eqpId: routeQuery.eqpId,
-        testEqpId: id,
-        localTest: local,
-        remoteTest: remote
-      };
-      this.$router.push({ path: "addEqpExt", query: query });
+    handleRouterTo(id, item) {
+      this.$store.dispatch("setPlcCanTestProgram", item.local);
+      this.$store.dispatch("setMainTestInfo", { key: "testEqpId", value: id });
+      this.$router.push({ path: "addEqpExt" });
     },
     //获取分机信息
     getControllerConfig(eqpId) {
@@ -100,6 +127,7 @@ export default {
         })
         .then(xhr => {
           if (xhr && xhr.data) {
+            _this.getDeviceConfigList(xhr.data);
             xhr.data.testControllerDto.connectionType_dsc =
               xhr.data.testControllerDto.connectionType == "serial"
                 ? "串口"
@@ -115,47 +143,93 @@ export default {
       // .catch(err => {});
     },
     //获取分机对应的设备列表
-    getDeviceConfigList(eqpId) {
-      if (!eqpId && eqpId != 0) {
-        return;
-      }
+    getDeviceConfigList(data) {
+      // if (!eqpId && eqpId != 0) {
+      //   return;
+      // }
       let _this = this;
-      _this
-        .$postData(_this.$api.getDeviceList, {
-          controllerId: eqpId
-        })
-        .then(xhr => {
-          if (xhr && xhr.data && xhr.data.length > 0) {
-            xhr.data.forEach(device => {
-              let json = {
-                id: device.deviceId,
-                title: device.deviceName,
-                status: "",
-                local: null
-              };
-              if (device.localTestResult === "notDetected") {
-                json.status = "柜控未测试,";
-                json.local = false;
-              } else {
-                json.status = "柜控已测试,";
-                json.local = true;
+      _this.$postData(_this.$api.getDeviceList, data).then(xhr => {
+        if (xhr && xhr.data && xhr.data.length > 0) {
+          let dataArr = [];
+          xhr.data.forEach(device => {
+            let json = {
+              id: device.deviceId,
+              title: device.deviceName,
+              deviceType: device.deviceType,
+              deviceType_dsc: "",
+              status: "",
+              localTestResult: device.localTestResult,
+              remoteTestResult: device.remoteTestResult,
+              localTestStatus: "",
+              remoteTestStatus: "",
+              local: null
+            };
+            console.log(_this.$store.getters.eqpTpyeDatas);
+            _this.$store.getters.eqpTpyeDatas[
+              _this.$store.getters.mainTestInfo.testType
+            ].map(type => {
+              if (type.value == device.deviceType) {
+                json.deviceType_dsc = type.label;
               }
-              if (device.remoteTestResult === "notDetected") {
-                json.status += "程控未测试";
-                json.remote = false;
-              } else {
-                json.status += "程控已测试";
-                json.remote = true;
-              }
-              _this.equipmentList.push(json);
             });
-          }
-        });
+            if (device.localTestResult === "notDetected") {
+              json.status = "柜控未测试,";
+              json.localTestStatus = "柜控未测试,";
+              json.local = false;
+            } else if (device.localTestResult === "1") {
+              json.status = "柜控测试成功,";
+              json.localTestStatus = "柜控测试成功,";
+              json.local = true;
+            } else {
+              json.status = "柜控测试失败,";
+              json.localTestStatus = "柜控测试失败,";
+              json.local = false;
+            }
+            if (device.remoteTestResult === "notDetected") {
+              json.status += "程控未测试";
+              json.remoteTestStatus = "程控未测试";
+            } else if (device.remoteTestResult === "1") {
+              json.status += "程控测试成功";
+              json.remoteTestStatus = "程控测试成功";
+            } else {
+              json.status += "程控测试失败";
+              json.remoteTestStatus = "程控测试失败";
+            }
+            dataArr.push(json);
+          });
+          dataArr.map(mapItem => {
+            if (_this.equipmentList.length == 0) {
+              _this.equipmentList.push({
+                deviceType: mapItem.deviceType,
+                deviceType_dsc: mapItem.deviceType_dsc,
+                deviceList: [mapItem],
+                expand: false
+              });
+            } else {
+              let res = _this.equipmentList.some(item => {
+                //判断相同日期，有就添加到当前项
+                if (item.deviceType == mapItem.deviceType) {
+                  item.deviceList.push(mapItem);
+                  return true;
+                }
+              });
+              if (!res) {
+                //如果没找相同日期添加一个新对象
+                _this.equipmentList.push({
+                  deviceType: mapItem.deviceType,
+                  deviceType_dsc: mapItem.deviceType_dsc,
+                  deviceList: [mapItem],
+                  expand: false
+                });
+              }
+            }
+          });
+        }
+      });
     }
   },
   mounted() {
-    this.getControllerConfig(this.$route.query.eqpId);
-    this.getDeviceConfigList(this.$route.query.eqpId);
+    this.getControllerConfig(this.$store.getters.mainTestInfo.eqpId);
   }
 };
 </script>

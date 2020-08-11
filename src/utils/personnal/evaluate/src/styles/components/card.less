@@ -1,0 +1,73 @@
+.card{
+  height: 360px;
+  background-color: @mainWhite;
+  .pt10;
+  .pb10;
+  &-container{
+    border: 0;
+    box-shadow: 0 !important;
+    .borderRadius(0);
+    min-height: 260px;
+    .el-card__header, .el-card__body{
+      .pd0;
+      border: 0;
+    }
+    .el-card__body{
+      .pt10;
+      .pl10;
+    }
+    &-header{
+      border-bottom: 2px solid @mainBgColor;
+      &-title{
+        display: inline-block;
+        height:34px;
+        font-size:16px;
+        font-weight:400;
+        &-seperator{
+          width: 5px;
+          .mt6;
+          height: 20px;
+          background: @mainBgColor;
+        }
+        &-text{
+          line-height: 34px;
+          .mt0;
+        }
+      }
+      &-operateBtn{
+        font-size:12px;
+        font-family:PingFangSC;
+        font-weight:400;
+        color:@mainBgColorLight;
+        line-height:24px;
+      }
+    }
+    &-item{
+      font-size:14px;
+      font-weight:400;
+      color:@color333;
+      line-height:16px;
+      cursor: pointer;
+      &-text{
+        &-icon{
+          .borderRadius(50%);
+          width: 14px;
+          height: 14px;
+          border: 1px solid @cardItemCircle;
+        }
+      }
+      &-date{
+        color: @color999;
+      }
+      &-download{
+        color: @mainBgColor;
+        &:hover{
+          color: @mainBgColorLight;
+        }
+      }
+      &:hover > &-text > &-text-icon{
+        border: 1px solid @mainBgColorLight;
+      }
+    }
+  }
+}

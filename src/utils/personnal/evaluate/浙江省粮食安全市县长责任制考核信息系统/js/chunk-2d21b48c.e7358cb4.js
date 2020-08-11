@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["chunk-2d21b48c"],{beb5:function(e,n,t){"use strict";t.r(n);var s={name:"mineTool"},c=t("2877"),i=Object(c.a)(s,function(){var e=this.$createElement,n=this._self._c||e;return n("div",{staticClass:"home"},[n("router-view")],1)},[],!1,null,null,null);n.default=i.exports}}]);

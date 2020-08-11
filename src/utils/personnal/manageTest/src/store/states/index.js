@@ -11,14 +11,21 @@ import switchFunctionsSettingsjson from "@/util/testProjectsJson/switchFunctions
 
 const state = {
   // 登录用户信息
-  userInfo: {
-    userName: "crk",
-    storePointId: "271"
+  userInfo: {},
+  // 测试主体信息
+  mainTestInfo: {
+    eqpId: "",
+    testType: "",
+    testEqpId: "",
+    controlType: "",
+    testProcessId: 1,
+    testProcessStepId: 0,
+    gwDto: {}
   },
   // 分机信息列表
   eqpInfo: [],
   // 分机类型对应路由信息表
-  equipTypeToPaht: controllerTypeRouterPathjson,
+  equipTypeToPath: controllerTypeRouterPathjson,
   // 设备测试信息
   testInfo: [],
   // 添加分机类型列表
@@ -44,6 +51,8 @@ const state = {
   // plc测试流程错误信息
   plcTestErrorInfo: {},
   // plc测试结果
-  plcTestResult: ""
+  plcTestResult: "",
+  // plc设备是否可进行程控（先柜控后程控）
+  plcCanTestProgram: false
 };
 export default state;

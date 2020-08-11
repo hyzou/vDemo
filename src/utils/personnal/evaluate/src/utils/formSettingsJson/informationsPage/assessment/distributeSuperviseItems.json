@@ -1,0 +1,101 @@
+[
+  {
+    "type": "select",
+    "label": "考核内容",
+    "name": "assessmentContent",
+    "span": 8,
+    "width": "150px",
+    "data": [{
+      "label": "目标1",
+      "value": "targetId1"
+    },{
+      "label": "目标2",
+      "value": "targetId2"
+    },{
+      "label": "目标3",
+      "value": "targetId3"
+    }]
+  },
+  {
+    "type": "select",
+    "label": "重点考核事项",
+    "name": "assessmentItems",
+    "span": 8,
+    "width": "150px",
+    "data": [{
+      "label": "目标1",
+      "value": "targetId1"
+    },{
+      "label": "目标2",
+      "value": "targetId2"
+    },{
+      "label": "目标3",
+      "value": "targetId3"
+    }]
+  },
+  {
+    "type": "select",
+    "label": "考核指标",
+    "name": "assessmentTarget",
+    "span": 8,
+    "width": "150px",
+    "data": [{
+      "label": "目标1",
+      "value": "targetId1"
+    },{
+      "label": "目标2",
+      "value": "targetId2"
+    },{
+      "label": "目标3",
+      "value": "targetId3"
+    }]
+  },
+  {
+    "type": "select",
+    "label": "年度考核目标任务",
+    "name": "assessmentTargetTask",
+    "span": 8,
+    "width": "150px",
+    "data": [{
+      "label": "目标1",
+      "value": "targetId1"
+    },{
+      "label": "目标2",
+      "value": "targetId2"
+    },{
+      "label": "目标3",
+      "value": "targetId3"
+    }]
+  },
+  {
+    "type": "select",
+    "label": "完成状态",
+    "name": "status",
+    "span": 8,
+    "width": "150px",
+    "data": [{
+      "label": "已完成",
+      "value": "complete"
+    },{
+      "label": "未完成",
+      "value": "incomplete"
+    },{
+      "label": "已上报",
+      "value": "reported"
+    }]
+  },
+  {
+    "type": "select",
+    "label": "是否失分",
+    "name": "reduceScore",
+    "span": 8,
+    "width": "150px",
+    "data": [{
+      "label": "是",
+      "value": "Y"
+    },{
+      "label": "否",
+      "value": "N"
+    }]
+  }
+]

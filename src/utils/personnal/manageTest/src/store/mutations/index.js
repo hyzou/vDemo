@@ -3,6 +3,22 @@ const mutations = {
   SET_USERINFO: (state, userInfo) => {
     state.userInfo = userInfo;
   },
+  // 设置测试主体信息
+  SET_MAINTESTINFO: (state, obj) => {
+    state.mainTestInfo[obj.key] = obj.value;
+  },
+  // 初始化测试主体信息
+  SET_MAINTESTINFOTOORIGINAL: state => {
+    state.mainTestInfo = {
+      eqpId: "",
+      testType: "",
+      testEqpId: "",
+      controlType: "",
+      testProcessId: 1,
+      testProcessStepId: 0,
+      gwDto: {}
+    };
+  },
   // 保存分机信息
   SET_EQPINFO: (state, eqpInfo) => {
     eqpInfo.status = "未测试";
@@ -43,6 +59,10 @@ const mutations = {
   // 设置plc测试结果
   SET_PLCTESTRESULT: (state, plcTestResult) => {
     state.plcTestResult = plcTestResult;
+  },
+  // plc设备是否可进行程控（先柜控后程控）
+  SET_PLCCANTESPROGRAM: (state, plcCanTestProgram) => {
+    state.plcCanTestProgram = plcCanTestProgram;
   }
 };
 export default mutations;

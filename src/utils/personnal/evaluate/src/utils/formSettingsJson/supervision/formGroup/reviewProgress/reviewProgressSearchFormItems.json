@@ -1,0 +1,27 @@
+[
+  {
+    "type": "date",
+    "label": "年度",
+    "name": "year",
+    "span": 8,
+    "dateType": "year"
+  },
+  {
+    "type": "input",
+    "label": "填报人",
+    "name": "people",
+    "span": 8
+  },
+  {
+    "type": "date",
+    "label": "填报日期",
+    "name": "time",
+    "span": 8,
+    "dateType": "daterange",
+    "dateRangeSeparator": "至",
+    "dateStartPlaceholder": "开始日期",
+    "dateEndPlaceholder": "结束日期",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd"
+  }
+]

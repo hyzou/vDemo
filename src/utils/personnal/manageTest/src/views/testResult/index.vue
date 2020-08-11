@@ -53,7 +53,7 @@ export default {
     return {
       headerOptionSettings: {
         hideleft: false,
-        title: "添加测试设备",
+        title: "测试结果",
         routePath: "equipmentList"
       },
       formdata: {
@@ -61,11 +61,15 @@ export default {
         eqpTpye: "",
         eqpTpye_dsc: ""
       },
-      deviceId: this.$route.query.testEqpId ? this.$route.query.testEqpId : "",
+      deviceId: this.$store.getters.mainTestInfo.testEqpId
+        ? this.$store.getters.mainTestInfo.testEqpId
+        : "",
       deviceInfo: {},
       testResultFlag: this.$store.getters.plcTestResult.split("_")[0],
       testResultTitle: this.$store.getters.plcTestResult.split("_")[1],
-      controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : "",
+      controllerId: this.$store.getters.mainTestInfo.eqpId
+        ? this.$store.getters.mainTestInfo.eqpId
+        : "",
       controllerInfo: {},
       storePointId: this.$store.getters.userInfo.storePointId
     };
@@ -95,13 +99,19 @@ export default {
       historyParam.controllerName = this.controllerInfo.controllerName;
       historyParam.deviceName = this.deviceInfo.deviceName;
       historyParam.controlMode =
-        this.$route.query.controlType == "program" ? "remote" : "local"; //”local”柜控,”remote”程控
-      // historyParam.testCase = "0";
+        this.$store.getters.mainTestInfo.controlType == "program"
+          ? "remote"
+          : "local"; //”local”柜控,”remote”程控
+      historyParam.testCase = this.$store.getters.chosedProcess.name;
       historyParam.testResult = this.testResultFlag == "true" ? "1" : "0";
       historyParam.testData = testdata;
       historyParam.disableFlag = "0";
       historyParam.abnormal = this.controllerInfo.abnormal;
       historyParam.controllerType = this.controllerInfo.controllerType;
+      historyParam.testConfigDto = {
+        testControllerDto: this.controllerInfo,
+        testDeviceDto: this.deviceInfo
+      };
       this.getsaveHistory(historyParam);
     },
     // 根据分机id获取分机信息

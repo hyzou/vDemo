@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+	</head>
+	<body>
+
+		<div id="app">
+			<div v-for="item in datasource" :key="item.id" @click="handleClickItem(item.id)">{{item.data}}</div>
+		</div>
+
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+				data() {
+					return {
+						datasource:[{id:1,data:false},{id:2,data:false},{id:3,data:false}]
+					}
+				},
+				mounted(){
+					let arr=[{id:1,value:"ert"},{id:5,value:"martrt"},{id:2,value:"mart"}],numlist=[1,5,5,6,2]
+					console.log(arr.sort(this.formatFromBigToSmall("id")).reverse());
+					console.log(numlist.sort(this.formatFromBigToSmall()));
+				},
+				methods: {
+					handleClickItem: function(id) {
+						let that = this;
+						this.datasource.map(dataItem=>{
+							if(dataItem.id == id){
+								dataItem.data=true
+							}else{
+								dataItem.data=false
+							}
+						})
+						this.$nextTick(() => {
+                  // dom元素更新后执行， 因此此处能正确打印出更改之后的值；
+									console.log(this); //改变了的值
+									this.$forceUpdate()
+									console.log(that);
+              })
+					},
+					formatFromBigToSmall(prop) {
+						return function(a, b) {
+							if (a[prop] > b[prop]) {
+								return 1;
+							} else if (a[prop] <= b[prop]) {
+								return -1;
+							}
+						};
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

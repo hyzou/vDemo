@@ -33,9 +33,13 @@ export default {
   methods: {
     // 项目点击事件，测试流程点击跳转
     handleRouterTo(processObj) {
+      let that = this;
+      this.$store.dispatch("setMainTestInfo", {
+        key: "testType",
+        value: processObj.value
+      });
       this.$router.push({
-        path: processObj.routepathName,
-        query: { testType: processObj.value }
+        path: that.$store.getters.equipTypeToPath[processObj.value]
       });
     }
   }

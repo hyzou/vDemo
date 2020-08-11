@@ -1,0 +1,42 @@
+[
+  {
+    "flag": "saveQuit",
+    "size": "",
+    "icon": "",
+    "label": "保存退出",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "saveContinue",
+    "size": "",
+    "icon": "",
+    "label": "保存继续",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "saveStuff",
+    "size": "",
+    "icon": "",
+    "label": "保存草稿",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "saveView",
+    "size": "",
+    "icon": "",
+    "label": "预览",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "reset",
+    "size": "",
+    "icon": "",
+    "label": "重置",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  }
+]

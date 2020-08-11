@@ -9,8 +9,8 @@
       @click.native="handleRouterTo(testProcess)"
       is-link
       :value="testProcess.status"
-      :label="testProcess.description"
     >
+      <!-- :label="testProcess.description" -->
     </mt-cell>
   </div>
 </template>
@@ -35,10 +35,15 @@ export default {
     // 项目点击事件，测试流程点击跳转
     handleRouterTo(processObj) {
       this.$store.dispatch("setChosedProcess", processObj);
-      let queryObj = this.$route.query;
-      queryObj.testProcessId = processObj.id;
-      queryObj.testProcessStepId = 0;
-      this.$router.push({ path: "preTestEqp", query: queryObj });
+      this.$store.dispatch("setMainTestInfo", {
+        key: "testProcessId",
+        value: processObj.id
+      });
+      this.$store.dispatch("setMainTestInfo", {
+        key: "testProcessStepId",
+        value: 0
+      });
+      this.$router.push({ path: "preTestEqp" });
     },
     // 获取设备信息
     getDeviceConfig(testEqpId) {
@@ -53,9 +58,12 @@ export default {
     }
   },
   mounted() {
-    if (this.$route.query.testEqpId || this.$route.query.testEqpId == 0) {
-      if (this.$route.query.testEqpId) {
-        this.getDeviceConfig(this.$route.query.testEqpId);
+    if (
+      this.$store.getters.mainTestInfo.testEqpId ||
+      this.$store.getters.mainTestInfo.testEqpId === 0
+    ) {
+      if (this.$store.getters.mainTestInfo.testEqpId) {
+        this.getDeviceConfig(this.$store.getters.mainTestInfo.testEqpId);
       }
     }
   },

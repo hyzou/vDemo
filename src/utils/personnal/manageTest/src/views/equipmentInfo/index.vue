@@ -98,7 +98,7 @@ export default {
       this.connectTpyeOption.cellValue = val[0].label + "▼";
       // this.$nextTick(function() {
       // 设置picker的初始值时放在nextTick里
-      // if (this.$route.query.editType == "add") {
+      // if (this.$store.getters.mainTestInfo.editType == "add") {
       //   this.slots[0].values.forEach((e, i) => {
       //     if (e.code == that.item.provincenum) {
       //       that.slots[0].defaultIndex = e.index; // that.slots[0].defaultIndex设置picker的初始值

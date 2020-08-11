@@ -1,6 +1,9 @@
 <template>
   <div class="manage">
-    <myheader :myheaderOption="headerOptionSettings" />
+    <myheader
+      :myheaderOption="headerOptionSettings"
+      @myheaderRightFnc="handleMyheaderRightFnc"
+    />
     <div class="positionRel">
       <span class="positionAbs text-danger symbolRequired">*</span>
       <mt-field
@@ -25,17 +28,20 @@
       </span>
       <mt-field
         :label="field.label"
-        :placeholder="'请输入' + field.label"
+        :placeholder="'请输入' + field.label + '值'"
         v-model="formdata[field.key]"
       ></mt-field>
     </div>
-    <div class="largeBtnContainer mb10 mt10" v-if="this.$route.query.testEqpId">
+    <div
+      class="largeBtnContainer mb10 mt10"
+      v-if="this.$store.getters.mainTestInfo.testEqpId"
+    >
       <mt-button
         size="large"
         type="primary"
         @click.native="handleSaveEqpInfo('update')"
       >
-        更新
+        保存
       </mt-button>
     </div>
     <div class="largeBtnContainer mb10" v-else>
@@ -60,9 +66,9 @@
       <mt-button
         size="large"
         type="primary"
+        :disabled="remoteTestDisabled"
         @click.native="handleSaveEqpInfo('program')"
       >
-        <!-- :disabled="remoteTestDisabled" -->
         程控测试
       </mt-button>
     </div>
@@ -81,7 +87,11 @@ export default {
       headerOptionSettings: {
         hideleft: false,
         title: "添加测试设备",
-        routePath: "equipmentList"
+        routePath: "equipmentList",
+        rightIcon:
+          this.$store.getters.mainTestInfo.testType == "testGas"
+            ? "icontianjia"
+            : ""
       },
       eqpTpyeOptionSettings: {
         cellTitle: "设备类型",
@@ -91,7 +101,9 @@ export default {
         slots: [
           {
             flex: 1,
-            values: this.$store.getters.eqpTpyeDatas,
+            values: this.$store.getters.eqpTpyeDatas[
+              this.$store.getters.mainTestInfo.testType
+            ],
             className: "slot1",
             textAlign: "center",
             defaultIndex: 0
@@ -103,12 +115,25 @@ export default {
         eqpTpye: "",
         eqpTpye_dsc: ""
       },
-      localTestDisabled: true,
-      remoteTestDisabled: true,
-      deviceId: this.$route.query.testEqpId ? this.$route.query.testEqpId : ""
+      remoteTestDisabled: !this.$store.getters.plcCanTestProgram,
+      deviceId: this.$store.getters.mainTestInfo.testEqpId
+        ? this.$store.getters.mainTestInfo.testEqpId
+        : ""
     };
   },
   methods: {
+    /**
+     * 点击header右侧按钮
+     */
+    handleMyheaderRightFnc() {
+      if (this.$store.getters.mainTestInfo.testType == "testGas") {
+        this.$router.push({
+          path: "addGasPoint"
+        });
+      } else {
+        return false;
+      }
+    },
     handleGetEqpTpyeValue(val) {
       let that = this;
       that.$nextTick(function() {
@@ -123,7 +148,8 @@ export default {
       this.eqpTpyeOptionSettings.cellValue = val[0].label + "▼";
     },
     handleSaveEqpInfo(type) {
-      let _this = this;
+      let _this = this,
+        reg = /^\d+$/;
       if (!this.formdata.eqpName || !this.formdata.eqpTpye) {
         this.$messagebox.alert("请完善必填项", "提示");
         return false;
@@ -133,6 +159,10 @@ export default {
           this.$messagebox.alert("请完善必填项", "提示");
           return false;
         }
+        if (this.formdata[item.key] && !reg.test(this.formdata[item.key])) {
+          this.$messagebox.alert("寄存器相关信息只能填写数字", "提示");
+          return false;
+        }
       }
       let obj = JSON.parse(JSON.stringify(this.formdata));
       let newobj = {
@@ -140,34 +170,40 @@ export default {
         deviceName: this.formdata.eqpName,
         deviceType: this.formdata.eqpTpye,
         controllerId: this.formdata.id || "",
+        controllerType: this.$store.getters.mainTestInfo.testType,
         deviceParameter: JSON.stringify(obj)
       };
 
       let postUrl = "",
         postData = {};
-      if (type === "save") {
+      if (!this.$store.getters.mainTestInfo.testEqpId) {
         postUrl = _this.$api.saveDeviceConfig;
         postData = newobj;
+        postData.controllerType = this.$store.getters.mainTestInfo.testType;
       } else {
         postUrl = _this.$api.updateDeviceConfig;
         postData.testDeviceDto = newobj;
-        postData.deviceId = _this.$route.query.testEqpId;
+        postData.deviceId = _this.$store.getters.mainTestInfo.testEqpId;
       }
       _this.$postData(postUrl, postData).then(xhr => {
         if (xhr && xhr.data && xhr.data > 0) {
-          _this.remoteTestDisabled = true;
-          _this.localTestDisabled = false;
           if (type === "save" || type === "update") {
             this.$router.push({
-              path: "equipmentList",
-              query: { eqpId: _this.$route.query.eqpId }
+              path: "equipmentList"
             });
           } else {
-            let testQuery = this.$route.query;
-            testQuery.controlType = type;
+            if (!this.$store.getters.mainTestInfo.testEqpId) {
+              this.$store.dispatch("setMainTestInfo", {
+                key: "testEqpId",
+                value: xhr.data
+              });
+            }
+            this.$store.dispatch("setMainTestInfo", {
+              key: "controlType",
+              value: type
+            });
             this.$router.push({
-              path: "selectTest",
-              query: testQuery
+              path: "selectTest"
             });
           }
         }
@@ -191,14 +227,10 @@ export default {
     }
   },
   mounted() {
-    this.$data.formdata.id = this.$route.query.eqpId;
-    if (this.$route.query.testEqpId) {
-      this.localTestDisabled = false;
-      if (this.$route.query.localTest === "false") {
-        this.remoteTestDisabled = true;
-      }
+    this.$data.formdata.id = this.$store.getters.mainTestInfo.eqpId;
+    if (this.$store.getters.mainTestInfo.testEqpId) {
       this.headerOptionSettings.title = "修改测试设备";
-      this.getDeviceConfig(this.$route.query.testEqpId);
+      this.getDeviceConfig(this.$store.getters.mainTestInfo.testEqpId);
     }
   },
   computed: {
@@ -209,17 +241,6 @@ export default {
           flist = [...item.formgroup];
         }
       });
-      // for (let props in this.formdata) {
-      //   let flag = false;
-      //   flist.map(fItem => {
-      //     if (fItem.key == props) {
-      //       flag = true;
-      //     }
-      //   });
-      //   if (!flag) {
-      //     delete this.formdata[props];
-      //   }
-      // }
       return flist;
     }
   }

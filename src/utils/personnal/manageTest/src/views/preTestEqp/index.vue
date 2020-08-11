@@ -15,7 +15,7 @@
       </div>
       <div class="pl15 mb15" v-if="stepTestInfo.process[testStepId].testItems">
         <mt-checklist
-          class="page-part"
+          class="page-part testPageChecklist"
           title="状态寄存器"
           v-model="statusvalue"
           :options="statusItems"
@@ -28,7 +28,7 @@
           </span>
         </div>
         <mt-checklist
-          class="page-part"
+          class="page-part testPageChecklist"
           title="控制寄存器"
           v-model="controlvalue"
           :options="controlItems"
@@ -44,7 +44,7 @@
       <div class="pb10">
         <div
           class="largeBtnContainer mb10"
-          v-if="$route.query.controlType != 'tank'"
+          v-if="$store.getters.mainTestInfo.controlType != 'tank'"
         >
           <template
             v-for="optBtn in stepTestInfo.process[testStepId].operateButtons"
@@ -105,7 +105,9 @@ export default {
       headerOptionSettings: {
         hideleft: false,
         title:
-          this.$route.query.controlType == "tank" ? "柜控测试" : "程控测试",
+          this.$store.getters.mainTestInfo.controlType == "tank"
+            ? "柜控测试"
+            : "程控测试",
         routePath: "selectTest"
       },
       // 状态寄存器返回的数值
@@ -124,7 +126,7 @@ export default {
         controlRegisterIp: ""
       },
       // 当前测试步骤id（第几步）
-      testStepId: this.$route.query.testProcessStepId,
+      testStepId: this.$store.getters.mainTestInfo.testProcessStepId,
       // 当前设备测试总流程
       stepTestInfo: this.$store.getters.chosedProcess,
       // 当前库区网关信息
@@ -136,7 +138,9 @@ export default {
       // 延时取点动画
       showLoadingDiv: false,
       // 控制器id
-      controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : "",
+      controllerId: this.$store.getters.mainTestInfo.eqpId
+        ? this.$store.getters.mainTestInfo.eqpId
+        : "",
       // 倒计时
       countDownNumber: 120,
       // 倒计时对象
@@ -148,7 +152,9 @@ export default {
       // 连接控制器所需对象
       connectControllerParams: {},
       // 测试结果数组
-      testResultArray: []
+      testResultArray: [],
+      // 开始测试
+      connectedController: false
     };
   },
   methods: {
@@ -177,14 +183,14 @@ export default {
             this.statusItems.map((item, index) => {
               defaultStatusList.push(item.value);
               item.getSocketVal =
-                this.statusvalue[index] || this.statusvalue[index] == 0
+                this.statusvalue[index] || this.statusvalue[index] === 0
                   ? this.statusvalue[index] + ""
                   : "";
             });
             this.controlItems.map((item, index) => {
               defaultControlList.push(item.value);
               item.getSocketVal =
-                this.controlvalue[index] || this.controlvalue[index] == 0
+                this.controlvalue[index] || this.controlvalue[index] === 0
                   ? this.controlvalue[index] + ""
                   : "";
             });
@@ -194,14 +200,6 @@ export default {
               this.testStepId
             ].tipsTitle;
             this.testResultArray.push(processResult);
-            console.log(JSON.stringify(defaultStatusList));
-            console.log(JSON.stringify(this.statusvalue));
-            console.log(JSON.stringify(defaultControlList));
-            console.log(JSON.stringify(this.controlvalue));
-            console.log(JSON.stringify(xhr.data[0].value));
-            console.log(
-              JSON.stringify(defaultStatusList[defaultStatusList.length - 1])
-            );
             if (
               JSON.stringify(defaultStatusList) ==
                 JSON.stringify(this.statusvalue) &&
@@ -243,9 +241,16 @@ export default {
         }
       }
       if (btn.instruction == "stopTest") {
-        let stopQuery = this.$route.query;
-        delete stopQuery.testProcessId;
-        this.getCloseController(stopQuery);
+        this.$store.dispatch("setMainTestInfo", {
+          key: "testProcessId",
+          value: ""
+        });
+        this.getCloseController("true");
+        if (
+          this.testStepId == this.$store.getters.mainTestInfo.testProcessStepId
+        ) {
+          this.$router.push({ path: "selectTest" });
+        }
       }
     },
     // 获取设备信息
@@ -277,13 +282,33 @@ export default {
     // 获取库区网关
     getStoreGateWayInfo() {
       this.$getData(this.$api.getStoreGateWayInfo, {
-        storePointId: this.controllerInfo.storePointId
+        storepointId: this.controllerInfo.storePointId
       }).then(xhr => {
+        if (xhr.data.length == 0) {
+          this.$messagebox.alert("该库区未检测到网关配置").then(() => {
+            this.$store.dispatch("setMainTestInfo", {
+              key: "testProcessId",
+              value: ""
+            });
+            this.getCloseController("true");
+          });
+          return;
+        }
         let gatewaylist = xhr.data.filter(item => {
           if (!item.storehouseId) {
             return true;
           }
         });
+        if (gatewaylist.length == 0) {
+          this.$messagebox.alert("该库区未检测到可用的网关配置").then(() => {
+            this.$store.dispatch("setMainTestInfo", {
+              key: "testProcessId",
+              value: ""
+            });
+            this.getCloseController("true");
+          });
+          return;
+        }
         this.controllerInfo.gatewayInfo = gatewaylist[0];
         this.gatewayInfo = gatewaylist[0];
         this.connectControllerParams = this.controllerInfo;
@@ -314,7 +339,9 @@ export default {
       } else {
         sectorNameStr = "HostLinkSector";
       }
-      this.$store.getters.eqpTpyeDatas.map(item => {
+      this.$store.getters.eqpTpyeDatas[
+        this.$store.getters.mainTestInfo.testType
+      ].map(item => {
         if (item.value == this.formdata.eqpTpye) {
           varsTypeName = item.alias;
         }
@@ -333,6 +360,22 @@ export default {
           vtypeName: "uint16"
         }
       ];
+      if (this.formdata.sysmode) {
+        this.propertyVars.push(
+          {
+            offset: this.formdata.sysmode,
+            sectorName: sectorNameStr,
+            vid: "sysmode_state",
+            vtypeName: "uint16"
+          },
+          {
+            offset: this.formdata.sysmode,
+            sectorName: sectorNameStr,
+            vid: "sysmode_control",
+            vtypeName: "uint16"
+          }
+        );
+      }
       let controllerParam = {
         ctrDto: {
           ctrlId: this.controllerId,
@@ -345,34 +388,44 @@ export default {
           name: data.gatewayInfo.name
         }
       };
-      this.$postData(this.$api.connectController, controllerParam, true).then(
-        xhr => {
-          if (xhr && xhr.data) {
-            setTimeout(() => {
-              this.showLoadingDiv = false;
-            }, 5000);
-          } else {
+      this.$postData(
+        this.$api.connectController + "?t=" + new Date().getTime(),
+        controllerParam,
+        true
+      ).then(xhr => {
+        if (xhr && xhr.data) {
+          this.connectedController = true;
+          setTimeout(() => {
             this.showLoadingDiv = false;
-            this.$messagebox.alert("控制器建立失败");
-          }
-        }
-      );
-    },
-    // 设置控制值
-    getSetProperty(order) {
-      this.showLoadingDiv = true;
-      let vid = "";
-      this.$store.getters.eqpTpyeDatas.map(item => {
-        if (item.value == this.formdata.eqpTpye) {
-          vid = item.alias;
+          }, 10000);
+        } else {
+          this.showLoadingDiv = false;
+          clearInterval(this.getDefaultCountDownProject);
+          this.$messagebox.alert("控制器建立失败");
         }
       });
+    },
+    // 设置控制值 type：工艺模式，目前不配置工艺模式
+    getSetProperty(order, type) {
+      this.showLoadingDiv = true;
+      let vid = "";
+      if (type) {
+        vid = "sysmode_control";
+      } else {
+        this.$store.getters.eqpTpyeDatas[
+          this.$store.getters.mainTestInfo.testType
+        ].map(item => {
+          if (item.value == this.formdata.eqpTpye) {
+            vid = item.alias + "_control01";
+          }
+        });
+      }
       this.$postData(
         this.$api.setProperty,
         {
-          ctrlId: this.$route.query.eqpId,
+          ctrlId: this.$store.getters.mainTestInfo.eqpId,
           gatewayId: this.gatewayInfo.hwSysId,
-          vars: [{ vid: vid + "_control01", value: order }]
+          vars: [{ vid: vid, value: order }]
         },
         true
       ).then(xhr => {
@@ -384,43 +437,53 @@ export default {
         }
       });
     },
-    // 获取控制器返回控制值
-    getProperty() {
+    // 获取控制器返回控制值 type：工艺模式，目前不配置工艺模式
+    getProperty(type) {
       return new Promise(relsove => {
         let vidName = "";
-        this.$store.getters.eqpTpyeDatas.map(item => {
-          if (item.value == this.formdata.eqpTpye) {
-            vidName = item.alias;
-          }
-        });
+        if (type) {
+          vidName = "sysmode_state";
+        } else {
+          this.$store.getters.eqpTpyeDatas[
+            this.$store.getters.mainTestInfo.testType
+          ].map(item => {
+            if (item.value == this.formdata.eqpTpye) {
+              vidName = item.alias + "_state01";
+            }
+          });
+        }
         this.$postData(
           this.$api.getProperty,
           {
-            ctrlId: this.$route.query.eqpId,
+            ctrlId: this.$store.getters.mainTestInfo.eqpId,
             gatewayId: this.gatewayInfo.hwSysId,
-            vids: [vidName + "_state01"]
+            vids: [vidName]
           },
           true
         ).then(xhr => {
-          this.showLoadingDiv = false;
+          // this.showLoadingDiv = false;
           relsove(xhr);
         });
       });
     },
     // 关闭控制器
     getCloseController(stopQuery) {
-      this.$postData(this.$api.closeController, {
-        ctrlId: this.$route.query.eqpId,
-        gatewayId: this.gatewayInfo.hwSysId
-      }).then(xhr => {
-        if (xhr && xhr.data)
-          if (stopQuery) {
-            this.$router.push({ path: "selectTest", query: stopQuery });
-          } else {
-            this.$store.dispatch("setPlcTestErrorInfo", this.testResultArray);
-            this.$router.push({ path: "testResult", query: this.$route.query });
-          }
-      });
+      if (this.connectedController) {
+        this.$postData(this.$api.closeController, {
+          ctrlId: this.$store.getters.mainTestInfo.eqpId,
+          gatewayId: this.gatewayInfo.hwSysId
+        }).then(() => {
+          this.connectedController = false;
+        });
+      }
+      if (stopQuery) {
+        this.$router.push({ path: "selectTest" });
+      } else {
+        this.$store.dispatch("setPlcTestErrorInfo", this.testResultArray);
+        this.$router.push({
+          path: "testResult"
+        });
+      }
     },
     // 连接socket
     getSocketConnect() {
@@ -430,9 +493,9 @@ export default {
         username: "crk",
         callback: client => {
           _this.stompClient = client;
-          let subscribe = socket.openSubscribe({
+          let subscribeStates = socket.openSubscribe({
             url:
-              "/_topic/test/Controller/" +
+              "/_topic/test/connectController/" +
               this.gatewayInfo.hwSysId +
               "/" +
               _this.controllerId,
@@ -441,37 +504,102 @@ export default {
               _this.dealSubscribeResponse(response.body);
             }
           });
+          let subscribe = socket.openSubscribe({
+            url:
+              "/_topic/test/Controller/" +
+              this.gatewayInfo.hwSysId +
+              "/" +
+              _this.controllerId,
+            stompClient: _this.stompClient,
+            callback: response => {
+              _this.dealSubscribeResponseStates(response.body);
+            }
+          });
           _this.subscribeArray.push(subscribe);
+          _this.subscribeArray.push(subscribeStates);
         }
       });
     },
     //socket数据处理
     dealSubscribeResponse(response) {
       let socketMsgInfo = JSON.parse(response);
+      if (socketMsgInfo.msg == "连接失败") {
+        this.showLoadingDiv = false;
+        clearInterval(this.getDefaultCountDownProject);
+        this.$messagebox.alert("分机连接失败，请知晓");
+      } else if (socketMsgInfo.data == "连接成功") {
+        let getPropTime = 0;
+        let getPropInterval = setInterval(() => {
+          getPropTime++;
+          if (getPropTime <= 5) {
+            this.getProperty().then(xhr => {
+              if (xhr.data.length > 0) {
+                clearInterval(getPropInterval);
+                this.showLoadingDiv = false;
+                clearInterval(this.getDefaultCountDownProject);
+                if (
+                  this.formdata.close == xhr.data[0].value ||
+                  this.formdata.stop == xhr.data[0].value
+                ) {
+                  this.testStepId = parseInt(this.testStepId) + 1;
+                } else {
+                  this.$messagebox({
+                    title: "提示",
+                    message:
+                      "分机初始状态不是出于关闭状态，请使用柜控关闭设备后重试",
+                    showCancelButton: false,
+                    confirmButtonText: "确定"
+                  }).then(() => {
+                    this.$store.dispatch("setMainTestInfo", {
+                      key: "testProcessId",
+                      value: ""
+                    });
+                    this.getCloseController("true");
+                    this.$router.push({ path: "selectTest" });
+                  });
+                }
+              }
+            });
+          } else {
+            this.showLoadingDiv = false;
+            clearInterval(this.getDefaultCountDownProject);
+            clearInterval(getPropInterval);
+            this.$messagebox.alert("获取分机初始状态连接超时");
+          }
+        }, 1000);
+      }
+    },
+    //socket数据处理
+    dealSubscribeResponseStates(response) {
+      let socketMsgInfo = JSON.parse(response);
       socketMsgInfo.map(resItem => {
-        resItem.oldVal = resItem.oldVal + "";
+        resItem.oldVal = resItem.oldVal + "" || "";
         resItem.newVal = resItem.newVal + "";
-        if (resItem.vid.split("_")[1] == "state01") {
+        if (
+          resItem.vid.split("_")[resItem.vid.split("_").length - 1] == "state01"
+        ) {
           this.statusvalue.push(resItem.newVal);
         }
         if (
-          resItem.vid.split("_")[1] == "control01" &&
+          resItem.vid.split("_")[resItem.vid.split("_").length - 1] ==
+            "control01" &&
+          resItem.oldVal &&
           resItem.oldVal != "undefined"
         ) {
           this.controlvalue.push(resItem.newVal);
         }
-        if (
-          resItem.vid.split("_")[1] == "control01" &&
-          resItem.oldVal == "undefined"
-        ) {
-          this.getProperty().then(xhr => {
-            if (this.formdata.close == xhr.data[0].value) {
-              this.showLoadingDiv = false;
-              clearInterval(this.getDefaultCountDownProject);
-              this.testStepId = parseInt(this.testStepId) + 1;
-            }
-          });
-        }
+        // if (
+        //   resItem.vid.split("_")[1] == "control01" &&
+        //   (resItem.oldVal == "undefined" || !resItem.oldVal)
+        // ) {
+        //   this.getProperty().then(xhr => {
+        //     if (this.formdata.close == xhr.data[0].value) {
+        //       this.showLoadingDiv = false;
+        //       clearInterval(this.getDefaultCountDownProject);
+        //       this.testStepId = parseInt(this.testStepId) + 1;
+        //     }
+        //   });
+        // }
       });
     },
     // 倒计时
@@ -479,6 +607,25 @@ export default {
       this.countDownProject = setInterval(() => {
         this.countDownNumber--;
         if (this.countDownNumber == 1) {
+          // if (this.statusvalue.length == 0 && this.controlvalue.length == 0) {
+          this.$messagebox({
+            title: "提示",
+            message: "当前测试流程长时间未操作，请选择您要进行的操作",
+            showCancelButton: true,
+            confirmButtonText: "下一步",
+            cancelButtonText: "结束测试"
+          }).then(action => {
+            if (action === "confirm") {
+              this.handleStep(
+                this.stepTestInfo.process[this.testStepId].stepButtons[1]
+              );
+            } else {
+              this.handleStep(
+                this.stepTestInfo.process[this.testStepId].stepButtons[0]
+              );
+            }
+          });
+          // }
           clearInterval(this.countDownProject);
         }
       }, 1000);
@@ -498,15 +645,15 @@ export default {
     }
   },
   mounted() {
-    if (this.$route.query.testEqpId) {
-      this.getDeviceConfig(this.$route.query.testEqpId);
+    if (this.$store.getters.mainTestInfo.testEqpId) {
+      this.getDeviceConfig(this.$store.getters.mainTestInfo.testEqpId);
     }
   },
   computed: {
     // 监听当前页数据，展示提示信息
     tiplist() {
       let tiplistArr = [];
-      if (this.$route.query.controlType == "tank") {
+      if (this.$store.getters.mainTestInfo.controlType == "tank") {
         tiplistArr = this.stepTestInfo.process[this.testStepId].tankTips;
       } else {
         tiplistArr = this.stepTestInfo.process[this.testStepId].tips;
@@ -517,13 +664,11 @@ export default {
   watch: {
     // 监听当前测试步骤id，切换页面显示内容
     testStepId(newVal) {
-      console.log(newVal);
       if (this.countDownProject) {
         clearInterval(this.countDownProject);
         this.countDownNumber = 120;
       }
       this.dealCountDown();
-      // this.options = [];
       this.statusItems = [];
       this.controlItems = [];
       let chkbox = [],
@@ -546,23 +691,37 @@ export default {
         chkitem.value = this.formdata[chkitem.key];
         if (
           chkitem.controlType == "statusR" &&
-          (chkitem.value || chkitem.value == 0)
+          (chkitem.value || chkitem.value == "0")
         ) {
+          chkitem.disabled = true;
           this.statusItems.push(chkitem);
         }
         if (
           chkitem.controlType == "controlR" &&
-          (chkitem.value || chkitem.value == 0)
+          (chkitem.value || chkitem.value == "0")
         ) {
+          chkitem.disabled = true;
           this.controlItems.push(chkitem);
         }
       });
     }
   },
   beforeDestroy() {
-    // this.getCloseController(this.$route.query);
-    socket.closeSubscribe(this.subscribeArray);
-    socket.socketDisconnect(this.stompClient);
+    if (this.connectedController) {
+      this.$postData(this.$api.closeController, {
+        ctrlId: this.$store.getters.mainTestInfo.eqpId,
+        gatewayId: this.gatewayInfo.hwSysId
+      }).then(() => {
+        this.connectedController = false;
+      });
+    }
+    if (this.stompClient) {
+      socket.closeSubscribe(this.subscribeArray);
+      socket.socketDisconnect(this.stompClient);
+    }
+    if (this.countDownProject) {
+      clearInterval(this.countDownProject);
+    }
   }
 };
 </script>

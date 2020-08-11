@@ -1,0 +1,56 @@
+[
+  {
+    "type": "date",
+    "label": "年度",
+    "name": "year",
+    "dateType": "year",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "是否开启",
+    "name": "enable",
+    "span": 12,
+    "width": "150px",
+    "data": [{
+      "value": "1",
+      "label": "启用"
+    },{
+      "value": "0",
+      "label": "不启用"
+    }]
+  },
+  {
+    "type": "date",
+    "label": "牵头部门开启时间",
+    "name": "leadStartTime",
+    "dateType": "date",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "date",
+    "label": "牵头部门截至时间",
+    "name": "leadEndTime",
+    "dateType": "date",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "date",
+    "label": "配合部门开启时间",
+    "name": "coordinationStartTime",
+    "dateType": "date",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "date",
+    "label": "配合部门截至时间",
+    "name": "coordinationEndTime",
+    "dateType": "date",
+    "span": 12,
+    "width": "150px"
+  }
+]

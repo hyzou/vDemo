@@ -6,6 +6,7 @@ import c_fan from "./c_fan";
 import air_cond from "./air_cond";
 import vent from "./vent";
 import valve from "./valve";
+import gas_con from "./gas_con";
 
 const registersSettings = [
   {
@@ -47,6 +48,11 @@ const registersSettings = [
     name: "阀门寄存器",
     type: "4001",
     formgroup: valve
+  },
+  {
+    name: "气体浓度检测寄存器",
+    type: "7001",
+    formgroup: gas_con
   }
 ];
 export default registersSettings;

@@ -1,4 +1,4 @@
-# ah-demo-vue
+# qas 质检
 
 快速安装
 1.安装node(百度下载安装node)，npm和node是同时安装的，不需要再次安装

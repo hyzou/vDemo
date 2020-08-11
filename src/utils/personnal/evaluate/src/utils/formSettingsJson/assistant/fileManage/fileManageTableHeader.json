@@ -1,0 +1,36 @@
+[
+  {
+    "prop": "status",
+    "lable": "缓急"
+  },
+  {
+    "prop": "company",
+    "lable": "发起单位"
+  },
+  {
+    "prop": "date",
+    "lable": "发起时间"
+  },
+  {
+    "prop": "title",
+    "lable": "标题"
+  },
+  {
+    "prop": "handleStatus",
+    "lable": "办理状态"
+  },
+  {
+    "prop": "people",
+    "lable": "办理人"
+  },
+  {
+    "prop": "term",
+    "lable": "办理期限"
+  },
+  {
+    "prop": "option",
+    "lable": "操作",
+    "propType": "operateBtns",
+    "width": "150px"
+  }
+]

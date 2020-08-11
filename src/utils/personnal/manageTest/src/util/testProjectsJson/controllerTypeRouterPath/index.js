@@ -1,5 +1,7 @@
 const controllerTypeRouterjson = {
   testEquipment: "addEquipment",
-  testTemperature: "addTemperatureEquipment"
+  testGas: "addGas",
+  testTemperature: "addEquipment"
+  // testTemperature: "addTemperatureEquipment"
 };
 export default controllerTypeRouterjson;

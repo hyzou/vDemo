@@ -15,6 +15,11 @@ export default new Router({
       component: () => import("@/views/Home")
     },
     {
+      path: "/choseStorePoint",
+      name: "choseStorePoint",
+      component: () => import("@/views/choseStorePoint")
+    },
+    {
       path: "/selectEqumentType",
       name: "selectEqumentType",
       component: () => import("@/views/selectEqumentType")
@@ -28,6 +33,16 @@ export default new Router({
       path: "/addTemperatureEquipment",
       name: "addTemperatureEquipment",
       component: () => import("@/views/addTemperatureEquipment")
+    },
+    {
+      path: "/addGas",
+      name: "addGas",
+      component: () => import("@/views/addGas")
+    },
+    {
+      path: "/addGasPoint",
+      name: "addGasPoint",
+      component: () => import("@/views/addGasPoint")
     },
     {
       path: "/temperatureResult",

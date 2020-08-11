@@ -6,6 +6,7 @@ import c_fan from "./c_fan";
 import air_cond from "./air_cond";
 import vent from "./vent";
 import valve from "./valve";
+import gas_con from "./gas_con";
 
 const testProcessSettings = [
   {
@@ -47,6 +48,11 @@ const testProcessSettings = [
     type: "4001",
     dscript: "阀门-valve",
     detailProcess: valve
+  },
+  {
+    type: "7001",
+    dscript: "测气-gas_con",
+    detailProcess: gas_con
   }
 ];
 

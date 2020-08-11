@@ -1,0 +1,43 @@
+[
+  {
+    "type": "input",
+    "label": "主题",
+    "name": "theme",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "发送选项",
+    "name": "sendOption",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "发送人",
+    "name": "sender",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "内容",
+    "name": "sendContent",
+    "span": 24,
+    "width": "150px",
+    "rows": 4,
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "时间",
+    "name": "sendDate",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  }
+]

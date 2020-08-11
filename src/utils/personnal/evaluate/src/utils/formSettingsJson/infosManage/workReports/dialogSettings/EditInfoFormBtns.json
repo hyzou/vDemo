@@ -1,0 +1,10 @@
+[
+  {
+    "flag": "saveEdit",
+    "size": "",
+    "icon": "",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  }
+]

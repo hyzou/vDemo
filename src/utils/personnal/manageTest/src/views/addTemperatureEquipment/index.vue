@@ -66,6 +66,7 @@
           :label="param.paramDesc"
           placeholder="请输入"
           v-model="formdata.protocolParameter[param.paramName]"
+          @focus.native.capture="handleCommentFocus"
         ></mt-field>
       </div>
       <div class="positionRel">
@@ -95,7 +96,6 @@
         >
         </mt-field>
       </div>
-
       <mt-field
         label="仓温仓湿1线缆号（选填）"
         placeholder="请输入线缆号"
@@ -143,6 +143,34 @@ export default {
     return {
       // 保存按钮置灰
       saveCannotClick: false,
+      // 数字类型项目列表
+      numberTypeFormKey: [
+        {
+          key: "lineNumbers",
+          formChildName: "customParameters",
+          formName: "线缆数量"
+        },
+        {
+          key: "pointNumPerLine",
+          formChildName: "customParameters",
+          formName: "每根线缆点位数量"
+        },
+        {
+          key: "startLineNo",
+          formChildName: "customParameters",
+          formName: "起始线缆号"
+        },
+        {
+          key: "temHumlineNo1",
+          formChildName: "customParameters",
+          formName: "仓温仓湿1线缆号"
+        },
+        {
+          key: "temHumlineNo2",
+          formChildName: "customParameters",
+          formName: "仓温仓湿2线缆号"
+        }
+      ],
       // 必填项key值
       requiredFormKey: [
         {
@@ -153,18 +181,6 @@ export default {
           key: "connectionType",
           formName: "连接类型"
         },
-        // {
-        //   key: "host",
-        //   formName: "IP地址"
-        // },
-        // {
-        //   key: "port",
-        //   formName: "端口"
-        // },
-        // {
-        //   key: "port",
-        //   formName: "串口"
-        // },
         {
           key: "protocolType",
           formName: "协议类型"
@@ -191,7 +207,9 @@ export default {
       headerOptionSettings: {
         hideleft: false,
         title: "测温分机",
-        routePath: this.$route.query.eqpId ? "home" : "selectEqumentType"
+        routePath: this.$store.getters.mainTestInfo.eqpId
+          ? "home"
+          : "selectEqumentType"
       },
       // 连接类型下拉框配置数据
       connectTpyeOptionSettings: {
@@ -235,7 +253,7 @@ export default {
           {
             flex: 1,
             values: this.$store.getters.protocolDatas[
-              this.$route.query.testType
+              this.$store.getters.mainTestInfo.testType
             ],
             className: "slot1",
             textAlign: "center",
@@ -243,12 +261,16 @@ export default {
           }
         ]
       },
+      // 控制器id
+      controllerId: this.$store.getters.mainTestInfo.eqpId
+        ? this.$store.getters.mainTestInfo.eqpId
+        : "",
       // 页面表单数据
       formdata: {
         storePointId: this.$store.getters.userInfo.storePointId,
-        controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : "",
+        controllerId: this.controllerId,
         channelParameter: "",
-        testType: this.$route.query.testEquipment,
+        testType: this.$store.getters.mainTestInfo.testEquipment,
         controllerName: "",
         connectionType: "tcp",
         connectTpye_dsc: "",
@@ -261,40 +283,46 @@ export default {
         ModbusAddress: "",
         protocolParameter: {},
         customParameters: {},
-        controllerType: this.$route.query.testType
+        controllerType: this.$store.getters.mainTestInfo.testType
       },
       // 协议参数列表
       paramlist: [],
-      // 控制器id
-      controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : "",
       protocolParams: null //保存ajax获取到的配置数据
     };
   },
   methods: {
+    handleCommentFocus() {
+      this.saveCannotClick = true;
+    },
     // 连接类型下拉框事件绑定
     handleGetConnectTpyeValue(val) {
       let that = this;
-      that.formdata.connectionType = val[0].value;
-      that.connectTpyeOptionSettings.cellValue = val[0].label + "▼";
-      that.formdata.connectTpye_dsc = val[0].label;
+      this.formdata.connectionType = val[0].value;
+      this.connectTpyeOptionSettings.cellValue = val[0].label + "▼";
+      this.formdata.connectTpye_dsc = val[0].label;
+      this.$nextTick(() => {
+        that.formdata.serialPort = this.$store.getters.serialPortDatas[0].value;
+      });
     },
     // 协议类型下拉框事件绑定
     handleGetProtocolValue(val) {
       let that = this;
-      that.formdata.protocolType = val[0].value;
-      that.protocolOptionSettings.cellValue = val[0].label + "▼";
-      that.formdata.protocol_dsc = val[0].label;
-      that.formdata.protocolParameter = {};
-      that.paramlist =
-        that.$store.getters.protocolParamsDatas[val[0].value].paramList;
-      that.paramlist.map(param => {
-        if (that.protocolParams && that.protocolParams[param.paramName]) {
-          that.formdata.protocolParameter[param.paramName] =
-            that.protocolParams[param.paramName];
-        } else if (!that.formdata.protocolParameter[param.paramName]) {
-          that.formdata.protocolParameter[param.paramName] = "";
-        }
-      });
+      setTimeout(() => {
+        that.formdata.protocolType = val[0].value;
+        that.protocolOptionSettings.cellValue = val[0].label + "▼";
+        that.formdata.protocol_dsc = val[0].label;
+        that.formdata.protocolParameter = {};
+        that.paramlist =
+          that.$store.getters.protocolParamsDatas[val[0].value].paramList;
+        that.paramlist.map(param => {
+          if (that.protocolParams && that.protocolParams[param.paramName]) {
+            that.formdata.protocolParameter[param.paramName] =
+              that.protocolParams[param.paramName];
+          } else if (!that.formdata.protocolParameter[param.paramName]) {
+            that.formdata.protocolParameter[param.paramName] = "";
+          }
+        });
+      }, 100);
     },
     // 串口下拉框事件绑定
     handleGetSerialPortValue(val) {
@@ -305,6 +333,8 @@ export default {
     },
     // 底部操作按钮事件绑定
     handleSaveEqpInfo(type) {
+      let regNumber = /^([0-9]|[1-9]\d{1,3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])$/, // /^\d+$/,
+        regIpv4 = /^(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}$/;
       if (this.formdata.connectionType == "serial") {
         this.formdata.host = "localhost";
         this.formdata.port = this.formdata.serialPort;
@@ -315,6 +345,14 @@ export default {
       } else {
         if (!this.formdata.port || !this.formdata.host) {
           this.$messagebox.alert("请完善必填项host,port", "提示");
+          return false;
+        }
+        if (!regNumber.test(this.formdata.port)) {
+          this.$messagebox.alert("端口号只能填写数字", "提示");
+          return false;
+        }
+        if (!regIpv4.test(this.formdata.host)) {
+          this.$messagebox.alert("IP地址格式校验不通过", "提示");
           return false;
         }
       }
@@ -335,12 +373,28 @@ export default {
       for (let reqItem of this.requiredFormKey) {
         if (reqItem.formChildName) {
           if (!this.formdata[reqItem.formChildName][reqItem.key]) {
-            this.$messagebox.alert("请完善必填项" + reqItem.key, "提示");
+            this.$messagebox.alert("请完善必填项", "提示");
             return false;
           }
         } else {
           if (!this.formdata[reqItem.key]) {
-            this.$messagebox.alert("请完善必填项" + reqItem.key, "提示");
+            this.$messagebox.alert("请完善必填项", "提示");
+            return false;
+          }
+        }
+      }
+      for (let numberItem of this.numberTypeFormKey) {
+        if (numberItem.formChildName) {
+          if (
+            this.formdata[numberItem.formChildName][numberItem.key] &&
+            !regNumber.test(
+              this.formdata[numberItem.formChildName][numberItem.key]
+            )
+          ) {
+            this.$messagebox.alert(
+              numberItem.formName + "只能填写数字",
+              "提示"
+            );
             return false;
           }
         }
@@ -360,15 +414,16 @@ export default {
       }
       let postUrl = "",
         postData = {};
-      if (!this.$route.query.eqpId) {
+      if (!this.$store.getters.mainTestInfo.eqpId) {
         postUrl = this.$api.saveControllerConfig;
         postData = this.formdata;
       } else {
         postUrl = this.$api.updateControllerConfig;
         postData.testControllerDto = this.formdata;
-        postData.controllerId = this.$route.query.eqpId;
+        postData.controllerId = this.controllerId;
       }
-      this.$postData(postUrl, postData).then(() => {
+      this.$postData(postUrl, postData).then(xhr => {
+        this.controllerId = xhr.data;
         if (type == "save") {
           this.$router.push("home");
         } else {
@@ -379,11 +434,11 @@ export default {
     // 根据分机id获取分机信息
     getControllerConfig() {
       this.$postData(this.$api.getControllerConfig, {
-        controllerId: this.$route.query.eqpId,
+        controllerId: this.$store.getters.mainTestInfo.eqpId,
         storePointId: this.$store.getters.userInfo.storePointId
       }).then(xhr => {
-        xhr.data.controllerId = this.$route.query.eqpId
-          ? this.$route.query.eqpId
+        xhr.data.controllerId = this.$store.getters.mainTestInfo.eqpId
+          ? this.$store.getters.mainTestInfo.eqpId
           : "";
         xhr.data.channelParameter = "";
         this.formdata = xhr.data.testControllerDto;
@@ -398,7 +453,6 @@ export default {
           i < this.connectTpyeOptionSettings.slots[0].values.length;
           i++
         ) {
-          console.log(this.formdata.connectionType);
           if (
             this.connectTpyeOptionSettings.slots[0].values[i].value ==
             this.formdata.connectionType
@@ -441,13 +495,21 @@ export default {
     // 获取库区网关
     getStoreGateWayInfo() {
       this.$getData(this.$api.getStoreGateWayInfo, {
-        storePointId: this.$store.getters.userInfo.storePointId
+        storepointId: this.$store.getters.userInfo.storePointId
       }).then(xhr => {
+        if (xhr.data.length == 0) {
+          this.$messagebox.alert("该库区未检测到网关配置");
+          return;
+        }
         let gatewaylist = xhr.data.filter(item => {
           if (!item.storehouseId) {
             return true;
           }
         });
+        if (gatewaylist.length == 0) {
+          this.$messagebox.alert("该库区未检测到可用的网关配置");
+          return;
+        }
         this.formdata.gatewayInfo = gatewaylist[0];
         this.getConnectController(this.formdata);
       });
@@ -457,11 +519,12 @@ export default {
       let urlStr = "",
         compactibilities = data.protocolParameter,
         arraylist = [];
-      if (data.connectionType == "tcp") {
-        urlStr = data.protocolType + "://" + data.host + ":" + data.port; // + "?";
-      } else {
-        urlStr = "jhrtu" + "://" + data.host + ":" + data.port; // + "?";
-      }
+      urlStr = data.protocolType + "://" + data.host + ":" + data.port; // + "?";
+      // if (data.connectionType == "tcp") {
+      //   urlStr = data.protocolType + "://" + data.host + ":" + data.port; // + "?";
+      // } else {
+      //   urlStr = "jhrtu" + "://" + data.host + ":" + data.port; // + "?";
+      // }
       for (let i = 0; i < this.formdata.customParameters.lineNumbers; i++) {
         for (
           let j = 1;
@@ -515,28 +578,31 @@ export default {
         });
       }
       let controllerParam = {
-        ctrDto: {
-          ctrlId: this.controllerId,
-          chUrl: urlStr, //urlStr.substr(0, urlStr.length - 1),
-          vars: arraylist,
-          compactibilities: compactibilities
+          ctrDto: {
+            ctrlId: this.controllerId,
+            chUrl: urlStr, //urlStr.substr(0, urlStr.length - 1),
+            vars: arraylist,
+            compactibilities: compactibilities
+          },
+          gwDto: {
+            id: data.gatewayInfo.hwSysId,
+            name: data.gatewayInfo.name
+          }
         },
-        gwDto: {
-          id: data.gatewayInfo.id,
-          name: data.gatewayInfo.name
-        }
-      };
+        that = this;
       this.$postData(this.$api.connectController, controllerParam, true).then(
         xhr => {
           if (xhr && xhr.data) {
+            this.$store.dispatch("setMainTestInfo", {
+              key: "gwDto",
+              value: controllerParam.gwDto
+            });
+            this.$store.dispatch("setMainTestInfo", {
+              key: "eqpId",
+              value: that.controllerId
+            });
             this.$router.push({
-              path: "temperatureResult",
-              query: {
-                eqpId: this.$route.query.eqpId
-                  ? this.$route.query.eqpId
-                  : this.formdata.controllerId,
-                gwDto: controllerParam.gwDto
-              }
+              path: "temperatureResult"
             });
           } else {
             this.$messagebox.alert("控制器建立失败");
@@ -555,7 +621,7 @@ export default {
     }
   },
   mounted() {
-    if (this.$route.query.eqpId) {
+    if (this.$store.getters.mainTestInfo.eqpId) {
       this.getControllerConfig();
     } else {
       setTimeout(() => {

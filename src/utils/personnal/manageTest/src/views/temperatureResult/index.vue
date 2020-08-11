@@ -61,9 +61,12 @@ export default {
       },
       // 页面表单数据
       formdata: {
-        controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : "",
+        controllerId: this.$store.getters.mainTestInfo.eqpId
+          ? this.$store.getters.mainTestInfo.eqpId
+          : "",
         controllerName: ""
       },
+      controllerInfo: {},
       // 测温点温度列表
       temPointArr: [],
       // 测试结果
@@ -80,7 +83,9 @@ export default {
         }
       ],
       // 控制器id
-      controllerId: this.$route.query.eqpId ? this.$route.query.eqpId : ""
+      controllerId: this.$store.getters.mainTestInfo.eqpId
+        ? this.$store.getters.mainTestInfo.eqpId
+        : ""
     };
   },
   methods: {
@@ -114,7 +119,11 @@ export default {
       historyParam.disableFlag = "0";
       historyParam.testResult = flag ? flag : testresult;
       historyParam.testData = this.temPointArr;
-      historyParam.controllerId = this.$route.query.eqpId;
+      historyParam.controllerId = this.$store.getters.mainTestInfo.eqpId;
+      historyParam.testCase = "tem_con_1";
+      historyParam.testConfigDto = {
+        testControllerDto: this.controllerInfo
+      };
       if (historyParam.controllerType === "testTemperature") {
         historyParam.deviceId = "";
         historyParam.deviceName = "";
@@ -125,13 +134,14 @@ export default {
     // 根据分机id获取分机信息
     getControllerConfig() {
       this.$postData(this.$api.getControllerConfig, {
-        controllerId: this.$route.query.eqpId,
+        controllerId: this.$store.getters.mainTestInfo.eqpId,
         storePointId: this.$store.getters.userInfo.storePointId
       }).then(xhr => {
-        xhr.data.controllerId = this.$route.query.eqpId
-          ? this.$route.query.eqpId
+        xhr.data.controllerId = this.$store.getters.mainTestInfo.eqpId
+          ? this.$store.getters.mainTestInfo.eqpId
           : "";
         this.formdata = xhr.data.testControllerDto;
+        this.controllerInfo = xhr.data.testControllerDto;
         this.controllerId = xhr.data.controllerId;
         setTimeout(() => {
           this.getProperty();
@@ -175,47 +185,54 @@ export default {
         this.$api.getProperty,
         {
           ctrlId: this.controllerId,
-          gatewayId: this.$route.query.gwDto.id,
+          gatewayId: this.$store.getters.mainTestInfo.gwDto.id,
           vids: vidsArr
         },
         true
-      ).then(xhr => {
-        this.showLoadingDiv = false;
-        xhr.data.map(item => {
-          item.funtionType = item.vid.split("_l")[0];
-          item.showValue = this.$store.getters.switchTempratureFunctions[
-            this.formdata.protocolType
-          ][item.funtionType](item.value);
-          item.namestr =
-            item.vid.split("_l")[1].split("p")[0] +
-            "号缆" +
-            item.vid.split("_l")[1].split("p")[1] +
-            "号点";
-          if (item.funtionType == "ht") {
-            item.namestr += "(仓温)";
-          } else if (item.funtionType == "hh") {
-            item.namestr += "(仓湿)";
+      )
+        .then(xhr => {
+          this.showLoadingDiv = false;
+          if (xhr.data && xhr.data.length > 0) {
+            xhr.data.map(item => {
+              item.funtionType = item.vid.split("_l")[0];
+              item.showValue = this.$store.getters.switchTempratureFunctions[
+                this.formdata.protocolType
+              ][item.funtionType](item.value);
+              item.namestr =
+                item.vid.split("_l")[1].split("p")[0] +
+                "号缆" +
+                item.vid.split("_l")[1].split("p")[1] +
+                "号点";
+              if (item.funtionType == "ht") {
+                item.namestr += "(仓温)";
+              } else if (item.funtionType == "hh") {
+                item.namestr += "(仓湿)";
+              }
+              if (item.vid.indexOf("h") > -1) {
+                item.sortlineNumber = 0;
+              } else {
+                item.sortlineNumber =
+                  parseInt(item.vid.split("_l")[1]) * 100 +
+                  parseInt(item.vid.split("p")[1]);
+              }
+            });
+            xhr.data.sort(function(a, b) {
+              return a.sortlineNumber - b.sortlineNumber;
+            });
+            this.temPointArr = xhr.data;
           }
-          if (item.vid.indexOf("h") > -1) {
-            item.sortlineNumber = 0;
-          } else {
-            item.sortlineNumber =
-              parseInt(item.vid.split("_l")[1]) * 100 +
-              parseInt(item.vid.split("p")[1]);
-          }
+          this.getCloseController();
+        })
+        .catch(() => {
+          this.showLoadingDiv = false;
+          this.getCloseController();
         });
-        xhr.data.sort(function(a, b) {
-          return a.sortlineNumber - b.sortlineNumber;
-        });
-        this.temPointArr = xhr.data;
-        this.getCloseController();
-      });
     },
     // 关闭控制器
     getCloseController() {
       this.$postData(this.$api.closeController, {
         ctrlId: this.controllerId,
-        gatewayId: this.$route.query.gwDto.id
+        gatewayId: this.$store.getters.mainTestInfo.gwDto.id
       }).then(xhr => {
         console.log(xhr);
       });
@@ -232,7 +249,7 @@ export default {
     }
   },
   mounted() {
-    if (this.$route.query.eqpId) {
+    if (this.$store.getters.mainTestInfo.eqpId) {
       this.getControllerConfig();
     }
   }

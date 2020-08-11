@@ -1,0 +1,148 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "assessmentId",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "年度",
+    "name": "year",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "城市",
+    "name": "cityName",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "考核内容",
+    "name": "assessmentContent",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "重点考核事项",
+    "name": "assessmentItems",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "考核目标",
+    "name": "assessmentTarget",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "年度考核目标任务",
+    "name": "assessmentTargetTask",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "评分标准",
+    "name": "scoreStandard",
+    "span": 24,
+    "width": "150px",
+    "disabled": true,
+    "rows": 4
+  },
+  {
+    "type": "textarea",
+    "label": "局配合意见",
+    "name": "opinion",
+    "span": 24,
+    "width": "150px",
+    "rows": 3
+  },
+  {
+    "type": "upload",
+    "label": "配合材料",
+    "name": "material",
+    "span": 12,
+    "width": "150px",
+    "choseBtn":"上传文件"
+  },
+  {
+    "type": "inputTable",
+    "label": "处室意见",
+    "name": "coordinationList",
+    "span": 24,
+    "width": "150px",
+    "headers":[
+        {
+          "key": "office",
+          "title": "相关处室"
+        },
+        {
+          "key": "officeOpinions",
+          "title": "配合部门意见"
+        },
+        {
+          "key": "officeMaterials",
+          "title": "配合材料"
+        },
+        {
+          "key": "officeInputName",
+          "title": "意见填报人"
+        },
+        {
+          "key": "officeCheckName",
+          "title": "意见审核人"
+        }
+      ],
+      "tableItems": {
+        "office": "",
+        "officeOpinions": "",
+        "officeMaterials": "",
+        "officeInputName": "",
+        "officeCheckName": ""
+      }
+  },
+  {
+    "type": "elTreeSelect",
+    "label": "配合单位",
+    "name": "coordinationName",
+    "span": 12,
+    "width": "150px",
+    "disabled": true,
+    "props": {
+      "value": "orgId",
+      "label": "orgName",
+      "children": "children",
+      "choseOnlyLeaf": false
+    },
+    "data": []
+  },
+  {
+    "type": "input",
+    "label": "意见填报人",
+    "name": "inputName",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "审核人",
+    "name": "checkName",
+    "span": 12,
+    "width": "150px"
+  }
+]

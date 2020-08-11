@@ -1,0 +1,25 @@
+[
+  {
+    "prop": "year",
+    "lable": "年度",
+    "width": "80px"
+  },
+  {
+    "prop": "reviewProgress",
+    "lable": "考核工作进展情况"
+  },
+  {
+    "prop": "people",
+    "lable": "填报人"
+  },
+  {
+    "prop": "dateTime",
+    "lable": "填报日期"
+  },
+  {
+    "prop": "option",
+    "lable": "操作",
+    "propType": "operateBtns",
+    "width": "150px"
+  }
+]

@@ -1,0 +1,148 @@
+// 通用样式
+#app {
+	font-family: "Avenir", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+//修改element-ui部分样式
+.el-header, .el-main, .el-footer{
+	.pd0;
+}
+.el-table{
+  .cell{
+    text-align: center;
+    width: 100% !important;
+  }
+}
+.el-table__header, .el-table__body{
+  .width100;
+}
+.el-transfer-panel__item{
+  .displayBlock
+}
+.el-textarea.is-disabled .el-textarea__inner{
+  color: @color666;
+}
+
+// formgroup组件内，editor行高重置
+.formItemLh{
+	.el-form-item__content{
+    .ml0;
+    .pr3;
+	}
+}
+.el-form-item__content{
+  line-height: inherit;
+}
+
+.link{
+  color: @mainWhite;
+  text-decoration: none;
+}
+.textColorLightBlue{
+	color: @mainBgColorLight;
+}
+.backTopArrow{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background-color: @mainRed;
+  text-align: center;
+  line-height: 40px;
+  color: @mainWhite;
+}
+.file{
+  // border: 1px solid @color999;
+  background: @loginItemBg;
+  .cursor;
+  .borderRadius(3px);
+  color: @mainBgColorLight;
+  .lh(40px);
+}
+.scorelist{
+  line-height: 40px;
+  &-header{
+    .mb0;
+    &-title{
+      border: 1px solid @colorCCC;
+      border-radius: 0 !important;
+    }
+  }
+  &-body{
+    text-align: center;
+    &-content{
+      &-item{
+        border-radius: 0 !important;
+        border: 1px solid @colorCCC;
+        &-input{
+          .el-input__inner{
+            border: 0 !important;
+            text-align: center;
+          }
+        }
+        &-button{
+          border: 0;
+        }
+      }
+    }
+  }
+}
+.headerBarContainer{
+  background-image: url(../../assets/mainlogoBg.png);
+}
+.memberSignup{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+  right: 0;
+  background-color: @primary;
+	background-image: url(../../assets/register_bg.png);
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+	z-index: 9;
+	overflow-y: auto;
+    .mainRegContainer{
+      width: 980px;
+      .mgAuto;
+      .registerTitle{
+        top:-100px;
+        left:0;
+        z-index:99;
+        font-weight:900;
+        color:@mainBgColor;
+      }
+      .registerBody{
+        .borderR8;
+        background: rgba(255,255,255,0.8);
+        .width(670px);
+        .mgAuto;
+        .pd25;
+        .login-zone{
+          border: 0 !important;
+          box-shadow: none !important;
+        }
+      }
+    }
+}
+
+//demo less
+.contentText{
+  .pd10;
+  .lh(30px);
+  &-tips{
+    list-style: square inside;
+  }
+}
+pre{
+  background-color: @codeBg;
+  color: @codeColor;
+  overflow: auto;
+  .lh(24px);
+  code{
+    font: 400 16px Source Code Pro,DejaVu Sans Mono,Ubuntu Mono,Anonymous Pro,Droid Sans Mono,Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,PingFang SC,Microsoft YaHei,sans-serif!important;
+    word-wrap:break-word; // Internet Explorer 5.5+ / 
+    white-space: pre-wrap; // Firefox /
+  }
+}
+

@@ -3,6 +3,14 @@ const actions = {
   setUserInfos({ commit }, userInfo) {
     commit("SET_USERINFO", userInfo);
   },
+  // 设置测试主体信息
+  setMainTestInfo({ commit }, obj) {
+    commit("SET_MAINTESTINFO", obj);
+  },
+  // 初始化测试主体信息
+  setMainTestInfoToOriginal({ commit }) {
+    commit("SET_MAINTESTINFOTOORIGINAL");
+  },
   // 添加分机信息
   setEqpInfo({ commit }, eqpInfo) {
     commit("SET_EQPINFO", eqpInfo);
@@ -22,6 +30,10 @@ const actions = {
   // 保存当前plc测试流程结果信息
   setPlcTestResult({ commit }, plcTestResult) {
     commit("SET_PLCTESTRESULT", plcTestResult);
+  },
+  // 保存当前plc测试流程结果信息
+  setPlcCanTestProgram({ commit }, plcCanTestProgram) {
+    commit("SET_PLCCANTESPROGRAM", plcCanTestProgram);
   }
 };
 export default actions;
