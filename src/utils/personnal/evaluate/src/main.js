@@ -11,7 +11,7 @@ import store from "./store";
 import api from "./axios/httpApi";
 import globalVariable from "./axios/global_variable";
 import qs from "qs";
-import "./registerServiceWorker";
+// import "./registerServiceWorker";
 import "./styles/global.less";
 import "./permission";
 import globalFunctions from "./utils/globalFunctions";

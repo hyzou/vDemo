@@ -173,9 +173,10 @@ export default {
       console.log(flag);
     }
   },
-  mounted() {
+  beforeMount() {
     newInfoFormItems.map(item => {
       if (item.name == "editoStr") {
+        console.log(ueEditorToolbarSettings);
         item.config.toolbars = ueEditorToolbarSettings;
       }
     });

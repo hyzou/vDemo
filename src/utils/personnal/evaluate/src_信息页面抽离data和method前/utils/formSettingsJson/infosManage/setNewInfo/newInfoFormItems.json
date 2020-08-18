@@ -1,0 +1,209 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "id",
+    "name": "id",
+    "span": 8,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "userId",
+    "name": "userId",
+    "span": 8,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "author",
+    "name": "author",
+    "span": 8,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "clickTimes",
+    "name": "clickTimes",
+    "span": 8,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "comment",
+    "name": "comment",
+    "span": 8,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "addTime",
+    "name": "addTime",
+    "span": 8,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "updateTime",
+    "name": "updateTime",
+    "span": 8,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "所属栏目",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "name": "subColumn",
+    "data": [
+      {
+        "value": "workReports",
+        "label": "信息管理.工作简报"
+      },
+      {
+        "value": "notification",
+        "label": "信息管理.通知公告"
+      },
+      {
+        "value": "dataDownload",
+        "label": "信息管理.资料下载"
+      },
+      {
+        "value": "dynamic",
+        "label": "信息管理.各地动态"
+      },
+      {
+        "value": "inspectionFile",
+        "label": "信息管理.考核文件"
+      },
+      {
+        "value": "infosDistribution",
+        "label": "信息管理.信息报送"
+      },
+      {
+        "value": "inspectionReport",
+        "label": "信息管理.考核通报"
+      },
+      {
+        "value": "hangzhou",
+        "label": "信息管理.市(县)内信息.杭州"
+      },
+      {
+        "value": "essenceInfo",
+        "label": "信息管理.精华信息"
+      }
+    ],
+    "span": 13,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "标题",
+    "name": "title",
+    "span": 13,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "模板",
+    "name": "template",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [
+      {
+        "value": "1",
+        "label": "不使用模板"
+      }
+    ],
+    "span": 13,
+    "width": "150px"
+  },
+  {
+    "type": "radio",
+    "label": "编辑方式",
+    "name": "editType",
+    "linkName": "editType",
+    "data": [
+      {
+        "value": "1",
+        "label": "HTML编辑"
+      },{
+        "value": "2",
+        "label": "普通"
+      },{
+        "value": "3",
+        "label": "地址链接"
+      },{
+        "value": "4",
+        "label": "文件链接"
+      }
+    ],
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "upload",
+    "label": "相关图片",
+    "name": "relatePics",
+    "choseBtn": "选取文件",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传jpg/png文件，且不超过500kb",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "upload",
+    "label": "相关附件",
+    "name": "relateFiles",
+    "choseBtn": "选取文件",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传jpg/png文件，且不超过500kb",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "upload",
+    "label": "文件链接",
+    "hideItem":true,
+    "name": "fileRelative",
+    "choseBtn": "选取文件",
+    "uploadBtn": "上传",
+    "uploadTip": "只能上传jpg/png文件，且不超过500kb",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "地址链接",
+    "hideItem":true,
+    "name": "urlRelative",
+    "span": 13,
+    "width": "150px"
+  },
+  {
+    "type": "textarea",
+    "label": "",
+    "hideItem":true,
+    "name": "textStr",
+    "rows": "6",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "editor",
+    "label": "",
+    "name": "editoStr",
+    "data": [],
+    "span": 24,
+    "width": "150px",
+    "config": {
+      "autoHeightEnabled": false,
+      "initialFrameHeight": 240,
+      "initialFrameWidth": "100%",
+      "serverUrl": "",
+      "UEDITOR_HOME_URL": "/ueditor/",
+      "zIndex": 998
+    }
+  }
+]

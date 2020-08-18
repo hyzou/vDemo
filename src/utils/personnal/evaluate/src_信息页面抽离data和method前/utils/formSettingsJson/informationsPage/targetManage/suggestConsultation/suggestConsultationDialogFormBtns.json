@@ -1,0 +1,26 @@
+[
+  {
+    "flag": "post",
+    "size": "",
+    "icon": "",
+    "label": "提交至省考核办",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "save",
+    "size": "",
+    "icon": "",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "cancle",
+    "size": "",
+    "icon": "",
+    "label": "退出",
+    "styleType": "",
+    "postUrl": "addRegisterMember"
+  }
+]

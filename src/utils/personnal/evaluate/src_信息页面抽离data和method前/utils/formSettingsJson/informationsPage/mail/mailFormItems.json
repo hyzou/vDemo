@@ -1,0 +1,29 @@
+[
+  {
+    "type": "input",
+    "label": "主题",
+    "name": "topic",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "收件人",
+    "name": "receiveName",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "date",
+    "label": "发送时间",
+    "name": "sendTime",
+    "dateType": "daterange",
+    "dateRangeSeparator": "至",
+    "dateStartPlaceholder": "开始日期",
+    "dateEndPlaceholder": "结束日期",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd",
+    "span": 12,
+    "width": "150px"
+  }
+]

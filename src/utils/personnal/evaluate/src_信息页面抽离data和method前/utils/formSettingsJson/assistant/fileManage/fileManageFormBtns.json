@@ -1,0 +1,16 @@
+[
+  {
+    "flag": "search",
+    "size": "",
+    "icon": "",
+    "label": "立即查找",
+    "styleType": "primary"
+  },
+  {
+    "flag": "reset",
+    "size": "",
+    "icon": "",
+    "label": "清  除",
+    "styleType": ""
+  }
+]

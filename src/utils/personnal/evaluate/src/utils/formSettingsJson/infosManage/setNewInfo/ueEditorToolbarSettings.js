@@ -5,7 +5,7 @@ const UEEditorToolbarSettings = [
     "redo", //重做
     "bold", //加粗
     "indent", //首行缩进
-    "snapscreen", //截图
+    // "snapscreen", //截图
     "italic", //斜体
     "underline", //下划线
     "strikethrough", //删除线
@@ -73,7 +73,7 @@ const UEEditorToolbarSettings = [
     "imagenone", //默认
     "imageleft", //左浮动
     "imageright", //右浮动
-    "attachment", //附件
+    // "attachment", //附件
     "imagecenter", //居中
     // "wordimage", //图片转存
     "lineheight", //行间距
@@ -83,7 +83,7 @@ const UEEditorToolbarSettings = [
     // "webapp", //百度应用
     "touppercase", //字母大写
     "tolowercase", //字母小写
-    "background", //背景
+    // "background", //背景
     // "template", //模板
     // "scrawl", //涂鸦
     // "music", //音乐

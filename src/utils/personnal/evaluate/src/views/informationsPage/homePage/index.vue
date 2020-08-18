@@ -33,7 +33,7 @@
 <script>
 // 组件引入
 import card from "@/components/card";
-import showInfo from "../infosManage/allInfos/workReports/showInfoPage";
+import showInfo from "../infosManage/allInfos/workReports/components/showInfoPage";
 
 // 配置数据引入
 export default {

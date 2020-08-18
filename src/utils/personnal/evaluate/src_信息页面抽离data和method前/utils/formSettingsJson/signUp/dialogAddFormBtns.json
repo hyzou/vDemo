@@ -1,0 +1,14 @@
+[
+  {
+    "flag": "save",
+    "label": "注册",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "cancle",
+    "label": "返回首页",
+    "styleType": "",
+    "postUrl": "cancel"
+  }
+]

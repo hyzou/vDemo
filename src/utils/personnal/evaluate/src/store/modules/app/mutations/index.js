@@ -17,13 +17,21 @@ const mutations = {
     });
   },
   setStateEditInfoFromAllInfosList: (state, info) => {
+    let existFlag = false,
+      existIndex = 0;
     state.allInfosList.map((item, idx) => {
       if (item.id == info.id) {
-        state.allInfosList.splice(idx, 1, { ...info });
+        existFlag = true;
+        existIndex = idx;
       }
     });
+    if (existFlag) {
+      state.allInfosList.splice(existIndex, 1, { ...info });
+    } else {
+      state.allInfosList.push({ ...info });
+    }
   },
-  setStateClearStuffList: (state, data) => {
+  setStateClearStuffList: state => {
     state.stuffList = [];
   },
   setStateAddInfoToStuffList: (state, info) => {

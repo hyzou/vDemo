@@ -1,0 +1,56 @@
+[
+  {
+    "prop": "status",
+    "propType": "statusDot",
+    "lable": "状态",
+    "width" : "50px"
+  },
+  {
+    "prop": "assessmentTarget",
+    "lable": "年度考核目标任务"
+  },
+  {
+    "prop": "scoreStandard",
+    "lable": "评分标准"
+  },
+  {
+    "prop": "targetScore",
+    "lable": "分值",
+    "width" : "70px"
+  },
+  {
+    "prop": "provinceLeadDepartment",
+    "lable": "省牵头部门"
+  },
+  {
+    "prop": "provinceCoordinationDepartment",
+    "lable": "省配合部门"
+  },
+  {
+    "prop": "selfScore",
+    "lable": "自评分",
+    "width" : "70px"
+  },
+  {
+    "prop": "reason",
+    "lable": "减分原因"
+  },
+  {
+    "prop": "measures",
+    "lable": "整改措施"
+  },
+  {
+    "prop": "cityLeadDepartment",
+    "lable": "市牵头部门"
+  },
+  {
+    "prop": "cityCoordinationDepartment",
+    "lable": "市配合部门"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "propType": "operateBtns",
+    "width": "150px"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "prop": "year",
+    "lable": "年度"
+  },
+  {
+    "prop": "assessmentTarget",
+    "lable": "年度考核目标任务"
+  },
+  {
+    "prop": "targetScore",
+    "lable": "分值"
+  },
+  {
+    "prop": "scoreStandard",
+    "lable": "评分标准"
+  },
+  {
+    "prop": "provinceLeadDepartment",
+    "lable": "省牵头部门"
+  },
+  {
+    "prop": "provinceCoordinationDepartment",
+    "lable": "省配合部门"
+  },
+  {
+    "prop": "cityOpinion",
+    "lable": "修改意见"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "propType": "operateBtns",
+    "width": "250px"
+  }
+]
