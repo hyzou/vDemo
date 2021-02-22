@@ -1,0 +1,12 @@
+[
+  {
+    "type": "date",
+    "label": "专项编号",
+    "name": "year",
+    "span": 12,
+    "valueFormat":"yyyy",
+    "format":"yyyy",
+    "width": "80px",
+    "dateType": "year"
+  }
+]

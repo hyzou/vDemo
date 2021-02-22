@@ -1,0 +1,100 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "父id",
+    "name": "busintypeid",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "本身id",
+    "name": "dicId",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "businid",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "businname",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "是否预留",
+    "name": "reserved",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [
+      {
+        "label": "是",
+        "value": "Y"
+      },
+      {
+        "label": "否",
+        "value": "N"
+      }
+    ],
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "排序",
+    "name": "sortField",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "过滤值",
+    "name": "privilege",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "name": "status",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [
+      {
+        "label": "有效",
+        "value": "0"
+      },
+      {
+        "label": "无效",
+        "value": "1"
+      }
+    ],
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "elTreeSelect",
+    "label": "上级字典",
+    "name": "parentId",
+    "filterable": true,
+    "hideItem": true,
+    "span": 12,
+    "width": "150px",
+    "props": {
+      "value": "id",
+      "label": "text",
+      "children": "children",
+      "choseOnlyLeaf": false
+    },
+    "data": []
+  }
+]

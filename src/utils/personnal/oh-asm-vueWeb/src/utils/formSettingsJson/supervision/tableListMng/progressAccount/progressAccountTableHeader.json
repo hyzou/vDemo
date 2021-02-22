@@ -1,0 +1,20 @@
+[
+  {
+    "prop": "name",
+    "lable": "年度考核任务"
+  },
+  {
+    "prop": "provinceLeadDepartment",
+    "lable": "省牵头部门"
+  },
+  {
+    "prop": "cityLeadDepartment",
+    "lable": "市牵头部门"
+  },
+  {
+    "prop": "option",
+    "lable": "操作",
+    "propType": "operateBtns",
+    "width": "150px"
+  }
+]

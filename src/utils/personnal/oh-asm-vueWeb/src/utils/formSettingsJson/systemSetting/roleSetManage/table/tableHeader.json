@@ -1,0 +1,29 @@
+[
+  {
+    "prop": "roleid",
+    "lable": "角色编码",
+    "sortForbid":true
+  },
+  {
+    "prop": "rolename",
+    "lable": "角色名称",
+    "sortForbid":true
+  },
+  {
+    "prop": "roledesc",
+    "lable": "描述",
+    "sortForbid":true
+  },
+  {
+    "prop": "state-zh_CN",
+    "lable": "状态",
+    "sortForbid":true
+  },
+  {
+    "prop": "operateBtns",
+    "propType": "operateBtns",
+    "lable": "操作",
+    "width": "150",
+    "sortForbid":true
+  }
+]

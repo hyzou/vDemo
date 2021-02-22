@@ -1,0 +1,31 @@
+.layout-manage{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  &-container{
+    overflow-y: auto;
+    &-aside{
+      background:@mainWhite;
+    }
+    &-box{
+      .pd24;
+      height: 100%;
+      background: @layoutBg;
+      box-sizing: border-box;
+      .tab-container{
+        .el-tabs__header{
+          .mb0;
+          .el-tabs__nav{
+            background: @mainWhite;
+          }
+        }
+      }
+      .table-container{
+        background: @mainWhite;
+        .pd20;
+      }
+    }
+  }
+}

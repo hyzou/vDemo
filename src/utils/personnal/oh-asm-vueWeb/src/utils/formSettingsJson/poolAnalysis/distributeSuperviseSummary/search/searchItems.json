@@ -1,0 +1,13 @@
+[
+  {
+    "type": "date",
+    "label": "年度",
+    "dateType": "year",
+    "placeHolder": "请选择",
+    "name": "year",
+    "format":"yyyy",
+    "valueFormat":"yyyy",
+    "span": 13,
+    "width": "150px"
+  }
+]

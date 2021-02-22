@@ -1,0 +1,146 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "assessmentId",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "targetId",
+    "span": 24,
+    "width": "150px"
+  },    
+  {
+    "title":"年度考核任务基本信息",
+    "type":"block",
+    "span": 24,
+    "name":"spotCheckBase",
+    "children":[
+      {
+        "type": "input",
+        "label": "年度",
+        "name": "year",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "考核内容",
+        "name": "assessmentContent",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "重点考核事项",
+        "name": "assessmentItems",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "考核指标",
+        "name": "assessmentTarget",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "年度考核目标任务",
+        "name": "assessmentTargetTask",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "评分标准",
+        "name": "scoreStandard",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "input",
+        "label": "指标分值",
+        "name": "targetScore",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      }
+    ]
+  },
+  {
+    "title":"任务进展情况",
+    "type":"block",
+    "span": 24,
+    "children":[
+      {
+        "type": "select",
+        "label": "任务完成情况",
+        "name": "completeRate",
+        "multiple":false,
+        "data":[{
+          "label": "已完成",
+          "value": "1"
+        },
+        {
+          "label": "未完成",
+          "value": "0"
+        }],
+        "span": 12,
+        "width": "150px"
+      },
+      {
+        "type": "inputTable",
+        "label": "数据项",
+        "name": "dataSetList",
+        "span": 24,
+        "width": "150px",
+        "headers":[
+            {
+              "key": "dataName",
+              "title": "数据项名称",
+              "disabled":true
+            },
+            {
+              "key": "planNum",
+              "title": "计划值",
+              "disabled":true
+            },
+            {
+              "key": "completeNum",
+              "title": "完成值"
+            }
+          ],
+          "tableItems": {
+            "dataName": "",
+            "planNum": "",
+            "completeNum": ""
+          }
+      },
+      {
+        "type": "textarea",
+        "label": "任务落实进展情况",
+        "name": "departmentImplementProgress",
+        "span": 24,
+        "width": "150px"
+      },
+      {
+        "type": "upload",
+        "label": "任务落实依据",
+        "name": "departmentImplementProgressMaterials",
+        "span": 12,
+        "width": "150px",
+        "choseBtn":"上传文件"
+      }
+    ]
+  }
+]

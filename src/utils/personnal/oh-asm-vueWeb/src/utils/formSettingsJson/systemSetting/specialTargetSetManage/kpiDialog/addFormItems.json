@@ -1,0 +1,27 @@
+[
+  {
+    "type": "elTree",
+    "label": "指标类目",
+    "name": "kpiIndextree",
+    "span": 12,
+    "width": "150px",
+    "treeSettings": {
+      "treeData": [],
+      "expandAll": false,
+      "nodeKey": "id",
+      "nodeExpand": false,
+      "defaultProps": {
+        "children": "children",
+        "label": "text"
+      }
+    }
+  },
+  {
+    "type": "input",
+    "label": "评分标准",
+    "name": "name",
+    "rows": 2,
+    "span": 24,
+    "width": "150px"
+  }
+]

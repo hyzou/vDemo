@@ -1,0 +1,22 @@
+[
+  {
+    "prop": "userid",
+    "lable": "登录名",
+    "sortForbid":true
+  },
+  {
+    "prop": "operatorname",
+    "lable": "真实名称",
+    "sortForbid":true
+  },
+  {
+    "prop": "orgname",
+    "lable": "机构名称",
+    "sortForbid":true
+  },
+  {
+    "prop": "status-zh_CN",
+    "lable": "状态",
+    "sortForbid":true
+  }
+]

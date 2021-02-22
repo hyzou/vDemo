@@ -1,0 +1,58 @@
+[
+  {
+    "type": "input",
+    "label": "编码",
+    "name": "busintypeid",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "名称",
+    "name": "busintypename",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "是否树形",
+    "name": "isTree",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [
+      {
+        "label": "是",
+        "value": "1"
+      },
+      {
+        "label": "否",
+        "value": "0"
+      }
+    ],
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "维护方式",
+    "name": "maintainanceMode",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [],
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "系统类型",
+    "name": "sysType",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [],
+    "span": 12,
+    "width": "150px"
+  }
+]

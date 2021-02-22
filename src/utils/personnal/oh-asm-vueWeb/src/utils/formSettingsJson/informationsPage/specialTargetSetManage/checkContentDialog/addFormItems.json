@@ -1,0 +1,10 @@
+[
+  {
+    "type": "textarea",
+    "label": "工作内容",
+    "name": "assessmentContent",
+    "rows": 6,
+    "span": 24,
+    "width": "80px"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "type": "date",
+    "label": "年度",
+    "name": "year",
+    "span": 12,
+    "valueFormat":"yyyy",
+    "format":"yyyy",
+    "width": "150px",
+    "dateType": "year"
+  },
+  {
+    "type": "textarea",
+    "label": "考核内容",
+    "name": "assessmentContent",
+    "rows": 2,
+    "span": 24,
+    "width": "150px"
+  }
+]

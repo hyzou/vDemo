@@ -1,0 +1,19 @@
+[
+  {
+    "prop": "text",
+    "sortForbid": true,
+    "lable": "名称"
+  },
+  {
+    "prop": "value",
+    "sortForbid": true,
+    "lable": "缓存值"
+  },
+  {
+    "prop": "operateBtns",
+    "sortForbid": true,
+    "propType": "operateBtns",
+    "lable": "操作",
+    "width": "200"
+  }
+]

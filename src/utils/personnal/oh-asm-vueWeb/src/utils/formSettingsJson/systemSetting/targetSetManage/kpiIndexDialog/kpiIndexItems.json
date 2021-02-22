@@ -1,0 +1,48 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "父节点id",
+    "name": "parentKpiIndexId",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "本级id",
+    "name": "asmKpiIndexId",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "elTree",
+    "label": "指标类目",
+    "name": "kpiIndextree",
+    "span": 24,
+    "width": "150px",
+    "treeSettings": {
+      "treeData": [],
+      "expandAll": false,
+      "nodeKey": "id",
+      "nodeExpand": false,
+      "defaultProps": {
+        "children": "children",
+        "label": "text"
+      }
+    }
+  },
+  {
+    "type": "input",
+    "label": "下级类目",
+    "name": "name",
+    "rows": 2,
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputNumber",
+    "label": "显示顺序",
+    "name": "serialNo",
+    "span": 12,
+    "width": "150px"
+  }
+]

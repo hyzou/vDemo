@@ -1,0 +1,38 @@
+[
+  {
+    "type": "select",
+    "label": "指标数据项名称",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "name": "subColumn",
+    "data": [
+      {
+        "value": "workReports",
+        "label": "耕地面积"
+      },
+      {
+        "value": "notification",
+        "label": "耕地保有量"
+      },
+      {
+        "value": "dataDownload",
+        "label": "农业主推技术到位率"
+      },
+      {
+        "value": "dynamic",
+        "label": "作物耕种收综合机械化率"
+      },
+      {
+        "value": "inspectionFile",
+        "label": "耕地地力保护补贴预算执行"
+      },
+      {
+        "value": "infosDistribution",
+        "label": "地方储备粮常年保持实物库存量"
+      }
+    ],
+    "span": 13,
+    "width": "150px"
+  }
+]

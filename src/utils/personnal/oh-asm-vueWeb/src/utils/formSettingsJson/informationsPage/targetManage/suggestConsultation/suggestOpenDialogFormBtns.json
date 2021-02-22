@@ -1,0 +1,18 @@
+[
+  {
+    "flag": "open",
+    "size": "",
+    "icon": "",
+    "label": "开启",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "cancel",
+    "size": "",
+    "icon": "",
+    "label": "取消",
+    "styleType": "",
+    "postUrl": "addRegisterMember"
+  }
+]

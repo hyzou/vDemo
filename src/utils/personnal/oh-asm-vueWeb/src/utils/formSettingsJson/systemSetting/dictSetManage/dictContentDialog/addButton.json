@@ -1,0 +1,17 @@
+[
+  {
+    "flag": "dictContentSave",
+    "size": "",
+    "icon": "",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "_data/basic/dictionary/addDic"
+  },
+  {
+    "flag": "cancel",
+    "size": "",
+    "icon": "",
+    "label": "退出",
+    "styleType": ""
+  }
+]

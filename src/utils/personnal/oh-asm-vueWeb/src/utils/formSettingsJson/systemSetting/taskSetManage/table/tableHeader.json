@@ -1,0 +1,44 @@
+[
+  {
+    "prop": "name",
+    "lable": "任务名称",
+    "sortForbid":true
+  },
+  {
+    "prop": "group",
+    "lable": "任务分组",
+    "sortForbid":true
+  },
+  {
+    "prop": "enabled_dsp",
+    "lable": "是否启用",
+    "sortForbid":true
+  },
+  {
+    "prop": "lastRunTime_dsp",
+    "lable": "上次运行时间",
+    "sortForbid":true
+  },
+  {
+    "prop": "nextRunTime_dsp",
+    "lable": "下次运行时间",
+    "sortForbid":true
+  },
+  {
+    "prop": "runCount",
+    "lable": "运行次数",
+    "sortForbid":true
+  },
+  {
+    "prop": "state_dsp",
+    "lable": "状态",
+    "sortForbid":true
+  },
+  {
+    "prop": "operateBtns",
+    "propType": "operateBtns",
+    "lable": "操作",
+    "width": "280px",
+    "sortForbid":true
+  }
+]

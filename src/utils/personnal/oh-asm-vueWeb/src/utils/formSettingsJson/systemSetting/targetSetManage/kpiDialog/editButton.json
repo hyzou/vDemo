@@ -1,0 +1,18 @@
+[
+  {
+    "flag": "kpiSave",
+    "size": "",
+    "icon": "",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "/_data/base/kpi/updateKpiDto"
+  },
+  {
+    "flag": "cancel",
+    "size": "",
+    "icon": "",
+    "label": "退出",
+    "styleType": "",
+    "postUrl": ""
+  }
+]

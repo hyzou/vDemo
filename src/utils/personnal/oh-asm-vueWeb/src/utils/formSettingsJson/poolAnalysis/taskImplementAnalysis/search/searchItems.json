@@ -1,0 +1,17 @@
+[
+  {
+    "type": "select",
+    "label": "专项任务",
+    "placeHolder": "请选择",
+    "name": "specialTask",
+    "data":[{
+      "label":"专项任务1",
+      "value":"task1"
+    },{
+      "label":"专项任务2",
+      "value":"task2"
+    }],
+    "span": 13,
+    "width": "150px"
+  }
+]

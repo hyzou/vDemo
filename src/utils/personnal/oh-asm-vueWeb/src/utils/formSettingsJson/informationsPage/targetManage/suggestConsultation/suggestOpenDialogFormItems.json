@@ -1,0 +1,18 @@
+[
+  {
+    "type": "date",
+    "label": "意见征询开启时间",
+    "name": "leadStartTime",
+    "dateType": "date",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "date",
+    "label": "意见征询截至时间",
+    "name": "leadEndTime",
+    "dateType": "date",
+    "span": 12,
+    "width": "150px"
+  }
+]

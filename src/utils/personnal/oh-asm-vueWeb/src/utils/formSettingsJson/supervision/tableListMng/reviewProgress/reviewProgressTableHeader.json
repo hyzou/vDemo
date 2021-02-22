@@ -1,0 +1,28 @@
+[
+  {
+    "prop": "title",
+    "lable": "主题"
+  },
+  {
+    "prop": "cityName",
+    "lable": "市县"
+  },
+  {
+    "prop": "reviewProgress",
+    "lable": "考核工作进展情况"
+  },
+  {
+    "prop": "reportPeople",
+    "lable": "填报人"
+  },
+  {
+    "prop": "reportDateTime",
+    "lable": "填报日期"
+  },
+  {
+    "prop": "option",
+    "lable": "操作",
+    "propType": "operateBtns",
+    "width": "150px"
+  }
+]

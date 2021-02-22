@@ -1,0 +1,18 @@
+[
+  {
+    "flag": "saveAdd",
+    "size": "",
+    "icon": "",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "cancel",
+    "size": "",
+    "icon": "",
+    "label": "退出",
+    "styleType": "",
+    "postUrl": "addRegisterMember"
+  }
+]

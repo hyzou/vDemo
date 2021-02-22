@@ -1,0 +1,90 @@
+[
+  {
+    "type": "inputTable",
+    "label": "",
+    "name": "targetParams",
+    "useType":"",
+    "span": 24,
+    "width": "0px",
+    "headers":[
+        {
+          "key": "name",
+          "title": "年度考核任务",
+          "disabled":true,
+          "inputType": "input",
+          "width":"150"
+        },
+        {
+          "key": "330100",
+          "disabled":true,
+          "inputType": "input",
+          "title": "杭州市"
+        },
+        {
+          "key": "330200",
+          "disabled":true,
+          "inputType": "input",
+          "title": "宁波市"
+        },
+        {
+          "key": "330300",
+          "disabled":true,
+          "inputType": "input",
+          "title": "温州市"
+        },
+        {
+          "key": "330400",
+          "disabled":true,
+          "inputType": "input",
+          "title": "嘉兴市"
+        },
+        {
+          "key": "330500",
+          "disabled":true,
+          "inputType": "input",
+          "title": "湖州市"
+        },
+        {
+          "key": "330600",
+          "disabled":true,
+          "inputType": "input",
+          "title": "绍兴市"
+        },
+        {
+          "key": "330700",
+          "disabled":true,
+          "inputType": "input",
+          "title": "金华市"
+        },
+        {
+          "key": "330800",
+          "disabled":true,
+          "inputType": "input",
+          "title": "衢州市"
+        },
+        {
+          "key": "330900",
+          "disabled":true,
+          "inputType": "input",
+          "title": "舟山市"
+        },
+        {
+          "key": "331000",
+          "disabled":true,
+          "inputType": "input",
+          "title": "台州市"
+        },
+        {
+          "key": "331100",
+          "disabled":true,
+          "inputType": "input",
+          "title": "丽水市"
+        }
+      ],
+      "tableItems": {
+        "name": "",
+        "code": "",
+        "unit": ""
+      }
+  }
+]

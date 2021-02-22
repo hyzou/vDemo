@@ -1,0 +1,10 @@
+[
+  {
+    "flag": "cancel",
+    "size": "",
+    "icon": "",
+    "label": "退出",
+    "styleType": "",
+    "postUrl": "addRegisterMember"
+  }
+]

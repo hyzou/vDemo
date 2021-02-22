@@ -1,0 +1,26 @@
+[
+  {
+    "type": "select",
+    "label": "考核方案",
+    "name": "asmSchemeId",
+    "multiple": false,
+    "filterable": false,
+    "data": [],
+    "span": 8,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "表彰单位",
+    "name": "grantor",
+    "span": 8,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "表彰名称",
+    "name": "name",
+    "span": 8,
+    "width": "100px"
+  }
+]

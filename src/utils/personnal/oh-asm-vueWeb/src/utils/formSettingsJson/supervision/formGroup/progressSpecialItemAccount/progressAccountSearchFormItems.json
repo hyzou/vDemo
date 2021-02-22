@@ -1,0 +1,44 @@
+[
+  {
+    "type": "date",
+    "label": "专项编号",
+    "name": "year",
+    "span": 8,
+    "dateType": "year"
+  },
+  {
+    "type": "select",
+    "label": "状态",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": true,
+    "name": "status",
+    "data": [
+      {
+        "value": "0",
+        "label": "无落实进展"
+      },
+      {
+        "value": "1",
+        "label": "有进展未查阅"
+      },
+      {
+        "value": "2",
+        "label": "有进展已查阅"
+      }
+    ],
+    "span": 8
+  },
+  {
+    "type": "date",
+    "label": "落实日期",
+    "name": "time",
+    "span": 8,
+    "dateType": "daterange",
+    "dateRangeSeparator": "至",
+    "dateStartPlaceholder": "开始日期",
+    "dateEndPlaceholder": "结束日期",
+    "format": "yyyy-MM-dd",
+    "valueFormat": "yyyy-MM-dd"
+  }
+]

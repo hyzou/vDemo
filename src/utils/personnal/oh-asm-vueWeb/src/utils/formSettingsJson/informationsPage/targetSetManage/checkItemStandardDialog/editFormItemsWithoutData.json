@@ -1,0 +1,125 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "id",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "date",
+    "label": "年度",
+    "name": "year",
+    "span": 12,
+    "width": "150px",
+    "dateType": "year",
+    "valueFormat":"yyyy",
+    "format":"yyyy",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "考核内容",
+    "name": "assessmentContent",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "重点考核事项",
+    "name": "assessmentItems",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "考核指标",
+    "name": "assessmentTarget",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "年度考核任务",
+    "name": "assessmentTargetTask",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "牵头部门",
+    "name": "provinceLeadDep",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [],
+    "span": 12,
+    "disabled": true,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "配合部门",
+    "name": "provinceCoorpDep",
+    "multiple": true,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [],
+    "span": 12,
+    "disabled": true,
+    "width": "150px"
+  },
+  {
+    "type": "textarea",
+    "label": "评分标准",
+    "name": "scoreStandard",
+    "span": 24,
+    "width": "150px",
+    "rows": 4
+  },
+  {
+    "type": "stepInput",
+    "label": "分值设定",
+    "name": "score",
+    "precision": 2,
+    "step": 0.1,
+    "min": 0,
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputTable",
+    "label": "指标数据项",
+    "name": "targetParams",
+    "useType":"add",
+    "span": 24,
+    "width": "150px",
+    "headers":[
+      {
+        "key": "name",
+        "title": "名称"
+      },
+      {
+        "key": "unit",
+        "title": "单位"
+      },
+      {
+        "key": "planNum",
+        "title": "计划完成量"
+      }
+    ],
+    "tableItems": {
+      "name": "",
+      "unit": "",
+      "planNum":""
+    }
+  }
+]

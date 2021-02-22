@@ -1,0 +1,12 @@
+[
+  {
+    "type": "date",
+    "label": "年度",
+    "name": "year",
+    "span": 8,
+    "valueFormat":"yyyy",
+    "format":"yyyy",
+    "width": "100px",
+    "dateType": "year"
+  }
+]

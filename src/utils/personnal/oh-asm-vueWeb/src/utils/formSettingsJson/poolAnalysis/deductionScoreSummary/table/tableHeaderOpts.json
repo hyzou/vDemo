@@ -1,0 +1,12 @@
+[
+  {
+    "prop": "name",
+    "lable": "市县名称",
+    "width": ""
+  },
+  {
+    "prop": "value",
+    "lable": "失分项个数",
+    "width": ""
+  }
+]

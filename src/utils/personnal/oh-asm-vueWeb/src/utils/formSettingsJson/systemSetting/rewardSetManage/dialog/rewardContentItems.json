@@ -1,0 +1,70 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "表彰项id",
+    "name": "asmSchemeRewardId",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "考核方案",
+    "name": "schemeName",
+    "span": 12,
+    "width": "150px",
+    "hideItem": true
+  },
+  {
+    "type": "select",
+    "label": "考核方案",
+    "name": "asmSchemeId",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [],
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "表彰单位",
+    "name": "grantor",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "表彰名称",
+    "name": "name",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "upload",
+    "label": "表彰依据文件",
+    "name": "rewardFile",
+    "span": 12,
+    "width": "150px",
+    "choseBtn": "上传文件"
+  },
+  {
+    "type": "fileshowList",
+    "label": "表彰依据文件列表",
+    "name": "rewardFileList",
+    "span": 24,
+    "width": "150px",
+    "fileSettings": {
+      "hidedelete": false,
+      "hideFileSize": true,
+      "hideFileTime": true
+    }
+  },
+  {
+    "type": "input",
+    "label": "表彰依据文件名称",
+    "name": "terms",
+    "span": 12,
+    "width": "150px"
+  }
+]

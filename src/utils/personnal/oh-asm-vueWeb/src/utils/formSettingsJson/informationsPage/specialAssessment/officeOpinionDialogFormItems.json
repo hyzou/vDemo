@@ -1,0 +1,111 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "assessmentId",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "年度",
+    "name": "year",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "市县",
+    "name": "cityName",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "考核内容",
+    "name": "assessmentContent",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "重点考核事项",
+    "name": "assessmentItems",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "考核指标",
+    "name": "assessmentTarget",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "input",
+    "label": "年度考核任务",
+    "name": "assessmentTargetTask",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "评分标准",
+    "name": "scoreStandard",
+    "span": 24,
+    "width": "150px",
+    "disabled": true,
+    "rows": 4
+  },
+  {
+    "type": "textarea",
+    "label": "处室配合意见",
+    "name": "officeOpinions",
+    "span": 24,
+    "width": "150px",
+    "rows": 3
+  },
+  {
+    "type": "upload",
+    "label": "配合材料",
+    "name": "officeMaterials",
+    "span": 12,
+    "width": "150px",
+    "choseBtn":"上传文件"
+  },
+  {
+    "type": "elTreeSelect",
+    "label": "配合处室",
+    "name": "officeId",
+    "span": 12,
+    "width": "150px",
+    "disabled" : true,
+    "props": {
+      "value": "orgId",
+      "label": "orgName",
+      "children": "children",
+      "choseOnlyLeaf": false
+    },
+    "data": []
+  },
+  {
+    "type": "input",
+    "label": "意见填报人",
+    "name": "officeInputName",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "审核人",
+    "name": "officeCheckName",
+    "span": 12,
+    "width": "150px"
+  }
+]

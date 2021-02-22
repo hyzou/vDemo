@@ -1,0 +1,24 @@
+[
+  {
+    "prop": "text",
+    "lable": "内容"
+  },
+  {
+    "prop": "provinceLeaderDep",
+    "lable": "省牵头部门"
+  },
+  {
+    "prop": "provinceCoorpDep",
+    "lable": "省配合部门"
+  },
+  {
+    "prop": "score",
+    "lable": "分值"
+  },
+  {
+    "prop": "operateBtns",
+    "propType": "operateBtns",
+    "lable": "操作",
+    "width": "150"
+  }
+]

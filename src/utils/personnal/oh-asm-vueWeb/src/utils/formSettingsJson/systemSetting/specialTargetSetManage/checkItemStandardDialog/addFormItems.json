@@ -1,0 +1,46 @@
+[
+  {
+    "type": "textarea",
+    "label": "考核内容",
+    "name": "assessmentContent",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "重点考核事项",
+    "name": "assessmentItems",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "考核指标",
+    "name": "assessmentTarget",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "年度考核任务",
+    "name": "assessmentTargetTask",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "评分标准",
+    "name": "scoreStandard",
+    "span": 24,
+    "width": "150px",
+    "rows": 4
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "prop": "year",
+    "lable": "年度",
+    "width": "80px"
+  },
+  {
+    "prop": "cityName",
+    "lable": "市县",
+    "width": "80px"
+  },
+  {
+    "prop": "assessmentTargetTask",
+    "lable": "年度考核任务"
+  },
+  {
+    "prop": "scoreStandard",
+    "lable": "评分标准"
+  },
+  {
+    "prop": "reviewProgress",
+    "lable": "考核工作进展情况"
+  },
+  {
+    "prop": "reportPeople",
+    "lable": "填报人"
+  },
+  {
+    "prop": "reportDateTime",
+    "lable": "填报日期"
+  },
+  {
+    "prop": "option",
+    "lable": "操作",
+    "propType": "operateBtns",
+    "width": "150px"
+  }
+]

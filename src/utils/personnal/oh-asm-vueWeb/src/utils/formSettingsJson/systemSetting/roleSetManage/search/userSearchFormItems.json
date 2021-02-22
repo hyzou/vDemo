@@ -1,0 +1,31 @@
+[
+  {
+    "type": "input",
+    "label": "登录名",
+    "name": "userid",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "input",
+    "label": "真实姓名",
+    "name": "operatorname",
+    "span": 12,
+    "width": "100px"
+  },
+  {
+    "type": "elTreeSelect",
+    "label": "机构",
+    "name": "orgid",
+    "filterable": true,
+    "span": 12,
+    "width": "100px",
+    "props": {
+      "value": "id",
+      "label": "text",
+      "children": "children",
+      "choseOnlyLeaf": false
+    },
+    "data": []
+  }
+]

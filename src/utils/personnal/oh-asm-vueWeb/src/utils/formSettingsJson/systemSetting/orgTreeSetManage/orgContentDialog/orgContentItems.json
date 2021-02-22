@@ -1,0 +1,119 @@
+[{
+    "type": "inputHidden",
+    "label": "机构id",
+    "name": "parentorgid",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "新增id",
+    "name": "orgid",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "机构名称",
+    "name": "orgname",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "机构类型",
+    "name": "orgtypeid",
+    "linkName": "addOrgType",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [],
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "行政级别",
+    "name": "districtLevel",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [],
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "elTreeSelect",
+    "label": "管理区域",
+    "name": "district",
+    "filterable": true,
+    "span": 12,
+    "width": "150px",
+    "props": {
+      "value": "id",
+      "label": "text",
+      "children": "children",
+      "choseOnlyLeaf": false
+    },
+    "data": []
+  },
+  {
+    "type": "elTreeSelect",
+    "label": "所在区域",
+    "name": "addressDistrict",
+    "filterable": true,
+    "span": 12,
+    "width": "150px",
+    "props": {
+      "value": "id",
+      "label": "text",
+      "children": "children",
+      "choseOnlyLeaf": false
+    },
+    "data": [],
+    "hideItem" : true
+  },
+  {
+    "type": "input",
+    "label": "负责人姓名",
+    "name": "linkman",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputNumber",
+    "label": "负责人电话",
+    "name": "linkmantel",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "input",
+    "label": "联系人姓名",
+    "name": "lawman",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputNumber",
+    "label": "联系人电话",
+    "name": "officeNo",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "inputNumber",
+    "label": "排序",
+    "name": "orgsort",
+    "span": 12,
+    "width": "150px"
+  },
+  {
+    "type": "textarea",
+    "label": "机构简介",
+    "name": "memo",
+    "rows": 3,
+    "span": 24,
+    "width": "150px"
+  }
+]

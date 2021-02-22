@@ -1,0 +1,55 @@
+.main-top-logo{
+	&-leftPic{
+    .pl20;
+      // @media (min-width: 1500px) and (max-width: 1700px) {
+      //   .el-image {
+      //     top: 23px !important;
+      //   }
+      // }
+      // @media (min-width: 1440px) and (max-width: 1499px) {
+      //   .el-image {
+      //     top: 26px !important;
+      //   }
+      // }
+      // @media (max-width: 1400px) {
+      //   .el-image {
+      //     top: 29px !important;
+      //   }
+      // }
+	}
+  .headerToolbar{
+    color: @mainBgColor;
+    height: 86px;
+    // .pd15;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    &-icon{
+      font-size: 22px;
+      // .mr28;
+    }
+    .currentUser{
+      background: @colorCCC;
+      border-radius: 50%;
+      .pd5;
+      .mr5;
+    }
+    a{
+      // color: @mainWhite;
+      text-decoration: none;
+    }
+    .noticeTips{
+      .positionAbs;
+      .displayBlock;
+      .pt3;
+      .pb3;
+      .pl6;
+      .pr6;
+      top: -5px;
+      right: -15px;
+      background: @mainRed;
+      font-size: 12px;
+      .borderRadius(50%)
+    }
+  }
+}

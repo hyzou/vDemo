@@ -1,0 +1,237 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "assessmentId",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "targetId",
+    "span": 24,
+    "width": "150px"
+  },    
+  {
+    "title":"年度考核基本信息",
+    "type":"block",
+    "span": 24,
+    "children":[
+      {
+        "type": "input",
+        "label": "年度",
+        "name": "year",
+        "span": 12,
+        "width": "150px",
+        "disabled": true
+      },
+      {
+        "type": "input",
+        "label": "市县",
+        "name": "cityName",
+        "span": 12,
+        "width": "150px",
+        "disabled": true
+      },
+      {
+        "type": "input",
+        "label": "考核内容",
+        "name": "assessmentContent",
+        "span": 24,
+        "width": "150px",
+        "disabled": true
+      },
+      {
+        "type": "input",
+        "label": "重点考核事项",
+        "name": "assessmentItems",
+        "span": 24,
+        "width": "150px",
+        "disabled": true
+      },
+      {
+        "type": "input",
+        "label": "考核指标",
+        "name": "assessmentTarget",
+        "span": 24,
+        "width": "150px",
+        "disabled": true
+      },
+      {
+        "type": "input",
+        "label": "年度考核任务",
+        "name": "assessmentTargetTask",
+        "span": 24,
+        "width": "150px",
+        "disabled": true
+      },
+      {
+        "type": "textarea",
+        "label": "评分标准",
+        "name": "scoreStandard",
+        "span": 24,
+        "width": "150px",
+        "disabled": true,
+        "rows": 4
+      },
+      {
+        "type": "select",
+        "label": "市级牵头部门",
+        "name": "cityLeadDepartmentId",
+        "span": 12,
+        "multiple": false,
+        "placeHolder": "请选择",
+        "filterable": false,
+        "disabled": true,
+        "width": "150px",
+        "data": [{
+          "label":"杭州市农业农村局",
+          "value":"1002"
+        },{
+          "label":"杭州市商务局",
+          "value":"1003"
+        }]
+      },
+      {
+        "type": "select",
+        "label": "市级配合部门",
+        "name": "cityCoordinationDepartmentId",
+        "span": 12,
+        "multiple": false,
+        "placeHolder": "请选择",
+        "filterable": false,
+        "width": "150px",
+        "disabled": true,
+        "data": [{
+          "label":"杭州市农业农村局",
+          "value":"1002"
+        },{
+          "label":"杭州市商务局",
+          "value":"1003"
+        }]
+      },
+      {
+        "type": "select",
+        "label": "处室",
+        "hideItem": true,
+        "name": "officeId",
+        "span": 12,
+        "multiple": false,
+        "placeHolder": "请选择",
+        "filterable": false,
+        "width": "150px",
+        "disabled": true,
+        "data": [{
+          "label":"浙江省农业农村厅种植业和种业管理处",
+          "value":"1004001"
+        },{
+          "label":"浙江省农业农村厅农田建设管理处",
+          "value":"1004002"
+        }]
+      }
+    ]
+  },
+  {
+    "title":"自评配合部门意见",
+    "type":"block",
+    "span": 24,
+    "children":[
+      {
+        "type": "input",
+        "label": "部门名称",
+        "name": "cityCoordinationDepartment",
+        "span": 24,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "意见",
+        "name": "opinion",
+        "span": 24,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "材料",
+        "name": "material",
+        "span": 24,
+        "disabled": true,
+        "width": "150px"
+      }
+    ]
+  },
+  {
+    "title":"自评牵头部门打分情况",
+    "type":"block",
+    "span": 24,
+    "children":[
+      {
+        "type": "input",
+        "label": "部门名称",
+        "name": "cityLeadDepartment",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "input",
+        "label": "指标分数",
+        "name": "targetScore",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "input",
+        "label": "自评分",
+        "name": "selfScore",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "打分依据",
+        "name": "yearwe",
+        "span": 24,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "减分原因",
+        "name": "reason",
+        "span": 24,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "整改措施",
+        "name": "measures",
+        "span": 24,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "input",
+        "label": "自评人",
+        "name": "selfName",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      },
+      {
+        "type": "input",
+        "label": "审核人",
+        "name": "checkName",
+        "span": 12,
+        "disabled": true,
+        "width": "150px"
+      }
+    ]
+  }
+]

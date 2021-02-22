@@ -1,0 +1,19 @@
+[
+  {
+    "type": "textarea",
+    "label": "考核内容",
+    "name": "assessmentContent",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "重点考核事项",
+    "name": "assessmentItems",
+    "rows": 2,
+    "span": 24,
+    "width": "150px"
+  }
+]

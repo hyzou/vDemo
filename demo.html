@@ -36,6 +36,8 @@
 				<p v-else>v-else</p>
 				<p v-show="showflag">v-show</p>
 				<button type="button" @click="reset">重置</button>
+				<button type="button" @click="handleFir">第一个按钮</button>
+				<button type="button" ref="secBtn2" @click="handleSec">第二个按钮</button>
 			</div>
 		</div>
 
@@ -76,6 +78,13 @@
 					}
 				},
 				methods: {
+					handleFir(){
+						let idx = "2";
+						this.$refs["secBtn"+idx].click();
+					},
+					handleSec(){
+						alert(2)
+					},
 					testGetValue: function() {
 						console.log(this.testinputValue);
 						console.log(this.testinputObj);

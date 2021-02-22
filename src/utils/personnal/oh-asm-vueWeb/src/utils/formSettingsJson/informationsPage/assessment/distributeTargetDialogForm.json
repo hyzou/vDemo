@@ -1,0 +1,68 @@
+[
+  {
+    "type": "date",
+    "label": "年度",
+    "name": "year",
+    "span": 12,
+    "width": "150px",
+    "dateType": "year",
+    "disabled": true
+  },
+  {
+    "type": "select",
+    "label": "省份",
+    "name": "province",
+    "span": 12,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "考核内容",
+    "name": "assessmentContent",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "重点考核事项",
+    "name": "assessmentItems",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "年度考核指标",
+    "name": "assessmentTarget",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "年度考核任务",
+    "name": "assessmentTargetTask",
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "评分标准",
+    "name": "scoreStandard",
+    "span": 24,
+    "width": "150px",
+    "disabled": true,
+    "rows": 4
+  },
+  {
+    "type": "textarea",
+    "label": "省局征询意见",
+    "name": "opinion",
+    "span": 24,
+    "width": "150px",
+    "rows": 4
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "assessmentId",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "targetId",
+    "span": 24,
+    "width": "150px"
+  },    
+  {
+    "title":"年度考核抽查项目",
+    "type":"block",
+    "span": 24,
+    "name":"spotCheckBase",
+    "children":[
+      {
+        "type": "elTreeSelect",
+        "label": "抽查项目",
+        "name": "spotCheckItems",
+        "span": 24,
+        "data":[],
+        "props": {
+          "value": "id",
+          "label": "text",
+          "children": "children"
+        },
+        "filterable":true,
+        "multiple":true,
+        "clearable":true,
+        "width": "150px"
+      }
+    ]
+  },
+  {
+    "title":"抽查组1",
+    "type":"block",
+    "span": 24,
+    "children":[
+      {
+        "type": "select",
+        "label": "抽查城市",
+        "name": "g1city",
+        "multiple":true,
+        "data":[{
+          "label": "杭州市",
+          "value": "330100"
+        },
+        {
+          "label": "宁波市",
+          "value": "330200"
+        },
+        {
+          "label": "温州市",
+          "value": "330300"
+        },
+        {
+          "label": "嘉兴市",
+          "value": "330400"
+        },
+        {
+          "label": "湖州市",
+          "value": "330500"
+        },
+        {
+          "label": "绍兴市",
+          "value": "330600"
+        },
+        {
+          "label": "金华市",
+          "value": "330700"
+        },
+        {
+          "label": "衢州市",
+          "value": "330800"
+        },
+        {
+          "label": "舟山市",
+          "value": "330900"
+        },
+        {
+          "label": "台州市",
+          "value": "331000"
+        },
+        {
+          "label": "丽水市",
+          "value": "331100"
+        }],
+        "span": 12,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "重点事项",
+        "name": "g1KeyItems",
+        "span": 24,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "注意事项",
+        "name": "g1MattersItems",
+        "span": 24,
+        "width": "150px"
+      }
+    ]
+  },
+  {
+    "title":"抽查组2",
+    "type":"block",
+    "span": 24,
+    "children":[
+      {
+        "type": "select",
+        "label": "抽查城市",
+        "multiple":true,
+        "name": "g2city",
+        "data":[{
+          "label": "杭州市",
+          "value": "330100"
+        },
+        {
+          "label": "宁波市",
+          "value": "330200"
+        },
+        {
+          "label": "温州市",
+          "value": "330300"
+        },
+        {
+          "label": "嘉兴市",
+          "value": "330400"
+        },
+        {
+          "label": "湖州市",
+          "value": "330500"
+        },
+        {
+          "label": "绍兴市",
+          "value": "330600"
+        },
+        {
+          "label": "金华市",
+          "value": "330700"
+        },
+        {
+          "label": "衢州市",
+          "value": "330800"
+        },
+        {
+          "label": "舟山市",
+          "value": "330900"
+        },
+        {
+          "label": "台州市",
+          "value": "331000"
+        },
+        {
+          "label": "丽水市",
+          "value": "331100"
+        }],
+        "span": 12,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "重点事项",
+        "name": "g2KeyItems",
+        "span": 24,
+        "width": "150px"
+      },
+      {
+        "type": "textarea",
+        "label": "注意事项",
+        "name": "g2MattersItems",
+        "span": 24,
+        "width": "150px"
+      }
+    ]
+  }
+]

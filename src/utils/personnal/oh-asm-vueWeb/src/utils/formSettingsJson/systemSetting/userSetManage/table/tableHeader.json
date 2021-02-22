@@ -1,0 +1,34 @@
+[
+  {
+    "prop": "userid",
+    "lable": "登录名",
+    "sortForbid": true
+  },
+  {
+    "prop": "operatorname",
+    "lable": "用户姓名",
+    "sortForbid": true
+  },
+  {
+    "prop": "orgname",
+    "lable": "所属机构",
+    "sortForbid": true
+  },
+  {
+    "prop": "expiredDt_Format",
+    "lable": "有效期",
+    "sortForbid": true
+  },
+  {
+    "prop": "status-zh_CN",
+    "lable": "状态",
+    "sortForbid": true
+  },
+  {
+    "prop": "operateBtns",
+    "propType": "operateBtns",
+    "lable": "操作",
+    "width": "200",
+    "sortForbid": true
+  }
+]

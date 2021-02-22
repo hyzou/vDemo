@@ -1,0 +1,67 @@
+[
+  {
+    "type": "select",
+    "label": "待引用专项编号",
+    "name": "assessmentContent",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [
+      {
+        "label":"202005",
+        "value":"202005"
+      },
+      {
+        "label":"202006",
+        "value":"202006"
+      },
+      {
+        "label":"202007",
+        "value":"202007"
+      }
+    ],
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "switch",
+    "label": "是否定为专项考核",
+    "name": "isOpenSpecialCity",
+    "activeValue": "1",
+    "activeColor": "",
+    "activeText": "是",
+    "inactiveValue": "0",
+    "inactiveColor": "",
+    "inactiveText": "否",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "select",
+    "label": "专项任务流程设定",
+    "name": "provinceLeadDep",
+    "multiple": false,
+    "placeHolder": "请选择",
+    "filterable": false,
+    "data": [
+      {
+        "label":"监督",
+        "value":"1"
+      },
+      {
+        "label":"监督-自评",
+        "value":"2"
+      },
+      {
+        "label":"监督-自评-部门评分",
+        "value":"3"
+      },
+      {
+        "label":"监督-自评-部门评分-抽查",
+        "value":"4"
+      }
+    ],
+    "span": 24,
+    "width": "150px"
+  }
+]

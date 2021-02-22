@@ -1,0 +1,17 @@
+[
+  {
+    "flag": "save",
+    "size": "",
+    "icon": "",
+    "label": "保存",
+    "styleType": "primary",
+    "postUrl": "_data/base/orgemployee/addEmp"
+  },
+  {
+    "flag": "cancel",
+    "size": "",
+    "icon": "",
+    "label": "退出",
+    "styleType": ""
+  }
+]

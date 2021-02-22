@@ -1,0 +1,79 @@
+[
+  {
+    "type": "inputTable",
+    "label": "指标数据项",
+    "name": "targetParams",
+    "useType":"",
+    "span": 24,
+    "width": "150px",
+    "headers":[
+        {
+          "key": "name",
+          "title": "指标项名称",
+          "disabled":true,
+          "inputType": "input",
+          "width":"150"
+        },
+        {
+          "key": "330100",
+          "inputType": "input",
+          "title": "杭州市"
+        },
+        {
+          "key": "330200",
+          "inputType": "input",
+          "title": "宁波市"
+        },
+        {
+          "key": "330300",
+          "inputType": "input",
+          "title": "温州市"
+        },
+        {
+          "key": "330400",
+          "inputType": "input",
+          "title": "嘉兴市"
+        },
+        {
+          "key": "330500",
+          "inputType": "input",
+          "title": "湖州市"
+        },
+        {
+          "key": "330600",
+          "inputType": "input",
+          "title": "绍兴市"
+        },
+        {
+          "key": "330700",
+          "inputType": "input",
+          "title": "金华市"
+        },
+        {
+          "key": "330800",
+          "inputType": "input",
+          "title": "衢州市"
+        },
+        {
+          "key": "330900",
+          "inputType": "input",
+          "title": "舟山市"
+        },
+        {
+          "key": "331000",
+          "inputType": "input",
+          "title": "台州市"
+        },
+        {
+          "key": "331100",
+          "inputType": "input",
+          "title": "丽水市"
+        }
+      ],
+      "tableItems": {
+        "name": "",
+        "code": "",
+        "unit": ""
+      }
+  }
+]

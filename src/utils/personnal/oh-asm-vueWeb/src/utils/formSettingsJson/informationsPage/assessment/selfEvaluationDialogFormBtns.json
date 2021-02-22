@@ -1,0 +1,12 @@
+[ 
+  {
+    "flag": "save",
+    "label": "保存",
+    "styleType": "primary"
+  },
+  {
+    "flag": "cancle",
+    "label": "取消",
+    "styleType": ""
+  }
+]

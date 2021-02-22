@@ -1,0 +1,340 @@
+// 通用样式
+#app {
+	font-family: "Avenir", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+//修改element-ui部分样式
+.el-header, .el-main, .el-footer{
+	.pd0;
+}
+.el-table{
+  .cell{
+    // text-align: center;
+    // width: 100% !important;
+    p{
+      display: inline-block;
+    }
+  }
+}
+.upload-demo{
+  .mt4;
+}
+.el-table__header, .el-table__body{
+  .width100;
+}
+.el-transfer-panel__item{
+  .displayBlock
+}
+.oddColomn{
+  background: @randomTip !important;
+}
+.eveColomn{
+  background: @btnEve !important;
+}
+// formgroup组件内，editor行高重置
+.formItemLh{
+	.el-form-item__content{
+    .ml0 !important;
+    .pr3;
+	}
+}
+.el-form-item__content{
+  line-height: inherit;
+}
+
+.link{
+  color: @mainWhite;
+  text-decoration: none;
+}
+.textColorLightBlue{
+	color: @mainBgColorLight;
+}
+.backTopArrow{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background-color: @mainRed;
+  text-align: center;
+  line-height: 40px;
+  color: @mainWhite;
+}
+.file{
+  // border: 1px solid @color999;
+  background: @loginItemBg;
+  .cursor;
+  .borderRadius(3px);
+  color: @mainBgColorLight;
+  .lh(40px);
+}
+.scorelist{
+  line-height: 40px;
+  &-header{
+    .mb0;
+    &-title{
+      border: 1px solid @colorCCC;
+      border-radius: 0 !important;
+    }
+  }
+  &-body{
+    text-align: center;
+    &-content{
+      &-item{
+        border-radius: 0 !important;
+        border: 1px solid @colorCCC;
+        &-input{
+          .el-input__inner{
+            border: 0 !important;
+            text-align: center;
+          }
+        }
+        &-button{
+          border: 0;
+        }
+      }
+    }
+  }
+}
+.headerBarContainer{
+  background-color: @mainBgColor;
+  width: 100%;
+}
+
+// @media (max-width: 1700px) {
+//   .headerOperation {
+//     top: 37px;
+//   }
+// }
+
+.headerOperation {
+  height: 86px;
+  justify-content: flex-end;
+  // position: relative;
+  // top: 0;
+  // right: 60px;
+  // >span:not(:last-child) {
+  //   margin-right: 30px !important;
+  // }
+  // @media (min-width: 1440px) and (max-width: 1499px) {
+  //   >span:not(:last-child) {
+  //     margin-right: 20px !important;
+  //   }
+  // }
+  // @media (max-width: 1400px) {
+  //   >span:not(:last-child) {
+  //     margin-right: 10px !important;
+  //   }
+  // }
+}
+.memberSignup{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+  right: 0;
+  background-color: @mainBgColor;
+	//background-image: url(../../assets/register_bg.png);
+    //-webkit-background-size: 100% 100%;
+    //background-size: 100% 100%;
+	z-index: 9;
+	overflow-y: auto;
+    .registerTitle{
+      z-index:99;
+      font-weight:900;
+      color:@mainBgColor;
+      min-height: 200px;
+      display:flex;
+      align-items:center;
+    }
+  .registerBody{
+    padding: 50px 0;
+    height: 550px;
+    background-image: url(../../assets/loginBg.png);
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    .login-zone{
+      border: 0 !important;
+      box-shadow: none !important;
+    }
+  }
+  .registerFooter {
+    min-height: 180px;
+    display:flex;
+    align-items:center;
+    font-weight: 400;
+    color: #FFFFFF;
+    font-size: 18px;
+  }
+}
+
+.tips{
+  background: @tipsBgColor;
+  color: @color333;
+  border: @tipsBorderColor;
+}
+//demo less
+.contentText{
+  .pd10;
+  .lh(30px);
+  &-tips{
+    list-style: square inside;
+  }
+}
+pre{
+  background-color: @codeBg;
+  color: @codeColor;
+  overflow: auto;
+  .lh(24px);
+  code{
+    font: 400 16px Source Code Pro,DejaVu Sans Mono,Ubuntu Mono,Anonymous Pro,Droid Sans Mono,Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,PingFang SC,Microsoft YaHei,sans-serif!important;
+    word-wrap:break-word; // Internet Explorer 5.5+ / 
+    white-space: pre-wrap; // Firefox /
+  }
+}
+.random{
+  &-bgbox{
+    z-index:99;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.3);
+  }
+  &-mainContent{
+    width:800px;
+    height:600px;
+    background-color: #4C7CD7;
+  }
+  &-closeBtn{
+    width: 30px;
+    height: 30px;
+    right: 20px;
+    top: 20px;
+    z-index: 99;
+    background:url('../../assets/random/close.png') no-repeat;
+    background-size: 100% 100%;
+  }
+  &-title{
+    .width100;
+    height: 70px;
+    background:url('../../assets/random/title.png') no-repeat center;
+    background-size: contain;
+  }
+  &-operateButtons{
+    &-button{
+      .width(105px);
+      .height(36px);
+      .borderRadius(6px);
+      .fontSize16;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    }
+    &-next{
+      .width(180px);
+    }
+  }
+  &-showItem{
+    border-bottom: 1px solid @warning;
+    box-sizing: border-box;
+    .lh(89px);
+  }
+  &-switchContent{
+    width: 515px;
+    height: 320px;
+    .mgAuto;
+    border: 15px solid #98BBFF;
+    background-color: #DCEDFF;
+    .borderRadius(28px);
+  }
+  .el-checkbox__label{
+    .width100;
+  }
+}
+
+.lheightInitial{
+  line-height: initial;
+}
+.bdTop{
+  border-top: 1px solid @color333;
+}
+.bdBottom{
+  border-bottom: 1px solid @color333;
+}
+.bdRight{
+  border-right: 1px solid @color333;
+}
+.bdLeft{
+  border-left: 1px solid @color333;
+}
+
+.el-input.is-disabled .el-input__inner,.el-textarea.is-disabled .el-textarea__inner {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: rgba(0, 0, 0, 0.55) !important;
+}
+.el-popover{
+  min-width: 30px;
+}
+
+.noticeContainer{
+  .width(297px);
+  .height(226px);
+  background:url("../../assets/notice_bg.png") no-repeat center;
+  z-index: 999;
+  .positionFix;
+  left: 0;
+  bottom: 0;
+  .noticeText{
+    width: 100%;
+    .textAlignCenter;
+    .mt70;
+  }
+  .noticeCloseButton{
+    .positionAbs;
+    right: 0;
+    top: 0;
+    z-index: 999;
+    background:url("../../assets/notice_close.png") no-repeat center;
+    background-size: 100% 100%;
+    .width(17px);
+    .height(17px);
+    }
+}
+.selectTree{
+  max-width: 100%;
+}
+.choseSystem{
+  background:url("../../assets/choseSystem/bgPic.png") no-repeat center;
+  background-size: 100% 100%;
+  &-title{
+    left: 50%;
+    top:-130px;
+    transform: translateX(-50%);
+  }
+  &-sysItem{
+    width: 400px;
+    height: 339px;
+    border-radius: 10px;
+    &:hover{
+      box-shadow: 0px 2px 30px 10px rgba(0, 0, 0, 0.3);
+    }
+    &-province{
+      background-color: @provinceBlock;
+    }
+    &-city{
+      background-color: @cityBlock;
+    }
+    &-country{
+      background-color: @countryBlock;
+    }
+  }
+  &-copyRight{
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &-logout{
+    right:50px;
+    bottom:50px;
+    opacity:0.8;
+  }
+}

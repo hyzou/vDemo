@@ -1,0 +1,26 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "数据id",
+    "name": "id",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "考核内容",
+    "name": "assessmentContent",
+    "rows": 2,
+    "span": 24,
+    "width": "150px",
+    "disabled": true
+  },
+  {
+    "type": "textarea",
+    "label": "工作内容",
+    "name": "assessmentItems",
+    "rows": 6,
+    "span": 24,
+    "width": "80px"
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "prop": "consultStatus",
+    "lable": "状态",
+    "propType": "statusDot",
+    "width" : "50px"
+  },
+  {
+    "prop": "year",
+    "lable": "专项编号",
+    "width" : "80px"
+  },
+  {
+    "prop": "assessmentTargetTask",
+    "lable": "工作内容"
+  },
+  {
+    "prop": "provinceLeadDepartment",
+    "lable": "省牵头部门"
+  },
+  {
+    "prop": "cityLeadDepartment",
+    "lable": "市牵头部门"
+  },
+  {
+    "prop": "implementProgress",
+    "lable": "落实进展情况"
+  },
+  {
+    "prop": "implementProgressDate",
+    "lable": "落实日期"
+  },
+  {
+    "prop": "option",
+    "lable": "操作",
+    "propType": "operateBtns",
+    "width": "150px"
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "type": "inputHidden",
+    "label": "类型",
+    "name": "type",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "类目id",
+    "name": "asmKpiIndexId",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputHidden",
+    "label": "指标id",
+    "name": "asmKpiId",
+    "span": 24,
+    "width": "150px"
+  },
+  {
+    "type": "inputTable",
+    "label": "",
+    "name": "targetParams",
+    "useType":"add",
+    "span": 24,
+    "width": "0",
+    "headers":[
+      {
+        "key": "name",
+        "title": "名称"
+      },
+      {
+        "key": "unit",
+        "title": "单位"
+      }
+    ],
+    "tableItems": {
+      "name": "",
+      "unit": ""
+    }
+  }
+]

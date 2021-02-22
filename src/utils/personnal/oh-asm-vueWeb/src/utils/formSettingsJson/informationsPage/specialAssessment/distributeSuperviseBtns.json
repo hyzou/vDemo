@@ -1,0 +1,18 @@
+[
+  {
+    "flag": "search",
+    "size": "",
+    "icon": "",
+    "label": "查询",
+    "styleType": "primary",
+    "postUrl": "addRegisterMember"
+  },
+  {
+    "flag": "reset",
+    "size": "",
+    "icon": "",
+    "label": "清  除",
+    "styleType": "",
+    "postUrl": "addRegisterMember"
+  }
+]

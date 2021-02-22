@@ -1,0 +1,28 @@
+[
+  {
+    "prop": "theme",
+    "lable": "主题"
+  },
+  {
+    "prop": "sendOption",
+    "lable": "发送选项"
+  },
+  {
+    "prop": "sender",
+    "lable": "发送人"
+  },
+  {
+    "prop": "sendContent",
+    "lable": "内容"
+  },
+  {
+    "prop": "sendDate",
+    "lable": "时间"
+  },
+  {
+    "prop": "operateBtns",
+    "lable": "操作",
+    "propType": "operateBtns",
+    "width": "100px"
+  }
+]

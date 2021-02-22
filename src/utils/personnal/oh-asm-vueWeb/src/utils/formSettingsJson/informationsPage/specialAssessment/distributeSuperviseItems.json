@@ -1,0 +1,26 @@
+[
+  {
+    "type": "date",
+    "label": "专项编号",
+    "name": "year",
+    "span": 8,
+    "dateType": "year"
+  },
+  {
+    "type": "select",
+    "label": "完成状态",
+    "name": "status",
+    "span": 8,
+    "width": "150px",
+    "data": [{
+      "label": "已完成",
+      "value": "complete"
+    },{
+      "label": "未完成",
+      "value": "incomplete"
+    },{
+      "label": "已上报",
+      "value": "reported"
+    }]
+  }
+]
